@@ -1,5 +1,5 @@
 import { createTRPCRouter } from "./trpc";
-import { itemRouter } from "@/server/api/routers/item";
+import { itemRouter } from "./routers/item";
 
 export const appRouter = createTRPCRouter({
     item: itemRouter,
