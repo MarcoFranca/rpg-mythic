@@ -6,11 +6,13 @@ export const runtime = "nodejs";
 
 const handler = (req: Request) =>
     fetchRequestHandler({
-        endpoint: "/api/trpc",
-        req,
-        router: appRouter,
-        createContext: () => createTRPCContext({ req }),
-        onError({ error }) { console.error("tRPC error:", error); },
+            endpoint: "/api/trpc",
+            req,
+            router: appRouter,
+            createContext: () => createTRPCContext(), // <- sem args
+            onError({ error }) {
+                    console.error("tRPC error:", error);
+            },
     });
 
 export { handler as GET, handler as POST };
