@@ -120,3 +120,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  filter: drop-shadow(0 0 6px rgba(139,92,246,0.8));
+}
+
+
+@keyframes spin-slow { to { transform: rotate(360deg) } }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }

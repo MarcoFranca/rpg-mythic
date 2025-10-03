@@ -21,7 +21,7 @@ export default function GlareCard({
     return (
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Link href={href}>
-                <Card className="group relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/[.03] transition hover:shadow-xl hover:shadow-violet-500/10">
+                <Card className="group relative border-white/10 bg-white/[.03] hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:scale-[1.02] transition-transform duration-200">
                     <div className={`pointer-events-none absolute -inset-1 opacity-0 group-hover:opacity-100 blur-2xl bg-gradient-to-br ${accent} transition`} />
                     <CardContent className="relative p-5">
                         <div className="mb-3 inline-flex items-center gap-2 rounded-lg bg-white/5 px-2.5 py-1.5">
