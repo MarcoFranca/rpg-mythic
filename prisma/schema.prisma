@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")   // pooled (app)
-  directUrl = env("DIRECT_URL")     // direct (DDL/seed)
+  url       = env("DATABASE_URL") // pooled (app)
+  directUrl = env("DIRECT_URL") // direct (DDL/seed)
 }
 
 enum Rarity {
@@ -70,25 +70,36 @@ enum ArmorPart {
 }
 
 enum MemberRole {
-  OBSERVER
+  SPECTATOR
   PLAYER
   GM
 }
 
+enum AccountRole {
+  SPECTATOR
+  PLAYER
+  GM
+}
+
+enum ContentVisibility {
+  global
+  private
+}
+
 model Item {
-  id             String   @id @default(uuid())
-  name           String
-  description    String
-  rarity         Rarity
-  tier           Tier
-  value          Int
-  levelRequired  Int
-  image          String?  // URL (Supabase Storage)
-  setCode        String?
-  setName        String?
-  setBonuses     Json?    // [{pieces:number,effects:any[]}]
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id            String   @id @default(uuid())
+  name          String
+  description   String
+  rarity        Rarity
+  tier          Tier
+  value         Int
+  levelRequired Int
+  image         String? // URL (Supabase Storage)
+  setCode       String?
+  setName       String?
+  setBonuses    Json? // [{pieces:number,effects:any[]}]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   Weapon     Weapon?
   Armor      Armor?
@@ -100,99 +111,107 @@ model Item {
 }
 
 model Weapon {
-  itemId               String  @id
-  item                 Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  category             String
-  subCategory          String?
-  weight               Float
-  primaryDamage        Json
-  secondaryDamage      Json?
-  damageType           DamageType
-  secondaryDamageType  DamageType?
-  range                Range
-  specialRange         String?
-  properties           Json    // Json array
-  elementalType        String?
-  requirements         Json
-  abilitiesActive      Json
-  abilitiesPassive     Json
-  attributeBoosts      Json?
-  rarityBoosts         Json?
-  disadvantages        Json?
-  durability           Int
-  classRestrictions    Json?
-  ongoingEffects       Json?
-  targetEffects        Json?
-  conditionalEffects   Json?
-  grantedResistances   Json?
+  itemId              String      @id
+  item                Item        @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  category            String
+  subCategory         String?
+  weight              Float
+  primaryDamage       Json
+  secondaryDamage     Json?
+  damageType          DamageType
+  secondaryDamageType DamageType?
+  range               Range
+  specialRange        String?
+  properties          Json // Json array
+  elementalType       String?
+  requirements        Json
+  abilitiesActive     Json
+  abilitiesPassive    Json
+  attributeBoosts     Json?
+  rarityBoosts        Json?
+  disadvantages       Json?
+  durability          Int
+  classRestrictions   Json?
+  ongoingEffects      Json?
+  targetEffects       Json?
+  conditionalEffects  Json?
+  grantedResistances  Json?
 
   @@index([damageType])
 }
 
 model Armor {
-  itemId              String   @id
-  item                Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  armorPart           ArmorPart
-  armorType           ArmorType
-  subType             String?
-  defenseValue        Int
-  maxDexBonus         Int?
-  resistances         Json
-  vulnerabilities     Json?
-  penalties           Json
-  disadvantages       Json?
-  requirements        Json
-  abilities           Json
-  ongoingEffects      Json?
-  conditionalEffects  Json?
-  attributeBoosts     Json?
-  grantedResistances  Json?
-  durability          Int
-  classRestrictions   Json?
+  itemId             String    @id
+  item               Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  armorPart          ArmorPart
+  armorType          ArmorType
+  subType            String?
+  defenseValue       Int
+  maxDexBonus        Int?
+  resistances        Json
+  vulnerabilities    Json?
+  penalties          Json
+  disadvantages      Json?
+  requirements       Json
+  abilities          Json
+  ongoingEffects     Json?
+  conditionalEffects Json?
+  attributeBoosts    Json?
+  grantedResistances Json?
+  durability         Int
+  classRestrictions  Json?
 
   @@index([armorType])
   @@index([armorPart])
 }
 
 model Consumable {
-  itemId           String  @id
-  item             Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  consumableType   String  // default: "potion"
-  effectType       String  // default: "heal" etc.
-  effectIntensity  Json
-  effectDuration   String
-  usageConditions  Json?
-  quantity         Int
-  expiration       DateTime?
+  itemId          String    @id
+  item            Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  consumableType  String // default: "potion"
+  effectType      String // default: "heal" etc.
+  effectIntensity Json
+  effectDuration  String
+  usageConditions Json?
+  quantity        Int
+  expiration      DateTime?
 }
 
 // + modelos de mesa, vínculo e sessão
-model Table {
-  id          String       @id @default(uuid())
-  title       String
-  description String?
-  status      String       @default("draft")     // draft|active|archived
-  visibility  String       @default("public")    // public|unlisted|private
-  ruleset     Json?
-  createdById String?                              // relacione com User depois se quiser
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
 
-  memberships Membership[]
-  sessions    Session[]
+model User {
+  id          String      @id @default(uuid())
+  supabaseId  String      @unique
+  email       String      @unique
+  displayName String?
+  image       String?
+  accountRole AccountRole @default(SPECTATOR)
 
-  @@index([status])
-  @@index([visibility])
+  // Economia / Progressão
+  sigils      Int   @default(0)
+  playerSlots Int   @default(2)
+  stats       Json?
+  profile     Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relações
+  memberships        Membership[]
+  monsters           Monster[]           @relation("UserMonsters")
+  tablesCreated      Table[] // <— backref de Table.createdBy
+  walletTransactions WalletTransaction[] // <— backref de WalletTransaction.user
 }
 
 model Membership {
   id       String     @id @default(uuid())
   userId   String
   tableId  String
-  role     MemberRole @default(OBSERVER)
+  role     MemberRole @default(SPECTATOR) // <— corrigido
   notes    String?
   joinedAt DateTime   @default(now())
 
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   table Table @relation(fields: [tableId], references: [id])
 
   @@unique([userId, tableId])
@@ -200,17 +219,75 @@ model Membership {
   @@index([userId])
 }
 
+model Table {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  status      String  @default("draft")
+  visibility  String  @default("public")
+  ruleset     Json?
+
+  // Dono da mesa (opcional)
+  createdById String?
+  createdBy   User?   @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships Membership[]
+  sessions    Session[]
+
+  @@index([status])
+  @@index([visibility])
+  @@index([createdById])
+}
+
+// Conteúdo do GM (mínimo agora; evoluímos depois)
+model Monster {
+  id          String  @id @default(uuid())
+  name        String
+  description String?
+  // blocos mínimos de combate (vamos expandir depois conforme seu domínio)
+  meta        Json? // AC/HP/speed/atributos/traits/ações/resistências
+
+  visibility  ContentVisibility @default(private)
+  ownerUserId String
+  owner       User              @relation("UserMonsters", fields: [ownerUserId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // vínculo opcional à campanha (quando “permitido” pelo GM)
+  allowedTables Json? // ex: ["tableId1","tableId2"] (podemos normalizar depois)
+
+  @@index([ownerUserId])
+  @@index([visibility])
+}
+
 model Session {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   tableId   String
   title     String
   startsAt  DateTime
   endsAt    DateTime?
   agenda    Json?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
   table Table @relation(fields: [tableId], references: [id])
 
   @@index([tableId])
+}
+
+model WalletTransaction {
+  id        String   @id @default(uuid())
+  userId    String
+  delta     Int // +ganhos / -gastos
+  reason    String // ex: "campaign_entry", "item_purchase"
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
 }

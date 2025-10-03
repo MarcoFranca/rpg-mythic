@@ -26,9 +26,9 @@ export const WeaponCreate = z.object({
     weight: z.number(),
     primaryDamage: PrimarySecondaryDamage,
     secondaryDamage: PrimarySecondaryDamage.optional().nullable(),
-    damageType: z.union([z.string(), z.nativeEnum(DamageType)]).transform(v => v as any), // aceita string literal do enum
-    secondaryDamageType: z.union([z.string(), z.nativeEnum(DamageType)]).optional().nullable().transform(v => v as any),
-    range: z.union([z.string(), z.nativeEnum(Range)]).transform(v => v as any),
+    damageType: z.string().pipe(DamageType),
+    secondaryDamageType: z.string().pipe(DamageType).optional().nullable(),
+    range: z.string().pipe(Range),
     specialRange: z.string().optional().nullable(),
     properties: JsonArray, // array JSON
     elementalType: z.string().optional().nullable(),
@@ -48,9 +48,8 @@ export const WeaponCreate = z.object({
 
 // -------- Armor (1–1) --------
 export const ArmorCreate = z.object({
-    armorPart: z.union([z.string(), z.nativeEnum(ArmorPart)]).transform(v => v as any),
-    armorType: z.union([z.string(), z.nativeEnum(ArmorType)]).transform(v => v as any),
-    subType: z.string().optional().nullable(),
+    armorPart: z.string().pipe(ArmorPart),
+    armorType: z.string().pipe(ArmorType),   subType: z.string().optional().nullable(),
     defenseValue: z.number().int(),
     maxDexBonus: z.number().int().optional().nullable(),
     resistances: z.union([JsonArray, JsonRecord]),
