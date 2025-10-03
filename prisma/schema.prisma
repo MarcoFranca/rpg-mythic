@@ -178,6 +178,26 @@ model Consumable {
 }
 
 // + modelos de mesa, vínculo e sessão
+model GameTable {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  status      String   @default("draft")
+  visibility  String   @default("public")
+  ruleset     Json?
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  memberships Membership[]
+  sessions    Session[]
+
+  @@index([status])
+  @@index([visibility])
+  @@index([createdById])
+  @@map("Table") // mantém a tabela física "Table"
+}
 
 model User {
   id          String      @id @default(uuid())
@@ -199,7 +219,7 @@ model User {
   // Relações
   memberships        Membership[]
   monsters           Monster[]           @relation("UserMonsters")
-  tablesCreated      Table[] // <— backref de Table.createdBy
+  tablesCreated      GameTable[]         // 👈 backref de GameTable.createdBy
   walletTransactions WalletTransaction[] // <— backref de WalletTransaction.user
 }
 
@@ -207,39 +227,16 @@ model Membership {
   id       String     @id @default(uuid())
   userId   String
   tableId  String
-  role     MemberRole @default(SPECTATOR) // <— corrigido
+  role     MemberRole @default(SPECTATOR)
   notes    String?
   joinedAt DateTime   @default(now())
 
-  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  table Table @relation(fields: [tableId], references: [id])
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  table     GameTable @relation(fields: [tableId], references: [id])   // <- GameTable
 
   @@unique([userId, tableId])
   @@index([tableId])
   @@index([userId])
-}
-
-model Table {
-  id          String  @id @default(uuid())
-  title       String
-  description String?
-  status      String  @default("draft")
-  visibility  String  @default("public")
-  ruleset     Json?
-
-  // Dono da mesa (opcional)
-  createdById String?
-  createdBy   User?   @relation(fields: [createdById], references: [id], onDelete: SetNull)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  memberships Membership[]
-  sessions    Session[]
-
-  @@index([status])
-  @@index([visibility])
-  @@index([createdById])
 }
 
 // Conteúdo do GM (mínimo agora; evoluímos depois)
@@ -265,16 +262,16 @@ model Monster {
 }
 
 model Session {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   tableId   String
   title     String
   startsAt  DateTime
   endsAt    DateTime?
   agenda    Json?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  table Table @relation(fields: [tableId], references: [id])
+  table     GameTable @relation(fields: [tableId], references: [id])   // <- GameTable
 
   @@index([tableId])
 }
