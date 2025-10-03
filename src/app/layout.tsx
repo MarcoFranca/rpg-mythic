@@ -1,5 +1,6 @@
+// app/layout.tsx
 import "./globals.css";
-import Providers from "./providers";           // seu TRPC/ReactQuery
+import Providers from "./providers";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
 export const metadata = { title: "RPG System — Guia Mítico" };
