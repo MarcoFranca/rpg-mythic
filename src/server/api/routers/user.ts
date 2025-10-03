@@ -1,7 +1,7 @@
 // src/server/api/routers/user.ts
 import { router, publicProcedure } from "../trpc";
 import { z } from "zod";
-import { requireAuth, requireEffectiveRole } from "../middlewares/requireRole";
+import { requireAuth } from "../middlewares/requireRole";
 import { effectiveRole } from "../guards/roles";
 
 export const userRouter = router({
@@ -18,7 +18,7 @@ export const userRouter = router({
         .input(z.object({ role: z.enum(["SPECTATOR","PLAYER","GM"]) }))
         .mutation(async ({ ctx, input }) => {
             // regra simples: qualquer um pode escolher PLAYER; GM futuramente via monetização/moderação
-            if (input.role === "GM" && (ctx.dbUser?.mana ?? 0) < 1) {
+            if (input.role === "GM" && (ctx.dbUser?.sigils ?? 0) < 1) {
                 // exemplo de “gate” simples p/ GM (ajuste depois)
                 throw new Error("Requisito para GM não atendido.");
             }
@@ -35,13 +35,13 @@ export const userRouter = router({
         .use(requireAuth)
         .input(z.object({ amount: z.number().int().positive(), reason: z.string() }))
         .mutation(async ({ ctx, input }) => {
-            const u = await ctx.prisma.user.findUnique({ where: { id: ctx.dbUser!.id }, select: { mana: true } });
+            const u = await ctx.prisma.user.findUnique({ where: { id: ctx.dbUser!.id }, select: { sigils: true } });
             if (!u) throw new Error("User not found");
-            if (u.mana < input.amount) throw new Error("Mana insuficiente");
+            if (u.sigils < input.amount) throw new Error("Mana insuficiente");
             const updated = await ctx.prisma.user.update({
                 where: { id: ctx.dbUser!.id },
-                data: { mana: { decrement: input.amount } },
-                select: { id: true, mana: true }
+                data: { sigils: { decrement: input.amount } },
+                select: { id: true, sigils: true }
             });
             return updated;
         }),
@@ -53,8 +53,8 @@ export const userRouter = router({
         .mutation(({ ctx, input }) =>
             ctx.prisma.user.update({
                 where: { id: ctx.dbUser!.id },
-                data: { mana: { increment: input.amount } },
-                select: { id: true, mana: true }
+                data: { sigils: { increment: input.amount } },
+                select: { id: true, sigils: true }
             })
         ),
 
@@ -63,12 +63,12 @@ export const userRouter = router({
         .use(requireAuth)
         .mutation(async ({ ctx }) => {
             const cost = 3;
-            const u = await ctx.prisma.user.findUnique({ where: { id: ctx.dbUser!.id }, select: { mana: true, playerSlots: true } });
-            if (!u || u.mana < cost) throw new Error("Mana insuficiente");
+            const u = await ctx.prisma.user.findUnique({ where: { id: ctx.dbUser!.id }, select: { sigils: true, playerSlots: true } });
+            if (!u || u.sigils < cost) throw new Error("Mana insuficiente");
             const updated = await ctx.prisma.user.update({
                 where: { id: ctx.dbUser!.id },
-                data: { mana: { decrement: cost }, playerSlots: { increment: 1 } },
-                select: { id: true, mana: true, playerSlots: true }
+                data: { sigils: { decrement: cost }, playerSlots: { increment: 1 } },
+                select: { id: true, sigils: true, playerSlots: true }
             });
             return updated;
         }),

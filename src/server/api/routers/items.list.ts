@@ -1,5 +1,7 @@
+// src/server/api/routers/items.list.ts
 import { router, publicProcedure } from "../trpc";
 import { z } from "zod";
+import { RARITIES, TIERS } from "@/server/api/schemas/enums";
 
 export const itemsListRouter = router({
     byId: publicProcedure
@@ -12,24 +14,32 @@ export const itemsListRouter = router({
         ),
 
     search: publicProcedure
-        .input(z.object({
-            q: z.string().optional(),
-            rarity: z.array(z.string()).optional(),
-            tier: z.array(z.string()).optional(),
-            take: z.number().int().min(1).max(100).default(24),
-            skip: z.number().int().min(0).default(0),
-        }).optional())
+        .input(
+            z
+                .object({
+                    q: z.string().optional(),
+                    rarity: z.array(z.enum(RARITIES)).optional(),
+                    tier: z.array(z.enum(TIERS)).optional(),
+                    take: z.number().int().min(1).max(100).default(24),
+                    skip: z.number().int().min(0).default(0),
+                })
+                .optional()
+        )
         .query(({ ctx, input }) => {
             const q = input?.q?.trim();
             return ctx.prisma.item.findMany({
                 where: {
                     AND: [
-                        q ? { OR: [
-                                { name: { contains: q, mode: "insensitive" } },
-                                { description: { contains: q, mode: "insensitive" } },
-                            ] } : {},
-                        input?.rarity?.length ? { rarity: { in: input.rarity as any } } : {},
-                        input?.tier?.length   ? { tier:   { in: input.tier   as any } } : {},
+                        q
+                            ? {
+                                OR: [
+                                    { name: { contains: q, mode: "insensitive" } },
+                                    { description: { contains: q, mode: "insensitive" } },
+                                ],
+                            }
+                            : {},
+                        input?.rarity?.length ? { rarity: { in: input.rarity } } : {},
+                        input?.tier?.length ? { tier: { in: input.tier } } : {},
                     ],
                 },
                 include: { Weapon: true, Armor: true, Consumable: true },
