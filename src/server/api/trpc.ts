@@ -1,5 +1,6 @@
 // src/server/api/trpc.ts
 import { initTRPC } from "@trpc/server";
+import superjson from "superjson"; // ⬅️ ADD
 import { prisma } from "./db/prisma";
 import { createClient as createSupabaseServerClient } from "@/utils/supabase/server";
 import { AccountRole } from "@prisma/client";
@@ -10,13 +11,12 @@ type DbUser = {
     email: string;
     accountRole: AccountRole;
     sigils: number;
+    playerSlots: number; // ⬅️ ADD para bater com o select
 };
 
 export async function createTRPCContext() {
     const supabase = await createSupabaseServerClient();
-    const {
-        data: { user },
-    } = await supabase.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
 
     let dbUser: DbUser | null = null;
 
@@ -51,7 +51,11 @@ export async function createTRPCContext() {
     return { prisma, supabaseUser: user, dbUser };
 }
 
-const t = initTRPC.context<Awaited<ReturnType<typeof createTRPCContext>>>().create();
+// ⬅️ ADD transformer aqui (v11)
+const t = initTRPC
+    .context<Awaited<ReturnType<typeof createTRPCContext>>>()
+    .create({ transformer: superjson });
+
 export const router = t.router;
 export const publicProcedure = t.procedure;
 export const middleware = t.middleware;
