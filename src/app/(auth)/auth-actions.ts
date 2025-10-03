@@ -4,20 +4,13 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 import { createSupabaseServer } from "@/lib/supabase/server";
 import { PrismaClient } from "@prisma/client";
+import type { ActionState } from "./types";
 
 const prisma = new PrismaClient();
 
-const loginSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
-});
-const registerQuickSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
-});
-const registerFullSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
+const loginSchema = z.object({ email: z.string().email(), password: z.string().min(6) });
+const registerQuickSchema = loginSchema;
+const registerFullSchema = loginSchema.extend({
     displayName: z.string().min(2).max(60),
     acceptTerms: z.boolean().refine(v => v, "É necessário aceitar os termos."),
 });
@@ -30,7 +23,7 @@ async function ensureDbUser(supabaseId: string, email: string, displayName?: str
     });
 }
 
-export async function signInWithPassword(prevState: any, formData: FormData) {
+export async function signInWithPassword(_prevState: ActionState, formData: FormData): Promise<ActionState> {
     const parsed = loginSchema.safeParse({
         email: formData.get("email"),
         password: formData.get("password"),
@@ -38,24 +31,24 @@ export async function signInWithPassword(prevState: any, formData: FormData) {
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
     const supabase = await createSupabaseServer();
-    const { data, error } = await supabase.auth.signInWithPassword(parsed.data);
+    const { error } = await supabase.auth.signInWithPassword(parsed.data); // <- sem "data" não usado
     if (error) return { ok: false, message: error.message };
 
     const user = (await supabase.auth.getUser()).data.user;
     if (user) await ensureDbUser(user.id, user.email ?? "", user.user_metadata?.name ?? null);
 
-    redirect("/"); // ou /dashboard
+    redirect("/");
 }
 
-export async function signUpQuick(prevState: any, formData: FormData) {
+export async function signUpQuick(_prevState: ActionState, formData: FormData): Promise<ActionState> {
     const parsed = registerQuickSchema.safeParse({
         email: formData.get("email"),
         password: formData.get("password"),
     });
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
-    const supabase = await createSupabaseServer();                 // 👈 AQUI
-    const { data, error } = await supabase.auth.signUp({
+    const supabase = await createSupabaseServer();
+    const { error } = await supabase.auth.signUp({
         email: parsed.data.email,
         password: parsed.data.password,
         options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/login` },
@@ -65,10 +58,10 @@ export async function signUpQuick(prevState: any, formData: FormData) {
     const user = (await supabase.auth.getUser()).data.user;
     if (user) await ensureDbUser(user.id, user.email ?? "", user.user_metadata?.name ?? null);
 
-    redirect("/"); // pode exigir confirmação de e-mail dependendo das settings
+    redirect("/");
 }
 
-export async function signUpFull(prevState: any, formData: FormData) {
+export async function signUpFull(_prevState: ActionState, formData: FormData): Promise<ActionState> {
     const parsed = registerFullSchema.safeParse({
         email: formData.get("email"),
         password: formData.get("password"),
@@ -77,8 +70,8 @@ export async function signUpFull(prevState: any, formData: FormData) {
     });
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
-    const supabase = await createSupabaseServer();                 // 👈 AQUI
-    const { data, error } = await supabase.auth.signUp({
+    const supabase = await createSupabaseServer();
+    const { error } = await supabase.auth.signUp({
         email: parsed.data.email,
         password: parsed.data.password,
         options: {
@@ -94,8 +87,8 @@ export async function signUpFull(prevState: any, formData: FormData) {
     redirect("/");
 }
 
-export async function signInWithOAuth(provider: "google") {
-    const supabase = await createSupabaseServer();                 // 👈 AQUI
+export async function signInWithOAuth(provider: "google"): Promise<{ ok: true; url?: string } | { ok: false; message: string }> {
+    const supabase = await createSupabaseServer();
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: { redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/login` },

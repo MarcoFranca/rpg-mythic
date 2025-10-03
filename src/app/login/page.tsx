@@ -1,7 +1,13 @@
 "use client";
 
 import { useActionState, useTransition, useState } from "react";
-import { signInWithPassword, signUpQuick, signUpFull, signInWithOAuth } from "../(auth)/auth-actions";
+import type { ActionState } from "../(auth)/types";
+import {
+    signInWithPassword,
+    signUpQuick,
+    signUpFull,
+    signInWithOAuth,
+} from "../(auth)/auth-actions";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,10 +16,14 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 
 export default function LoginPage() {
-    // React 19: [state, formAction, isPending] — precisa de (action, initialState)
-    const [loginState, loginAction, loginPending] = useActionState(signInWithPassword, null);
-    const [quickState, quickAction, quickPending] = useActionState(signUpQuick, null);
-    const [fullState, fullAction, fullPending] = useActionState(signUpFull, null);
+    // React 19: useActionState<State, Payload>
+    const [loginState, loginAction, loginPending] =
+        useActionState<ActionState, FormData>(signInWithPassword, null);
+    const [quickState, quickAction, quickPending] =
+        useActionState<ActionState, FormData>(signUpQuick, null);
+    const [fullState, fullAction, fullPending] =
+        useActionState<ActionState, FormData>(signUpFull, null);
+
     const [pendingOAuth, startOAuth] = useTransition();
 
     async function handleOAuth() {
@@ -35,28 +45,35 @@ export default function LoginPage() {
                             <TabsTrigger value="register">Criar conta</TabsTrigger>
                         </TabsList>
 
-                        {/* LOGIN */}
                         <TabsContent value="login" className="mt-4">
                             <form action={loginAction} className="space-y-3">
                                 <div>
                                     <Label htmlFor="email">E-mail</Label>
-                                    <Input id="email" name="email" type="email" required placeholder="voce@email.com" />
+                                    <Input id="email" name="email" type="email" required />
                                 </div>
                                 <div>
                                     <Label htmlFor="password">Senha</Label>
-                                    <Input id="password" name="password" type="password" required placeholder="••••••••" />
+                                    <Input id="password" name="password" type="password" required />
                                 </div>
-                                {loginState?.message && <p className="text-red-400 text-sm">{loginState.message}</p>}
+                                {loginState?.ok === false && loginState.message && (
+                                    <p className="text-red-400 text-sm">{loginState.message}</p>
+                                )}
                                 <div className="flex gap-2">
-                                    <Button type="submit" disabled={loginPending}>Entrar</Button>
-                                    <Button type="button" variant="outline" onClick={handleOAuth} disabled={pendingOAuth}>
+                                    <Button type="submit" disabled={loginPending}>
+                                        Entrar
+                                    </Button>
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        onClick={handleOAuth}
+                                        disabled={pendingOAuth}
+                                    >
                                         Entrar com Google
                                     </Button>
                                 </div>
                             </form>
                         </TabsContent>
 
-                        {/* REGISTER */}
                         <TabsContent value="register" className="mt-4">
                             <RegisterTabs
                                 quickAction={quickAction}
@@ -82,15 +99,15 @@ function RegisterTabs({
                           quickPending,
                           fullPending,
                       }: {
-    quickAction: (formData: FormData) => void;
-    quickState: any;
-    fullAction: (formData: FormData) => void;
-    fullState: any;
+    quickAction: (payload: FormData) => void;
+    quickState: ActionState;
+    fullAction: (payload: FormData) => void;
+    fullState: ActionState;
     quickPending: boolean;
     fullPending: boolean;
 }) {
     const [isFull, setIsFull] = useState(false);
-    const toggleMode = () => setIsFull(v => !v);
+    const toggleMode = (checked: boolean) => setIsFull(checked); // recebe boolean do Switch
 
     return (
         <div className="space-y-4">
@@ -101,7 +118,7 @@ function RegisterTabs({
                 </div>
                 <div className="flex items-center gap-2">
                     <span className="text-xs">Rápido</span>
-                    <Switch onCheckedChange={toggleMode} />
+                    <Switch checked={isFull} onCheckedChange={toggleMode} />
                     <span className="text-xs">Completo</span>
                 </div>
             </div>
@@ -119,8 +136,12 @@ function RegisterTabs({
                             <Input id="q_password" name="password" type="password" required />
                         </div>
                     </div>
-                    {quickState?.message && <p className="text-red-400 text-sm">{quickState.message}</p>}
-                    <Button type="submit" disabled={quickPending}>Criar conta (rápido)</Button>
+                    {quickState?.ok === false && quickState.message && (
+                        <p className="text-red-400 text-sm">{quickState.message}</p>
+                    )}
+                    <Button type="submit" disabled={quickPending}>
+                        Criar conta (rápido)
+                    </Button>
                 </form>
             )}
 
@@ -147,8 +168,12 @@ function RegisterTabs({
                                 <Label htmlFor="f_terms">Aceito os termos de uso</Label>
                             </div>
                         </div>
-                        {fullState?.message && <p className="text-red-400 text-sm">{fullState.message}</p>}
-                        <Button type="submit" disabled={fullPending}>Criar conta (completo)</Button>
+                        {fullState?.ok === false && fullState.message && (
+                            <p className="text-red-400 text-sm">{fullState.message}</p>
+                        )}
+                        <Button type="submit" disabled={fullPending}>
+                            Criar conta (completo)
+                        </Button>
                     </form>
                 </>
             )}
