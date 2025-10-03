@@ -1,7 +1,7 @@
-import { router, publicProcedure } from "@/server/api/trpc";
+import { router, publicProcedure } from "../trpc";
 import { z } from "zod";
 
-export const itemRouter = router({
+export const itemsListRouter = router({
     byId: publicProcedure
         .input(z.object({ id: z.string().uuid() }))
         .query(({ ctx, input }) =>
@@ -24,8 +24,10 @@ export const itemRouter = router({
             return ctx.prisma.item.findMany({
                 where: {
                     AND: [
-                        q ? { OR: [{ name: { contains: q, mode: "insensitive" } },
-                                { description: { contains: q, mode: "insensitive" } }] } : {},
+                        q ? { OR: [
+                                { name: { contains: q, mode: "insensitive" } },
+                                { description: { contains: q, mode: "insensitive" } },
+                            ] } : {},
                         input?.rarity?.length ? { rarity: { in: input.rarity as any } } : {},
                         input?.tier?.length   ? { tier:   { in: input.tier   as any } } : {},
                     ],
@@ -36,6 +38,4 @@ export const itemRouter = router({
                 orderBy: { createdAt: "desc" },
             });
         }),
-
-    // ...suas rotas já existentes aqui
 });

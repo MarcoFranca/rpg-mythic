@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/server/db/prisma";
+import { prisma } from "@/server/api/db/prisma";
 import { Prisma } from "@prisma/client"; // <- IMPORTANTE
 
 export const runtime = "nodejs";

@@ -1,16 +1,13 @@
+// src/server/api/trpc.ts
 import { initTRPC } from "@trpc/server";
-import superjson from "superjson";
-import { ZodError } from "zod";
+import { prisma } from "./db/prisma";
 
-const t = initTRPC.create({
-    transformer: superjson,
-    errorFormatter({ shape, error }) {
-        return {
-            ...shape,
-            zod: error.cause instanceof ZodError ? error.cause.flatten() : null,
-        };
-    },
-});
+export async function createTRPCContext(_opts: { req: Request }) {
+    return { prisma };
+}
 
-export const createTRPCRouter = t.router;
+const t = initTRPC.context<Awaited<ReturnType<typeof createTRPCContext>>>().create();
+
+export const router = t.router;
 export const publicProcedure = t.procedure;
+export const middleware = t.middleware;
