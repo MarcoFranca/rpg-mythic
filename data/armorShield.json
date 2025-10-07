@@ -1,0 +1,1324 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "0e45cda7-0cf0-48e5-be93-0f35e3ed6d12",
+        "fields": {
+            "name": "Escudo Básico de Madeira",
+            "description": "Um escudo simples feito de madeira robusta. Fornece proteção básica contra ataques físicos.",
+            "rarity": "common",
+            "value": 30,
+            "level_required": 1,
+            "image": "path/to/image1.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "0e45cda7-0cf0-48e5-be93-0f35e3ed6d12",
+        "fields": {
+            "item_ptr_id": "0e45cda7-0cf0-48e5-be93-0f35e3ed6d12",
+            "armor_part": "shield",
+            "armor_type": "light",
+            "sub_type": "Escudo de Madeira",
+            "defense_value": 2,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "05b67a67-c481-4094-9ec4-d4dd5e02f0dc",
+        "fields": {
+            "name": "Escudo Leve de Ferro",
+            "description": "Escudo leve de ferro, proporciona uma defesa moderada e é fácil de manusear.",
+            "rarity": "common",
+            "value": 75,
+            "level_required": 2,
+            "image": "path/to/image2.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "05b67a67-c481-4094-9ec4-d4dd5e02f0dc",
+        "fields": {
+            "item_ptr_id": "05b67a67-c481-4094-9ec4-d4dd5e02f0dc",
+            "armor_part": "shield",
+            "armor_type": "light",
+            "sub_type": "Escudo de Ferro",
+            "defense_value": 3,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "8"
+            },
+            "abilities": [
+                "Estabilidade"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "150",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a6bfbe34-5959-491d-8ba6-5192aa671a23",
+        "fields": {
+            "name": "Escudo Grande de Madeira",
+            "description": "Escudo largo e pesado de madeira resistente, ideal para bloquear ataques corpo a corpo.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "path/to/image3.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a6bfbe34-5959-491d-8ba6-5192aa671a23",
+        "fields": {
+            "item_ptr_id": "a6bfbe34-5959-491d-8ba6-5192aa671a23",
+            "armor_part": "shield",
+            "armor_type": "light",
+            "sub_type": "Escudo de Madeira Grande",
+            "defense_value": 2,
+            "max_dex_bonus": "5",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "6"
+            },
+            "abilities": [
+                "Absorção de Impacto"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "528b36da-8e70-4211-ad5b-0c17255f8bcc",
+        "fields": {
+            "name": "Escudo de Prata dos Paladinos",
+            "description": "Um escudo raro com um emblema sagrado, utilizado por paladinos em combate.",
+            "rarity": "uncommon",
+            "value": 300,
+            "level_required": 5,
+            "image": "path/to/image4.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "528b36da-8e70-4211-ad5b-0c17255f8bcc",
+        "fields": {
+            "item_ptr_id": "528b36da-8e70-4211-ad5b-0c17255f8bcc",
+            "armor_part": "shield",
+            "armor_type": "light",
+            "sub_type": "Escudo Sagrado",
+            "defense_value": 4,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12",
+                "sabedoria": "10"
+            },
+            "abilities": [
+                "Aura de Proteção"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [
+                {
+                    "condition": "receber_dano_fogo",
+                    "effect": {
+                        "type": "cura",
+                        "value": "1d4",
+                        "duration": "1",
+                        "chance": "50"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "180",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c7dbca5b-2fe2-41de-ab9b-318e8827e78c",
+        "fields": {
+            "name": "Escudo de Madeira Resistente",
+            "description": "Escudo básico feito de madeira reforçada, ideal para iniciantes.",
+            "rarity": "common",
+            "value": 80,
+            "level_required": 2,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "c7dbca5b-2fe2-41de-ab9b-318e8827e78c",
+        "fields": {
+            "item_ptr_id": "c7dbca5b-2fe2-41de-ab9b-318e8827e78c",
+            "armor_part": "shield",
+            "armor_type": "medium",
+            "sub_type": "Escudo de Madeira",
+            "defense_value": 4,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "8"
+            },
+            "abilities": [
+                "Aprimora defesa contra ataques físicos"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "150",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a3a32e80-ef9d-4cf0-aedb-e5abfb7ee623",
+        "fields": {
+            "name": "Escudo de Fé",
+            "description": "Escudo utilizado por clérigos em batalhas sagradas.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 5,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a3a32e80-ef9d-4cf0-aedb-e5abfb7ee623",
+        "fields": {
+            "item_ptr_id": "a3a32e80-ef9d-4cf0-aedb-e5abfb7ee623",
+            "armor_part": "shield",
+            "armor_type": "medium",
+            "sub_type": "Escudo Clerical",
+            "defense_value": 6,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "12"
+            },
+            "abilities": [
+                "Fortalece contra magia sombria"
+            ],
+            "ongoing_effects": {
+                "type": "radiant_boost",
+                "damage_reduction": "3",
+                "duration": "enquanto equipado"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "120",
+            "class_restrictions": [
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "56c27be8-c882-444f-821a-6f29da054ee7",
+        "fields": {
+            "name": "Escudo de Madeira Reforçada",
+            "description": "Um escudo básico de madeira, leve e confiável para iniciantes.",
+            "rarity": "common",
+            "value": 100,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "56c27be8-c882-444f-821a-6f29da054ee7",
+        "fields": {
+            "item_ptr_id": "56c27be8-c882-444f-821a-6f29da054ee7",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Madeira",
+            "defense_value": 3,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "agilidade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "5"
+            },
+            "abilities": [
+                "Defesa Básica"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "24c580a5-6cd6-4663-bf60-cf46f6f4fa20",
+        "fields": {
+            "name": "Escudo de Ferro Básico",
+            "description": "Escudo de ferro robusto, ideal para bloqueios de ataques físicos leves.",
+            "rarity": "common",
+            "value": 120,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "24c580a5-6cd6-4663-bf60-cf46f6f4fa20",
+        "fields": {
+            "item_ptr_id": "24c580a5-6cd6-4663-bf60-cf46f6f4fa20",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Ferro",
+            "defense_value": 4,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "25"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "lightning",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "8"
+            },
+            "abilities": [
+                "Proteção contra Cortes"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "bad43c68-43fb-4c80-a7dc-e31f78a14f83",
+        "fields": {
+            "name": "Escudo de Aço Sagrado",
+            "description": "Escudo abençoado feito de aço sagrado, oferece alta resistência contra ataques necróticos.",
+            "rarity": "uncommon",
+            "value": 350,
+            "level_required": 3,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "bad43c68-43fb-4c80-a7dc-e31f78a14f83",
+        "fields": {
+            "item_ptr_id": "bad43c68-43fb-4c80-a7dc-e31f78a14f83",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo Sagrado",
+            "defense_value": 5,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                },
+                {
+                    "type": "necrotic",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12",
+                "sabedoria": "10"
+            },
+            "abilities": [
+                "Resistência contra Ataques Sombrio"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "160",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "03c5bf97-d6cb-4e5b-a756-7dc4a83f20d2",
+        "fields": {
+            "name": "Escudo do Guardião",
+            "description": "Escudo pesado de aço reforçado, usado por guardiões lendários. Proporciona grande defesa contra ataques cortantes.",
+            "rarity": "rare",
+            "value": 2000,
+            "level_required": 6,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "03c5bf97-d6cb-4e5b-a756-7dc4a83f20d2",
+        "fields": {
+            "item_ptr_id": "03c5bf97-d6cb-4e5b-a756-7dc4a83f20d2",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Aço",
+            "defense_value": 7,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "movimento",
+                    "penalty": "-5"
+                }
+            ],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [
+                "Resistência a Corte"
+            ],
+            "ongoing_effects": {
+                "type": "redução_dano",
+                "damage_reduction": "2",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "180",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f017f6d1-f06c-4c44-a67f-33243eea9e1a",
+        "fields": {
+            "name": "Escudo do Fogo Sagrado",
+            "description": "Escudo que brilha com uma leve chama sagrada, protegendo o usuário contra magia e queimaduras.",
+            "rarity": "rare",
+            "value": 2500,
+            "level_required": 7,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "f017f6d1-f06c-4c44-a67f-33243eea9e1a",
+        "fields": {
+            "item_ptr_id": "f017f6d1-f06c-4c44-a67f-33243eea9e1a",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Fogo",
+            "defense_value": 6,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "cold",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "13"
+            },
+            "abilities": [
+                "Resistência contra Magia"
+            ],
+            "ongoing_effects": {
+                "type": "dano_fogo",
+                "damage_reduction": "3",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "magic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "200",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e11ac16c-0987-442c-8897-0099beaa25ec",
+        "fields": {
+            "name": "Escudo do Trovão",
+            "description": "Escudo que vibra com energia elétrica, repelindo ataques e gerando uma pequena descarga ao contato.",
+            "rarity": "rare",
+            "value": 2600,
+            "level_required": 7,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "e11ac16c-0987-442c-8897-0099beaa25ec",
+        "fields": {
+            "item_ptr_id": "e11ac16c-0987-442c-8897-0099beaa25ec",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Trovão",
+            "defense_value": 7,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "earth",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "14"
+            },
+            "abilities": [
+                "Reflexo Elétrico"
+            ],
+            "ongoing_effects": {
+                "type": "dano_eletrico",
+                "damage_reduction": "1",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "190",
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5f12ffb5-719e-4746-9fa4-ad39f60528f3",
+        "fields": {
+            "name": "Escudo da Luz Divina",
+            "description": "Escudo abençoado pelos deuses, emite uma luz brilhante que repele criaturas sombrias.",
+            "rarity": "rare",
+            "value": 2800,
+            "level_required": 8,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "5f12ffb5-719e-4746-9fa4-ad39f60528f3",
+        "fields": {
+            "item_ptr_id": "5f12ffb5-719e-4746-9fa4-ad39f60528f3",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo Divino",
+            "defense_value": 8,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "16"
+            },
+            "abilities": [
+                "Aura de Luz"
+            ],
+            "ongoing_effects": {
+                "type": "redução_dano",
+                "damage_reduction": "4",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "210",
+            "class_restrictions": [
+                "Paladino",
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "46f9d9f8-6e2b-4bb7-9975-8e8608f926ee",
+        "fields": {
+            "name": "Escudo da Resistência Arcana",
+            "description": "Escudo com encantamentos arcanos, oferece resistência contra ataques mágicos.",
+            "rarity": "very_rare",
+            "value": 3500,
+            "level_required": 10,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "46f9d9f8-6e2b-4bb7-9975-8e8608f926ee",
+        "fields": {
+            "item_ptr_id": "46f9d9f8-6e2b-4bb7-9975-8e8608f926ee",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo Arcano",
+            "defense_value": 10,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "magic",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "pierce",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-4"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "15"
+            },
+            "abilities": [
+                "Reflexo Arcano"
+            ],
+            "ongoing_effects": {
+                "type": "absorção_mana",
+                "damage_reduction": "2",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "inteligencia": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "220",
+            "class_restrictions": [
+                "Mago",
+                "Feiticeiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0136e449-f027-4dc9-912d-60345bafdfb7",
+        "fields": {
+            "name": "Escudo do Guardião de Ferro",
+            "description": "Feito de ferro encantado, este escudo pode absorver parte do dano recebido.",
+            "rarity": "very_rare",
+            "value": 4000,
+            "level_required": 12,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "0136e449-f027-4dc9-912d-60345bafdfb7",
+        "fields": {
+            "item_ptr_id": "0136e449-f027-4dc9-912d-60345bafdfb7",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo de Ferro Encantado",
+            "defense_value": 11,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "lightning",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "17"
+            },
+            "abilities": [
+                "Absorção de Dano"
+            ],
+            "ongoing_effects": {
+                "type": "redução_dano",
+                "damage_reduction": "3",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "250",
+            "class_restrictions": [
+                "Guerreiro",
+                "Barbaro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "57d6d5ac-3ce5-499b-81dd-04909820cbf8",
+        "fields": {
+            "name": "Escudo da Tempestade",
+            "description": "Escudo encantado que carrega o poder de uma tempestade, criando proteção contra ataques elétricos.",
+            "rarity": "very_rare",
+            "value": 4500,
+            "level_required": 13,
+            "image": "path/to/image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "57d6d5ac-3ce5-499b-81dd-04909820cbf8",
+        "fields": {
+            "item_ptr_id": "57d6d5ac-3ce5-499b-81dd-04909820cbf8",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo da Tempestade",
+            "defense_value": 10,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "earth",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "14"
+            },
+            "abilities": [
+                "Aura de Proteção Elétrica"
+            ],
+            "ongoing_effects": {
+                "type": "reflexo_eletrico",
+                "damage_reduction": "3",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "magic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "230",
+            "class_restrictions": [
+                "Feiticeiro",
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "139caa96-202d-4258-bd72-1f56f8087368",
+        "fields": {
+            "name": "Escudo das Sombras",
+            "description": "Um escudo negro que absorve a luz ao redor, tornando o usuário mais furtivo e difícil de detectar.",
+            "rarity": "very_rare",
+            "value": 4800,
+            "level_required": 13,
+            "image": "path/to/image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "139caa96-202d-4258-bd72-1f56f8087368",
+        "fields": {
+            "item_ptr_id": "139caa96-202d-4258-bd72-1f56f8087368",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo das Sombras",
+            "defense_value": 9,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "radiant",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "15"
+            },
+            "abilities": [
+                "Aura de Sombra"
+            ],
+            "ongoing_effects": {
+                "type": "furtividade",
+                "damage_reduction": "2",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "240",
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a16f1ca9-b861-40fc-a4a9-7044e07abb76",
+        "fields": {
+            "name": "Escudo da Eternidade",
+            "description": "Este escudo lendário é capaz de bloquear quase qualquer ataque, com uma durabilidade inigualável.",
+            "rarity": "legendary",
+            "value": 8000,
+            "level_required": 15,
+            "image": "path/to/image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a16f1ca9-b861-40fc-a4a9-7044e07abb76",
+        "fields": {
+            "item_ptr_id": "a16f1ca9-b861-40fc-a4a9-7044e07abb76",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo Eterno",
+            "defense_value": 15,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "all",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "20"
+            },
+            "abilities": [
+                "Inquebrável",
+                "Reflexo Mágico"
+            ],
+            "ongoing_effects": {
+                "type": "bloqueio_total",
+                "damage_reduction": "5",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "forca": "+3",
+                "constituição": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "500",
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "613bbbea-5539-4bf4-acae-fa4d19311f9e",
+        "fields": {
+            "name": "Escudo do Guardião Celestial",
+            "description": "Um escudo que emana uma aura celestial, fornecendo proteção contra danos necróticos e aumentando a regeneração.",
+            "rarity": "legendary",
+            "value": 8500,
+            "level_required": 16,
+            "image": "path/to/image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "613bbbea-5539-4bf4-acae-fa4d19311f9e",
+        "fields": {
+            "item_ptr_id": "613bbbea-5539-4bf4-acae-fa4d19311f9e",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo Celestial",
+            "defense_value": 13,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "poison",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "18"
+            },
+            "abilities": [
+                "Aura de Regeneração"
+            ],
+            "ongoing_effects": {
+                "type": "regeneração",
+                "damage_reduction": "3",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "sabedoria": "+2",
+                "forca": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "450",
+            "class_restrictions": [
+                "Paladino",
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9d0b9fb2-7483-4a75-8d7f-9d0e927e867c",
+        "fields": {
+            "name": "Escudo da Chama Eterna",
+            "description": "Escudo lendário que arde eternamente em chamas mágicas, conferindo proteção contra gelo.",
+            "rarity": "legendary",
+            "value": 9000,
+            "level_required": 17,
+            "image": "path/to/image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "9d0b9fb2-7483-4a75-8d7f-9d0e927e867c",
+        "fields": {
+            "item_ptr_id": "9d0b9fb2-7483-4a75-8d7f-9d0e927e867c",
+            "armor_part": "shield",
+            "armor_type": "heavy",
+            "sub_type": "Escudo da Chama Eterna",
+            "defense_value": 12,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "cold",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-4"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "18"
+            },
+            "abilities": [
+                "Aura de Chama Eterna"
+            ],
+            "ongoing_effects": {
+                "type": "incendiar",
+                "damage_reduction": "4",
+                "duration": "enquanto equipado"
+            },
+            "attribute_boosts": {
+                "forca": "+3",
+                "destreza": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "400",
+            "class_restrictions": [
+                "Guerreiro",
+                "Feiticeiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

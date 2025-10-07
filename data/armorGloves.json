@@ -1,0 +1,1010 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "319b280c-5078-485f-b7a4-c6bade1e5590",
+        "fields": {
+            "name": "Luvas de Couro Simples",
+            "description": "Luvas leves e flexíveis, perfeitas para iniciantes que preferem mobilidade.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "path/to/luvas_couro_simples.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "319b280c-5078-485f-b7a4-c6bade1e5590",
+        "fields": {
+            "item_ptr_id": "319b280c-5078-485f-b7a4-c6bade1e5590",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas de Couro",
+            "defense_value": 1,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "50",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8f2a3fee-3f31-47d6-97f2-ed66078a59fa",
+        "fields": {
+            "name": "Luvas Élficas de Agilidade",
+            "description": "Luvas confeccionadas com materiais élficos, leves e ágeis, aprimoram a destreza.",
+            "rarity": "common",
+            "value": 150,
+            "level_required": 2,
+            "image": "path/to/luvas_elficas_agilidade.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "8f2a3fee-3f31-47d6-97f2-ed66078a59fa",
+        "fields": {
+            "item_ptr_id": "8f2a3fee-3f31-47d6-97f2-ed66078a59fa",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Élficas",
+            "defense_value": 2,
+            "max_dex_bonus": "6",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "25"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "10"
+            },
+            "abilities": [
+                "Agilidade Élfica"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "75",
+            "class_restrictions": [
+                "Ladino",
+                "Arqueiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "01f0af48-e712-4012-b3fe-82e9ce0540bf",
+        "fields": {
+            "name": "Luvas Élficas de Precisão",
+            "description": "Essas luvas élficas são leves e aprimoram a precisão nos ataques.",
+            "rarity": "common",
+            "value": 120,
+            "level_required": 2,
+            "image": "path/to/luvas_elficas_precisao.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "01f0af48-e712-4012-b3fe-82e9ce0540bf",
+        "fields": {
+            "item_ptr_id": "01f0af48-e712-4012-b3fe-82e9ce0540bf",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Élficas",
+            "defense_value": 1,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "8"
+            },
+            "abilities": [
+                "Precisão Aprimorada"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "60",
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "fff52426-afa7-4fbb-abda-8d8d6e83a320",
+        "fields": {
+            "name": "Luvas de Mago do Fogo",
+            "description": "Luvas encantadas que permitem o uso de magias de fogo com maior eficiência.",
+            "rarity": "uncommon",
+            "value": 300,
+            "level_required": 3,
+            "image": "path/to/luvas_mago_fogo.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "fff52426-afa7-4fbb-abda-8d8d6e83a320",
+        "fields": {
+            "item_ptr_id": "fff52426-afa7-4fbb-abda-8d8d6e83a320",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas de Mago",
+            "defense_value": 1,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "cold",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "12"
+            },
+            "abilities": [
+                "Amplificação de Magias de Fogo"
+            ],
+            "ongoing_effects": {
+                "type": "fire_damage",
+                "damage_reduction": "1",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "inteligencia": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "70",
+            "class_restrictions": [
+                "Mago"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "6d7a014c-0218-424a-8ebb-b12936e80be5",
+        "fields": {
+            "name": "Luvas de Agilidade Sombria",
+            "description": "Luvas encantadas com magia das sombras, proporcionando maior agilidade e furtividade.",
+            "rarity": "rare",
+            "value": 700,
+            "level_required": 6,
+            "image": "path/to/luvas_agilidade_sombria.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "6d7a014c-0218-424a-8ebb-b12936e80be5",
+        "fields": {
+            "item_ptr_id": "6d7a014c-0218-424a-8ebb-b12936e80be5",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Sombria",
+            "defense_value": 2,
+            "max_dex_bonus": "5",
+            "resistances": [
+                {
+                    "type": "shadow",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "luz",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "14"
+            },
+            "abilities": [
+                "Furtividade Aprimorada"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "80",
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "67be3b8b-b78f-4732-b5ce-c8ab866e007a",
+        "fields": {
+            "name": "Luvas de Agilidade Elfa",
+            "description": "Luvas finamente trabalhadas por mestres elfos, aumentam a destreza e a velocidade de ataque.",
+            "rarity": "rare",
+            "value": 850,
+            "level_required": 6,
+            "image": "path/to/luvas_agilidade_elfa.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "67be3b8b-b78f-4732-b5ce-c8ab866e007a",
+        "fields": {
+            "item_ptr_id": "67be3b8b-b78f-4732-b5ce-c8ab866e007a",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Élficas",
+            "defense_value": 3,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "12"
+            },
+            "abilities": [
+                "Ataque Rápido"
+            ],
+            "ongoing_effects": {
+                "type": "haste",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "75",
+            "class_restrictions": [
+                "Arqueiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e17b4099-1121-4a8d-af7b-36cbac4e1b62",
+        "fields": {
+            "name": "Luvas de Proteção Arcana",
+            "description": "Luvas com runas arcanas que concedem resistência mágica significativa.",
+            "rarity": "very_rare",
+            "value": 1500,
+            "level_required": 8,
+            "image": "path/to/luvas_protecao_arcana.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "e17b4099-1121-4a8d-af7b-36cbac4e1b62",
+        "fields": {
+            "item_ptr_id": "e17b4099-1121-4a8d-af7b-36cbac4e1b62",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Arcanas",
+            "defense_value": 3,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "magic",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "15"
+            },
+            "abilities": [
+                "Resistência Mágica"
+            ],
+            "ongoing_effects": {
+                "type": "reduz_dano_magico",
+                "damage_reduction": "5",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "inteligencia": "+3"
+            },
+            "granted_resistances": [],
+            "durability": "90",
+            "class_restrictions": [
+                "Mago"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ce572d65-2ef1-4c75-ac08-eca3fbd0cf39",
+        "fields": {
+            "name": "Luvas da Mestra das Sombras",
+            "description": "Luvas lendárias, feitas com tecido encantado, concedem furtividade superior.",
+            "rarity": "very_rare",
+            "value": 1800,
+            "level_required": 9,
+            "image": "path/to/luvas_mestra_sombras.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "ce572d65-2ef1-4c75-ac08-eca3fbd0cf39",
+        "fields": {
+            "item_ptr_id": "ce572d65-2ef1-4c75-ac08-eca3fbd0cf39",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Lendárias",
+            "defense_value": 3,
+            "max_dex_bonus": "5",
+            "resistances": [
+                {
+                    "type": "shadow",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "light",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "18"
+            },
+            "abilities": [
+                "Furtividade Superior"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [
+                "Assassino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "078101b7-69f5-4b06-96ac-612ee8530c44",
+        "fields": {
+            "name": "Luvas do Fogo Eterno",
+            "description": "Estas luvas ardentes foram encantadas com fogo eterno, imunes a chamas e concedem poder flamejante.",
+            "rarity": "legendary",
+            "value": 2500,
+            "level_required": 10,
+            "image": "path/to/luvas_fogo_eterno.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "078101b7-69f5-4b06-96ac-612ee8530c44",
+        "fields": {
+            "item_ptr_id": "078101b7-69f5-4b06-96ac-612ee8530c44",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Flamejantes",
+            "defense_value": 4,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "15"
+            },
+            "abilities": [
+                "Golpes de Fogo"
+            ],
+            "ongoing_effects": {
+                "type": "dano_fogo",
+                "damage_reduction": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Bárbaro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2c44f156-52fb-4e1f-8fbd-54fa642fffc1",
+        "fields": {
+            "name": "Luvas do Raio Divino",
+            "description": "Luvas infundidas com a essência de raios, oferecendo poder elétrico em ataques.",
+            "rarity": "legendary",
+            "value": 2700,
+            "level_required": 10,
+            "image": "path/to/luvas_raio_divino.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "2c44f156-52fb-4e1f-8fbd-54fa642fffc1",
+        "fields": {
+            "item_ptr_id": "2c44f156-52fb-4e1f-8fbd-54fa642fffc1",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas Elétricas",
+            "defense_value": 5,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "earth",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "17"
+            },
+            "abilities": [
+                "Ataque de Raio"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ba9fbf7b-a88a-47aa-8a20-3786e0f02b87",
+        "fields": {
+            "name": "Luvas do Caçador de Dragões",
+            "description": "Estas luvas lendárias conferem força e proteção contra o sopro de dragões.",
+            "rarity": "legendary",
+            "value": 3000,
+            "level_required": 12,
+            "image": "path/to/luvas_cacador_dragoes.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "ba9fbf7b-a88a-47aa-8a20-3786e0f02b87",
+        "fields": {
+            "item_ptr_id": "ba9fbf7b-a88a-47aa-8a20-3786e0f02b87",
+            "armor_part": "gloves",
+            "armor_type": "light",
+            "sub_type": "Luvas de Dragão",
+            "defense_value": 6,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                },
+                {
+                    "type": "ice",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "20"
+            },
+            "abilities": [
+                "Força do Dragão"
+            ],
+            "ongoing_effects": {
+                "type": "resistencia_dragao",
+                "damage_reduction": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+3",
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "150",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "eedbbb95-ea4f-47f8-8538-d2b7cae396f7",
+        "fields": {
+            "name": "Luvas de Aço Rígido",
+            "description": "Luvas reforçadas para combate corpo a corpo, oferecem proteção adicional para guerreiros.",
+            "rarity": "common",
+            "value": 100,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "eedbbb95-ea4f-47f8-8538-d2b7cae396f7",
+        "fields": {
+            "item_ptr_id": "eedbbb95-ea4f-47f8-8538-d2b7cae396f7",
+            "armor_part": "gloves",
+            "armor_type": "medium",
+            "sub_type": "Luvas de Batalha",
+            "defense_value": 2,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Golpe Pesado"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "80",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "3ae449e2-9767-46f6-89d4-d0a241d7fcac",
+        "fields": {
+            "name": "Luvas de Forja Anã",
+            "description": "Luvas duráveis e resistentes, feitas por anões para suportar altas temperaturas.",
+            "rarity": "common",
+            "value": 150,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "3ae449e2-9767-46f6-89d4-d0a241d7fcac",
+        "fields": {
+            "item_ptr_id": "3ae449e2-9767-46f6-89d4-d0a241d7fcac",
+            "armor_part": "gloves",
+            "armor_type": "medium",
+            "sub_type": "Luvas de Forja",
+            "defense_value": 3,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "agilidade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [
+                "Resistência ao Calor"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "90",
+            "class_restrictions": [
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5c530ba1-764b-439d-8de1-72804d6aa4f8",
+        "fields": {
+            "name": "Luvas da Conjuração",
+            "description": "Luvas leves que amplificam o poder dos feitiços, preferidas por magos.",
+            "rarity": "uncommon",
+            "value": 300,
+            "level_required": 4,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "5c530ba1-764b-439d-8de1-72804d6aa4f8",
+        "fields": {
+            "item_ptr_id": "5c530ba1-764b-439d-8de1-72804d6aa4f8",
+            "armor_part": "gloves",
+            "armor_type": "medium",
+            "sub_type": "Luvas de Magia",
+            "defense_value": 1,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [
+                {
+                    "type": "defesa_fisica",
+                    "penalty": "-1"
+                }
+            ],
+            "requirements": {
+                "inteligencia": "12"
+            },
+            "abilities": [
+                "Amplificação de Feitiço"
+            ],
+            "ongoing_effects": {
+                "type": "dano_mana",
+                "damage_reduction": "1",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "inteligencia": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "70",
+            "class_restrictions": [
+                "Mago"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1d5b9950-853c-45e0-8d5a-141b084a17d6",
+        "fields": {
+            "name": "Luvas de Couro Reforçado",
+            "description": "Luvas de couro com placas metálicas leves, fornecem proteção básica para todos os aventureiros.",
+            "rarity": "common",
+            "value": 80,
+            "level_required": 2,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "1d5b9950-853c-45e0-8d5a-141b084a17d6",
+        "fields": {
+            "item_ptr_id": "1d5b9950-853c-45e0-8d5a-141b084a17d6",
+            "armor_part": "gloves",
+            "armor_type": "medium",
+            "sub_type": "Luvas de Couro",
+            "defense_value": 2,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "15"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "8"
+            },
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "60",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1d09c9b9-ab92-42ed-a82e-cc92614b057b",
+        "fields": {
+            "name": "Luvas de Couro Reforçado",
+            "description": "Luvas resistentes de couro reforçado, oferecendo proteção básica para as mãos.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "1d09c9b9-ab92-42ed-a82e-cc92614b057b",
+        "fields": {
+            "item_ptr_id": "1d09c9b9-ab92-42ed-a82e-cc92614b057b",
+            "armor_part": "gloves",
+            "armor_type": "heavy",
+            "sub_type": "Luvas de Couro",
+            "defense_value": 2,
+            "max_dex_bonus": null,
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Durabilidade Aprimorada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f8032365-96c5-4864-ad92-d92103c2c40a",
+        "fields": {
+            "name": "Luvas de Ferro do Guerreiro",
+            "description": "Luvas de ferro que oferecem proteção adicional em combates físicos.",
+            "rarity": "common",
+            "value": 80,
+            "level_required": 2,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "f8032365-96c5-4864-ad92-d92103c2c40a",
+        "fields": {
+            "item_ptr_id": "f8032365-96c5-4864-ad92-d92103c2c40a",
+            "armor_part": "gloves",
+            "armor_type": "heavy",
+            "sub_type": "Luvas de Ferro",
+            "defense_value": 3,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Proteção Física Aprimorada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5db1f941-63f6-4684-b70f-b9ea16ed4a57",
+        "fields": {
+            "name": "Luvas de Aço Sagrado",
+            "description": "Luvas de aço infundidas com magia sagrada, ideais para um Paladino em combate.",
+            "rarity": "uncommon",
+            "value": 150,
+            "level_required": 3,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "5db1f941-63f6-4684-b70f-b9ea16ed4a57",
+        "fields": {
+            "item_ptr_id": "5db1f941-63f6-4684-b70f-b9ea16ed4a57",
+            "armor_part": "gloves",
+            "armor_type": "heavy",
+            "sub_type": "Luvas de Aço Sagrado",
+            "defense_value": 4,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12",
+                "sabedoria": "8"
+            },
+            "abilities": [
+                "Resistência Sagrada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "140",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

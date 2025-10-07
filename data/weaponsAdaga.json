@@ -1,0 +1,1111 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "89409317-9f20-4e90-887e-d9b8e53de00f",
+        "fields": {
+            "name": "Adaga Simples",
+            "description": "Uma adaga comum utilizada por iniciantes, leve e fácil de manusear.",
+            "rarity": "common",
+            "value": 20,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "89409317-9f20-4e90-887e-d9b8e53de00f",
+        "fields": {
+            "item_ptr_id": "89409317-9f20-4e90-887e-d9b8e53de00f",
+            "category": "Adaga",
+            "sub_category": "Adaga Básica",
+            "weight": 0.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "versátil"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f62cf588-4e0c-44e9-b9a1-1dfb37e48f84",
+        "fields": {
+            "name": "Faca de Caçador",
+            "description": "Faca simples, útil para sobrevivência e caça. Feita para corte leve.",
+            "rarity": "common",
+            "value": 30,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "f62cf588-4e0c-44e9-b9a1-1dfb37e48f84",
+        "fields": {
+            "item_ptr_id": "f62cf588-4e0c-44e9-b9a1-1dfb37e48f84",
+            "category": "Faca",
+            "sub_category": "Faca de Caça",
+            "weight": 0.4,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "afiada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 120,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "dfa4a797-0ace-4aaf-95c9-79d8b97808ab",
+        "fields": {
+            "name": "Faca de Cozinha",
+            "description": "Usada originalmente na culinária, mas útil em combate próximo.",
+            "rarity": "common",
+            "value": 10,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "dfa4a797-0ace-4aaf-95c9-79d8b97808ab",
+        "fields": {
+            "item_ptr_id": "dfa4a797-0ace-4aaf-95c9-79d8b97808ab",
+            "category": "Faca",
+            "sub_category": "Faca Comum",
+            "weight": 0.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b8705bd8-079d-4f48-bf23-aeaca8414e79",
+        "fields": {
+            "name": "Adaga do Caçador Sombrio",
+            "description": "Uma adaga forjada com um leve toque de magia negra, efetiva contra criaturas da noite.",
+            "rarity": "uncommon",
+            "value": 150,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b8705bd8-079d-4f48-bf23-aeaca8414e79",
+        "fields": {
+            "item_ptr_id": "b8705bd8-079d-4f48-bf23-aeaca8414e79",
+            "category": "Adaga",
+            "sub_category": "Adaga Mágica",
+            "weight": 0.6,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Toque Sombrio"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 150,
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d3fdfb18-57da-4dda-8d07-0628f06bba06",
+        "fields": {
+            "name": "Faca de Caça Afiada",
+            "description": "Feita com lâminas especiais para perfurar peles resistentes, ideal para combate próximo.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d3fdfb18-57da-4dda-8d07-0628f06bba06",
+        "fields": {
+            "item_ptr_id": "d3fdfb18-57da-4dda-8d07-0628f06bba06",
+            "category": "Faca",
+            "sub_category": "Faca de Caça Especial",
+            "weight": 0.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 140,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e7036f41-b055-4cb9-a958-4bb577b11065",
+        "fields": {
+            "name": "Adaga de Caçador de Bichos",
+            "description": "Especialmente eficaz contra pequenos monstros, com ponta e lâmina afiadas.",
+            "rarity": "uncommon",
+            "value": 130,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e7036f41-b055-4cb9-a958-4bb577b11065",
+        "fields": {
+            "item_ptr_id": "e7036f41-b055-4cb9-a958-4bb577b11065",
+            "category": "Adaga",
+            "sub_category": "Adaga de Caça Especial",
+            "weight": 0.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "afiada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Dano adicional contra pequenos monstros"
+            ],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 130,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [
+                {
+                    "target_type": "small_monster",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 4
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "06deae18-aa43-481b-8006-94ed1d0b4e7a",
+        "fields": {
+            "name": "Adaga das Sombras",
+            "description": "Uma adaga envolta em sombras, que aumenta a furtividade de seu portador.",
+            "rarity": "rare",
+            "value": 400,
+            "level_required": 8,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "06deae18-aa43-481b-8006-94ed1d0b4e7a",
+        "fields": {
+            "item_ptr_id": "06deae18-aa43-481b-8006-94ed1d0b4e7a",
+            "category": "Adaga",
+            "sub_category": "Adaga Sombria",
+            "weight": 0.4,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "silenciosa"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "destreza": 12
+            },
+            "abilities_active": [
+                "Passo Sombrio"
+            ],
+            "abilities_passive": [
+                "Aumento de Furtividade"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 180,
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "stealth_attack",
+                    "effect": {
+                        "type": "extra_damage",
+                        "value": 5
+                    }
+                }
+            ],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9d48d4d2-a007-462a-935a-7859128d8a7b",
+        "fields": {
+            "name": "Faca Perfurante",
+            "description": "Especialmente feita para perfurar armaduras leves, com alta precisão.",
+            "rarity": "rare",
+            "value": 350,
+            "level_required": 7,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "9d48d4d2-a007-462a-935a-7859128d8a7b",
+        "fields": {
+            "item_ptr_id": "9d48d4d2-a007-462a-935a-7859128d8a7b",
+            "category": "Faca",
+            "sub_category": "Faca Perfurante",
+            "weight": 0.6,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Penetração em Armaduras Leves"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [
+                {
+                    "target_type": "light_armor",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "67a17fc5-c131-407a-ad83-db6c6bd5c0ad",
+        "fields": {
+            "name": "Adaga de Sangue",
+            "description": "Essa adaga absorve um pouco da vida do oponente a cada ataque.",
+            "rarity": "rare",
+            "value": 500,
+            "level_required": 10,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "67a17fc5-c131-407a-ad83-db6c6bd5c0ad",
+        "fields": {
+            "item_ptr_id": "67a17fc5-c131-407a-ad83-db6c6bd5c0ad",
+            "category": "Adaga",
+            "sub_category": "Adaga de Vida",
+            "weight": 0.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": "blood",
+            "requirements": {
+                "destreza": 11
+            },
+            "abilities_active": [
+                "Absorção de Vida"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "poison",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 160,
+            "class_restrictions": [
+                "Ladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "drain",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0a99414d-118c-4589-8b63-0c4b1cd35909",
+        "fields": {
+            "name": "Adaga da Névoa",
+            "description": "Uma adaga envolta em uma névoa que permite que o portador se torne intangível por um breve momento.",
+            "rarity": "very_rare",
+            "value": 1200,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "0a99414d-118c-4589-8b63-0c4b1cd35909",
+        "fields": {
+            "item_ptr_id": "0a99414d-118c-4589-8b63-0c4b1cd35909",
+            "category": "Adaga",
+            "sub_category": "Adaga Etérea",
+            "weight": 0.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "etérea"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Intangibilidade por Névoa"
+            ],
+            "abilities_passive": [
+                "Resistência a Golpes Físicos"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 250,
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "dodge",
+                    "effect": {
+                        "type": "intangibilidade",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "physical",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "66fac473-f6b2-48a0-ad90-dfd107b368c1",
+        "fields": {
+            "name": "Faca da Fúria Selvagem",
+            "description": "Forjada com o espírito de um lobo selvagem, permite ataques consecutivos com aumento de dano.",
+            "rarity": "very_rare",
+            "value": 1500,
+            "level_required": 16,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "66fac473-f6b2-48a0-ad90-dfd107b368c1",
+        "fields": {
+            "item_ptr_id": "66fac473-f6b2-48a0-ad90-dfd107b368c1",
+            "category": "Faca",
+            "sub_category": "Faca da Fúria",
+            "weight": 0.7,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 13,
+                "destreza": 12
+            },
+            "abilities_active": [
+                "Fúria Selvagem"
+            ],
+            "abilities_passive": [
+                "Aumento de Dano Consecutivo"
+            ],
+            "attribute_boosts": {
+                "forca": "+2",
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "psychic",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 220,
+            "class_restrictions": [
+                "Bárbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "combo_attack",
+                    "effect": {
+                        "type": "extra_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 4
+                        },
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b331a361-d616-4211-ae95-4af60da198b9",
+        "fields": {
+            "name": "Adaga do Vento Cortante",
+            "description": "Uma adaga lendária que corta o ar com tanta velocidade que é invisível a olho nu.",
+            "rarity": "legendary",
+            "value": 3000,
+            "level_required": 18,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b331a361-d616-4211-ae95-4af60da198b9",
+        "fields": {
+            "item_ptr_id": "b331a361-d616-4211-ae95-4af60da198b9",
+            "category": "Adaga",
+            "sub_category": "Adaga Lendária",
+            "weight": 0.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "air",
+            "range": "melee",
+            "special_range": "curto",
+            "properties": [
+                "indestrutível",
+                "velocidade máxima"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "destreza": 15,
+                "agilidade": 14
+            },
+            "abilities_active": [
+                "Corte Veloz"
+            ],
+            "abilities_passive": [
+                "Invisibilidade do Golpe"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3",
+                "agilidade": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "airborne",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 350,
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "bleed",
+                        "duration": 2,
+                        "chance": 75
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "61484db3-c491-4298-984e-51e3cdf994c4",
+        "fields": {
+            "name": "Faca da Lua Crescente",
+            "description": "Forjada com a bênção da lua, sua lâmina brilha ao entardecer e intensifica o dano à noite.",
+            "rarity": "legendary",
+            "value": 3500,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "61484db3-c491-4298-984e-51e3cdf994c4",
+        "fields": {
+            "item_ptr_id": "61484db3-c491-4298-984e-51e3cdf994c4",
+            "category": "Faca",
+            "sub_category": "Faca Mística",
+            "weight": 0.6,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "radiant",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "brilho lunar",
+                "afiada"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "forca": 14,
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Bênção da Lua"
+            ],
+            "abilities_passive": [
+                "Aumento de Dano Noturno"
+            ],
+            "attribute_boosts": {
+                "forca": "+2",
+                "destreza": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "extra_damage",
+                    "time": "night",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "dark",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 400,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "night_time",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": 5
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e4d8642b-8007-4347-b112-098ccdea43d7",
+        "fields": {
+            "name": "Adaga do Vento Cortante",
+            "description": "Uma adaga lendária que corta o ar com tanta velocidade que é invisível a olho nu.",
+            "rarity": "legendary",
+            "value": 3000,
+            "level_required": 18,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e4d8642b-8007-4347-b112-098ccdea43d7",
+        "fields": {
+            "item_ptr_id": "e4d8642b-8007-4347-b112-098ccdea43d7",
+            "category": "Adaga",
+            "sub_category": "Adaga Lendária",
+            "weight": 0.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "air",
+            "range": "melee",
+            "special_range": "curto",
+            "properties": [
+                "indestrutível",
+                "velocidade máxima"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "destreza": 15,
+                "agilidade": 14
+            },
+            "abilities_active": [
+                "Corte Veloz"
+            ],
+            "abilities_passive": [
+                "Invisibilidade do Golpe"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3",
+                "agilidade": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "airborne",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 350,
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "bleed",
+                        "duration": 2,
+                        "chance": 75
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "55e9b831-fec6-46c6-a552-9adb04125f43",
+        "fields": {
+            "name": "Faca da Lua Crescente",
+            "description": "Forjada com a bênção da lua, sua lâmina brilha ao entardecer e intensifica o dano à noite.",
+            "rarity": "legendary",
+            "value": 3500,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "55e9b831-fec6-46c6-a552-9adb04125f43",
+        "fields": {
+            "item_ptr_id": "55e9b831-fec6-46c6-a552-9adb04125f43",
+            "category": "Faca",
+            "sub_category": "Faca Mística",
+            "weight": 0.6,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "radiant",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "brilho lunar",
+                "afiada"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "forca": 14,
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Bênção da Lua"
+            ],
+            "abilities_passive": [
+                "Aumento de Dano Noturno"
+            ],
+            "attribute_boosts": {
+                "forca": "+2",
+                "destreza": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "extra_damage",
+                    "time": "night",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "dark",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 400,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "night_time",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": 5
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

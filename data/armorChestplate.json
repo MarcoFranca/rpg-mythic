@@ -1,0 +1,1967 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "f660e833-b406-4a61-95ba-4b87e4a69c7b",
+        "fields": {
+            "name": "Peitoral Simples de Couro",
+            "description": "Um peitoral leve de couro, adequado para iniciantes.",
+            "rarity": "common",
+            "value": 100,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "f660e833-b406-4a61-95ba-4b87e4a69c7b",
+        "fields": {
+            "item_ptr_id": "f660e833-b406-4a61-95ba-4b87e4a69c7b",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral de Couro",
+            "defense_value": 3,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "3"
+            },
+            "abilities": [],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "df7951d9-5aba-4bf0-b201-16bda408d6ba",
+        "fields": {
+            "name": "Peitoral Élfico de Couro",
+            "description": "Um peitoral de couro fino, utilizado pelos elfos para proteção leve.",
+            "rarity": "common",
+            "value": 200,
+            "level_required": 2,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "df7951d9-5aba-4bf0-b201-16bda408d6ba",
+        "fields": {
+            "item_ptr_id": "df7951d9-5aba-4bf0-b201-16bda408d6ba",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Élfico",
+            "defense_value": 3,
+            "max_dex_bonus": "6",
+            "resistances": [],
+            "vulnerabilities": [
+                {
+                    "type": "blunt",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "5"
+            },
+            "abilities": [
+                "Camuflagem na Floresta"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Ladino",
+                "Ranger"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "82c9430e-051d-40c3-8556-a24944af77c8",
+        "fields": {
+            "name": "Peitoral do Ladino Ágil",
+            "description": "Peitoral de couro leve, projetado para facilitar movimentos furtivos.",
+            "rarity": "common",
+            "value": 250,
+            "level_required": 3,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "82c9430e-051d-40c3-8556-a24944af77c8",
+        "fields": {
+            "item_ptr_id": "82c9430e-051d-40c3-8556-a24944af77c8",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral de Couro Furtivo",
+            "defense_value": 4,
+            "max_dex_bonus": "6",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "resistência",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "movimento",
+                    "penalty": "-5"
+                }
+            ],
+            "requirements": {
+                "destreza": "6"
+            },
+            "abilities": [
+                "Furtividade Melhorada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "90",
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "258915d3-0c11-4756-a178-49730014a0b3",
+        "fields": {
+            "name": "Peitoral da Camuflagem Élfica",
+            "description": "Um peitoral leve feito com técnicas élficas que permitem camuflagem em ambientes naturais.",
+            "rarity": "uncommon",
+            "value": 400,
+            "level_required": 4,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "258915d3-0c11-4756-a178-49730014a0b3",
+        "fields": {
+            "item_ptr_id": "258915d3-0c11-4756-a178-49730014a0b3",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Élfico Camuflado",
+            "defense_value": 4,
+            "max_dex_bonus": "7",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "7"
+            },
+            "abilities": [
+                "Camuflagem Natural"
+            ],
+            "ongoing_effects": {
+                "type": "camuflagem",
+                "damage_reduction": "0",
+                "duration": "enquanto em florestas"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "nature",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "150",
+            "class_restrictions": [
+                "Ranger",
+                "Druida"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "df150cd7-72c2-4e33-9828-ec85d121bd26",
+        "fields": {
+            "name": "Peitoral da Agilidade Rara",
+            "description": "Um peitoral raro que concede agilidade adicional, favorito de guerreiros e ladinos.",
+            "rarity": "rare",
+            "value": 800,
+            "level_required": 6,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "df150cd7-72c2-4e33-9828-ec85d121bd26",
+        "fields": {
+            "item_ptr_id": "df150cd7-72c2-4e33-9828-ec85d121bd26",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Ágil",
+            "defense_value": 5,
+            "max_dex_bonus": "8",
+            "resistances": [
+                {
+                    "type": "pierce",
+                    "level": "resistance",
+                    "value": "25"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "cold",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "8",
+                "agilidade": "6"
+            },
+            "abilities": [
+                "Movimento Rápido"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [
+                {
+                    "condition": "ataque_critico",
+                    "effect": {
+                        "type": "aumento_defesa",
+                        "value": "1",
+                        "duration": "1",
+                        "chance": "30"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "poison",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "180",
+            "class_restrictions": [
+                "Guerreiro",
+                "Ladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "35acd286-8614-4060-9936-20fb65a8dc5a",
+        "fields": {
+            "name": "Peitoral das Sombras Ladino",
+            "description": "Um peitoral furtivo criado para os movimentos silenciosos dos ladinos, favorecendo a camuflagem.",
+            "rarity": "rare",
+            "value": 1200,
+            "level_required": 8,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "35acd286-8614-4060-9936-20fb65a8dc5a",
+        "fields": {
+            "item_ptr_id": "35acd286-8614-4060-9936-20fb65a8dc5a",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Sombrio",
+            "defense_value": 6,
+            "max_dex_bonus": "9",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "radiant",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [
+                {
+                    "type": "fortitude",
+                    "penalty": "-1"
+                }
+            ],
+            "requirements": {
+                "destreza": "10"
+            },
+            "abilities": [
+                "Camuflagem em Escuridão"
+            ],
+            "ongoing_effects": {
+                "type": "furtividade",
+                "damage_reduction": "0",
+                "duration": "enquanto na sombra"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "ataque_furtivo",
+                    "effect": {
+                        "type": "aumento_dano",
+                        "value": "2",
+                        "duration": "1",
+                        "chance": "50"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "furtividade": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "shadow",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "220",
+            "class_restrictions": [
+                "Ladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9bdda58d-7512-47ce-9631-fa309b173c38",
+        "fields": {
+            "name": "Peitoral de Linhagem Livre",
+            "description": "Peitoral simples, mas com ótima resistência, criado para guerreiros de linhagens comuns.",
+            "rarity": "common",
+            "value": 250,
+            "level_required": 3,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "9bdda58d-7512-47ce-9631-fa309b173c38",
+        "fields": {
+            "item_ptr_id": "9bdda58d-7512-47ce-9631-fa309b173c38",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral de Linhagem",
+            "defense_value": 3,
+            "max_dex_bonus": "6",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "4"
+            },
+            "abilities": [],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "73f77279-2687-45d7-a414-891e0da53000",
+        "fields": {
+            "name": "Peitoral Elétrico Élfico",
+            "description": "Um peitoral encantado feito pela nobreza élfica, infundido com a essência dos ventos.",
+            "rarity": "uncommon",
+            "value": 900,
+            "level_required": 6,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "73f77279-2687-45d7-a414-891e0da53000",
+        "fields": {
+            "item_ptr_id": "73f77279-2687-45d7-a414-891e0da53000",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Encantado",
+            "defense_value": 5,
+            "max_dex_bonus": "8",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "6"
+            },
+            "abilities": [
+                "Velocidade em Terreno Florestal"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "wind",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "150",
+            "class_restrictions": [
+                "Arqueiro",
+                "Ranger"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c68227df-577c-46d8-8ad5-cf2f574d6a7e",
+        "fields": {
+            "name": "Peitoral Comum de Guerreiro",
+            "description": "Peitoral simples e eficaz, adequado para a maioria dos guerreiros.",
+            "rarity": "common",
+            "value": 200,
+            "level_required": 3,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "c68227df-577c-46d8-8ad5-cf2f574d6a7e",
+        "fields": {
+            "item_ptr_id": "c68227df-577c-46d8-8ad5-cf2f574d6a7e",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Simples",
+            "defense_value": 3,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [
+                {
+                    "type": "pierce",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "4"
+            },
+            "abilities": [],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "80",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9641058d-7aaa-476f-8699-201bb2f35d2a",
+        "fields": {
+            "name": "Peitoral Anão da Rocha",
+            "description": "Peitoral robusto forjado por ferreiros anões, excelente contra impactos.",
+            "rarity": "common",
+            "value": 300,
+            "level_required": 4,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "9641058d-7aaa-476f-8699-201bb2f35d2a",
+        "fields": {
+            "item_ptr_id": "9641058d-7aaa-476f-8699-201bb2f35d2a",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Anão",
+            "defense_value": 4,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "6"
+            },
+            "abilities": [
+                "Estabilidade em Terreno Rocoso"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [
+                {
+                    "type": "earth",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "120",
+            "class_restrictions": [
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d2232c73-4da9-4ccc-8b96-2c1bda10fc1b",
+        "fields": {
+            "name": "Peitoral de Agilidade Sutil",
+            "description": "Um peitoral raro, feito para garantir leveza e liberdade de movimento sem comprometer a defesa.",
+            "rarity": "rare",
+            "value": 2000,
+            "level_required": 10,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "d2232c73-4da9-4ccc-8b96-2c1bda10fc1b",
+        "fields": {
+            "item_ptr_id": "d2232c73-4da9-4ccc-8b96-2c1bda10fc1b",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral de Fibra Mágica",
+            "defense_value": 7,
+            "max_dex_bonus": "8",
+            "resistances": [
+                {
+                    "type": "pierce",
+                    "level": "resistance",
+                    "value": "50"
+                },
+                {
+                    "type": "cold",
+                    "level": "resistance",
+                    "value": "25"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "12"
+            },
+            "abilities": [
+                "Evasão Aprimorada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "300",
+            "class_restrictions": [
+                "Ladino",
+                "Arqueiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "31578896-34c8-4177-840c-e5ffabdfa74e",
+        "fields": {
+            "name": "Peitoral da Fúria Élfica",
+            "description": "Peitoral encantado usado pela elite élfica, infundido com magia antiga que amplifica a força.",
+            "rarity": "rare",
+            "value": 2500,
+            "level_required": 12,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "31578896-34c8-4177-840c-e5ffabdfa74e",
+        "fields": {
+            "item_ptr_id": "31578896-34c8-4177-840c-e5ffabdfa74e",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral de Runas Élficas",
+            "defense_value": 8,
+            "max_dex_bonus": "7",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "60"
+                },
+                {
+                    "type": "lightning",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "10",
+                "destreza": "8"
+            },
+            "abilities": [
+                "Força da Natureza"
+            ],
+            "ongoing_effects": {
+                "type": "dano_sagrado",
+                "damage_reduction": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "ataque_crítico",
+                    "effect": {
+                        "type": "aumento_dano",
+                        "value": "2",
+                        "duration": "1",
+                        "chance": "30"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "forca": "+1",
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "poison",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "350",
+            "class_restrictions": [
+                "Elfo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "075a7553-a4bd-48cb-bfbd-ccd08c850f39",
+        "fields": {
+            "name": "Peitoral das Sombras Eternas",
+            "description": "Um peitoral lendário que absorve luz e som, tornando o usuário praticamente invisível nas sombras.",
+            "rarity": "legendary",
+            "value": 5000,
+            "level_required": 15,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "075a7553-a4bd-48cb-bfbd-ccd08c850f39",
+        "fields": {
+            "item_ptr_id": "075a7553-a4bd-48cb-bfbd-ccd08c850f39",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral da Invisibilidade",
+            "defense_value": 10,
+            "max_dex_bonus": "10",
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "radiant",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "15",
+                "sabedoria": "12"
+            },
+            "abilities": [
+                "Invisibilidade nas Sombras"
+            ],
+            "ongoing_effects": {
+                "type": "dano_sombra",
+                "damage_reduction": "5",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+4",
+                "inteligencia": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "500",
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1ab2f0b9-66ee-4499-9de1-39580e880034",
+        "fields": {
+            "name": "Peitoral da Fênix",
+            "description": "Este peitoral lendário é infundido com as chamas de uma fênix, conferindo proteção contra o fogo e regeneração.",
+            "rarity": "legendary",
+            "value": 7000,
+            "level_required": 18,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "1ab2f0b9-66ee-4499-9de1-39580e880034",
+        "fields": {
+            "item_ptr_id": "1ab2f0b9-66ee-4499-9de1-39580e880034",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Incandescente",
+            "defense_value": 11,
+            "max_dex_bonus": "9",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "water",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12",
+                "destreza": "10"
+            },
+            "abilities": [
+                "Regeneração das Chamas"
+            ],
+            "ongoing_effects": {
+                "type": "regeneracao",
+                "damage_reduction": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "morte",
+                    "effect": {
+                        "type": "renascimento",
+                        "value": "100",
+                        "duration": "1",
+                        "chance": "20"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "sabedoria": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "600",
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "bab29636-e294-46e1-8bd2-18ff210cd2c9",
+        "fields": {
+            "name": "Peitoral do Guardião Celestial",
+            "description": "Forjado por deuses antigos, este peitoral lendário concede poder divino e proteção total contra a escuridão.",
+            "rarity": "legendary",
+            "value": 10000,
+            "level_required": 20,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "bab29636-e294-46e1-8bd2-18ff210cd2c9",
+        "fields": {
+            "item_ptr_id": "bab29636-e294-46e1-8bd2-18ff210cd2c9",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Sagrado",
+            "defense_value": 12,
+            "max_dex_bonus": "10",
+            "resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "poison",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "14",
+                "inteligencia": "12"
+            },
+            "abilities": [
+                "Aura Divina"
+            ],
+            "ongoing_effects": {
+                "type": "cura_aliados",
+                "damage_reduction": "4",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "ataque_critico_recebido",
+                    "effect": {
+                        "type": "aumento_defesa",
+                        "value": "3",
+                        "duration": "1",
+                        "chance": "40"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+4",
+                "carisma": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "700",
+            "class_restrictions": [
+                "Clérigo",
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b58bcce1-8f8e-4c9d-82ab-9741700efd24",
+        "fields": {
+            "name": "Peitoral do Vento Eterno",
+            "description": "Este peitoral sagrado permite ao usuário fundir-se com o vento, conferindo velocidade e leveza incomparáveis.",
+            "rarity": "artifact",
+            "value": 15000,
+            "level_required": 25,
+            "image": "",
+            "tier": "artifact",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "b58bcce1-8f8e-4c9d-82ab-9741700efd24",
+        "fields": {
+            "item_ptr_id": "b58bcce1-8f8e-4c9d-82ab-9741700efd24",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral dos Ventos",
+            "defense_value": 15,
+            "max_dex_bonus": "12",
+            "resistances": [
+                {
+                    "type": "thunder",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "earth",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "18",
+                "sabedoria": "15"
+            },
+            "abilities": [
+                "Fusão com o Vento"
+            ],
+            "ongoing_effects": {
+                "type": "velocidade",
+                "damage_reduction": "5",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "esquivar",
+                    "effect": {
+                        "type": "aumento_velocidade",
+                        "value": "2",
+                        "duration": "1",
+                        "chance": "60"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "destreza": "+5",
+                "agilidade": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "1000",
+            "class_restrictions": [
+                "Monge",
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "faba697d-f97c-48fd-950a-7dbc8506e08a",
+        "fields": {
+            "name": "Peitoral do Guardião dos Elementos",
+            "description": "Um peitoral mítico que oferece controle elemental total, protegendo o usuário contra os elementos da natureza.",
+            "rarity": "artifact",
+            "value": 20000,
+            "level_required": 28,
+            "image": "",
+            "tier": "artifact",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "faba697d-f97c-48fd-950a-7dbc8506e08a",
+        "fields": {
+            "item_ptr_id": "faba697d-f97c-48fd-950a-7dbc8506e08a",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral dos Elementos",
+            "defense_value": 16,
+            "max_dex_bonus": "15",
+            "resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                },
+                {
+                    "type": "cold",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "2.0"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "20",
+                "destreza": "15"
+            },
+            "abilities": [
+                "Controle Elemental"
+            ],
+            "ongoing_effects": {
+                "type": "resistencia_elemental",
+                "damage_reduction": "4",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "ataque_elemental_recebido",
+                    "effect": {
+                        "type": "reflexao",
+                        "value": "50",
+                        "duration": "1",
+                        "chance": "50"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+4",
+                "sabedoria": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "1200",
+            "class_restrictions": [
+                "Mago",
+                "Druida"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e095087a-0c00-4f73-aa49-e5f0b8e67b0c",
+        "fields": {
+            "name": "Peitoral da Luz Eterna",
+            "description": "Este lendário peitoral irradia luz celestial, protegendo o usuário de ataques sombrios e concedendo poderes divinos.",
+            "rarity": "artifact",
+            "value": 25000,
+            "level_required": 30,
+            "image": "",
+            "tier": "artifact",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "e095087a-0c00-4f73-aa49-e5f0b8e67b0c",
+        "fields": {
+            "item_ptr_id": "e095087a-0c00-4f73-aa49-e5f0b8e67b0c",
+            "armor_part": "chestplate",
+            "armor_type": "light",
+            "sub_type": "Peitoral Celestial",
+            "defense_value": 18,
+            "max_dex_bonus": "14",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "shadow",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "18",
+                "carisma": "14"
+            },
+            "abilities": [
+                "Aura de Luz Celestial"
+            ],
+            "ongoing_effects": {
+                "type": "cura_aliados",
+                "damage_reduction": "6",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "aliado_morto",
+                    "effect": {
+                        "type": "revitalizacao",
+                        "value": "50",
+                        "duration": "1",
+                        "chance": "40"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+5",
+                "carisma": "+4"
+            },
+            "granted_resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "1500",
+            "class_restrictions": [
+                "Clérigo",
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f0aa1612-37ac-412a-8aa6-485a546a5b4a",
+        "fields": {
+            "name": "Capacete do Escudeiro",
+            "description": "Um capacete robusto, ideal para iniciantes em combate, oferece proteção básica.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 2,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "f0aa1612-37ac-412a-8aa6-485a546a5b4a",
+        "fields": {
+            "item_ptr_id": "f0aa1612-37ac-412a-8aa6-485a546a5b4a",
+            "armor_part": "helmet",
+            "armor_type": "medium",
+            "sub_type": "Capacete de Aço",
+            "defense_value": 3,
+            "max_dex_bonus": "2",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "8"
+            },
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "35937279-acd9-46e3-9ab8-a3ef77d013fc",
+        "fields": {
+            "name": "Capacete do Conquistador",
+            "description": "Capacete pesado, usado por guerreiros em treinamentos rigorosos. Oferece resistência moderada.",
+            "rarity": "common",
+            "value": 100,
+            "level_required": 4,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "35937279-acd9-46e3-9ab8-a3ef77d013fc",
+        "fields": {
+            "item_ptr_id": "35937279-acd9-46e3-9ab8-a3ef77d013fc",
+            "armor_part": "helmet",
+            "armor_type": "medium",
+            "sub_type": "Capacete de Batalha",
+            "defense_value": 4,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Determinação"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "150",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "15c0ffd6-0340-46f4-af81-2eb505111c1f",
+        "fields": {
+            "name": "Elmo das Montanhas",
+            "description": "Um elmo robusto, forjado com técnicas anãs, proporcionando resistência adicional a impactos.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 6,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "15c0ffd6-0340-46f4-af81-2eb505111c1f",
+        "fields": {
+            "item_ptr_id": "15c0ffd6-0340-46f4-af81-2eb505111c1f",
+            "armor_part": "helmet",
+            "armor_type": "medium",
+            "sub_type": "Elmo Anão",
+            "defense_value": 5,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "movimento",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [
+                "Resistência Física"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituição": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "180",
+            "class_restrictions": [
+                "Guerreiro",
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e92a479d-63b1-4a48-8007-030cd24a765e",
+        "fields": {
+            "name": "Elmo da Concentração",
+            "description": "Um capacete utilizado por clérigos, encantado para aumentar a resistência mágica.",
+            "rarity": "uncommon",
+            "value": 300,
+            "level_required": 8,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "e92a479d-63b1-4a48-8007-030cd24a765e",
+        "fields": {
+            "item_ptr_id": "e92a479d-63b1-4a48-8007-030cd24a765e",
+            "armor_part": "helmet",
+            "armor_type": "medium",
+            "sub_type": "Elmo de Foco Espiritual",
+            "defense_value": 4,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "visão",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "14"
+            },
+            "abilities": [
+                "Concentração Prolongada"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "140",
+            "class_restrictions": [
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e01013e4-5823-40e1-8ab6-1486579f52c4",
+        "fields": {
+            "name": "Peitoral da Coragem",
+            "description": "Um peitoral básico usado por guerreiros, oferece uma boa proteção contra ataques físicos.",
+            "rarity": "common",
+            "value": 200,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "e01013e4-5823-40e1-8ab6-1486579f52c4",
+        "fields": {
+            "item_ptr_id": "e01013e4-5823-40e1-8ab6-1486579f52c4",
+            "armor_part": "chestplate",
+            "armor_type": "medium",
+            "sub_type": "Peitoral de Couro Reforçado",
+            "defense_value": 5,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "99ffbe11-00d5-41a2-b586-92014d800bdc",
+        "fields": {
+            "name": "Peitoral do Escudo Divino",
+            "description": "Um peitoral encantado para uso de clérigos, oferecendo resistência aumentada contra danos mágicos.",
+            "rarity": "uncommon",
+            "value": 400,
+            "level_required": 5,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "99ffbe11-00d5-41a2-b586-92014d800bdc",
+        "fields": {
+            "item_ptr_id": "99ffbe11-00d5-41a2-b586-92014d800bdc",
+            "armor_part": "chestplate",
+            "armor_type": "medium",
+            "sub_type": "Peitoral Sagrado",
+            "defense_value": 6,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance",
+                    "value": "60"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "12"
+            },
+            "abilities": [
+                "Aumento de Resistência Mágica"
+            ],
+            "ongoing_effects": {
+                "type": "regeneração_mana",
+                "damage_reduction": "1",
+                "duration": "enquanto equipado"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "160",
+            "class_restrictions": [
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a64f9530-e83e-47f9-86fd-059f59b21b51",
+        "fields": {
+            "name": "Peitoral de Defesa Ancestral",
+            "description": "Um peitoral reforçado com magia antiga, ideal para guerreiros que buscam durabilidade e proteção.",
+            "rarity": "common",
+            "value": 250,
+            "level_required": 4,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a64f9530-e83e-47f9-86fd-059f59b21b51",
+        "fields": {
+            "item_ptr_id": "a64f9530-e83e-47f9-86fd-059f59b21b51",
+            "armor_part": "chestplate",
+            "armor_type": "medium",
+            "sub_type": "Peitoral de Aço Antigo",
+            "defense_value": 6,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "130",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "42e81d38-d49d-4e0d-8818-7f81883bf3d8",
+        "fields": {
+            "name": "Peitoral de Energia Vital",
+            "description": "Este peitoral, com runas de proteção, proporciona resistência aprimorada para clérigos em combate.",
+            "rarity": "uncommon",
+            "value": 500,
+            "level_required": 6,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "42e81d38-d49d-4e0d-8818-7f81883bf3d8",
+        "fields": {
+            "item_ptr_id": "42e81d38-d49d-4e0d-8818-7f81883bf3d8",
+            "armor_part": "chestplate",
+            "armor_type": "medium",
+            "sub_type": "Peitoral de Energia Ancestral",
+            "defense_value": 7,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [
+                {
+                    "type": "movimento",
+                    "penalty": "-5"
+                }
+            ],
+            "requirements": {
+                "sabedoria": "14"
+            },
+            "abilities": [
+                "Aumento de Cura"
+            ],
+            "ongoing_effects": {
+                "type": "cura_ao_ser_atingido",
+                "damage_reduction": "1",
+                "duration": "enquanto equipado"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "receber_ataque_critico",
+                    "effect": {
+                        "type": "cura",
+                        "value": "3",
+                        "duration": "1",
+                        "chance": "30"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "170",
+            "class_restrictions": [
+                "Clérigo"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "098f7842-1be2-4034-b9b9-a3d5ff5931e4",
+        "fields": {
+            "name": "Peitoral de Ferro Forjado",
+            "description": "Um peitoral básico, feito para resistir a golpes leves e proporcionar proteção sólida.",
+            "rarity": "common",
+            "value": 300,
+            "level_required": 2,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "098f7842-1be2-4034-b9b9-a3d5ff5931e4",
+        "fields": {
+            "item_ptr_id": "098f7842-1be2-4034-b9b9-a3d5ff5931e4",
+            "armor_part": "chestplate",
+            "armor_type": "heavy",
+            "sub_type": "Peitoral Simples",
+            "defense_value": 6,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0516cedb-5810-4db4-9013-51b2cfbf5494",
+        "fields": {
+            "name": "Peitoral do Guerreiro de Ferro",
+            "description": "Um peitoral resistente, projetado para proteger o peito de golpes intensos em combate.",
+            "rarity": "common",
+            "value": 400,
+            "level_required": 3,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "0516cedb-5810-4db4-9013-51b2cfbf5494",
+        "fields": {
+            "item_ptr_id": "0516cedb-5810-4db4-9013-51b2cfbf5494",
+            "armor_part": "chestplate",
+            "armor_type": "heavy",
+            "sub_type": "Peitoral Guerreiro",
+            "defense_value": 7,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [
+                "Resistência ao Corte"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "71f9cd56-415c-43be-9bf2-352fafba8f97",
+        "fields": {
+            "name": "Peitoral do Guerreiro de Ferro",
+            "description": "Um peitoral resistente, projetado para proteger o peito de golpes intensos em combate.",
+            "rarity": "common",
+            "value": 400,
+            "level_required": 3,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "71f9cd56-415c-43be-9bf2-352fafba8f97",
+        "fields": {
+            "item_ptr_id": "71f9cd56-415c-43be-9bf2-352fafba8f97",
+            "armor_part": "chestplate",
+            "armor_type": "heavy",
+            "sub_type": "Peitoral Guerreiro",
+            "defense_value": 7,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "40"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12"
+            },
+            "abilities": [
+                "Resistência ao Corte"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b187ead1-d16c-4e2e-a316-e48fc6b275fd",
+        "fields": {
+            "name": "Peitoral Sagrado do Paladino",
+            "description": "Uma armadura resistente que protege contra ataques e emana uma aura de proteção divina.",
+            "rarity": "uncommon",
+            "value": 700,
+            "level_required": 4,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "b187ead1-d16c-4e2e-a316-e48fc6b275fd",
+        "fields": {
+            "item_ptr_id": "b187ead1-d16c-4e2e-a316-e48fc6b275fd",
+            "armor_part": "chestplate",
+            "armor_type": "heavy",
+            "sub_type": "Peitoral Sagrado",
+            "defense_value": 8,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance",
+                    "value": "50"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "14",
+                "sabedoria": "10"
+            },
+            "abilities": [
+                "Aura de Proteção Divina"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "180",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

@@ -1,0 +1,276 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "99a5b338-a73c-46aa-a6f0-117d979ff599",
+        "fields": {
+            "name": "Cinto de Couro Comum",
+            "description": "Um cinto simples de couro, bastante comum entre aventureiros.",
+            "rarity": "common",
+            "value": 10,
+            "level_required": 1,
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "99a5b338-a73c-46aa-a6f0-117d979ff599",
+        "fields": {
+            "item_ptr_id": "99a5b338-a73c-46aa-a6f0-117d979ff599",
+            "armor_part": "belt",
+            "armor_type": "light",
+            "sub_type": "Cinto de Couro",
+            "defense_value": 1,
+            "max_dex_bonus": null,
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "set_identifier": null,
+            "set_bonus": null,
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "6702a5f9-f0a5-490e-aff4-795bac5e9bd3",
+        "fields": {
+            "name": "Cinto Rúnico de Poder",
+            "description": "Um cinto robusto com inscrições rúnicas anãs que aumentam a força do usuário.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 5,
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "6702a5f9-f0a5-490e-aff4-795bac5e9bd3",
+        "fields": {
+            "item_ptr_id": "6702a5f9-f0a5-490e-aff4-795bac5e9bd3",
+            "armor_part": "belt",
+            "armor_type": "medium",
+            "sub_type": "Cinto Rúnico",
+            "defense_value": 2,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Resistência a Impacto"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": 150,
+            "class_restrictions": [
+                "Anão"
+            ],
+            "set_identifier": null,
+            "set_bonus": null,
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "7f908e7a-347f-4d52-8e23-d341dcb69c51",
+        "fields": {
+            "name": "Cinto do Caçador Silvestre",
+            "description": "Um cinto que aumenta a destreza e é preferido pelos elfos caçadores.",
+            "rarity": "rare",
+            "value": 500,
+            "level_required": 8,
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "7f908e7a-347f-4d52-8e23-d341dcb69c51",
+        "fields": {
+            "item_ptr_id": "7f908e7a-347f-4d52-8e23-d341dcb69c51",
+            "armor_part": "belt",
+            "armor_type": "light",
+            "sub_type": "Cinto Silvestre",
+            "defense_value": 1,
+            "max_dex_bonus": 3,
+            "resistances": [
+                {
+                    "type": "pierce",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "10"
+            },
+            "abilities": [
+                "Passos Silenciosos"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": 120,
+            "class_restrictions": [
+                "Elfo"
+            ],
+            "set_identifier": null,
+            "set_bonus": null,
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c1bcf0dc-1026-4a7f-87bf-f04092241c49",
+        "fields": {
+            "name": "Cinto de Energia Arcana",
+            "description": "Um cinto que concede poder arcano adicional para os praticantes de magia.",
+            "rarity": "rare",
+            "value": 800,
+            "level_required": 10,
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "c1bcf0dc-1026-4a7f-87bf-f04092241c49",
+        "fields": {
+            "item_ptr_id": "c1bcf0dc-1026-4a7f-87bf-f04092241c49",
+            "armor_part": "belt",
+            "armor_type": "medium",
+            "sub_type": "Cinto Arcano",
+            "defense_value": 2,
+            "max_dex_bonus": null,
+            "resistances": [],
+            "vulnerabilities": [
+                {
+                    "type": "slash",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "inteligencia": "15"
+            },
+            "abilities": [
+                "Amplificação Mágica"
+            ],
+            "ongoing_effects": {
+                "type": "mana_boost",
+                "effect_value": "+10",
+                "duration": "contínuo"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "inteligencia": "+2"
+            },
+            "granted_resistances": [],
+            "durability": 150,
+            "class_restrictions": [
+                "Mago"
+            ],
+            "set_identifier": null,
+            "set_bonus": null,
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "394e92a5-31fc-41e0-af20-edd8b8dab64f",
+        "fields": {
+            "name": "Cinto da Força Primordial",
+            "description": "Um cinto raro que aumenta grandemente a força do usuário, ideal para guerreiros experientes.",
+            "rarity": "legendary",
+            "value": 2500,
+            "level_required": 15,
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "394e92a5-31fc-41e0-af20-edd8b8dab64f",
+        "fields": {
+            "item_ptr_id": "394e92a5-31fc-41e0-af20-edd8b8dab64f",
+            "armor_part": "belt",
+            "armor_type": "heavy",
+            "sub_type": "Cinto de Força",
+            "defense_value": 3,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-3"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "18"
+            },
+            "abilities": [
+                "Força Descomunal"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "granted_resistances": [],
+            "durability": 200,
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "set_identifier": null,
+            "set_bonus": null,
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

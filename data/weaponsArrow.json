@@ -1,0 +1,1877 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "7443c750-ab3c-48d4-8278-978ddf194108",
+        "fields": {
+            "name": "Arco de Madeira Simples",
+            "description": "Um arco básico feito de madeira, ideal para iniciantes.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "7443c750-ab3c-48d4-8278-978ddf194108",
+        "fields": {
+            "item_ptr_id": "7443c750-ab3c-48d4-8278-978ddf194108",
+            "category": "Arco",
+            "sub_category": "Arco Curto",
+            "weight": 1.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f047cc86-1146-4751-af1d-d823de32dc00",
+        "fields": {
+            "name": "Besta de Madeira Rústica",
+            "description": "Uma besta simples, útil para caçadas de pequena escala.",
+            "rarity": "common",
+            "value": 70,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "f047cc86-1146-4751-af1d-d823de32dc00",
+        "fields": {
+            "item_ptr_id": "f047cc86-1146-4751-af1d-d823de32dc00",
+            "category": "Besta",
+            "sub_category": "Besta Leve",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "alta precisão"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 7
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 120,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e9e10206-0c6f-4944-931b-1f033034936a",
+        "fields": {
+            "name": "Arco Curto de Caça",
+            "description": "Um arco curto usado para caçar animais pequenos.",
+            "rarity": "common",
+            "value": 60,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e9e10206-0c6f-4944-931b-1f033034936a",
+        "fields": {
+            "item_ptr_id": "e9e10206-0c6f-4944-931b-1f033034936a",
+            "category": "Arco",
+            "sub_category": "Arco Curto",
+            "weight": 1.1,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "fácil de manusear"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1ad4e503-b634-4972-819c-b78b726b2123",
+        "fields": {
+            "name": "Arco de Treinamento",
+            "description": "Arco utilizado em treinos básicos, perfeito para novatos.",
+            "rarity": "common",
+            "value": 45,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "1ad4e503-b634-4972-819c-b78b726b2123",
+        "fields": {
+            "item_ptr_id": "1ad4e503-b634-4972-819c-b78b726b2123",
+            "category": "Arco",
+            "sub_category": "Arco Curto",
+            "weight": 1.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "fácil de usar"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 4
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8bd0679f-fa1b-408f-ac18-9f067e5cd740",
+        "fields": {
+            "name": "Besta de Viagem",
+            "description": "Uma besta leve e portátil, ideal para pequenas caçadas em viagens.",
+            "rarity": "common",
+            "value": 75,
+            "level_required": 3,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8bd0679f-fa1b-408f-ac18-9f067e5cd740",
+        "fields": {
+            "item_ptr_id": "8bd0679f-fa1b-408f-ac18-9f067e5cd740",
+            "category": "Besta",
+            "sub_category": "Besta Leve",
+            "weight": 2.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "compacta"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2f636d78-bd55-4d67-a044-412b9bb1aae9",
+        "fields": {
+            "name": "Arco de Caçador de Pequenos Animais",
+            "description": "Um arco básico usado para caça de pequenos animais e alvos de curta distância.",
+            "rarity": "common",
+            "value": 55,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "2f636d78-bd55-4d67-a044-412b9bb1aae9",
+        "fields": {
+            "item_ptr_id": "2f636d78-bd55-4d67-a044-412b9bb1aae9",
+            "category": "Arco",
+            "sub_category": "Arco Curto",
+            "weight": 1.1,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "rápido"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "3caac240-1f69-45c2-8dbe-56cc06985479",
+        "fields": {
+            "name": "Besta de Mão",
+            "description": "Uma pequena besta portátil para autodefesa, de fácil manuseio.",
+            "rarity": "common",
+            "value": 65,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "3caac240-1f69-45c2-8dbe-56cc06985479",
+        "fields": {
+            "item_ptr_id": "3caac240-1f69-45c2-8dbe-56cc06985479",
+            "category": "Besta",
+            "sub_category": "Besta de Mão",
+            "weight": 1.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "compacta",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 4
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d3b12640-5787-441a-bfb8-34987bd4e786",
+        "fields": {
+            "name": "Arco de Tiro Curto",
+            "description": "Um arco curto e fácil de manusear, excelente para treino e caça leve.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d3b12640-5787-441a-bfb8-34987bd4e786",
+        "fields": {
+            "item_ptr_id": "d3b12640-5787-441a-bfb8-34987bd4e786",
+            "category": "Arco",
+            "sub_category": "Arco Curto",
+            "weight": 1.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "simples"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 3
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "cbe7ab34-ddeb-4548-9379-c28f2bed1ec4",
+        "fields": {
+            "name": "Arco de Ferro",
+            "description": "Um arco robusto feito de ferro, oferecendo maior durabilidade e precisão.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "cbe7ab34-ddeb-4548-9379-c28f2bed1ec4",
+        "fields": {
+            "item_ptr_id": "cbe7ab34-ddeb-4548-9379-c28f2bed1ec4",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "long",
+            "special_range": null,
+            "properties": [
+                "durável",
+                "preciso"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 200,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d6605ba1-9f56-4963-ba4e-2e36249847c9",
+        "fields": {
+            "name": "Besta de Aço Temperado",
+            "description": "Besta reforçada com aço temperado, causando maior dano.",
+            "rarity": "uncommon",
+            "value": 150,
+            "level_required": 6,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d6605ba1-9f56-4963-ba4e-2e36249847c9",
+        "fields": {
+            "item_ptr_id": "d6605ba1-9f56-4963-ba4e-2e36249847c9",
+            "category": "Besta",
+            "sub_category": "Besta Pesada",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "robusta",
+                "alta precisão"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 12
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 180,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "05e1275e-88b0-4e88-b082-60767ee1fb94",
+        "fields": {
+            "name": "Arco Longo de Caça",
+            "description": "Um arco longo, ideal para caça de grande porte devido ao seu alcance e precisão.",
+            "rarity": "uncommon",
+            "value": 130,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "05e1275e-88b0-4e88-b082-60767ee1fb94",
+        "fields": {
+            "item_ptr_id": "05e1275e-88b0-4e88-b082-60767ee1fb94",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "long",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "preciso"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 160,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "093d5ef4-00f9-4d10-8a06-1ac8d479c94b",
+        "fields": {
+            "name": "Besta Reforçada de Caça",
+            "description": "Uma besta reforçada, usada para alvos de caça mais resistentes.",
+            "rarity": "uncommon",
+            "value": 160,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "093d5ef4-00f9-4d10-8a06-1ac8d479c94b",
+        "fields": {
+            "item_ptr_id": "093d5ef4-00f9-4d10-8a06-1ac8d479c94b",
+            "category": "Besta",
+            "sub_category": "Besta Leve",
+            "weight": 2.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "resistente",
+                "alta precisão"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ba313753-e386-4782-9214-dc0e47e44d1c",
+        "fields": {
+            "name": "Arco da Águia",
+            "description": "Um arco raro com alcance aprimorado e precisão superior, ideal para alvos à distância.",
+            "rarity": "rare",
+            "value": 300,
+            "level_required": 10,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ba313753-e386-4782-9214-dc0e47e44d1c",
+        "fields": {
+            "item_ptr_id": "ba313753-e386-4782-9214-dc0e47e44d1c",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "extra_long",
+            "special_range": "Aumento de Alcance",
+            "properties": [
+                "precisão superior",
+                "longo alcance"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Visão da Águia"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 250,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "811b92d8-c64f-4fff-8409-bf59245c54e7",
+        "fields": {
+            "name": "Besta de Fogo Selvagem",
+            "description": "Uma besta rara que emite faíscas ao disparar, causando queimaduras adicionais nos alvos.",
+            "rarity": "rare",
+            "value": 350,
+            "level_required": 11,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "811b92d8-c64f-4fff-8409-bf59245c54e7",
+        "fields": {
+            "item_ptr_id": "811b92d8-c64f-4fff-8409-bf59245c54e7",
+            "category": "Besta",
+            "sub_category": "Besta Pesada",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 0
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "fire",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesada",
+                "efeito de queimadura"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "destreza": 15
+            },
+            "abilities_active": [
+                "Chama Selvagem"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "insectoid",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 200,
+            "class_restrictions": [],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "99b833c9-9344-4a40-aeae-4234bdbf3ded",
+        "fields": {
+            "name": "Arco Congelante",
+            "description": "Um arco que libera um frio intenso ao disparar, podendo congelar alvos temporariamente.",
+            "rarity": "rare",
+            "value": 340,
+            "level_required": 12,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "99b833c9-9344-4a40-aeae-4234bdbf3ded",
+        "fields": {
+            "item_ptr_id": "99b833c9-9344-4a40-aeae-4234bdbf3ded",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.7,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "long",
+            "special_range": null,
+            "properties": [
+                "frio intenso",
+                "congelamento"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "destreza": 13
+            },
+            "abilities_active": [
+                "Rajada Congelante"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 230,
+            "class_restrictions": [],
+            "ongoing_effects": {
+                "type": "cold",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "freeze",
+                        "duration": 1,
+                        "chance": 30
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f5255c96-71b6-4ce7-b16d-53ca33f0258e",
+        "fields": {
+            "name": "Arco do Trovão",
+            "description": "Um arco infundido com energia elétrica, emitindo rajadas de trovão ao ser disparado.",
+            "rarity": "very_rare",
+            "value": 700,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "f5255c96-71b6-4ce7-b16d-53ca33f0258e",
+        "fields": {
+            "item_ptr_id": "f5255c96-71b6-4ce7-b16d-53ca33f0258e",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.6,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": "thunder",
+            "range": "extra_long",
+            "special_range": "Alcance Relâmpago",
+            "properties": [
+                "rajadas elétricas",
+                "longo alcance"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "destreza": 16,
+                "inteligencia": 12
+            },
+            "abilities_active": [
+                "Impacto do Trovão"
+            ],
+            "abilities_passive": [
+                "Imunidade a choque"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3",
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "aquatic",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 280,
+            "class_restrictions": [],
+            "ongoing_effects": {
+                "type": "lightning",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 60
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "stun",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "38ff34c8-3058-4705-9bcf-1f10380cd359",
+        "fields": {
+            "name": "Besta da Penumbra",
+            "description": "Uma besta que dispara setas envoltas em sombras, causando dano adicional contra alvos de luz.",
+            "rarity": "very_rare",
+            "value": 750,
+            "level_required": 16,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "38ff34c8-3058-4705-9bcf-1f10380cd359",
+        "fields": {
+            "item_ptr_id": "38ff34c8-3058-4705-9bcf-1f10380cd359",
+            "category": "Besta",
+            "sub_category": "Besta Pesada",
+            "weight": 4.8,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "shadow",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "penumbra",
+                "alta precisão"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "destreza": 17,
+                "forca": 12
+            },
+            "abilities_active": [
+                "Flechas das Sombras"
+            ],
+            "abilities_passive": [
+                "Vantagem em emboscadas"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3",
+                "forca": "+1"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "celestial",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 300,
+            "class_restrictions": [],
+            "ongoing_effects": {
+                "type": "dark",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 4,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "ambush",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 6
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e2d8bf4e-5b83-40bc-8b22-2cdc9036e669",
+        "fields": {
+            "name": "Arco da Brisa Eterna",
+            "description": "Um arco encantado com o poder do vento, oferecendo velocidade e alcance incomparáveis.",
+            "rarity": "very_rare",
+            "value": 720,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e2d8bf4e-5b83-40bc-8b22-2cdc9036e669",
+        "fields": {
+            "item_ptr_id": "e2d8bf4e-5b83-40bc-8b22-2cdc9036e669",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.3,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "extra_long",
+            "special_range": "Velocidade do Vento",
+            "properties": [
+                "velocidade aprimorada",
+                "ultraleve"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "destreza": 16,
+                "sabedoria": 12
+            },
+            "abilities_active": [
+                "Vento Cortante"
+            ],
+            "abilities_passive": [
+                "Movimento Silencioso"
+            ],
+            "attribute_boosts": {
+                "destreza": "+4",
+                "sabedoria": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 270,
+            "class_restrictions": [],
+            "ongoing_effects": {
+                "type": "air",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "high_ground",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 6
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0d0bc1bd-9a3c-44d4-a32e-b523f94779a7",
+        "fields": {
+            "name": "Arco da Fênix",
+            "description": "Um arco lendário que canaliza as chamas da Fênix, capaz de ressurgir das cinzas e disparar flechas de fogo eterno.",
+            "rarity": "legendary",
+            "value": 1200,
+            "level_required": 18,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "0d0bc1bd-9a3c-44d4-a32e-b523f94779a7",
+        "fields": {
+            "item_ptr_id": "0d0bc1bd-9a3c-44d4-a32e-b523f94779a7",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.9,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "fire",
+            "range": "extra_long",
+            "special_range": "Explosão de Fogo",
+            "properties": [
+                "fogo eterno",
+                "ressurgimento"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "destreza": 18,
+                "forca": 14
+            },
+            "abilities_active": [
+                "Ressurgir das Cinzas"
+            ],
+            "abilities_passive": [
+                "Aura de Calor"
+            ],
+            "attribute_boosts": {
+                "destreza": "+4",
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "undead",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 350,
+            "class_restrictions": [
+                "Guerreiro",
+                "Caçador"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 70
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "death",
+                    "effect": {
+                        "type": "revive",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "388322cd-e801-49e9-90c5-704a0a5c9f3e",
+        "fields": {
+            "name": "Besta do Dragão Ancestral",
+            "description": "Esta besta lendária é feita com escamas de um dragão ancestral, disparando projéteis com poder devastador.",
+            "rarity": "legendary",
+            "value": 1300,
+            "level_required": 19,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "388322cd-e801-49e9-90c5-704a0a5c9f3e",
+        "fields": {
+            "item_ptr_id": "388322cd-e801-49e9-90c5-704a0a5c9f3e",
+            "category": "Besta",
+            "sub_category": "Besta Pesada",
+            "weight": 6.0,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 12,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "fire",
+            "range": "long",
+            "special_range": "Explosão Dracônica",
+            "properties": [
+                "escamas de dragão",
+                "fogo dracônico"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "destreza": 17,
+                "forca": 15
+            },
+            "abilities_active": [
+                "Rugido Dracônico"
+            ],
+            "abilities_passive": [
+                "Resistência ao Calor"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "destreza": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "giant",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 400,
+            "class_restrictions": [
+                "Caçador",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 80
+            },
+            "target_effects": [
+                {
+                    "target_type": "undead",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "rage",
+                        "duration": 2,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9e552850-a0e6-47b1-8546-295515d25367",
+        "fields": {
+            "name": "Arco das Tempestades Eternas",
+            "description": "Este arco lendário possui o poder das tempestades, disparando flechas com energia elétrica concentrada.",
+            "rarity": "legendary",
+            "value": 1250,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "9e552850-a0e6-47b1-8546-295515d25367",
+        "fields": {
+            "item_ptr_id": "9e552850-a0e6-47b1-8546-295515d25367",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.7,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "thunder",
+            "range": "extra_long",
+            "special_range": "Rajada de Tempestade",
+            "properties": [
+                "tempestade constante",
+                "eletricidade pura"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "destreza": 18,
+                "inteligencia": 15
+            },
+            "abilities_active": [
+                "Fúria das Tempestades"
+            ],
+            "abilities_passive": [
+                "Regeneração de Energia"
+            ],
+            "attribute_boosts": {
+                "destreza": "+4",
+                "inteligencia": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "water_creature",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "earth",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 370,
+            "class_restrictions": [
+                "Arqueiro",
+                "Druida"
+            ],
+            "ongoing_effects": {
+                "type": "lightning",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 8
+                },
+                "duration": 4,
+                "chance": 60
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "rainy_weather",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 10
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1f5dbeb2-79cd-4149-a654-2edaa03d5e0b",
+        "fields": {
+            "name": "Arco Celestial da Aurora",
+            "description": "Um arco mítico que canaliza a luz da aurora, disparando flechas de energia pura que podem purificar qualquer escuridão.",
+            "rarity": "mythic",
+            "value": 3000,
+            "level_required": 22,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "1f5dbeb2-79cd-4149-a654-2edaa03d5e0b",
+        "fields": {
+            "item_ptr_id": "1f5dbeb2-79cd-4149-a654-2edaa03d5e0b",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.4,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 10,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "radiant",
+            "range": "extra_long",
+            "special_range": "Alcance Ilimitado",
+            "properties": [
+                "luz eterna",
+                "purificação"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "destreza": 20,
+                "sabedoria": 18
+            },
+            "abilities_active": [
+                "Explosão da Aurora"
+            ],
+            "abilities_passive": [
+                "Imunidade ao Medo"
+            ],
+            "attribute_boosts": {
+                "destreza": "+5",
+                "sabedoria": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "undead",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "dark",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 450,
+            "class_restrictions": [
+                "Paladino",
+                "Sacerdote"
+            ],
+            "ongoing_effects": {
+                "type": "radiant",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 4,
+                "chance": 80
+            },
+            "target_effects": [
+                {
+                    "target_type": "demon",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "dusk",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 12
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "bf2fcada-9bb0-4979-9f67-cdbfec7ff80d",
+        "fields": {
+            "name": "Besta do Caos Primordial",
+            "description": "Uma besta mítica, forjada no caos primordial, capaz de distorcer a realidade e gerar efeitos imprevisíveis.",
+            "rarity": "mythic",
+            "value": 3500,
+            "level_required": 24,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "bf2fcada-9bb0-4979-9f67-cdbfec7ff80d",
+        "fields": {
+            "item_ptr_id": "bf2fcada-9bb0-4979-9f67-cdbfec7ff80d",
+            "category": "Besta",
+            "sub_category": "Besta Pesada",
+            "weight": 6.5,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 12,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 3,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "force",
+            "range": "extra_long",
+            "special_range": "Efeito Caótico",
+            "properties": [
+                "realidade distorcida",
+                "efeito imprevisível"
+            ],
+            "elemental_type": "force",
+            "requirements": {
+                "forca": 19,
+                "destreza": 17
+            },
+            "abilities_active": [
+                "Explosão Caótica"
+            ],
+            "abilities_passive": [
+                "Desconstrução do Inimigo"
+            ],
+            "attribute_boosts": {
+                "forca": "+5",
+                "destreza": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "giant",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "psychic",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 500,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {
+                "type": "force",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "construct",
+                    "bonus_damage": {
+                        "dice_count": 3,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "random",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 12
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "force",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "97e3acf4-3cc7-474d-88f2-4a502784455c",
+        "fields": {
+            "name": "Arco das Almas Eternas",
+            "description": "Um arco mítico que aprisiona as almas de seus oponentes, amaldiçoando qualquer criatura que cruze seu caminho.",
+            "rarity": "mythic",
+            "value": 3700,
+            "level_required": 25,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "97e3acf4-3cc7-474d-88f2-4a502784455c",
+        "fields": {
+            "item_ptr_id": "97e3acf4-3cc7-474d-88f2-4a502784455c",
+            "category": "Arco",
+            "sub_category": "Arco Longo",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 12,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "necrotic",
+            "range": "extra_long",
+            "special_range": "Alma Aprisionada",
+            "properties": [
+                "maldição",
+                "prisão de almas"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "destreza": 19,
+                "inteligencia": 18
+            },
+            "abilities_active": [
+                "Prisão de Almas"
+            ],
+            "abilities_passive": [
+                "Maldição Eterna"
+            ],
+            "attribute_boosts": {
+                "destreza": "+4",
+                "inteligencia": "+4"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "celestial",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 450,
+            "class_restrictions": [
+                "Necromante",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "necrotic",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 8
+                },
+                "duration": 5,
+                "chance": 90
+            },
+            "target_effects": [
+                {
+                    "target_type": "celestial",
+                    "bonus_damage": {
+                        "dice_count": 3,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "night",
+                    "effect": {
+                        "type": "bonus_damage",
+                        "value": {
+                            "dice_count": 1,
+                            "dice_type": 12
+                        }
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "necrotic",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

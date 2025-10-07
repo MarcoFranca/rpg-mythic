@@ -1,0 +1,369 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "2b64a396-7ca6-49e1-80b0-a9bbde00a784",
+        "fields": {
+            "name": "Chicote da Areia Escaldante",
+            "description": "Um chicote feito de fibras de cacto trançadas e tratadas. Quando balançado, levanta uma pequena nuvem de areia quente, ideal para combates em desertos.",
+            "rarity": "common",
+            "value": 100,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "2b64a396-7ca6-49e1-80b0-a9bbde00a784",
+        "fields": {
+            "item_ptr_id": "2b64a396-7ca6-49e1-80b0-a9bbde00a784",
+            "category": "Chicote",
+            "sub_category": "Chicote de Areia",
+            "weight": 1.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": "médio em áreas arenosas",
+            "properties": [
+                "leve",
+                "flexível"
+            ],
+            "elemental_type": "earth",
+            "requirements": {
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Nuvem de Areia"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "37b765df-257e-43bf-bb51-43e63ba21ad9",
+        "fields": {
+            "name": "Lança da Tempestade Crescente",
+            "description": "Uma lança leve que ressoa com o som do vento. Quando balançada, emite uma vibração que parece chamar uma leve brisa.",
+            "rarity": "uncommon",
+            "value": 350,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "37b765df-257e-43bf-bb51-43e63ba21ad9",
+        "fields": {
+            "item_ptr_id": "37b765df-257e-43bf-bb51-43e63ba21ad9",
+            "category": "Lança",
+            "sub_category": "Lança do Vento",
+            "weight": 2.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "manuseável"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Impulso Veloz"
+            ],
+            "abilities_passive": [
+                "Sussurros do Vento"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 180,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "first_strike",
+                    "effect": {
+                        "type": "bonus_speed",
+                        "value": 10,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "50dddfb3-0aa1-494c-a4a6-935ad9e68c29",
+        "fields": {
+            "name": "Foice do Crepúsculo Sombrio",
+            "description": "Uma foice com lâminas que parecem absorver a luz ao seu redor, ideal para combates furtivos e ataques mortais.",
+            "rarity": "rare",
+            "value": 1200,
+            "level_required": 10,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "50dddfb3-0aa1-494c-a4a6-935ad9e68c29",
+        "fields": {
+            "item_ptr_id": "50dddfb3-0aa1-494c-a4a6-935ad9e68c29",
+            "category": "Foice",
+            "sub_category": "Foice das Sombras",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "necrotic",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "corta-luz",
+                "silenciosa"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 12,
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Golpe das Sombras"
+            ],
+            "abilities_passive": [
+                "Aura Sombria"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "living",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 250,
+            "class_restrictions": [
+                "Ladino",
+                "Necromante"
+            ],
+            "ongoing_effects": {
+                "type": "necrotic",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 60
+            },
+            "target_effects": [
+                {
+                    "target_type": "living",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "fear",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8d7451b1-f570-4c9c-8f52-559cedd1f520",
+        "fields": {
+            "name": "Chakram do Caos Elemental",
+            "description": "Um chakram forjado com poder elemental, capaz de mudar seu tipo de dano conforme o ambiente ao redor.",
+            "rarity": "very_rare",
+            "value": 4500,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8d7451b1-f570-4c9c-8f52-559cedd1f520",
+        "fields": {
+            "item_ptr_id": "8d7451b1-f570-4c9c-8f52-559cedd1f520",
+            "category": "Chakram",
+            "sub_category": "Chakram Elemental",
+            "weight": 1.5,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "fire",
+            "range": "medium",
+            "special_range": "long when thrown",
+            "properties": [
+                "leve",
+                "arremessável"
+            ],
+            "elemental_type": "varied",
+            "requirements": {
+                "destreza": 14,
+                "inteligencia": 12
+            },
+            "abilities_active": [
+                "Explosão Elemental"
+            ],
+            "abilities_passive": [
+                "Mudança Elemental"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+3",
+                "destreza": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "elemental",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 300,
+            "class_restrictions": [
+                "Ladino",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "elemental",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 8
+                },
+                "duration": 4,
+                "chance": 80
+            },
+            "target_effects": [
+                {
+                    "target_type": "elemental",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "regenerate",
+                        "value": 10,
+                        "chance": 60
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                },
+                {
+                    "type": "thunder",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

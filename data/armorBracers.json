@@ -1,0 +1,218 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "d7e38cae-02f9-45b6-96c8-f67287215274",
+        "fields": {
+            "name": "Braçadeira de Couro Simples",
+            "description": "Uma braçadeira feita de couro resistente, oferecendo proteção básica.",
+            "rarity": "common",
+            "value": 10,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "d7e38cae-02f9-45b6-96c8-f67287215274",
+        "fields": {
+            "item_ptr_id": "d7e38cae-02f9-45b6-96c8-f67287215274",
+            "armor_part": "bracers",
+            "armor_type": "light",
+            "sub_type": "Couro",
+            "defense_value": 2,
+            "max_dex_bonus": "4",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ad8d4004-a869-41d7-9f62-0a82a4229333",
+        "fields": {
+            "name": "Braçadeira de Linho Envolvente",
+            "description": "Leve e flexível, feita de linho reforçado.",
+            "rarity": "common",
+            "value": 15,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "ad8d4004-a869-41d7-9f62-0a82a4229333",
+        "fields": {
+            "item_ptr_id": "ad8d4004-a869-41d7-9f62-0a82a4229333",
+            "armor_part": "bracers",
+            "armor_type": "light",
+            "sub_type": "Linho",
+            "defense_value": 1,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "90",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f91b7bb1-37c0-4b62-91e8-004ef4d874cb",
+        "fields": {
+            "name": "Braçadeira de Escamas de Peixe",
+            "description": "Pequenas escamas sobrepostas para leveza e proteção.",
+            "rarity": "common",
+            "value": 20,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "f91b7bb1-37c0-4b62-91e8-004ef4d874cb",
+        "fields": {
+            "item_ptr_id": "f91b7bb1-37c0-4b62-91e8-004ef4d874cb",
+            "armor_part": "bracers",
+            "armor_type": "light",
+            "sub_type": "Escamas",
+            "defense_value": 3,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "110",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "54b99957-fead-479c-b06b-826c0cd4cc8c",
+        "fields": {
+            "name": "Braçadeira de Ferro Enferrujado",
+            "description": "Uma braçadeira de ferro com sinais de oxidação, mas ainda robusta.",
+            "rarity": "common",
+            "value": 8,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "54b99957-fead-479c-b06b-826c0cd4cc8c",
+        "fields": {
+            "item_ptr_id": "54b99957-fead-479c-b06b-826c0cd4cc8c",
+            "armor_part": "bracers",
+            "armor_type": "medium",
+            "sub_type": "Ferro",
+            "defense_value": 4,
+            "max_dex_bonus": "2",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "85",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "4540616f-8838-4a67-960f-ccb4136984b3",
+        "fields": {
+            "name": "Braçadeira de Madeira Reforçada",
+            "description": "Braçadeiras de madeira com revestimento para proteção adicional.",
+            "rarity": "common",
+            "value": 12,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "4540616f-8838-4a67-960f-ccb4136984b3",
+        "fields": {
+            "item_ptr_id": "4540616f-8838-4a67-960f-ccb4136984b3",
+            "armor_part": "bracers",
+            "armor_type": "light",
+            "sub_type": "Madeira",
+            "defense_value": 2,
+            "max_dex_bonus": "4",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "95",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

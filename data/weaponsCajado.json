@@ -1,0 +1,1479 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "c8e3275a-7173-467e-828f-867b01a82c33",
+        "fields": {
+            "name": "Cajado de Carvalho",
+            "description": "Um cajado simples feito de carvalho, ideal para iniciantes na prática mágica.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "items/cajado/carvalho.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c8e3275a-7173-467e-828f-867b01a82c33",
+        "fields": {
+            "item_ptr_id": "c8e3275a-7173-467e-828f-867b01a82c33",
+            "category": "Cajado",
+            "sub_category": "Cajado Simples",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "resistente"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "inteligencia": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Pequeno Bônus de Magia (+1)"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [
+                "Mago",
+                "Druida"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "6684af55-59ed-47ec-838b-140a881fdc10",
+        "fields": {
+            "name": "Varinha de Vento Leve",
+            "description": "Uma varinha leve, utilizada para manipular pequenas rajadas de vento.",
+            "rarity": "common",
+            "value": 30,
+            "level_required": 1,
+            "image": "items/varinha/vento_leve.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "6684af55-59ed-47ec-838b-140a881fdc10",
+        "fields": {
+            "item_ptr_id": "6684af55-59ed-47ec-838b-140a881fdc10",
+            "category": "Varinha",
+            "sub_category": "Varinha de Vento",
+            "weight": 0.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "inteligencia": 4
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Aprimora rajadas de vento menores"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 50,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Druida"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0dbf26b0-c972-495b-a314-0c95ccc354cf",
+        "fields": {
+            "name": "Cajado de Pedra Bruta",
+            "description": "Um cajado pesado de pedra, proporciona ataques físicos levemente reforçados.",
+            "rarity": "common",
+            "value": 60,
+            "level_required": 2,
+            "image": "items/cajado/pedra_bruta.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "0dbf26b0-c972-495b-a314-0c95ccc354cf",
+        "fields": {
+            "item_ptr_id": "0dbf26b0-c972-495b-a314-0c95ccc354cf",
+            "category": "Cajado",
+            "sub_category": "Cajado Pesado",
+            "weight": 4.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "resistente"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 7
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Leve aumento de dano físico"
+            ],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [
+                "Mago",
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8fa2a5ed-2acf-40ee-a1e9-2a4d521703ab",
+        "fields": {
+            "name": "Varinha de Chama Fraca",
+            "description": "Uma varinha básica que emite pequenas faíscas, usada por aprendizes de magia de fogo.",
+            "rarity": "common",
+            "value": 40,
+            "level_required": 2,
+            "image": "items/varinha/chama_fraca.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8fa2a5ed-2acf-40ee-a1e9-2a4d521703ab",
+        "fields": {
+            "item_ptr_id": "8fa2a5ed-2acf-40ee-a1e9-2a4d521703ab",
+            "category": "Varinha",
+            "sub_category": "Varinha de Fogo",
+            "weight": 1.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "inteligencia": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Pequeno bônus em magia de fogo"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 60,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Mago"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a37b46ea-e1af-44c9-87d2-18b2533d76db",
+        "fields": {
+            "name": "Cajado de Cristal Claro",
+            "description": "Um cajado com uma ponta de cristal puro, usado para canalizar energias leves.",
+            "rarity": "common",
+            "value": 55,
+            "level_required": 3,
+            "image": "items/cajado/cristal_claro.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a37b46ea-e1af-44c9-87d2-18b2533d76db",
+        "fields": {
+            "item_ptr_id": "a37b46ea-e1af-44c9-87d2-18b2533d76db",
+            "category": "Cajado",
+            "sub_category": "Cajado de Cristal",
+            "weight": 2.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "foco mágico"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "inteligencia": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Bônus leve em feitiços de luz"
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 70,
+            "class_restrictions": [
+                "Druida",
+                "Clérigo"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a8bdfd6c-663e-4005-9586-1767845591b0",
+        "fields": {
+            "name": "Varinha do Limo",
+            "description": "Uma varinha feita de madeira úmida, usada para manipulação de pequenas quantidades de água.",
+            "rarity": "common",
+            "value": 35,
+            "level_required": 1,
+            "image": "items/varinha/limo.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a8bdfd6c-663e-4005-9586-1767845591b0",
+        "fields": {
+            "item_ptr_id": "a8bdfd6c-663e-4005-9586-1767845591b0",
+            "category": "Varinha",
+            "sub_category": "Varinha de Água",
+            "weight": 0.7,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 3,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "inteligencia": 4
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Aprimora pequenos feitiços de água"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 55,
+            "class_restrictions": [
+                "Mago",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2673b93c-5dbb-43a7-b03c-5ae58c6e75f5",
+        "fields": {
+            "name": "Cajado de Espinhos",
+            "description": "Um cajado coberto de espinhos encantados, amplificando ataques físicos e feitiços de natureza.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 5,
+            "image": "items/cajado/espinhos.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "2673b93c-5dbb-43a7-b03c-5ae58c6e75f5",
+        "fields": {
+            "item_ptr_id": "2673b93c-5dbb-43a7-b03c-5ae58c6e75f5",
+            "category": "Cajado",
+            "sub_category": "Cajado Espinhoso",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "espinhoso",
+                "amplifica natureza"
+            ],
+            "elemental_type": "earth",
+            "requirements": {
+                "inteligencia": 6,
+                "forca": 6
+            },
+            "abilities_active": [
+                "Explosão de Espinhos"
+            ],
+            "abilities_passive": [
+                "Amplificação de Magia da Natureza (+2)"
+            ],
+            "attribute_boosts": {
+                "forca": "+1",
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [
+                "Druida",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {
+                "type": "bleed",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "earth",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "afa299c2-6199-4fe1-a9ea-3b3d448936bb",
+        "fields": {
+            "name": "Varinha de Chuva Serena",
+            "description": "Uma varinha que emite uma energia calmante, ideal para manipulações de água e cura básica.",
+            "rarity": "uncommon",
+            "value": 90,
+            "level_required": 4,
+            "image": "items/varinha/chuva_serena.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "afa299c2-6199-4fe1-a9ea-3b3d448936bb",
+        "fields": {
+            "item_ptr_id": "afa299c2-6199-4fe1-a9ea-3b3d448936bb",
+            "category": "Varinha",
+            "sub_category": "Varinha de Água",
+            "weight": 1.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "calmante"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "inteligencia": 7
+            },
+            "abilities_active": [
+                "Curar Feridas Menores"
+            ],
+            "abilities_passive": [
+                "Aprimoramento de Magia de Cura (+1)"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 60,
+            "class_restrictions": [
+                "Clérigo",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "water",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d0d563b8-7026-4234-8f2f-563ea158151b",
+        "fields": {
+            "name": "Cajado da Brisa Leve",
+            "description": "Um cajado encantado que fortalece magias de ar e permite canalizar pequenas rajadas.",
+            "rarity": "uncommon",
+            "value": 110,
+            "level_required": 4,
+            "image": "items/cajado/brisa_leve.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d0d563b8-7026-4234-8f2f-563ea158151b",
+        "fields": {
+            "item_ptr_id": "d0d563b8-7026-4234-8f2f-563ea158151b",
+            "category": "Cajado",
+            "sub_category": "Cajado de Ar",
+            "weight": 2.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "amplifica vento"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "inteligencia": 5,
+                "destreza": 5
+            },
+            "abilities_active": [
+                "Rajada de Vento"
+            ],
+            "abilities_passive": [
+                "Aprimoramento de Magia de Ar (+2)"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Druida"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "bd53784f-a53e-4dcd-9d21-432c3b730390",
+        "fields": {
+            "name": "Cajado da Chama Eterna",
+            "description": "Um cajado imbuído com uma chama inextinguível, amplifica o poder de feitiços de fogo e permite conjurar pequenas bolas de fogo.",
+            "rarity": "rare",
+            "value": 250,
+            "level_required": 8,
+            "image": "items/cajado/chama_eterna.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "bd53784f-a53e-4dcd-9d21-432c3b730390",
+        "fields": {
+            "item_ptr_id": "bd53784f-a53e-4dcd-9d21-432c3b730390",
+            "category": "Cajado",
+            "sub_category": "Cajado de Fogo",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "incandescente",
+                "amplifica magia de fogo"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "inteligencia": 10
+            },
+            "abilities_active": [
+                "Bola de Fogo Menor"
+            ],
+            "abilities_passive": [
+                "Aprimoramento de Magia de Fogo (+3)"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 150,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Mago"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "fire_shield",
+                        "duration": 2,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "85c018ba-8085-4695-9cde-8f47cfa15f1f",
+        "fields": {
+            "name": "Varinha do Relâmpago",
+            "description": "Uma varinha energizada que permite ao portador lançar rajadas de eletricidade e aumenta a velocidade.",
+            "rarity": "rare",
+            "value": 220,
+            "level_required": 7,
+            "image": "items/varinha/relampago.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "85c018ba-8085-4695-9cde-8f47cfa15f1f",
+        "fields": {
+            "item_ptr_id": "85c018ba-8085-4695-9cde-8f47cfa15f1f",
+            "category": "Varinha",
+            "sub_category": "Varinha de Relâmpago",
+            "weight": 1.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": "lightning",
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "energizada",
+                "aumenta velocidade"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "inteligencia": 8,
+                "destreza": 8
+            },
+            "abilities_active": [
+                "Rajada Elétrica"
+            ],
+            "abilities_passive": [
+                "Aprimoramento de Destreza (+2)"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "earth",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 100,
+            "class_restrictions": [
+                "Mago",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "lightning",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 3
+                },
+                "duration": 2,
+                "chance": 60
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "paralyze",
+                        "duration": 1,
+                        "chance": 30
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "20239ee2-4005-4746-aabf-fd050dd50dc4",
+        "fields": {
+            "name": "Cajado da Névoa Mística",
+            "description": "Cajado envolto em névoa que permite criar ilusões e amplificar feitiços de ilusão e confusão.",
+            "rarity": "rare",
+            "value": 270,
+            "level_required": 9,
+            "image": "items/cajado/nevoa_mistica.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "20239ee2-4005-4746-aabf-fd050dd50dc4",
+        "fields": {
+            "item_ptr_id": "20239ee2-4005-4746-aabf-fd050dd50dc4",
+            "category": "Cajado",
+            "sub_category": "Cajado de Ilusão",
+            "weight": 2.7,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "amplifica ilusão",
+                "névoa"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "inteligencia": 9,
+                "sabedoria": 8
+            },
+            "abilities_active": [
+                "Criação de Ilusão Menor"
+            ],
+            "abilities_passive": [
+                "Amplificação de Feitiços de Confusão"
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Mago"
+            ],
+            "ongoing_effects": {
+                "type": "confusion",
+                "duration": 2,
+                "chance": 40
+            },
+            "target_effects": [
+                {
+                    "target_type": "humanoid",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 4
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "stealth",
+                        "duration": 2,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "dbbcaad2-bec3-4871-9ecc-f956471c3278",
+        "fields": {
+            "name": "Cajado do Vórtice Arcano",
+            "description": "Cajado coberto de runas místicas que amplifica feitiços arcanos e oferece alta resistência contra magias.",
+            "rarity": "very_rare",
+            "value": 550,
+            "level_required": 12,
+            "image": "items/cajado/vortice_arcano.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "dbbcaad2-bec3-4871-9ecc-f956471c3278",
+        "fields": {
+            "item_ptr_id": "dbbcaad2-bec3-4871-9ecc-f956471c3278",
+            "category": "Cajado",
+            "sub_category": "Cajado Arcano",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "force",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "rúnico",
+                "amplificação arcana"
+            ],
+            "elemental_type": "arcane",
+            "requirements": {
+                "inteligencia": 14
+            },
+            "abilities_active": [
+                "Explosão Arcana"
+            ],
+            "abilities_passive": [
+                "Resistência a Magia (+4)"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 180,
+            "class_restrictions": [
+                "Mago",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "arcane",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 60
+            },
+            "target_effects": [
+                {
+                    "target_type": "elemental",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "arcane_surge",
+                        "duration": 2,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "arcane",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e0cf4f76-9218-497a-9f7e-987c850a3a6f",
+        "fields": {
+            "name": "Varinha de Gelo Eterno",
+            "description": "Uma varinha de cristal de gelo que nunca derrete, ideal para magias de gelo e controle de inimigos.",
+            "rarity": "very_rare",
+            "value": 530,
+            "level_required": 11,
+            "image": "items/varinha/gelo_eterno.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e0cf4f76-9218-497a-9f7e-987c850a3a6f",
+        "fields": {
+            "item_ptr_id": "e0cf4f76-9218-497a-9f7e-987c850a3a6f",
+            "category": "Varinha",
+            "sub_category": "Varinha de Gelo",
+            "weight": 1.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "cold",
+            "secondary_damage_type": "blunt",
+            "range": "short",
+            "special_range": null,
+            "properties": [
+                "gélida",
+                "congela"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "inteligencia": 12,
+                "destreza": 8
+            },
+            "abilities_active": [
+                "Congelamento Profundo"
+            ],
+            "abilities_passive": [
+                "Aprimoramento de Magia de Gelo (+3)"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 140,
+            "class_restrictions": [
+                "Mago",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "cold",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "fire_elemental",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "ice_shield",
+                        "duration": 3,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c36263ea-d23d-4752-a1a5-6c03311b4656",
+        "fields": {
+            "name": "Cajado das Sombras Esvoaçantes",
+            "description": "Um cajado sombrio que amplia magias de escuridão e proporciona furtividade nas sombras.",
+            "rarity": "very_rare",
+            "value": 570,
+            "level_required": 12,
+            "image": "items/cajado/sombras_esvoacantes.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c36263ea-d23d-4752-a1a5-6c03311b4656",
+        "fields": {
+            "item_ptr_id": "c36263ea-d23d-4752-a1a5-6c03311b4656",
+            "category": "Cajado",
+            "sub_category": "Cajado de Sombra",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "shadow",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "sombrio",
+                "furtividade"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "inteligencia": 13,
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Esconderijo nas Sombras"
+            ],
+            "abilities_passive": [
+                "Amplificação de Magia Sombria (+4)"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 160,
+            "class_restrictions": [
+                "Feiticeiro",
+                "Rogue"
+            ],
+            "ongoing_effects": {
+                "type": "shadow",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "humanoid",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "night_time",
+                    "effect": {
+                        "type": "invisibility",
+                        "duration": 3,
+                        "chance": 80
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "918b5962-f986-46cc-bcd7-7e8244e46592",
+        "fields": {
+            "name": "Cajado do Éter Eterno",
+            "description": "Um cajado lendário que canaliza energia etérea pura, permitindo ao portador manipular a realidade ao seu redor.",
+            "rarity": "mythic",
+            "value": 3000,
+            "level_required": 20,
+            "image": "items/cajado/eter_eterno.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "918b5962-f986-46cc-bcd7-7e8244e46592",
+        "fields": {
+            "item_ptr_id": "918b5962-f986-46cc-bcd7-7e8244e46592",
+            "category": "Cajado",
+            "sub_category": "Cajado Etéreo",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 10,
+                "bonus": 6
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "damage_type": "force",
+            "secondary_damage_type": "psychic",
+            "range": "melee",
+            "special_range": "infinite",
+            "properties": [
+                "etéreo",
+                "manipulação de realidade"
+            ],
+            "elemental_type": "arcane",
+            "requirements": {
+                "inteligencia": 20
+            },
+            "abilities_active": [
+                "Distorção Temporal"
+            ],
+            "abilities_passive": [
+                "Imunidade a Controle Mental"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+5"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 500,
+            "class_restrictions": [
+                "Mago"
+            ],
+            "ongoing_effects": {
+                "type": "psychic",
+                "damage_per_round": {
+                    "dice_count": 3,
+                    "dice_type": 8
+                },
+                "duration": 5,
+                "chance": 80
+            },
+            "target_effects": [
+                {
+                    "target_type": "extra_dimensional",
+                    "bonus_damage": {
+                        "dice_count": 4,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "reality_warp",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                },
+                {
+                    "type": "arcane",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c0df83ca-b390-40c9-bf12-82f31ab8952f",
+        "fields": {
+            "name": "Varinha da Luz Divina",
+            "description": "Uma varinha mitológica que irradia luz divina, protegendo o portador contra qualquer tipo de trevas e corrupção.",
+            "rarity": "mythic",
+            "value": 3500,
+            "level_required": 20,
+            "image": "items/varinha/luz_divina.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c0df83ca-b390-40c9-bf12-82f31ab8952f",
+        "fields": {
+            "item_ptr_id": "c0df83ca-b390-40c9-bf12-82f31ab8952f",
+            "category": "Varinha",
+            "sub_category": "Varinha Divina",
+            "weight": 1.0,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 8,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "damage_type": "radiant",
+            "secondary_damage_type": "force",
+            "range": "long",
+            "special_range": null,
+            "properties": [
+                "divina",
+                "purificação"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "inteligencia": 18,
+                "sabedoria": 15
+            },
+            "abilities_active": [
+                "Explosão de Luz Divina"
+            ],
+            "abilities_passive": [
+                "Proteção Absoluta contra Escuridão"
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+4"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 450,
+            "class_restrictions": [
+                "Clérigo",
+                "Mago"
+            ],
+            "ongoing_effects": {
+                "type": "radiant",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 10
+                },
+                "duration": 5,
+                "chance": 90
+            },
+            "target_effects": [
+                {
+                    "target_type": "demon",
+                    "bonus_damage": {
+                        "dice_count": 4,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "holy_revival",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                },
+                {
+                    "type": "necrotic",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "325a6396-936c-449f-8d37-975169ce2653",
+        "fields": {
+            "name": "Cajado do Cosmos Infinito",
+            "description": "Cajado que canaliza o poder das estrelas, permitindo manipular forças cósmicas para atacar e proteger.",
+            "rarity": "mythic",
+            "value": 3800,
+            "level_required": 20,
+            "image": "items/cajado/cosmos_infinito.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "325a6396-936c-449f-8d37-975169ce2653",
+        "fields": {
+            "item_ptr_id": "325a6396-936c-449f-8d37-975169ce2653",
+            "category": "Cajado",
+            "sub_category": "Cajado Cósmico",
+            "weight": 3.6,
+            "primary_damage": {
+                "dice_count": 5,
+                "dice_type": 8,
+                "bonus": 6
+            },
+            "secondary_damage": {
+                "dice_count": 3,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "damage_type": "force",
+            "secondary_damage_type": "radiant",
+            "range": "infinite",
+            "special_range": null,
+            "properties": [
+                "cósmico",
+                "controle estelar"
+            ],
+            "elemental_type": "arcane",
+            "requirements": {
+                "inteligencia": 20,
+                "sabedoria": 18
+            },
+            "abilities_active": [
+                "Vórtice Estelar"
+            ],
+            "abilities_passive": [
+                "Amplificação Cósmica (+5)"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+5",
+                "sabedoria": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 500,
+            "class_restrictions": [
+                "Mago",
+                "Druida"
+            ],
+            "ongoing_effects": {
+                "type": "arcane",
+                "damage_per_round": {
+                    "dice_count": 3,
+                    "dice_type": 10
+                },
+                "duration": 5,
+                "chance": 85
+            },
+            "target_effects": [
+                {
+                    "target_type": "celestial",
+                    "bonus_damage": {
+                        "dice_count": 4,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "cosmic_alignment",
+                    "effect": {
+                        "type": "ultimate_empower",
+                        "duration": 2,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "arcane",
+                    "level": "immunity"
+                },
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

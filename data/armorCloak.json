@@ -1,0 +1,294 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "b159c498-c71f-4df7-8a91-ff3b953a6d55",
+        "fields": {
+            "name": "Manto do Esquivo",
+            "description": "Um manto leve que permite ao usuário se mover furtivamente, ideal para aqueles que precisam evitar detecção.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "b159c498-c71f-4df7-8a91-ff3b953a6d55",
+        "fields": {
+            "item_ptr_id": "b159c498-c71f-4df7-8a91-ff3b953a6d55",
+            "armor_part": "cloak",
+            "armor_type": "light",
+            "sub_type": "Manto",
+            "defense_value": 1,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Furtividade Aprimorada"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": 50,
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a4983148-2ece-4f54-b96a-621a63b59f3a",
+        "fields": {
+            "name": "Manto da Serenidade",
+            "description": "Este manto acalma o espírito e protege contra ataques mentais.",
+            "rarity": "rare",
+            "value": 300,
+            "level_required": 5,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a4983148-2ece-4f54-b96a-621a63b59f3a",
+        "fields": {
+            "item_ptr_id": "a4983148-2ece-4f54-b96a-621a63b59f3a",
+            "armor_part": "cloak",
+            "armor_type": "light",
+            "sub_type": "Manto",
+            "defense_value": 1,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "12"
+            },
+            "abilities": [
+                "Proteção Mental"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [],
+            "durability": 70,
+            "class_restrictions": [
+                "Druida",
+                "Monge"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d30a9d0f-3c66-40b8-8c80-3ff8b4a79f44",
+        "fields": {
+            "name": "Manto das Sombras",
+            "description": "Um manto escuro que parece absorver a luz ao redor, perfeito para ações furtivas.",
+            "rarity": "very_rare",
+            "value": 600,
+            "level_required": 7,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "d30a9d0f-3c66-40b8-8c80-3ff8b4a79f44",
+        "fields": {
+            "item_ptr_id": "d30a9d0f-3c66-40b8-8c80-3ff8b4a79f44",
+            "armor_part": "cloak",
+            "armor_type": "light",
+            "sub_type": "Manto",
+            "defense_value": 2,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "dark",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "radiant",
+                    "multiplier": "2"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "carisma",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "14"
+            },
+            "abilities": [
+                "Furtividade Sombria"
+            ],
+            "ongoing_effects": {
+                "type": "escuridão",
+                "damage_reduction": "1",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [
+                {
+                    "condition": "entrada_em_ambiente_escuro",
+                    "effect": {
+                        "type": "camuflagem_sombra",
+                        "value": "invisibilidade_parcial",
+                        "duration": "3",
+                        "chance": "50"
+                    }
+                }
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [],
+            "durability": 100,
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a40cbe03-df75-4de9-8c2c-278ddb624ad6",
+        "fields": {
+            "name": "Manto do Viajante",
+            "description": "Ideal para aventureiros, este manto oferece proteção contra o frio e o calor extremos.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 4,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a40cbe03-df75-4de9-8c2c-278ddb624ad6",
+        "fields": {
+            "item_ptr_id": "a40cbe03-df75-4de9-8c2c-278ddb624ad6",
+            "armor_part": "cloak",
+            "armor_type": "light",
+            "sub_type": "Manto",
+            "defense_value": 1,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                },
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Resistência Elemental"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": 80,
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "66459262-7d8f-4e04-a6d5-afcc63b49d50",
+        "fields": {
+            "name": "Manto da Vitalidade",
+            "description": "Este manto concede um leve aumento na vitalidade do usuário.",
+            "rarity": "rare",
+            "value": 350,
+            "level_required": 6,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "66459262-7d8f-4e04-a6d5-afcc63b49d50",
+        "fields": {
+            "item_ptr_id": "66459262-7d8f-4e04-a6d5-afcc63b49d50",
+            "armor_part": "cloak",
+            "armor_type": "light",
+            "sub_type": "Manto",
+            "defense_value": 1,
+            "max_dex_bonus": null,
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "constituição": "14"
+            },
+            "abilities": [
+                "Regeneração Lenta"
+            ],
+            "ongoing_effects": {
+                "type": "regeneração",
+                "damage_reduction": "1",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituição": "+2"
+            },
+            "granted_resistances": [],
+            "durability": 120,
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

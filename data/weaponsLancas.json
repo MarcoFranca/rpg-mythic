@@ -1,0 +1,1577 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "5946e382-3dda-4c2d-bbbc-33d8ffc59032",
+        "fields": {
+            "name": "Lança de Madeira",
+            "description": "Uma lança simples feita de madeira resistente, adequada para combate básico.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "items/lança/lanca_de_madeira.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "5946e382-3dda-4c2d-bbbc-33d8ffc59032",
+        "fields": {
+            "item_ptr_id": "5946e382-3dda-4c2d-bbbc-33d8ffc59032",
+            "category": "Lança",
+            "sub_category": "Lança Curta",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5b9a5b5b-3b4b-4ffa-9e72-d2b4364f4e25",
+        "fields": {
+            "name": "Lança de Caça",
+            "description": "Lança usada comumente por caçadores, ideal para combates rápidos e precisos.",
+            "rarity": "common",
+            "value": 75,
+            "level_required": 2,
+            "image": "items/lança/lanca_de_caca.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "5b9a5b5b-3b4b-4ffa-9e72-d2b4364f4e25",
+        "fields": {
+            "item_ptr_id": "5b9a5b5b-3b4b-4ffa-9e72-d2b4364f4e25",
+            "category": "Lança",
+            "sub_category": "Lança de Caça",
+            "weight": 2.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 120,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9bc0f169-59e0-4c6c-8ae1-2f5066304d8d",
+        "fields": {
+            "name": "Tridente de Pescador",
+            "description": "Tridente usado para pesca, mas pode ser útil em combate a curta distância.",
+            "rarity": "common",
+            "value": 60,
+            "level_required": 2,
+            "image": "items/tridente/tridente_de_pescador.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "9bc0f169-59e0-4c6c-8ae1-2f5066304d8d",
+        "fields": {
+            "item_ptr_id": "9bc0f169-59e0-4c6c-8ae1-2f5066304d8d",
+            "category": "Tridente",
+            "sub_category": "Tridente Básico",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 7
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ee0d8f1b-e92f-4806-9476-dfbe264e5d19",
+        "fields": {
+            "name": "Lança de Guardião",
+            "description": "Lança usada por guardas e sentinelas, com resistência superior.",
+            "rarity": "common",
+            "value": 85,
+            "level_required": 3,
+            "image": "items/lança/lanca_guardiao.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ee0d8f1b-e92f-4806-9476-dfbe264e5d19",
+        "fields": {
+            "item_ptr_id": "ee0d8f1b-e92f-4806-9476-dfbe264e5d19",
+            "category": "Lança",
+            "sub_category": "Lança de Guarda",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 130,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "6d138dd4-4bd7-47ce-90ce-b441d95ced8d",
+        "fields": {
+            "name": "Lança de Treinamento",
+            "description": "Uma lança mais leve e resistente, feita para treinar iniciantes no combate.",
+            "rarity": "common",
+            "value": 40,
+            "level_required": 1,
+            "image": "items/lança/lanca_treinamento.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "6d138dd4-4bd7-47ce-90ce-b441d95ced8d",
+        "fields": {
+            "item_ptr_id": "6d138dd4-4bd7-47ce-90ce-b441d95ced8d",
+            "category": "Lança",
+            "sub_category": "Lança Leve",
+            "weight": 2.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 4
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "047887b0-9123-4640-9d49-a964ee9dc03f",
+        "fields": {
+            "name": "Lança do Caçador Furtivo",
+            "description": "Lança com ponta reforçada, ideal para caçadores que buscam precisão e agilidade em combate.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 5,
+            "image": "items/lança/lanca_cacador_furtivo.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "047887b0-9123-4640-9d49-a964ee9dc03f",
+        "fields": {
+            "item_ptr_id": "047887b0-9123-4640-9d49-a964ee9dc03f",
+            "category": "Lança",
+            "sub_category": "Lança Leve",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "balanceada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 7,
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Aumento de Precisão"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [
+                "Caçador"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "894f972f-d5cf-4952-831d-9fc86bc50916",
+        "fields": {
+            "name": "Tridente dos Ventos",
+            "description": "Um tridente com leve influência elemental de ar, facilitando o manuseio e aumentando a velocidade dos golpes.",
+            "rarity": "uncommon",
+            "value": 150,
+            "level_required": 6,
+            "image": "items/tridente/tridente_dos_ventos.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "894f972f-d5cf-4952-831d-9fc86bc50916",
+        "fields": {
+            "item_ptr_id": "894f972f-d5cf-4952-831d-9fc86bc50916",
+            "category": "Tridente",
+            "sub_category": "Tridente Leve",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "balanceada"
+            ],
+            "elemental_type": "air",
+            "requirements": {
+                "forca": 8,
+                "destreza": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Aumento de Velocidade"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 140,
+            "class_restrictions": [
+                "Guerreiro",
+                "Caçador"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "air",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a3dfad1d-b580-4e1f-ad5e-ca74f013a541",
+        "fields": {
+            "name": "Lança do Guardião das Planícies",
+            "description": "Uma lança usada por guerreiros das planícies, com lâmina resistente e um design reforçado.",
+            "rarity": "uncommon",
+            "value": 140,
+            "level_required": 7,
+            "image": "items/lança/lanca_guardiao_planicies.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a3dfad1d-b580-4e1f-ad5e-ca74f013a541",
+        "fields": {
+            "item_ptr_id": "a3dfad1d-b580-4e1f-ad5e-ca74f013a541",
+            "category": "Lança",
+            "sub_category": "Lança Reforçada",
+            "weight": 3.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "balanceada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Resistência a Quebra"
+            ],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 180,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "070e6726-b105-463b-8d01-259a9cc421fd",
+        "fields": {
+            "name": "Lança Flamejante",
+            "description": "Lança com ponta encantada que emite chamas, causando queimaduras em cada golpe.",
+            "rarity": "rare",
+            "value": 300,
+            "level_required": 10,
+            "image": "items/lança/lanca_flamejante.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "070e6726-b105-463b-8d01-259a9cc421fd",
+        "fields": {
+            "item_ptr_id": "070e6726-b105-463b-8d01-259a9cc421fd",
+            "category": "Lança",
+            "sub_category": "Lança de Fogo",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "fire",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "ardente"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 12
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Aumento de Dano por Fogo"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "ice",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 200,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d5fa7ab0-fd24-4269-acd0-fe851c28a437",
+        "fields": {
+            "name": "Tridente de Gelo",
+            "description": "Tridente encantado com a essência do gelo, causando lentidão aos inimigos atingidos.",
+            "rarity": "rare",
+            "value": 320,
+            "level_required": 11,
+            "image": "items/tridente/tridente_gelo.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d5fa7ab0-fd24-4269-acd0-fe851c28a437",
+        "fields": {
+            "item_ptr_id": "d5fa7ab0-fd24-4269-acd0-fe851c28a437",
+            "category": "Tridente",
+            "sub_category": "Tridente Congelante",
+            "weight": 4.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "cold",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "congelante"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "forca": 12,
+                "destreza": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Redução de Velocidade"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "fire",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 220,
+            "class_restrictions": [
+                "Guerreiro",
+                "Caçador"
+            ],
+            "ongoing_effects": {
+                "type": "cold",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 60
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "slow",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "13006bbd-643c-430a-bc9c-e60d0eee5fc2",
+        "fields": {
+            "name": "Lança Elétrica",
+            "description": "Lança imbuída com a energia dos trovões, emitindo descargas elétricas nos inimigos.",
+            "rarity": "rare",
+            "value": 350,
+            "level_required": 12,
+            "image": "items/lança/lanca_eletrica.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "13006bbd-643c-430a-bc9c-e60d0eee5fc2",
+        "fields": {
+            "item_ptr_id": "13006bbd-643c-430a-bc9c-e60d0eee5fc2",
+            "category": "Lança",
+            "sub_category": "Lança Trovão",
+            "weight": 3.7,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "thunder",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "elétrico"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 13
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Dano Elétrico Adicional"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 200,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {
+                "type": "thunder",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "stun",
+                        "duration": 1,
+                        "chance": 40
+                    }
+                }
+            ],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ed574866-651e-4fd6-bbc6-2cff6fd5ad9a",
+        "fields": {
+            "name": "Tridente do Guardião Marinho",
+            "description": "Tridente utilizado por guardiões dos mares, conferindo afinidade com a água e resistência a afogamentos.",
+            "rarity": "rare",
+            "value": 400,
+            "level_required": 13,
+            "image": "items/tridente/tridente_guardiao_marinho.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ed574866-651e-4fd6-bbc6-2cff6fd5ad9a",
+        "fields": {
+            "item_ptr_id": "ed574866-651e-4fd6-bbc6-2cff6fd5ad9a",
+            "category": "Tridente",
+            "sub_category": "Tridente da Maré",
+            "weight": 4.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 12,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "afinidade aquática"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "forca": 14
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Resistência a Afogamento"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "fire",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 250,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "water",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5d934899-5757-498d-b213-2128c6cff588",
+        "fields": {
+            "name": "Lança do Trovão Ancestral",
+            "description": "Uma lança encantada com o poder do trovão, liberando descargas elétricas que atordoam os oponentes.",
+            "rarity": "very_rare",
+            "value": 750,
+            "level_required": 15,
+            "image": "items/lança/lanca_trovao_ancestral.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "5d934899-5757-498d-b213-2128c6cff588",
+        "fields": {
+            "item_ptr_id": "5d934899-5757-498d-b213-2128c6cff588",
+            "category": "Lança",
+            "sub_category": "Lança Ancestral",
+            "weight": 3.9,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "thunder",
+            "range": "long",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "elétrico",
+                "indestrutível"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 15,
+                "destreza": 12
+            },
+            "abilities_active": [
+                "Explosão de Trovão"
+            ],
+            "abilities_passive": [
+                "Atordoamento"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "destreza": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "earth",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 300,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {
+                "type": "thunder",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "flying",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "stun",
+                        "duration": 2,
+                        "chance": 60
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "thunder",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "70c13488-9634-4208-a55c-5a393e0562e5",
+        "fields": {
+            "name": "Tridente das Profundezas",
+            "description": "Um tridente imbuído com as forças do oceano, capaz de invocar ondas e manipular água ao seu redor.",
+            "rarity": "very_rare",
+            "value": 800,
+            "level_required": 16,
+            "image": "items/tridente/tridente_profundezas.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "70c13488-9634-4208-a55c-5a393e0562e5",
+        "fields": {
+            "item_ptr_id": "70c13488-9634-4208-a55c-5a393e0562e5",
+            "category": "Tridente",
+            "sub_category": "Tridente Oceânico",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "water",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "aquático",
+                "invoca ondas"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "forca": 14,
+                "destreza": 11
+            },
+            "abilities_active": [
+                "Controle de Maré"
+            ],
+            "abilities_passive": [
+                "Respiração Aquática"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "fire",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 280,
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago do Mar"
+            ],
+            "ongoing_effects": {
+                "type": "water",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 2,
+                "chance": 60
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "underwater",
+                    "effect": {
+                        "type": "double_damage",
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "water",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a9d8ef21-583c-4e67-9e26-61e7d89e9881",
+        "fields": {
+            "name": "Lança da Sombra Oculta",
+            "description": "Uma lança envolta em trevas, que concede invisibilidade temporária ao portador.",
+            "rarity": "very_rare",
+            "value": 850,
+            "level_required": 17,
+            "image": "items/lança/lanca_sombra_oculta.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a9d8ef21-583c-4e67-9e26-61e7d89e9881",
+        "fields": {
+            "item_ptr_id": "a9d8ef21-583c-4e67-9e26-61e7d89e9881",
+            "category": "Lança",
+            "sub_category": "Lança Sombria",
+            "weight": 3.6,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "shadow",
+            "range": "medium",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "invisível ao lançar"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 13,
+                "destreza": 14
+            },
+            "abilities_active": [
+                "Invisibilidade Temporária"
+            ],
+            "abilities_passive": [
+                "Movimento Silencioso"
+            ],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 270,
+            "class_restrictions": [
+                "Rogue",
+                "Assassino"
+            ],
+            "ongoing_effects": {
+                "type": "shadow",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "blind",
+                        "duration": 1,
+                        "chance": 40
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8dd9413f-85ff-43c9-a93a-d15939928566",
+        "fields": {
+            "name": "Lança do Deus do Trovão",
+            "description": "Uma lança lendária imbuída com o poder de um deus do trovão, causando devastação em todos os alvos ao redor.",
+            "rarity": "legendary",
+            "value": 1500,
+            "level_required": 20,
+            "image": "items/lança/lanca_deus_trovao.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8dd9413f-85ff-43c9-a93a-d15939928566",
+        "fields": {
+            "item_ptr_id": "8dd9413f-85ff-43c9-a93a-d15939928566",
+            "category": "Lança",
+            "sub_category": "Lança Divina",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "thunder",
+            "range": "long",
+            "special_range": "extra_long",
+            "properties": [
+                "divino",
+                "impacto devastador",
+                "indestrutível"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 18,
+                "destreza": 15
+            },
+            "abilities_active": [
+                "Chuva de Trovões"
+            ],
+            "abilities_passive": [
+                "Dano em Área"
+            ],
+            "attribute_boosts": {
+                "forca": "+5",
+                "destreza": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "earth",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 500,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "thunder",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 8
+                },
+                "duration": 3,
+                "chance": 80
+            },
+            "target_effects": [
+                {
+                    "target_type": "earth_elemental",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "paralyze",
+                        "duration": 1,
+                        "chance": 60
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "thunder",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1178c7e1-c997-40c6-a31f-5e313debddc3",
+        "fields": {
+            "name": "Tridente de Poseidon",
+            "description": "O lendário tridente de Poseidon, mestre dos oceanos, com poderes para manipular e invocar marés.",
+            "rarity": "legendary",
+            "value": 1600,
+            "level_required": 20,
+            "image": "items/tridente/tridente_poseidon.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "1178c7e1-c997-40c6-a31f-5e313debddc3",
+        "fields": {
+            "item_ptr_id": "1178c7e1-c997-40c6-a31f-5e313debddc3",
+            "category": "Tridente",
+            "sub_category": "Tridente Divino",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "water",
+            "range": "long",
+            "special_range": "extra_long",
+            "properties": [
+                "divino",
+                "controle aquático",
+                "invocador de marés"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "forca": 17,
+                "inteligencia": 14
+            },
+            "abilities_active": [
+                "Invocar Tsunami"
+            ],
+            "abilities_passive": [
+                "Respiração Submarina"
+            ],
+            "attribute_boosts": {
+                "forca": "+4",
+                "inteligencia": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "fire",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "lightning",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 500,
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago do Mar"
+            ],
+            "ongoing_effects": {
+                "type": "water",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 8
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "fire_elemental",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "water_env",
+                    "effect": {
+                        "type": "double_damage",
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "water",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "eaf92663-ecce-4b7f-b13d-8c508173b3f9",
+        "fields": {
+            "name": "Lança da Eternidade",
+            "description": "Uma lança mítica que transcende o tempo e o espaço, atingindo qualquer alvo sem falhar.",
+            "rarity": "mythic",
+            "value": 5000,
+            "level_required": 25,
+            "image": "items/lança/lanca_eternidade.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "eaf92663-ecce-4b7f-b13d-8c508173b3f9",
+        "fields": {
+            "item_ptr_id": "eaf92663-ecce-4b7f-b13d-8c508173b3f9",
+            "category": "Lança",
+            "sub_category": "Lança Divina do Tempo",
+            "weight": 4.0,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 12,
+                "bonus": 6
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "psychic",
+            "range": "infinite",
+            "special_range": "acerta qualquer alvo",
+            "properties": [
+                "mítica",
+                "transcendência temporal",
+                "indestrutível"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 20,
+                "inteligencia": 18
+            },
+            "abilities_active": [
+                "Golpe Atemporal"
+            ],
+            "abilities_passive": [
+                "Dano Garantido"
+            ],
+            "attribute_boosts": {
+                "forca": "+6",
+                "inteligencia": "+5"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "all",
+                    "value": {
+                        "dice_count": 3,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 1000,
+            "class_restrictions": [
+                "Deus Guerreiro",
+                "Guardião Temporal"
+            ],
+            "ongoing_effects": {
+                "type": "psychic",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 10
+                },
+                "duration": 5,
+                "chance": 90
+            },
+            "target_effects": [
+                {
+                    "target_type": "celestial",
+                    "bonus_damage": {
+                        "dice_count": 3,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "restore_health",
+                        "value": 20,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                },
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e9e7a767-b4a1-443d-abb4-d4a7edbbb604",
+        "fields": {
+            "name": "Tridente do Oceano Infinito",
+            "description": "O lendário tridente dos deuses do mar, com poder absoluto sobre os mares e criaturas aquáticas.",
+            "rarity": "mythic",
+            "value": 5200,
+            "level_required": 25,
+            "image": "items/tridente/tridente_oceano_infinito.png",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e9e7a767-b4a1-443d-abb4-d4a7edbbb604",
+        "fields": {
+            "item_ptr_id": "e9e7a767-b4a1-443d-abb4-d4a7edbbb604",
+            "category": "Tridente",
+            "sub_category": "Tridente Divino dos Mares",
+            "weight": 5.2,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 10,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "pierce",
+            "secondary_damage_type": "water",
+            "range": "extra_long",
+            "special_range": "destrói barreiras aquáticas",
+            "properties": [
+                "mítico",
+                "controle absoluto do oceano",
+                "invocador de tempestades"
+            ],
+            "elemental_type": "water",
+            "requirements": {
+                "forca": 18,
+                "sabedoria": 20
+            },
+            "abilities_active": [
+                "Invocar Tempestade Infinita"
+            ],
+            "abilities_passive": [
+                "Controle do Mar"
+            ],
+            "attribute_boosts": {
+                "forca": "+5",
+                "sabedoria": "+6"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "fire",
+                    "value": {
+                        "dice_count": 3,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 1000,
+            "class_restrictions": [
+                "Mestre dos Mares",
+                "Deus Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "water",
+                "damage_per_round": {
+                    "dice_count": 3,
+                    "dice_type": 8
+                },
+                "duration": 4,
+                "chance": 90
+            },
+            "target_effects": [
+                {
+                    "target_type": "fire_elemental",
+                    "bonus_damage": {
+                        "dice_count": 3,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "near_water",
+                    "effect": {
+                        "type": "double_damage",
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "water",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

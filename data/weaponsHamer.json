@@ -1,0 +1,2491 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "b44ac2c5-9750-4f4d-a2ce-c8aa99ab2679",
+        "fields": {
+            "name": "Machado Simples",
+            "description": "Um machado básico, utilizado principalmente para tarefas comuns, mas capaz de causar danos consideráveis em combate.",
+            "rarity": "common",
+            "value": 150,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b44ac2c5-9750-4f4d-a2ce-c8aa99ab2679",
+        "fields": {
+            "item_ptr_id": "b44ac2c5-9750-4f4d-a2ce-c8aa99ab2679",
+            "category": "Machado",
+            "sub_category": "Machado de Uma Mão",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b7dbcb7a-2276-45d4-b2ae-c5c48c1c9323",
+        "fields": {
+            "name": "Martelo de Guerra",
+            "description": "Um martelo robusto e confiável, ideal para batalhas corpo a corpo. Causa danos contundentes com facilidade.",
+            "rarity": "common",
+            "value": 180,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b7dbcb7a-2276-45d4-b2ae-c5c48c1c9323",
+        "fields": {
+            "item_ptr_id": "b7dbcb7a-2276-45d4-b2ae-c5c48c1c9323",
+            "category": "Martelo",
+            "sub_category": "Martelo de Duas Mãos",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "impactante"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [
+                "Guerreiro",
+                "Barbaro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8213e94b-aa23-4654-9400-8a28fb49303a",
+        "fields": {
+            "name": "Machadinha de Caça",
+            "description": "Pequena e ágil, ideal para aventuras e perfeita para um combate rápido.",
+            "rarity": "common",
+            "value": 120,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8213e94b-aa23-4654-9400-8a28fb49303a",
+        "fields": {
+            "item_ptr_id": "8213e94b-aa23-4654-9400-8a28fb49303a",
+            "category": "Machado",
+            "sub_category": "Machadinha",
+            "weight": 1.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "versátil"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [
+                "Aventureiro",
+                "Caçador"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a795803b-3cf7-40b3-b071-23e0d69144e2",
+        "fields": {
+            "name": "Machado de Lenhador",
+            "description": "Um machado comum utilizado para cortar madeira, mas que pode causar bons danos em combate.",
+            "rarity": "common",
+            "value": 130,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a795803b-3cf7-40b3-b071-23e0d69144e2",
+        "fields": {
+            "item_ptr_id": "a795803b-3cf7-40b3-b071-23e0d69144e2",
+            "category": "Machado",
+            "sub_category": "Machado de Duas Mãos",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [
+                "Lenhador",
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9dee342e-c341-440f-a62b-dfe1d65828a3",
+        "fields": {
+            "name": "Marreta de Pedreiro",
+            "description": "Uma marreta resistente, usada em construção mas eficaz para esmagar inimigos.",
+            "rarity": "common",
+            "value": 140,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "9dee342e-c341-440f-a62b-dfe1d65828a3",
+        "fields": {
+            "item_ptr_id": "9dee342e-c341-440f-a62b-dfe1d65828a3",
+            "category": "Martelo",
+            "sub_category": "Marreta",
+            "weight": 4.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "impactante"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [
+                "Guerreiro",
+                "Construtor"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ae8f8732-7ce3-4e3e-a418-468f8a03abdc",
+        "fields": {
+            "name": "Machado de Mão de Caçador",
+            "description": "Machado leve, ideal para caçar e manobrar rapidamente no campo de batalha.",
+            "rarity": "common",
+            "value": 110,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ae8f8732-7ce3-4e3e-a418-468f8a03abdc",
+        "fields": {
+            "item_ptr_id": "ae8f8732-7ce3-4e3e-a418-468f8a03abdc",
+            "category": "Machado",
+            "sub_category": "Machado de Mão",
+            "weight": 2.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "versátil"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 85,
+            "class_restrictions": [
+                "Caçador",
+                "Aventureiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "33d85ba3-393a-44cc-ba38-531bff8f5c85",
+        "fields": {
+            "name": "Martelo de Ferreiro",
+            "description": "Um martelo feito para forjar metal, mas que pode causar um estrago considerável em combate.",
+            "rarity": "common",
+            "value": 160,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "33d85ba3-393a-44cc-ba38-531bff8f5c85",
+        "fields": {
+            "item_ptr_id": "33d85ba3-393a-44cc-ba38-531bff8f5c85",
+            "category": "Martelo",
+            "sub_category": "Martelo de Forja",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "impactante"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [
+                "Ferreiro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "42272361-a798-4ae1-b499-bc99cac38f86",
+        "fields": {
+            "name": "Machado de Combate Básico",
+            "description": "Machado de combate padrão, amplamente utilizado em treinamento militar.",
+            "rarity": "common",
+            "value": 145,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "42272361-a798-4ae1-b499-bc99cac38f86",
+        "fields": {
+            "item_ptr_id": "42272361-a798-4ae1-b499-bc99cac38f86",
+            "category": "Machado",
+            "sub_category": "Machado de Combate",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "durável"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 7
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [
+                "Soldado",
+                "Guerreiro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "966cb8b5-5868-488d-98a8-edfc2d6042fc",
+        "fields": {
+            "name": "Machado do Vento Cortante",
+            "description": "Um machado com lâmina aprimorada, capaz de cortar o ar com velocidade impressionante.",
+            "rarity": "uncommon",
+            "value": 350,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "966cb8b5-5868-488d-98a8-edfc2d6042fc",
+        "fields": {
+            "item_ptr_id": "966cb8b5-5868-488d-98a8-edfc2d6042fc",
+            "category": "Machado",
+            "sub_category": "Machado Leve",
+            "weight": 2.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "aumento de alcance"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 10,
+                "destreza": 8
+            },
+            "abilities_active": [
+                "Corte Ágil"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 120,
+            "class_restrictions": [
+                "Guerreiro",
+                "Caçador"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ea9f146e-36aa-4d09-8266-641afff3cb5e",
+        "fields": {
+            "name": "Martelo do Terreno Rocoso",
+            "description": "Um martelo feito com uma cabeça resistente como a rocha, eficaz contra armaduras e escudos.",
+            "rarity": "uncommon",
+            "value": 400,
+            "level_required": 6,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ea9f146e-36aa-4d09-8266-641afff3cb5e",
+        "fields": {
+            "item_ptr_id": "ea9f146e-36aa-4d09-8266-641afff3cb5e",
+            "category": "Martelo",
+            "sub_category": "Martelo Pesado",
+            "weight": 5.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesado",
+                "impactante"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 12
+            },
+            "abilities_active": [
+                "Golpe Devastador"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 150,
+            "class_restrictions": [
+                "Guerreiro",
+                "Barbaro"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "03d8b571-fded-44e2-a180-99f6e2fec2dd",
+        "fields": {
+            "name": "Machado da Névoa Mística",
+            "description": "Este machado emite uma leve névoa que confunde os inimigos ao redor.",
+            "rarity": "uncommon",
+            "value": 450,
+            "level_required": 7,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "03d8b571-fded-44e2-a180-99f6e2fec2dd",
+        "fields": {
+            "item_ptr_id": "03d8b571-fded-44e2-a180-99f6e2fec2dd",
+            "category": "Machado",
+            "sub_category": "Machado de Névoa",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "confunde"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 10,
+                "sabedoria": 8
+            },
+            "abilities_active": [
+                "Névoa Ofuscante"
+            ],
+            "abilities_passive": [
+                "Resistência à Confusão"
+            ],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 130,
+            "class_restrictions": [
+                "Aventureiro",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "confuse",
+                "chance": 25,
+                "duration": 2
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a7a2f370-f9b3-45ea-b1ec-10226d3e5d34",
+        "fields": {
+            "name": "Martelo da Fúria",
+            "description": "Um martelo que incita a fúria do portador, aumentando a força momentaneamente.",
+            "rarity": "uncommon",
+            "value": 420,
+            "level_required": 6,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a7a2f370-f9b3-45ea-b1ec-10226d3e5d34",
+        "fields": {
+            "item_ptr_id": "a7a2f370-f9b3-45ea-b1ec-10226d3e5d34",
+            "category": "Martelo",
+            "sub_category": "Martelo de Fúria",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "impactante",
+                "causa fúria"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 12
+            },
+            "abilities_active": [
+                "Aumento de Fúria"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+2 temporário"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 125,
+            "class_restrictions": [
+                "Barbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "rage",
+                "duration": 3
+            },
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d19d9ca3-85b3-4c43-be77-5b2e3d233a36",
+        "fields": {
+            "name": "Machado do Caçador Selvagem",
+            "description": "Machado de caça aprimorado, usado por caçadores veteranos e habilidosos.",
+            "rarity": "uncommon",
+            "value": 390,
+            "level_required": 5,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d19d9ca3-85b3-4c43-be77-5b2e3d233a36",
+        "fields": {
+            "item_ptr_id": "d19d9ca3-85b3-4c43-be77-5b2e3d233a36",
+            "category": "Machado",
+            "sub_category": "Machado de Caça",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "preciso"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 9,
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Precisão do Caçador"
+            ],
+            "abilities_passive": [
+                "Aumento de Acerto em Animais"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [
+                "Caçador",
+                "Ranger"
+            ],
+            "ongoing_effects": null,
+            "target_effects": [
+                {
+                    "target_type": "animal",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 4
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2b3718a9-947f-410f-854c-abd248994f42",
+        "fields": {
+            "name": "Machado do Relâmpago",
+            "description": "Um machado imbuído de poder elétrico, causando dano extra a cada golpe e paralisando inimigos.",
+            "rarity": "rare",
+            "value": 800,
+            "level_required": 10,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "2b3718a9-947f-410f-854c-abd248994f42",
+        "fields": {
+            "item_ptr_id": "2b3718a9-947f-410f-854c-abd248994f42",
+            "category": "Machado",
+            "sub_category": "Machado Elemental",
+            "weight": 4.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "lightning",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "eletrificado"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 14,
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Impacto Eletrocutante"
+            ],
+            "abilities_passive": [
+                "Resistência a Eletricidade"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "aquatic",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 200,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {
+                "type": "lightning",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "paralyze",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2b9fef73-dcc0-4855-8ab4-8a20680d0171",
+        "fields": {
+            "name": "Martelo de Fogo Celeste",
+            "description": "Um martelo sagrado que incendeia os inimigos em chamas divinas.",
+            "rarity": "rare",
+            "value": 950,
+            "level_required": 11,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "2b9fef73-dcc0-4855-8ab4-8a20680d0171",
+        "fields": {
+            "item_ptr_id": "2b9fef73-dcc0-4855-8ab4-8a20680d0171",
+            "category": "Martelo",
+            "sub_category": "Martelo Celestial",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 12,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "sagrado",
+                "incendiário"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 15,
+                "sabedoria": 12
+            },
+            "abilities_active": [
+                "Golpe Sagrado de Fogo"
+            ],
+            "abilities_passive": [
+                "Resistência a Fogo"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "undead",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 180,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "undead",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "3d102cb2-dcf8-4f17-ab49-09b14e4aa6c4",
+        "fields": {
+            "name": "Machado da Terra",
+            "description": "Machado pesado com poder de impactar o solo e criar pequenos tremores.",
+            "rarity": "rare",
+            "value": 870,
+            "level_required": 10,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "3d102cb2-dcf8-4f17-ab49-09b14e4aa6c4",
+        "fields": {
+            "item_ptr_id": "3d102cb2-dcf8-4f17-ab49-09b14e4aa6c4",
+            "category": "Machado",
+            "sub_category": "Machado de Terra",
+            "weight": 5.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "blunt",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "impactante",
+                "terra"
+            ],
+            "elemental_type": "earth",
+            "requirements": {
+                "forca": 16,
+                "resistencia": 12
+            },
+            "abilities_active": [
+                "Tremor de Terra"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+2",
+                "resistencia": "+1"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "stun",
+                    "target": "grounded",
+                    "chance": 20
+                }
+            ],
+            "disadvantages": [],
+            "durability": 200,
+            "class_restrictions": [
+                "Barbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "earth",
+                "duration": 1,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "grounded",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "earth",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c352b101-0eca-4422-a274-d19980d3d01f",
+        "fields": {
+            "name": "Martelo Congelante",
+            "description": "Este martelo libera uma aura congelante que pode reduzir a velocidade dos inimigos.",
+            "rarity": "rare",
+            "value": 890,
+            "level_required": 11,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c352b101-0eca-4422-a274-d19980d3d01f",
+        "fields": {
+            "item_ptr_id": "c352b101-0eca-4422-a274-d19980d3d01f",
+            "category": "Martelo",
+            "sub_category": "Martelo de Gelo",
+            "weight": 4.7,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 1
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "cold",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "congelante"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "forca": 13,
+                "resistencia": 12
+            },
+            "abilities_active": [
+                "Aura de Gelo"
+            ],
+            "abilities_passive": [
+                "Resistência ao Frio"
+            ],
+            "attribute_boosts": {
+                "resistencia": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "slow",
+                    "target": "enemy",
+                    "chance": 30
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 160,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {
+                "type": "cold",
+                "duration": 2,
+                "chance": 40
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "slow",
+                        "duration": 2,
+                        "chance": 30
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "d5459188-41ec-4707-b661-0be5abcf3d65",
+        "fields": {
+            "name": "Machado da Tempestade Furiosa",
+            "description": "Este machado invoca tempestades ao redor, com trovões poderosos e uma lâmina afiada como um raio.",
+            "rarity": "very_rare",
+            "value": 1600,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "d5459188-41ec-4707-b661-0be5abcf3d65",
+        "fields": {
+            "item_ptr_id": "d5459188-41ec-4707-b661-0be5abcf3d65",
+            "category": "Machado",
+            "sub_category": "Machado Tempestuoso",
+            "weight": 5.5,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "thunder",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "tempestade",
+                "impacto trovejante"
+            ],
+            "elemental_type": "thunder",
+            "requirements": {
+                "forca": 18,
+                "destreza": 12
+            },
+            "abilities_active": [
+                "Chamado da Tempestade"
+            ],
+            "abilities_passive": [
+                "Resistência a Trovão"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "destreza": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "flying",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 250,
+            "class_restrictions": [
+                "Guerreiro",
+                "Barbaro"
+            ],
+            "ongoing_effects": {
+                "type": "thunder",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 60
+            },
+            "target_effects": [
+                {
+                    "target_type": "flying",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "stun",
+                        "duration": 1,
+                        "chance": 25
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "thunder",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a84ad002-b2cf-4c50-b39c-157cd0175ce4",
+        "fields": {
+            "name": "Martelo da Luz Divina",
+            "description": "Um martelo sagrado que emite uma luz purificadora, poderoso contra as forças das trevas.",
+            "rarity": "very_rare",
+            "value": 1800,
+            "level_required": 16,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "a84ad002-b2cf-4c50-b39c-157cd0175ce4",
+        "fields": {
+            "item_ptr_id": "a84ad002-b2cf-4c50-b39c-157cd0175ce4",
+            "category": "Martelo",
+            "sub_category": "Martelo Divino",
+            "weight": 4.8,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 12,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "radiant",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "luz divina",
+                "purificador"
+            ],
+            "elemental_type": "light",
+            "requirements": {
+                "forca": 17,
+                "sabedoria": 14
+            },
+            "abilities_active": [
+                "Golpe da Purificação"
+            ],
+            "abilities_passive": [
+                "Aura de Luz"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "sabedoria": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "undead",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 220,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "radiant",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "undead",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "blind",
+                        "duration": 2,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "62a974d3-ac6b-4343-a7cc-2f224b8e1e90",
+        "fields": {
+            "name": "Machado de Gelo Eterno",
+            "description": "Um machado místico envolto em gelo eterno, com o poder de congelar inimigos.",
+            "rarity": "very_rare",
+            "value": 1750,
+            "level_required": 15,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "62a974d3-ac6b-4343-a7cc-2f224b8e1e90",
+        "fields": {
+            "item_ptr_id": "62a974d3-ac6b-4343-a7cc-2f224b8e1e90",
+            "category": "Machado",
+            "sub_category": "Machado de Gelo",
+            "weight": 4.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "cold",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "gelo eterno",
+                "congelante"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "forca": 16,
+                "destreza": 13
+            },
+            "abilities_active": [
+                "Aura Congelante"
+            ],
+            "abilities_passive": [
+                "Resistência ao Gelo"
+            ],
+            "attribute_boosts": {
+                "forca": "+2",
+                "destreza": "+1"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "slow",
+                    "target": "enemy",
+                    "chance": 30
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 240,
+            "class_restrictions": [
+                "Barbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "cold",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "burned",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "freeze",
+                        "duration": 2,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "fb8f3a3e-6259-477e-86c7-e228ab1cd456",
+        "fields": {
+            "name": "Martelo da Fúria Vulcânica",
+            "description": "Este martelo ressoa com o poder de um vulcão, liberando fogo e lava a cada golpe.",
+            "rarity": "very_rare",
+            "value": 1900,
+            "level_required": 16,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "fb8f3a3e-6259-477e-86c7-e228ab1cd456",
+        "fields": {
+            "item_ptr_id": "fb8f3a3e-6259-477e-86c7-e228ab1cd456",
+            "category": "Martelo",
+            "sub_category": "Martelo Vulcânico",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "lava",
+                "fúria"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 18,
+                "resistencia": 14
+            },
+            "abilities_active": [
+                "Explosão de Lava"
+            ],
+            "abilities_passive": [
+                "Resistência a Lava"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "resistencia": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "burn",
+                    "target": "enemy",
+                    "chance": 40
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 260,
+            "class_restrictions": [
+                "Barbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 8
+                },
+                "duration": 2,
+                "chance": 60
+            },
+            "target_effects": [
+                {
+                    "target_type": "ice",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "melt_armor",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c0fc1984-1b10-4b72-bf55-4578561e0c15",
+        "fields": {
+            "name": "Machado das Eras",
+            "description": "Este machado é tão antigo quanto o tempo, com o poder de envelhecer tudo o que toca.",
+            "rarity": "legendary",
+            "value": 3500,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c0fc1984-1b10-4b72-bf55-4578561e0c15",
+        "fields": {
+            "item_ptr_id": "c0fc1984-1b10-4b72-bf55-4578561e0c15",
+            "category": "Machado",
+            "sub_category": "Machado Temporal",
+            "weight": 5.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 12,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "psychic",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "temporal",
+                "psíquico"
+            ],
+            "elemental_type": "psychic",
+            "requirements": {
+                "forca": 20,
+                "inteligencia": 15
+            },
+            "abilities_active": [
+                "Golpe do Envelhecimento"
+            ],
+            "abilities_passive": [
+                "Resistência ao Tempo"
+            ],
+            "attribute_boosts": {
+                "forca": "+4",
+                "inteligencia": "+2"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "drain_life",
+                    "target": "living",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 500,
+            "class_restrictions": [
+                "Guerreiro",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "aging",
+                "duration": 3,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "living",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "age",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "421d5f07-d870-4605-b13b-d4f0529773c9",
+        "fields": {
+            "name": "Martelo da Fênix",
+            "description": "Um martelo lendário que queima com as chamas da imortalidade, regenerando o portador ao causar dano.",
+            "rarity": "legendary",
+            "value": 4000,
+            "level_required": 22,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "421d5f07-d870-4605-b13b-d4f0529773c9",
+        "fields": {
+            "item_ptr_id": "421d5f07-d870-4605-b13b-d4f0529773c9",
+            "category": "Martelo",
+            "sub_category": "Martelo da Ressurreição",
+            "weight": 5.3,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 12,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 10,
+                "bonus": 2
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "imortalidade",
+                "chama regenerativa"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 18,
+                "sabedoria": 16
+            },
+            "abilities_active": [
+                "Chama da Ressurreição"
+            ],
+            "abilities_passive": [
+                "Auto-regeneração"
+            ],
+            "attribute_boosts": {
+                "forca": "+3",
+                "sabedoria": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "heal_on_hit",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 450,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 8
+                },
+                "duration": 3,
+                "chance": 70
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "regenerate",
+                        "value": 20,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "40f968f3-22f3-4530-b28e-e6e38eaaa690",
+        "fields": {
+            "name": "Machado da Ira Primordial",
+            "description": "Este machado primitivo carrega a fúria dos antigos, aumentando o poder conforme a batalha avança.",
+            "rarity": "legendary",
+            "value": 4300,
+            "level_required": 23,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "40f968f3-22f3-4530-b28e-e6e38eaaa690",
+        "fields": {
+            "item_ptr_id": "40f968f3-22f3-4530-b28e-e6e38eaaa690",
+            "category": "Machado",
+            "sub_category": "Machado Primitivo",
+            "weight": 6.0,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "blunt",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "fúria acumulativa"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 20,
+                "resistencia": 18
+            },
+            "abilities_active": [
+                "Fúria Primordial"
+            ],
+            "abilities_passive": [
+                "Aumento de Poder Contínuo"
+            ],
+            "attribute_boosts": {
+                "forca": "+4",
+                "resistencia": "+3"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "fury_increase",
+                    "value": {
+                        "dice_count": 1,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 500,
+            "class_restrictions": [
+                "Barbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "rage",
+                "duration": 5,
+                "chance": 100
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "power_up",
+                        "duration": 1,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "f8ede3f0-98fc-4b8d-9356-87e56d359b2f",
+        "fields": {
+            "name": "Martelo do Juízo Final",
+            "description": "Um martelo lendário, infundido com o poder de julgar os inimigos com a própria essência da justiça.",
+            "rarity": "legendary",
+            "value": 5000,
+            "level_required": 24,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "f8ede3f0-98fc-4b8d-9356-87e56d359b2f",
+        "fields": {
+            "item_ptr_id": "f8ede3f0-98fc-4b8d-9356-87e56d359b2f",
+            "category": "Martelo",
+            "sub_category": "Martelo de Justiça",
+            "weight": 5.7,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 12,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "radiant",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "juízo final",
+                "justiça divina"
+            ],
+            "elemental_type": "radiant",
+            "requirements": {
+                "forca": 22,
+                "sabedoria": 20
+            },
+            "abilities_active": [
+                "Julgamento Divino"
+            ],
+            "abilities_passive": [
+                "Aura de Justiça"
+            ],
+            "attribute_boosts": {
+                "forca": "+4",
+                "sabedoria": "+4"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "bonus_damage",
+                    "target": "evil",
+                    "value": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "disadvantages": [],
+            "durability": 550,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "radiant",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "evil",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "banish",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "875ef7e1-cfa2-4f53-88da-9d615560f5a8",
+        "fields": {
+            "name": "Machado do Infinito",
+            "description": "Um machado ancestral que contém o poder dos próprios elementos, adaptando-se conforme a necessidade.",
+            "rarity": "mythic",
+            "value": 8000,
+            "level_required": 25,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "875ef7e1-cfa2-4f53-88da-9d615560f5a8",
+        "fields": {
+            "item_ptr_id": "875ef7e1-cfa2-4f53-88da-9d615560f5a8",
+            "category": "Machado",
+            "sub_category": "Machado Elemental Supremo",
+            "weight": 6.0,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 12,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "elemental",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "elemental",
+                "adaptação"
+            ],
+            "elemental_type": "adaptive",
+            "requirements": {
+                "forca": 22,
+                "inteligencia": 20
+            },
+            "abilities_active": [
+                "Explosão Elemental"
+            ],
+            "abilities_passive": [
+                "Resistência a Todos os Elementos"
+            ],
+            "attribute_boosts": {
+                "forca": "+5",
+                "inteligencia": "+4"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "elemental_surge",
+                    "chance": 100,
+                    "effect": {
+                        "type": "random_element",
+                        "bonus": {
+                            "dice_count": 1,
+                            "dice_type": 10
+                        }
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "none",
+                    "multiplier": 0
+                }
+            ],
+            "durability": 700,
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago"
+            ],
+            "ongoing_effects": {
+                "type": "elemental",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 8
+                },
+                "duration": 4,
+                "chance": 75
+            },
+            "target_effects": [
+                {
+                    "target_type": "any",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "elemental_adaptation",
+                        "duration": 3,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "all_elements",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "ddbd58a2-8f48-4eb0-a279-b03029044c2d",
+        "fields": {
+            "name": "Martelo de Gênese",
+            "description": "Este martelo mítico pode remodelar a realidade, gerando ou destruindo matéria com seu impacto.",
+            "rarity": "mythic",
+            "value": 10000,
+            "level_required": 26,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "ddbd58a2-8f48-4eb0-a279-b03029044c2d",
+        "fields": {
+            "item_ptr_id": "ddbd58a2-8f48-4eb0-a279-b03029044c2d",
+            "category": "Martelo",
+            "sub_category": "Martelo Criador",
+            "weight": 6.5,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 12,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "force",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "criador",
+                "destruição absoluta"
+            ],
+            "elemental_type": "force",
+            "requirements": {
+                "forca": 24,
+                "sabedoria": 20
+            },
+            "abilities_active": [
+                "Destruição e Criação"
+            ],
+            "abilities_passive": [
+                "Aura de Gênese"
+            ],
+            "attribute_boosts": {
+                "forca": "+6",
+                "sabedoria": "+5"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "creation",
+                    "target": "terrain",
+                    "effect": "modify",
+                    "duration": 10
+                }
+            ],
+            "disadvantages": [],
+            "durability": 800,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "force",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 10
+                },
+                "duration": 5,
+                "chance": 100
+            },
+            "target_effects": [
+                {
+                    "target_type": "terrain",
+                    "effect": "reshape"
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "hit",
+                    "effect": {
+                        "type": "crush",
+                        "duration": 2,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "force",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "7282b35c-7cb2-4d27-a676-5b478872cfb1",
+        "fields": {
+            "name": "Machado dos Planos",
+            "description": "Um machado lendário que permite ao portador atravessar planos e distorcer a realidade ao redor.",
+            "rarity": "mythic",
+            "value": 12000,
+            "level_required": 27,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "7282b35c-7cb2-4d27-a676-5b478872cfb1",
+        "fields": {
+            "item_ptr_id": "7282b35c-7cb2-4d27-a676-5b478872cfb1",
+            "category": "Machado",
+            "sub_category": "Machado de Realidade",
+            "weight": 5.8,
+            "primary_damage": {
+                "dice_count": 4,
+                "dice_type": 10,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 3,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "psychic",
+            "range": "melee",
+            "special_range": "planar",
+            "properties": [
+                "planar",
+                "distorção"
+            ],
+            "elemental_type": "psychic",
+            "requirements": {
+                "forca": 23,
+                "inteligencia": 21
+            },
+            "abilities_active": [
+                "Travessia dos Planos"
+            ],
+            "abilities_passive": [
+                "Aura de Realidade Distorcida"
+            ],
+            "attribute_boosts": {
+                "forca": "+6",
+                "inteligencia": "+4"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "planar_shift",
+                    "effect": "teleport",
+                    "range": "infinite"
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "psychic",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 900,
+            "class_restrictions": [
+                "Mago",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "psychic",
+                "damage_per_round": {
+                    "dice_count": 3,
+                    "dice_type": 8
+                },
+                "duration": 3,
+                "chance": 100
+            },
+            "target_effects": [
+                {
+                    "target_type": "any",
+                    "effect": "shift_plane"
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "warp_reality",
+                        "duration": 3,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "8254ac73-04fc-4f2d-a4bf-c4d7932b9c17",
+        "fields": {
+            "name": "Martelo do Juízo Divino",
+            "description": "Um martelo místico concedido aos escolhidos dos deuses, capaz de trazer o fim a qualquer entidade com um único golpe.",
+            "rarity": "mythic",
+            "value": 15000,
+            "level_required": 28,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "8254ac73-04fc-4f2d-a4bf-c4d7932b9c17",
+        "fields": {
+            "item_ptr_id": "8254ac73-04fc-4f2d-a4bf-c4d7932b9c17",
+            "category": "Martelo",
+            "sub_category": "Martelo Celestial",
+            "weight": 7.0,
+            "primary_damage": {
+                "dice_count": 5,
+                "dice_type": 12,
+                "bonus": 6
+            },
+            "secondary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 4
+            },
+            "damage_type": "blunt",
+            "secondary_damage_type": "radiant",
+            "range": "melee",
+            "special_range": "infinite",
+            "properties": [
+                "finalizador",
+                "divindade"
+            ],
+            "elemental_type": "radiant",
+            "requirements": {
+                "forca": 25,
+                "sabedoria": 22
+            },
+            "abilities_active": [
+                "Golpe Divino Absoluto"
+            ],
+            "abilities_passive": [
+                "Aura de Destruição Divina"
+            ],
+            "attribute_boosts": {
+                "forca": "+6",
+                "sabedoria": "+6"
+            },
+            "rarity_boosts": [
+                {
+                    "type": "smite",
+                    "target": "any",
+                    "value": {
+                        "dice_count": 3,
+                        "dice_type": 12
+                    }
+                }
+            ],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "none",
+                    "multiplier": 0
+                }
+            ],
+            "durability": 1000,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "radiant",
+                "damage_per_round": {
+                    "dice_count": 3,
+                    "dice_type": 10
+                },
+                "duration": 4,
+                "chance": 100
+            },
+            "target_effects": [
+                {
+                    "target_type": "evil",
+                    "effect": "smite"
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "instant_kill",
+                        "chance": 25
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

@@ -1,0 +1,383 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "111e4567-e89b-12d3-a456-426614174000",
+        "fields": {
+            "name": "Poção de Cura Leve",
+            "description": "Restaura uma pequena quantidade de pontos de vida, ideal para ferimentos leves.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "111e4567-e89b-12d3-a456-426614174000",
+        "fields": {
+            "item_ptr_id": "111e4567-e89b-12d3-a456-426614174000",
+            "consumable_type": "potion",
+            "effect_type": "heal",
+            "effect_intensity": {"heal": 10},
+            "effect_duration": "Instantâneo",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "222e4567-e89b-12d3-a456-426614174001",
+        "fields": {
+            "name": "Poção de Cura Moderada",
+            "description": "Uma poção que restaura uma quantidade moderada de pontos de vida.",
+            "rarity": "uncommon",
+            "value": 100,
+            "level_required": 3,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "222e4567-e89b-12d3-a456-426614174001",
+        "fields": {
+            "item_ptr_id": "222e4567-e89b-12d3-a456-426614174001",
+            "consumable_type": "potion",
+            "effect_type": "heal",
+            "effect_intensity": {"heal": 25},
+            "effect_duration": "Instantâneo",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "333e4567-e89b-12d3-a456-426614174002",
+        "fields": {
+            "name": "Poção de Cura Avançada",
+            "description": "Uma poção mais potente, usada para recuperar rapidamente após uma batalha intensa.",
+            "rarity": "rare",
+            "value": 250,
+            "level_required": 5,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "333e4567-e89b-12d3-a456-426614174002",
+        "fields": {
+            "item_ptr_id": "333e4567-e89b-12d3-a456-426614174002",
+            "consumable_type": "potion",
+            "effect_type": "heal",
+            "effect_intensity": {"heal": 50},
+            "effect_duration": "Instantâneo",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "444e4567-e89b-12d3-a456-426614174003",
+        "fields": {
+            "name": "Poção de Cura Superior",
+            "description": "Uma poderosa poção de cura usada por aventureiros experientes.",
+            "rarity": "very_rare",
+            "value": 500,
+            "level_required": 8,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "444e4567-e89b-12d3-a456-426614174003",
+        "fields": {
+            "item_ptr_id": "444e4567-e89b-12d3-a456-426614174003",
+            "consumable_type": "potion",
+            "effect_type": "heal",
+            "effect_intensity": {"heal": 100},
+            "effect_duration": "Instantâneo",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "555e4567-e89b-12d3-a456-426614174004",
+        "fields": {
+            "name": "Poção de Cura Suprema",
+            "description": "A poção de cura mais potente, conhecida por salvar vidas em situações extremas.",
+            "rarity": "legendary",
+            "value": 1000,
+            "level_required": 12,
+            "image": "",
+            "tier": "artifact",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "555e4567-e89b-12d3-a456-426614174004",
+        "fields": {
+            "item_ptr_id": "555e4567-e89b-12d3-a456-426614174004",
+            "consumable_type": "potion",
+            "effect_type": "heal",
+            "effect_intensity": {"heal": 200},
+            "effect_duration": "Instantâneo",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    [
+    {
+        "model": "inventory.item",
+        "pk": "666e4567-e89b-12d3-a456-426614174005",
+        "fields": {
+            "name": "Poção de Resistência ao Fogo",
+            "description": "Concede resistência ao dano de fogo por um curto período.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 3,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "666e4567-e89b-12d3-a456-426614174005",
+        "fields": {
+            "item_ptr_id": "666e4567-e89b-12d3-a456-426614174005",
+            "consumable_type": "potion",
+            "effect_type": "resistance",
+            "effect_intensity": {"fire_resistance": "50%"},
+            "effect_duration": "10 minutos",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "777e4567-e89b-12d3-a456-426614174006",
+        "fields": {
+            "name": "Poção de Força de Gigante",
+            "description": "Aumenta temporariamente a força, conferindo poder excepcional.",
+            "rarity": "rare",
+            "value": 300,
+            "level_required": 5,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "777e4567-e89b-12d3-a456-426614174006",
+        "fields": {
+            "item_ptr_id": "777e4567-e89b-12d3-a456-426614174006",
+            "consumable_type": "potion",
+            "effect_type": "stat_boost",
+            "effect_intensity": {"strength": "+4"},
+            "effect_duration": "5 minutos",
+            "usage_conditions": {"requer descanso": true},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "888e4567-e89b-12d3-a456-426614174007",
+        "fields": {
+            "name": "Poção de Invisibilidade",
+            "description": "Torna o usuário invisível por um breve período.",
+            "rarity": "very_rare",
+            "value": 500,
+            "level_required": 8,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "888e4567-e89b-12d3-a456-426614174007",
+        "fields": {
+            "item_ptr_id": "888e4567-e89b-12d3-a456-426614174007",
+            "consumable_type": "potion",
+            "effect_type": "invisibility",
+            "effect_intensity": {"invisibility": true},
+            "effect_duration": "2 minutos",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "999e4567-e89b-12d3-a456-426614174008",
+        "fields": {
+            "name": "Poção de Velocidade",
+            "description": "Concede um aumento significativo na velocidade de movimento.",
+            "rarity": "rare",
+            "value": 200,
+            "level_required": 5,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "999e4567-e89b-12d3-a456-426614174008",
+        "fields": {
+            "item_ptr_id": "999e4567-e89b-12d3-a456-426614174008",
+            "consumable_type": "potion",
+            "effect_type": "speed_boost",
+            "effect_intensity": {"speed": "+10 metros"},
+            "effect_duration": "3 minutos",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "aaa24567-e89b-12d3-a456-426614174009",
+        "fields": {
+            "name": "Poção de Regeneração",
+            "description": "Regenera pontos de vida gradualmente ao longo do tempo.",
+            "rarity": "very_rare",
+            "value": 450,
+            "level_required": 7,
+            "image": "",
+            "tier": "legendary",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "aaa24567-e89b-12d3-a456-426614174009",
+        "fields": {
+            "item_ptr_id": "aaa24567-e89b-12d3-a456-426614174009",
+            "consumable_type": "potion",
+            "effect_type": "regeneration",
+            "effect_intensity": {"heal_per_second": 2},
+            "effect_duration": "1 minuto",
+            "usage_conditions": {},
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+        [
+    {
+        "model": "inventory.item",
+        "pk": "345e1234-e89b-12d3-a456-426614174002",
+        "fields": {
+            "name": "Poção de Mana Menor",
+            "description": "Restaura uma pequena quantidade de mana.",
+            "rarity": "common",
+            "value": 25,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "low",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "345e1234-e89b-12d3-a456-426614174002",
+        "fields": {
+            "item_ptr_id": "345e1234-e89b-12d3-a456-426614174002",
+            "consumable_type": "potion",
+            "effect_type": "mana_restore",
+            "effect_intensity": { "mana": 15 },
+            "effect_duration": "instantâneo",
+            "usage_conditions": { "necessita descanso": false },
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "456e1234-e89b-12d3-a456-426614174003",
+        "fields": {
+            "name": "Poção de Mana Moderada",
+            "description": "Recupera uma quantidade moderada de mana.",
+            "rarity": "uncommon",
+            "value": 60,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "456e1234-e89b-12d3-a456-426614174003",
+        "fields": {
+            "item_ptr_id": "456e1234-e89b-12d3-a456-426614174003",
+            "consumable_type": "potion",
+            "effect_type": "mana_restore",
+            "effect_intensity": { "mana": 40 },
+            "effect_duration": "instantâneo",
+            "usage_conditions": { "necessita descanso": false },
+            "quantity": 1,
+            "expiration": null
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "567e1234-e89b-12d3-a456-426614174004",
+        "fields": {
+            "name": "Poção de Mana Superior",
+            "description": "Restaura uma grande quantidade de mana.",
+            "rarity": "rare",
+            "value": 120,
+            "level_required": 5,
+            "image": "path/to/image.jpg",
+            "tier": "high",
+            "created_at": "2024-11-07T12:00:00+00:00",
+            "updated_at": "2024-11-07T12:00:00+00:00"
+        }
+    },
+    {
+        "model": "inventory.consumable",
+        "pk": "567e1234-e89b-12d3-a456-426614174004",
+        "fields": {
+            "item_ptr_id": "567e1234-e89b-12d3-a456-426614174004",
+            "consumable_type": "potion",
+            "effect_type": "mana_restore",
+            "effect_intensity": { "mana": 80 },
+            "effect_duration": "instantâneo",
+            "usage_conditions": { "necessita descanso": false },
+            "quantity": 1,
+            "expiration": null
+        }
+    }
+]
+    ]
+]

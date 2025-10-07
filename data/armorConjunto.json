@@ -1,0 +1,207 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "4cac0af8-a0d6-4c22-9cff-5d9f457543fe",
+        "fields": {
+            "name": "Capacete do Guerreiro Celestial",
+            "description": "Capacete lendário que concede visão além do normal e protege contra ataques mentais.",
+            "rarity": "mythic",
+            "value": 5000,
+            "level_required": 15,
+            "image": "path/to/helmet_image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "4cac0af8-a0d6-4c22-9cff-5d9f457543fe",
+        "fields": {
+            "item_ptr_id": "4cac0af8-a0d6-4c22-9cff-5d9f457543fe",
+            "armor_part": "helmet",
+            "armor_type": "heavy",
+            "sub_type": "Capacete de Placas",
+            "defense_value": 5,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "psychic",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "18"
+            },
+            "abilities": [
+                "Visão Celestial"
+            ],
+            "ongoing_effects": {
+                "type": "dano_magico",
+                "damage_reduction": "2",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "300",
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "set_identifier": "celestial_warrior",
+            "set_bonus": {
+                "forca": "+5",
+                "regeneracao_vida": "10 por rodada"
+            },
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "3148df14-0811-4c9c-81f7-bee4004302a5",
+        "fields": {
+            "name": "Peitoral do Guerreiro Celestial",
+            "description": "Peitoral sagrado que aumenta a resistência e fortalece o espírito do usuário.",
+            "rarity": "mythic",
+            "value": 8000,
+            "level_required": 15,
+            "image": "path/to/chestplate_image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "3148df14-0811-4c9c-81f7-bee4004302a5",
+        "fields": {
+            "item_ptr_id": "3148df14-0811-4c9c-81f7-bee4004302a5",
+            "armor_part": "chestplate",
+            "armor_type": "heavy",
+            "sub_type": "Peitoral de Placas",
+            "defense_value": 10,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "slash",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "20"
+            },
+            "abilities": [
+                "Resistência Divina"
+            ],
+            "ongoing_effects": {
+                "type": "cura_regenerativa",
+                "heal_per_round": "5"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituicao": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "400",
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "set_identifier": "celestial_warrior",
+            "set_bonus": {
+                "forca": "+5",
+                "regeneracao_vida": "10 por rodada"
+            },
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "9983eccc-d40b-4ce1-87a3-4130658352ce",
+        "fields": {
+            "name": "Botas do Guerreiro Celestial",
+            "description": "Botas encantadas que aumentam a velocidade e a destreza.",
+            "rarity": "mythic",
+            "value": 4500,
+            "level_required": 15,
+            "image": "path/to/boots_image.jpg",
+            "tier": "legendary",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "9983eccc-d40b-4ce1-87a3-4130658352ce",
+        "fields": {
+            "item_ptr_id": "9983eccc-d40b-4ce1-87a3-4130658352ce",
+            "armor_part": "boots",
+            "armor_type": "heavy",
+            "sub_type": "Botas Encantadas",
+            "defense_value": 4,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "18"
+            },
+            "abilities": [
+                "Velocidade Aumentada"
+            ],
+            "ongoing_effects": {
+                "type": "aumento_velocidade",
+                "speed_bonus": "10"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "300",
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "set_identifier": "celestial_warrior",
+            "set_bonus": {
+                "forca": "+5",
+                "regeneracao_vida": "10 por rodada"
+            },
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]

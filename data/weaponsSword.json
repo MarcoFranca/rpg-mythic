@@ -1,0 +1,1912 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "3a942c5c-cced-446b-ad8a-ab22a2dbc1cf",
+        "fields": {
+            "name": "Espada de Ferro",
+            "description": "Uma espada simples feita de ferro, comum entre os soldados.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "3a942c5c-cced-446b-ad8a-ab22a2dbc1cf",
+        "fields": {
+            "item_ptr_id": "3a942c5c-cced-446b-ad8a-ab22a2dbc1cf",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "51066b80-cb63-4bc4-aced-f554f9638ccc",
+        "fields": {
+            "name": "Espada de Aço",
+            "description": "Espada feita de aço, mais durável que a de ferro.",
+            "rarity": "common",
+            "value": 70,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "51066b80-cb63-4bc4-aced-f554f9638ccc",
+        "fields": {
+            "item_ptr_id": "51066b80-cb63-4bc4-aced-f554f9638ccc",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "88640afa-4fc7-4b9b-98b1-7a535fa6412a",
+        "fields": {
+            "name": "Espada Curta de Bronze",
+            "description": "Uma espada de bronze, comum entre mercadores e guardas civis.",
+            "rarity": "common",
+            "value": 30,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "88640afa-4fc7-4b9b-98b1-7a535fa6412a",
+        "fields": {
+            "item_ptr_id": "88640afa-4fc7-4b9b-98b1-7a535fa6412a",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "acb3a437-0373-44fb-9d25-e627299f6ea5",
+        "fields": {
+            "name": "Espada de Pedra",
+            "description": "Uma espada rudimentar feita de pedra, pouco eficaz em combate.",
+            "rarity": "common",
+            "value": 20,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "acb3a437-0373-44fb-9d25-e627299f6ea5",
+        "fields": {
+            "item_ptr_id": "acb3a437-0373-44fb-9d25-e627299f6ea5",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 3.0,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": -1
+            },
+            "secondary_damage": null,
+            "damage_type": "blunt",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 5
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 50,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "53cdb02e-051d-4171-92df-76dfca8eeb4a",
+        "fields": {
+            "name": "Espada de Prata",
+            "description": "Espada levemente decorada, eficiente contra criaturas sombrias.",
+            "rarity": "common",
+            "value": 90,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "53cdb02e-051d-4171-92df-76dfca8eeb4a",
+        "fields": {
+            "item_ptr_id": "53cdb02e-051d-4171-92df-76dfca8eeb4a",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 2.8,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 100,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c68cffc4-fb6f-4e79-8d49-346004469c1c",
+        "fields": {
+            "name": "Espada de Bronze",
+            "description": "Espada de bronze, robusta, usada por guerreiros iniciantes.",
+            "rarity": "common",
+            "value": 40,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c68cffc4-fb6f-4e79-8d49-346004469c1c",
+        "fields": {
+            "item_ptr_id": "c68cffc4-fb6f-4e79-8d49-346004469c1c",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 7
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 85,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "c9c7287a-6f1e-469f-808e-7228340eabd3",
+        "fields": {
+            "name": "Espada de Aço Carbono",
+            "description": "Espada de aço resistente, preferida por soldados de infantaria.",
+            "rarity": "common",
+            "value": 70,
+            "level_required": 2,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "c9c7287a-6f1e-469f-808e-7228340eabd3",
+        "fields": {
+            "item_ptr_id": "c9c7287a-6f1e-469f-808e-7228340eabd3",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.5,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável",
+                "pesada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 110,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "07b0ec5a-9a15-4d6e-8ced-3dba75a15976",
+        "fields": {
+            "name": "Espada de Ferro Forjado",
+            "description": "Espada de ferro forjado, mais resistente e afiada que a espada de ferro comum.",
+            "rarity": "common",
+            "value": 60,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "07b0ec5a-9a15-4d6e-8ced-3dba75a15976",
+        "fields": {
+            "item_ptr_id": "07b0ec5a-9a15-4d6e-8ced-3dba75a15976",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável",
+                "afiada"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "07f7ec6a-2cc9-4e17-b569-72fff674367c",
+        "fields": {
+            "name": "Espada de Guarda",
+            "description": "Espada curta e confiável, usada pelos guardas para patrulhas.",
+            "rarity": "common",
+            "value": 45,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "07f7ec6a-2cc9-4e17-b569-72fff674367c",
+        "fields": {
+            "item_ptr_id": "07f7ec6a-2cc9-4e17-b569-72fff674367c",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.4,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 75,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "6e4e5a7f-ee2d-4427-aacc-39100d56a357",
+        "fields": {
+            "name": "Espada de Patrulha",
+            "description": "Arma básica e confiável, popular entre patrulheiros.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 1,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "6e4e5a7f-ee2d-4427-aacc-39100d56a357",
+        "fields": {
+            "item_ptr_id": "6e4e5a7f-ee2d-4427-aacc-39100d56a357",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.6,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "durável"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 6
+            },
+            "abilities_active": [],
+            "abilities_passive": [],
+            "attribute_boosts": {},
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 80,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "824f9ef6-b87f-4560-821c-bcedccb61db9",
+        "fields": {
+            "name": "Espada do Caçador",
+            "description": "Espada curta afiada, ideal para caçar criaturas pequenas e ágeis.",
+            "rarity": "uncommon",
+            "value": 120,
+            "level_required": 3,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "824f9ef6-b87f-4560-821c-bcedccb61db9",
+        "fields": {
+            "item_ptr_id": "824f9ef6-b87f-4560-821c-bcedccb61db9",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "leve"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 8,
+                "destreza": 6
+            },
+            "abilities_active": [
+                "Corte Preciso"
+            ],
+            "abilities_passive": [
+                "Aumento de Acuidade"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 85,
+            "class_restrictions": [],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "cbe4d509-043f-467f-837b-c693342e3fa7",
+        "fields": {
+            "name": "Espada Gélida",
+            "description": "Espada longa encantada com o frio das montanhas, capaz de causar dano congelante.",
+            "rarity": "uncommon",
+            "value": 180,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "cbe4d509-043f-467f-837b-c693342e3fa7",
+        "fields": {
+            "item_ptr_id": "cbe4d509-043f-467f-837b-c693342e3fa7",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.7,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "cold",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "resfriamento"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [
+                "Congelamento"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 90,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b3ec4061-f5f0-43ea-874d-63441c2bec22",
+        "fields": {
+            "name": "Espada Crepuscular",
+            "description": "Espada encantada que brilha ao anoitecer e aumenta a visão do portador em escuridão.",
+            "rarity": "uncommon",
+            "value": 150,
+            "level_required": 3,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b3ec4061-f5f0-43ea-874d-63441c2bec22",
+        "fields": {
+            "item_ptr_id": "b3ec4061-f5f0-43ea-874d-63441c2bec22",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.3,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "brilho próprio"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 9
+            },
+            "abilities_active": [],
+            "abilities_passive": [
+                "Visão Noturna"
+            ],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 95,
+            "class_restrictions": [
+                "Ladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "7ac19ec1-ce77-4944-9c4a-308db98aa25f",
+        "fields": {
+            "name": "Espada Flamejante",
+            "description": "Espada forjada nas chamas, que arde com calor intenso ao ser empunhada.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "7ac19ec1-ce77-4944-9c4a-308db98aa25f",
+        "fields": {
+            "item_ptr_id": "7ac19ec1-ce77-4944-9c4a-308db98aa25f",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.9,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "ardente"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [
+                "Explosão de Chamas"
+            ],
+            "abilities_passive": [
+                "Resistência ao Calor"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 100,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "21d4ff94-3319-4f85-a796-da7770470a07",
+        "fields": {
+            "name": "Espada de Relâmpago",
+            "description": "Espada infundida com eletricidade, capaz de emitir choques nos inimigos.",
+            "rarity": "uncommon",
+            "value": 210,
+            "level_required": 4,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "21d4ff94-3319-4f85-a796-da7770470a07",
+        "fields": {
+            "item_ptr_id": "21d4ff94-3319-4f85-a796-da7770470a07",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.4,
+            "primary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 4,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "lightning",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "eletrizante"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 10
+            },
+            "abilities_active": [
+                "Choque Elétrico"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 90,
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [
+                {
+                    "target_type": "aquatic",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b0c636ef-9f8c-4bef-9737-98083cbfdf33",
+        "fields": {
+            "name": "Espada das Sombras",
+            "description": "Espada que se mistura com a escuridão, tornando o portador mais furtivo.",
+            "rarity": "rare",
+            "value": 350,
+            "level_required": 6,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b0c636ef-9f8c-4bef-9737-98083cbfdf33",
+        "fields": {
+            "item_ptr_id": "b0c636ef-9f8c-4bef-9737-98083cbfdf33",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 1
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "leve",
+                "silenciosa"
+            ],
+            "elemental_type": "shadow",
+            "requirements": {
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Desvanecer nas Sombras"
+            ],
+            "abilities_passive": [
+                "Furtividade Aprimorada"
+            ],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 150,
+            "class_restrictions": [
+                "Ladino",
+                "Assassino"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "e7eddcbc-9f14-45a9-870c-5a5fc5b0e234",
+        "fields": {
+            "name": "Espada Relâmpago",
+            "description": "Espada imbuída com eletricidade, capaz de soltar faíscas ao impacto.",
+            "rarity": "rare",
+            "value": 400,
+            "level_required": 7,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "e7eddcbc-9f14-45a9-870c-5a5fc5b0e234",
+        "fields": {
+            "item_ptr_id": "e7eddcbc-9f14-45a9-870c-5a5fc5b0e234",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.6,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 0
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "lightning",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "eletrizante"
+            ],
+            "elemental_type": "lightning",
+            "requirements": {
+                "forca": 12
+            },
+            "abilities_active": [
+                "Explosão Elétrica"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+1",
+                "destreza": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 160,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [
+                {
+                    "target_type": "aquatic",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "3f8d9fea-86f8-4b4d-854a-70bfa15da6b3",
+        "fields": {
+            "name": "Espada da Fúria",
+            "description": "Espada pesada que aumenta a força e a ferocidade do portador em batalha.",
+            "rarity": "rare",
+            "value": 380,
+            "level_required": 8,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "3f8d9fea-86f8-4b4d-854a-70bfa15da6b3",
+        "fields": {
+            "item_ptr_id": "3f8d9fea-86f8-4b4d-854a-70bfa15da6b3",
+            "category": "Espada",
+            "sub_category": "Espada Grande",
+            "weight": 4.5,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": null,
+            "damage_type": "slash",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "pesada",
+                "letal"
+            ],
+            "elemental_type": null,
+            "requirements": {
+                "forca": 14
+            },
+            "abilities_active": [
+                "Fúria Implacável"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "pierce",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 170,
+            "class_restrictions": [
+                "Bárbaro",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [],
+            "granted_resistances": [],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "5534a7ef-8ac5-48c5-9d37-4be9aec3fb3a",
+        "fields": {
+            "name": "Espada de Veneno",
+            "description": "Espada de lâmina verde que envenena o alvo ao fazer contato.",
+            "rarity": "rare",
+            "value": 420,
+            "level_required": 7,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "5534a7ef-8ac5-48c5-9d37-4be9aec3fb3a",
+        "fields": {
+            "item_ptr_id": "5534a7ef-8ac5-48c5-9d37-4be9aec3fb3a",
+            "category": "Espada",
+            "sub_category": "Espada Curta",
+            "weight": 2.8,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "secondary_damage": null,
+            "damage_type": "pierce",
+            "secondary_damage_type": null,
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "venenosa",
+                "leve"
+            ],
+            "elemental_type": "poison",
+            "requirements": {
+                "destreza": 9
+            },
+            "abilities_active": [
+                "Envenenar"
+            ],
+            "abilities_passive": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 140,
+            "class_restrictions": [
+                "Assassino",
+                "Ladino"
+            ],
+            "ongoing_effects": {
+                "type": "poison",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 2,
+                "chance": 50
+            },
+            "target_effects": [
+                {
+                    "target_type": "beast",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [],
+            "granted_resistances": [
+                {
+                    "type": "poison",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "4865448c-bf26-4c02-88fa-438870d06db9",
+        "fields": {
+            "name": "Espada do Fogo Sagrado",
+            "description": "Espada com chamas sagradas que purificam os impuros.",
+            "rarity": "rare",
+            "value": 500,
+            "level_required": 8,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "4865448c-bf26-4c02-88fa-438870d06db9",
+        "fields": {
+            "item_ptr_id": "4865448c-bf26-4c02-88fa-438870d06db9",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.9,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "sagrada"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 12
+            },
+            "abilities_active": [
+                "Chamas Purificadoras"
+            ],
+            "abilities_passive": [
+                "Resistência ao Fogo"
+            ],
+            "attribute_boosts": {
+                "forca": "+2"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 200,
+            "class_restrictions": [
+                "Paladino",
+                "Guerreiro"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 3,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "undead",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "burn",
+                        "duration": 2,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b86e58ce-a29b-47bd-99fe-c27e53e69bdd",
+        "fields": {
+            "name": "Espada do Dragão",
+            "description": "Espada forjada nas chamas de um dragão lendário, com uma lâmina que brilha em vermelho.",
+            "rarity": "very_rare",
+            "value": 1500,
+            "level_required": 12,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b86e58ce-a29b-47bd-99fe-c27e53e69bdd",
+        "fields": {
+            "item_ptr_id": "b86e58ce-a29b-47bd-99fe-c27e53e69bdd",
+            "category": "Espada",
+            "sub_category": "Espada Grande",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 12,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 3
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "afiada",
+                "resistente"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 15,
+                "destreza": 8
+            },
+            "abilities_active": [
+                "Chama do Dragão"
+            ],
+            "abilities_passive": [
+                "Resistência ao Calor"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "cold",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 250,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 4,
+                "chance": 75
+            },
+            "target_effects": [
+                {
+                    "target_type": "undead",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 8
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "burn",
+                        "duration": 3,
+                        "chance": 60
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "feb1c02f-7ad3-4d7a-afd6-f472f01b341c",
+        "fields": {
+            "name": "Espada do Eclipse",
+            "description": "Uma espada negra que drena a vitalidade dos inimigos ao contato.",
+            "rarity": "very_rare",
+            "value": 1600,
+            "level_required": 13,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "feb1c02f-7ad3-4d7a-afd6-f472f01b341c",
+        "fields": {
+            "item_ptr_id": "feb1c02f-7ad3-4d7a-afd6-f472f01b341c",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.8,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 8,
+                "bonus": 2
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "necrotic",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "drenagem de vida"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 14,
+                "inteligencia": 10
+            },
+            "abilities_active": [
+                "Drenagem Sombria"
+            ],
+            "abilities_passive": [
+                "Absorção de Vida"
+            ],
+            "attribute_boosts": {
+                "forca": "+2",
+                "inteligencia": "+1"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 1.5
+                }
+            ],
+            "durability": 230,
+            "class_restrictions": [
+                "Guerreiro",
+                "Necromante"
+            ],
+            "ongoing_effects": {
+                "type": "necrotic",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 6
+                },
+                "duration": 3,
+                "chance": 65
+            },
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "kill",
+                    "effect": {
+                        "type": "heal",
+                        "value": 10,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b636ff86-7237-4b39-8f4a-24f3252aefe5",
+        "fields": {
+            "name": "Espada do Trovão",
+            "description": "Espada que invoca trovões, amplificando o poder do portador em combate.",
+            "rarity": "very_rare",
+            "value": 1550,
+            "level_required": 13,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b636ff86-7237-4b39-8f4a-24f3252aefe5",
+        "fields": {
+            "item_ptr_id": "b636ff86-7237-4b39-8f4a-24f3252aefe5",
+            "category": "Espada",
+            "sub_category": "Espada Longa",
+            "weight": 3.9,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "thunder",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "trovão",
+                "afiada"
+            ],
+            "elemental_type": "thunder",
+            "requirements": {
+                "forca": 13
+            },
+            "abilities_active": [
+                "Grito do Trovão"
+            ],
+            "abilities_passive": [
+                "Resistência ao Trovão"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [],
+            "durability": 240,
+            "class_restrictions": [
+                "Guerreiro",
+                "Paladino"
+            ],
+            "ongoing_effects": {},
+            "target_effects": [],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "stun",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "thunder",
+                    "level": "resistance"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1621e916-6323-4386-9b14-86a756451a97",
+        "fields": {
+            "name": "Espada da Nevasca",
+            "description": "Espada envolta em gelo eterno, capaz de congelar os inimigos ao contato.",
+            "rarity": "very_rare",
+            "value": 1700,
+            "level_required": 14,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "1621e916-6323-4386-9b14-86a756451a97",
+        "fields": {
+            "item_ptr_id": "1621e916-6323-4386-9b14-86a756451a97",
+            "category": "Espada",
+            "sub_category": "Espada Grande",
+            "weight": 4.2,
+            "primary_damage": {
+                "dice_count": 2,
+                "dice_type": 10,
+                "bonus": 3
+            },
+            "secondary_damage": {
+                "dice_count": 1,
+                "dice_type": 6,
+                "bonus": 1
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "cold",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "congelante",
+                "robusta"
+            ],
+            "elemental_type": "cold",
+            "requirements": {
+                "forca": 14,
+                "destreza": 10
+            },
+            "abilities_active": [
+                "Nevasca Glacial"
+            ],
+            "abilities_passive": [
+                "Resistência ao Frio"
+            ],
+            "attribute_boosts": {
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "fire",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 220,
+            "class_restrictions": [
+                "Guerreiro",
+                "Bárbaro"
+            ],
+            "ongoing_effects": {
+                "type": "cold",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 4
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "fire_elemental",
+                    "bonus_damage": {
+                        "dice_count": 1,
+                        "dice_type": 6
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "freeze",
+                        "duration": 1,
+                        "chance": 50
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "cold",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1b42d180-4955-4271-995f-7fee80eb821d",
+        "fields": {
+            "name": "Espada do Dragão Eterno",
+            "description": "Forjada com escamas de dragão eterno, esta espada emana uma aura de fogo e tem o poder de devastar com chamas.",
+            "rarity": "mythic",
+            "value": 5000,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "1b42d180-4955-4271-995f-7fee80eb821d",
+        "fields": {
+            "item_ptr_id": "1b42d180-4955-4271-995f-7fee80eb821d",
+            "category": "Espada",
+            "sub_category": "Espada de Fogo",
+            "weight": 5.0,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 10,
+                "bonus": 5
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 8,
+                "bonus": 3
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "fire",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "indestrutível",
+                "chamas eternas"
+            ],
+            "elemental_type": "fire",
+            "requirements": {
+                "forca": 18,
+                "inteligencia": 12
+            },
+            "abilities_active": [
+                "Explosão de Fogo Supremo"
+            ],
+            "abilities_passive": [
+                "Resistência Total ao Fogo"
+            ],
+            "attribute_boosts": {
+                "forca": "+5"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "water",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 500,
+            "class_restrictions": [
+                "Guerreiro",
+                "Mago de Batalha"
+            ],
+            "ongoing_effects": {
+                "type": "fire",
+                "damage_per_round": {
+                    "dice_count": 2,
+                    "dice_type": 6
+                },
+                "duration": 5,
+                "chance": 75
+            },
+            "target_effects": [
+                {
+                    "target_type": "ice_elemental",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "critical_hit",
+                    "effect": {
+                        "type": "burn",
+                        "duration": 3,
+                        "chance": 80
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "fire",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "b6695706-35d0-4820-81c4-9c2d5db4df36",
+        "fields": {
+            "name": "Espada do Vazio Arcano",
+            "description": "Uma espada mística que parece absorver a própria essência do universo, poderosa contra seres de outras dimensões.",
+            "rarity": "mythic",
+            "value": 5200,
+            "level_required": 20,
+            "image": "",
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    },
+    {
+        "model": "inventory.weapon",
+        "pk": "b6695706-35d0-4820-81c4-9c2d5db4df36",
+        "fields": {
+            "item_ptr_id": "b6695706-35d0-4820-81c4-9c2d5db4df36",
+            "category": "Espada",
+            "sub_category": "Espada Arcana",
+            "weight": 4.8,
+            "primary_damage": {
+                "dice_count": 3,
+                "dice_type": 12,
+                "bonus": 4
+            },
+            "secondary_damage": {
+                "dice_count": 2,
+                "dice_type": 6,
+                "bonus": 2
+            },
+            "damage_type": "slash",
+            "secondary_damage_type": "psychic",
+            "range": "melee",
+            "special_range": null,
+            "properties": [
+                "arcana",
+                "absorve mana"
+            ],
+            "elemental_type": "dark",
+            "requirements": {
+                "forca": 17,
+                "inteligencia": 14
+            },
+            "abilities_active": [
+                "Aura Arcana Devastadora"
+            ],
+            "abilities_passive": [
+                "Absorção de Energia"
+            ],
+            "attribute_boosts": {
+                "inteligencia": "+4",
+                "forca": "+3"
+            },
+            "rarity_boosts": [],
+            "disadvantages": [
+                {
+                    "type": "vulnerability",
+                    "damage_type": "radiant",
+                    "multiplier": 2
+                }
+            ],
+            "durability": 520,
+            "class_restrictions": [
+                "Mago",
+                "Feiticeiro"
+            ],
+            "ongoing_effects": {
+                "type": "psychic",
+                "damage_per_round": {
+                    "dice_count": 1,
+                    "dice_type": 10
+                },
+                "duration": 4,
+                "chance": 70
+            },
+            "target_effects": [
+                {
+                    "target_type": "celestial",
+                    "bonus_damage": {
+                        "dice_count": 2,
+                        "dice_type": 10
+                    }
+                }
+            ],
+            "conditional_effects": [
+                {
+                    "condition": "low_health",
+                    "effect": {
+                        "type": "drain_mana",
+                        "value": 20,
+                        "chance": 100
+                    }
+                }
+            ],
+            "granted_resistances": [
+                {
+                    "type": "psychic",
+                    "level": "resistance"
+                },
+                {
+                    "type": "dark",
+                    "level": "immunity"
+                }
+            ],
+            "created_at": "2024-11-10T14:18:58.562193+00:00",
+            "updated_at": "2024-11-10T14:18:58.562193+00:00"
+        }
+    }
+]

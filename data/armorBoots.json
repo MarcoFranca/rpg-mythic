@@ -1,0 +1,942 @@
+[
+    {
+        "model": "inventory.item",
+        "pk": "dd8724de-6ea4-4e94-a9c5-6b3a6a8e8419",
+        "fields": {
+            "name": "Botas de Couro Simples",
+            "description": "Botas leves de couro que oferecem proteção básica e são fáceis de usar.",
+            "rarity": "common",
+            "value": 20,
+            "level_required": 1,
+            "image": "path/to/image1.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "dd8724de-6ea4-4e94-a9c5-6b3a6a8e8419",
+        "fields": {
+            "item_ptr_id": "dd8724de-6ea4-4e94-a9c5-6b3a6a8e8419",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas de Couro",
+            "defense_value": 1,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Silenciosas"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1f76b474-199b-4ed9-a9ae-0f0d3962d3f0",
+        "fields": {
+            "name": "Botas Leves de Explorador",
+            "description": "Botas resistentes ideais para longas viagens e exploração.",
+            "rarity": "common",
+            "value": 35,
+            "level_required": 1,
+            "image": "path/to/image2.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "1f76b474-199b-4ed9-a9ae-0f0d3962d3f0",
+        "fields": {
+            "item_ptr_id": "1f76b474-199b-4ed9-a9ae-0f0d3962d3f0",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas de Exploração",
+            "defense_value": 1,
+            "max_dex_bonus": "5",
+            "resistances": [],
+            "vulnerabilities": [
+                {
+                    "type": "fire",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Resistência a Terreno Difícil"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "1e7e9cd5-ad93-4e8f-82c1-1bafb7e2c035",
+        "fields": {
+            "name": "Botas Élficas da Agilidade",
+            "description": "Botas leves feitas de um tecido élfico resistente, ideais para movimentos ágeis.",
+            "rarity": "common",
+            "value": 50,
+            "level_required": 2,
+            "image": "path/to/image3.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "1e7e9cd5-ad93-4e8f-82c1-1bafb7e2c035",
+        "fields": {
+            "item_ptr_id": "1e7e9cd5-ad93-4e8f-82c1-1bafb7e2c035",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas Élficas",
+            "defense_value": 2,
+            "max_dex_bonus": "5",
+            "resistances": [
+                {
+                    "type": "cold",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "8"
+            },
+            "abilities": [
+                "Movimento Silencioso"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+2"
+            },
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Ladino",
+                "Ranger"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "be5529af-7391-44b3-a7b7-451b445def7f",
+        "fields": {
+            "name": "Botas de Minerador Anão",
+            "description": "Botas reforçadas com aço, perfeitas para durabilidade em terrenos pedregosos.",
+            "rarity": "common",
+            "value": 45,
+            "level_required": 2,
+            "image": "path/to/image4.jpg",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "be5529af-7391-44b3-a7b7-451b445def7f",
+        "fields": {
+            "item_ptr_id": "be5529af-7391-44b3-a7b7-451b445def7f",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas Anãs",
+            "defense_value": 2,
+            "max_dex_bonus": "3",
+            "resistances": [
+                {
+                    "type": "earth",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "water",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Estabilidade em Terreno Rochoso"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "forca": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "150",
+            "class_restrictions": [
+                "Guerreiro",
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "2a46ee0f-1e6a-40cb-bde6-1830919b3124",
+        "fields": {
+            "name": "Botas da Natureza Viva",
+            "description": "Botas encantadas que permitem uma melhor conexão com a natureza.",
+            "rarity": "uncommon",
+            "value": 80,
+            "level_required": 3,
+            "image": "path/to/image5.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "2a46ee0f-1e6a-40cb-bde6-1830919b3124",
+        "fields": {
+            "item_ptr_id": "2a46ee0f-1e6a-40cb-bde6-1830919b3124",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas de Druida",
+            "defense_value": 3,
+            "max_dex_bonus": "4",
+            "resistances": [
+                {
+                    "type": "poison",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "forca",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "12"
+            },
+            "abilities": [
+                "Conexão Natural"
+            ],
+            "ongoing_effects": {
+                "type": "cura",
+                "healing_per_round": "1",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "veneno",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "90",
+            "class_restrictions": [
+                "Druida"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "0b042c7b-ed8a-4fbe-99f4-77a298447309",
+        "fields": {
+            "name": "Botas do Vento Celestial",
+            "description": "Botas lendárias que permitem ao usuário mover-se com a velocidade do vento.",
+            "rarity": "legendary",
+            "value": 5000,
+            "level_required": 10,
+            "image": "path/to/image6.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "0b042c7b-ed8a-4fbe-99f4-77a298447309",
+        "fields": {
+            "item_ptr_id": "0b042c7b-ed8a-4fbe-99f4-77a298447309",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas do Vento",
+            "defense_value": 5,
+            "max_dex_bonus": "7",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "15"
+            },
+            "abilities": [
+                "Passo Acelerado"
+            ],
+            "ongoing_effects": {
+                "type": "velocidade",
+                "bonus_speed": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "vento",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "300",
+            "class_restrictions": [
+                "Bardo",
+                "Ranger"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "558a08fb-01b3-45c9-9205-9c88d871d8cd",
+        "fields": {
+            "name": "Botas do Vento Celestial",
+            "description": "Botas lendárias que permitem ao usuário mover-se com a velocidade do vento.",
+            "rarity": "legendary",
+            "value": 5000,
+            "level_required": 10,
+            "image": "path/to/image6.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "558a08fb-01b3-45c9-9205-9c88d871d8cd",
+        "fields": {
+            "item_ptr_id": "558a08fb-01b3-45c9-9205-9c88d871d8cd",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas do Vento",
+            "defense_value": 5,
+            "max_dex_bonus": "7",
+            "resistances": [
+                {
+                    "type": "lightning",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "15"
+            },
+            "abilities": [
+                "Passo Acelerado"
+            ],
+            "ongoing_effects": {
+                "type": "velocidade",
+                "bonus_speed": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "vento",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "300",
+            "class_restrictions": [
+                "Bardo",
+                "Ranger"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "fbe42f3f-f772-4e5b-9ca1-a00a1668e252",
+        "fields": {
+            "name": "Botas do Guardião Anão",
+            "description": "Botas forjadas com resistência lendária, ideais para proteger o usuário de danos físicos.",
+            "rarity": "legendary",
+            "value": 6000,
+            "level_required": 15,
+            "image": "path/to/image8.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "fbe42f3f-f772-4e5b-9ca1-a00a1668e252",
+        "fields": {
+            "item_ptr_id": "fbe42f3f-f772-4e5b-9ca1-a00a1668e252",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas Anãs",
+            "defense_value": 7,
+            "max_dex_bonus": "5",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "14"
+            },
+            "abilities": [
+                "Resistência a Impactos"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituição": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "terra",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "350",
+            "class_restrictions": [
+                "Guerreiro",
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "a1a75766-e18b-4c56-8977-cf59923f7c80",
+        "fields": {
+            "name": "Botas do Guardião das Florestas",
+            "description": "Essas botas lendárias aumentam a harmonia com a natureza, concedendo habilidades especiais em ambientes selvagens.",
+            "rarity": "legendary",
+            "value": 6500,
+            "level_required": 15,
+            "image": "path/to/image9.jpg",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "a1a75766-e18b-4c56-8977-cf59923f7c80",
+        "fields": {
+            "item_ptr_id": "a1a75766-e18b-4c56-8977-cf59923f7c80",
+            "armor_part": "boots",
+            "armor_type": "light",
+            "sub_type": "Botas de Druida",
+            "defense_value": 6,
+            "max_dex_bonus": "6",
+            "resistances": [
+                {
+                    "type": "poison",
+                    "level": "resistance"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "16"
+            },
+            "abilities": [
+                "Empatia Natural"
+            ],
+            "ongoing_effects": {
+                "type": "cura_natureza",
+                "healing_per_round": "2",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+3"
+            },
+            "granted_resistances": [
+                {
+                    "type": "poison",
+                    "level": "immunity"
+                }
+            ],
+            "durability": "320",
+            "class_restrictions": [
+                "Druida"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "05b8d989-a42e-41f1-bcac-3e40e3b5d85c",
+        "fields": {
+            "name": "Botas de Couro Confortáveis",
+            "description": "Botas duráveis e confortáveis, ideais para longas jornadas.",
+            "rarity": "common",
+            "value": 70,
+            "level_required": 1,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "05b8d989-a42e-41f1-bcac-3e40e3b5d85c",
+        "fields": {
+            "item_ptr_id": "05b8d989-a42e-41f1-bcac-3e40e3b5d85c",
+            "armor_part": "boots",
+            "armor_type": "medium",
+            "sub_type": "Botas de Caminhada",
+            "defense_value": 2,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "pierce",
+                    "level": "resistance",
+                    "value": "10"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "destreza": "6"
+            },
+            "abilities": [
+                "Redução de fadiga"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituição": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "80",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "980cb860-ff93-4087-b62d-1cf337e99927",
+        "fields": {
+            "name": "Botas de Escalada",
+            "description": "Botas reforçadas para escalada, comuns entre aventureiros que enfrentam terrenos rochosos.",
+            "rarity": "common",
+            "value": 90,
+            "level_required": 2,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "980cb860-ff93-4087-b62d-1cf337e99927",
+        "fields": {
+            "item_ptr_id": "980cb860-ff93-4087-b62d-1cf337e99927",
+            "armor_part": "boots",
+            "armor_type": "medium",
+            "sub_type": "Botas de Escalador",
+            "defense_value": 3,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "15"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "8"
+            },
+            "abilities": [
+                "Aprimoramento de escalada"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "destreza": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "85",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "698e43e9-5589-4799-af5d-52f63a19c7c7",
+        "fields": {
+            "name": "Botas de Mineração",
+            "description": "Botas reforçadas com ponta de aço, populares entre anões mineiros.",
+            "rarity": "common",
+            "value": 120,
+            "level_required": 3,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "698e43e9-5589-4799-af5d-52f63a19c7c7",
+        "fields": {
+            "item_ptr_id": "698e43e9-5589-4799-af5d-52f63a19c7c7",
+            "armor_part": "boots",
+            "armor_type": "medium",
+            "sub_type": "Botas de Mineração",
+            "defense_value": 4,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "20"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "acid",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Redução de dano em minas"
+            ],
+            "ongoing_effects": null,
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "constituicao": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "100",
+            "class_restrictions": [
+                "Anão"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "524ea783-920c-434d-aef8-bce7bf9bec32",
+        "fields": {
+            "name": "Botas de Terra Firme",
+            "description": "Feitas para druidas que passam muito tempo em terrenos irregulares.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 4,
+            "image": "path/to/image.jpg",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "524ea783-920c-434d-aef8-bce7bf9bec32",
+        "fields": {
+            "item_ptr_id": "524ea783-920c-434d-aef8-bce7bf9bec32",
+            "armor_part": "boots",
+            "armor_type": "medium",
+            "sub_type": "Botas de Druida",
+            "defense_value": 3,
+            "max_dex_bonus": "2",
+            "resistances": [
+                {
+                    "type": "earth",
+                    "level": "immunity"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [],
+            "disadvantages": [],
+            "requirements": {
+                "sabedoria": "8"
+            },
+            "abilities": [
+                "Conexão com a terra"
+            ],
+            "ongoing_effects": {
+                "type": "earth_resistance",
+                "damage_reduction": "3",
+                "duration": "enquanto equipada"
+            },
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+2"
+            },
+            "granted_resistances": [
+                {
+                    "type": "earth",
+                    "level": "resistance"
+                }
+            ],
+            "durability": "90",
+            "class_restrictions": [
+                "Druida"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "48a0bcb1-9b5d-46ab-ab7b-08fca71efbc8",
+        "fields": {
+            "name": "Botas de Couro Reforçado",
+            "description": "Botas básicas de couro que proporcionam proteção leve e conforto.",
+            "rarity": "common",
+            "value": 60,
+            "level_required": 1,
+            "image": "",
+            "tier": "low",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "48a0bcb1-9b5d-46ab-ab7b-08fca71efbc8",
+        "fields": {
+            "item_ptr_id": "48a0bcb1-9b5d-46ab-ab7b-08fca71efbc8",
+            "armor_part": "boots",
+            "armor_type": "heavy",
+            "sub_type": "Botas de Couro",
+            "defense_value": 2,
+            "max_dex_bonus": null,
+            "resistances": [],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "agilidade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {},
+            "abilities": [
+                "Durabilidade Básica"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "90",
+            "class_restrictions": [],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "fc9ac855-17f0-46c6-962d-dca445f571df",
+        "fields": {
+            "name": "Botas de Ferro do Guerreiro",
+            "description": "Botas de ferro resistentes, perfeitas para suportar combates pesados.",
+            "rarity": "common",
+            "value": 80,
+            "level_required": 2,
+            "image": "",
+            "tier": "medium",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "fc9ac855-17f0-46c6-962d-dca445f571df",
+        "fields": {
+            "item_ptr_id": "fc9ac855-17f0-46c6-962d-dca445f571df",
+            "armor_part": "boots",
+            "armor_type": "heavy",
+            "sub_type": "Botas de Ferro",
+            "defense_value": 3,
+            "max_dex_bonus": "1",
+            "resistances": [
+                {
+                    "type": "blunt",
+                    "level": "resistance",
+                    "value": "25"
+                }
+            ],
+            "vulnerabilities": [],
+            "penalties": [
+                {
+                    "type": "furtividade",
+                    "value": "-2"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "10"
+            },
+            "abilities": [
+                "Redução de Impacto"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {},
+            "granted_resistances": [],
+            "durability": "120",
+            "class_restrictions": [
+                "Guerreiro"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": "62c76cdd-3ac1-4c5c-986b-a87e56389f58",
+        "fields": {
+            "name": "Botas Abençoadas de Aço",
+            "description": "Botas de aço abençoadas, imbuídas com magia sagrada para maior resistência.",
+            "rarity": "uncommon",
+            "value": 200,
+            "level_required": 3,
+            "image": "",
+            "tier": "high",
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    },
+    {
+        "model": "inventory.armor",
+        "pk": "62c76cdd-3ac1-4c5c-986b-a87e56389f58",
+        "fields": {
+            "item_ptr_id": "62c76cdd-3ac1-4c5c-986b-a87e56389f58",
+            "armor_part": "boots",
+            "armor_type": "heavy",
+            "sub_type": "Botas de Aço Sagrado",
+            "defense_value": 4,
+            "max_dex_bonus": null,
+            "resistances": [
+                {
+                    "type": "radiant",
+                    "level": "resistance",
+                    "value": "30"
+                }
+            ],
+            "vulnerabilities": [
+                {
+                    "type": "necrotic",
+                    "multiplier": "1.5"
+                }
+            ],
+            "penalties": [
+                {
+                    "type": "agilidade",
+                    "value": "-1"
+                }
+            ],
+            "disadvantages": [],
+            "requirements": {
+                "forca": "12",
+                "sabedoria": "8"
+            },
+            "abilities": [
+                "Aumento de Resistência Sagrada"
+            ],
+            "ongoing_effects": {},
+            "conditional_effects": [],
+            "attribute_boosts": {
+                "sabedoria": "+1"
+            },
+            "granted_resistances": [],
+            "durability": "140",
+            "class_restrictions": [
+                "Paladino"
+            ],
+            "created_at": "2024-11-11T01:27:06.275576+00:00",
+            "updated_at": "2024-11-11T01:27:06.275576+00:00"
+        }
+    }
+]
