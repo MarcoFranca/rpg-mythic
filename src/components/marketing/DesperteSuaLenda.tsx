@@ -6,11 +6,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Swords, BookOpen, Eye, Sparkles, Dice6, Users } from "lucide-react";
 
+type RoleKey = "PLAYER" | "GM" | "SPECTATOR";
+
 type Role = {
     title: string;
     icon: React.ReactNode;
     description: string;
     bullets: string[];
+    roleKey: RoleKey;
     cta: { href: string; label: string };
     badge: string;
 };
@@ -19,28 +22,28 @@ const roles: Role[] = [
     {
         title: "Jogador",
         icon: <Swords className="h-5 w-5" />,
-        description:
-            "Crie heróis, role d20 e viva campanhas no mundo vivo de Eldoryon.",
+        description: "Crie heróis, role d20 e viva campanhas no mundo vivo de Eldoryon.",
         bullets: ["Fichas completas (atributos, perícias, magias)", "Inventário e itens míticos", "Rolador com histórico e vantagem/desvantagem"],
-        cta: { href: "/play", label: "Começar a jogar" },
+        roleKey: "PLAYER",
+        cta: { href: "/register?role=PLAYER", label: "Criar conta de Jogador" }, // 👈
         badge: "d20 • classes • magias",
     },
     {
         title: "Mestre",
         icon: <BookOpen className="h-5 w-5" />,
-        description:
-            "Erga mesas, crie encontros, controle o IDG e conduza o Cântico.",
+        description: "Erga mesas, crie encontros, controle o IDG e conduza o Cântico.",
         bullets: ["Criação de campanhas e sessões", "NPCs/monstros, encontros e iniciativa", "Mapas, handouts e permissões"],
-        cta: { href: "/master", label: "Mestrar campanha" },
+        roleKey: "GM",
+        cta: { href: "/register?role=GM", label: "Criar conta de Mestre" },      // 👈
         badge: "campanhas • encontros",
     },
     {
         title: "Espectador",
         icon: <Eye className="h-5 w-5" />,
-        description:
-            "Assista mesas ao vivo, aprenda as regras e sinta o Éter vibrar.",
+        description: "Assista mesas ao vivo, aprenda as regras e sinta o Éter vibrar.",
         bullets: ["Salas abertas/públicas", "Timeline de rolagens", "Chat e reações"],
-        cta: { href: "/observe", label: "Explorar mesas" },
+        roleKey: "SPECTATOR",
+        cta: { href: "/register?role=SPECTATOR", label: "Criar conta de Espectador" }, // 👈
         badge: "assistir • aprender",
     },
 ];

@@ -15,8 +15,11 @@ import EtherealAudioToggle from "@/components/marketing/EtherealAudioToggle";
 import DesperteSuaLenda from "@/components/marketing/DesperteSuaLenda";
 import SystemStrip from "@/components/marketing/SystemStrip";
 import SectionDivider from "@/components/marketing/SectionDivider";
+import {usePageSound} from "@/hooks/useSound";
 
 export default function LandingPage() {
+    const { enabled } = usePageSound();
+
     return (
         <main className="relative min-h-[100vh] bg-black text-white">
             {/* efeitos globais */}
@@ -36,17 +39,36 @@ export default function LandingPage() {
                 </Link>
                 <nav className="hidden md:flex items-center gap-2">
                     <Link href="/login">
-                        <Button variant="ghost" className="text-white/85 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-400">
+                        <Button
+                            data-sfx="hover"
+                            variant="ghost"
+                            className="text-white/85 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-400">
                             Entrar
                         </Button>
                     </Link>
                     <Link href="/app">
-                        <Button className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold focus-visible:ring-2 focus-visible:ring-amber-300">
+                        <Button
+                            data-sfx="hover"
+                            className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold focus-visible:ring-2 focus-visible:ring-amber-300">
                             Acessar o Éter
                         </Button>
                     </Link>
-                    {/* opcional: áudio mítico */}
-                    <EtherealAudioToggle />
+                    <Link href="/register">
+                        <Button
+                            data-sfx="hover"
+
+                            className="bg-amber-300 text-black font-semibold hover:bg-amber-200 focus-visible:ring-2 focus-visible:ring-amber-300"
+                        >
+                            Criar conta
+                        </Button>
+                    </Link>
+                    <div
+                        aria-pressed={enabled}
+                        aria-label={enabled ? "Desativar sons" : "Ativar sons"}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/30 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-cyan-400"
+                    >
+                        <EtherealAudioToggle/>
+                    </div>
                 </nav>
             </header>
 
@@ -54,7 +76,8 @@ export default function LandingPage() {
             <HeroObelisk>
                 <section className="text-center">
                     {/* selo claro: rpg de mesa */}
-                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-3 py-1 text-xs text-white/75">
+                    <div
+                        className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-3 py-1 text-xs text-white/75">
                         <Sparkles className="h-3.5 w-3.5" />
                         RPG de mesa • base D&D 5e • mundo original de Eldoryon
                     </div>
@@ -91,6 +114,16 @@ export default function LandingPage() {
                                 Como Jogar
                             </Button>
                         </Link>
+                        <Link href="/register">
+                            <Button
+                                size="lg"
+                                className="bg-amber-300 text-black hover:bg-amber-200 hover:scale-[1.02] transition duration-500"
+                                data-sfx="hover"
+                            >
+                                Criar conta agora
+                            </Button>
+                        </Link>
+
                     </div>
 
                     {/* Orbe rúnica com d20 (ok manter) */}
