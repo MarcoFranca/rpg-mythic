@@ -1,6 +1,7 @@
+// components/ui/RegisterCard.tsx
 "use client";
 
-import { useActionState, useTransition } from "react";
+import { useActionState } from "react";            // 👈 remove useTransition
 import { motion } from "framer-motion";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -10,15 +11,15 @@ import { registerWithRole, type ActionState } from "@/app/(auth)/register/action
 import { useState } from "react";
 
 type Role = "SPECTATOR" | "PLAYER" | "GM";
+type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>; // 👈 tipagem do ícone
 
-const ROLES: Array<{ key: Role; title: string; desc: string; icon: any }> = [
+const ROLES: Array<{ key: Role; title: string; desc: string; icon: IconType }> = [
     { key: "PLAYER", title: "Jogador", desc: "Crie personagens, jogue campanhas.", icon: Sword },
     { key: "GM", title: "Mestre", desc: "Crie mesas, monstros e mundos.", icon: Shield },
     { key: "SPECTATOR", title: "Observador", desc: "Acompanhe campanhas como espectador.", icon: UserRound },
 ];
 
 export default function RegisterCard() {
-    const [pending, start] = useTransition();
     const [state, formAction] = useActionState<ActionState, FormData>(registerWithRole, { ok: true });
     const [role, setRole] = useState<Role>("PLAYER");
 
@@ -121,24 +122,14 @@ export default function RegisterCard() {
                     {/* Avatar opcional */}
                     <div className="space-y-2">
                         <Label htmlFor="avatar">Avatar (opcional)</Label>
-                        <Input
-                            id="avatar"
-                            name="avatar"
-                            type="file"
-                            accept="image/*"
-                            className="bg-black/40 border-white/15 text-white"
-                        />
+                        <Input id="avatar" name="avatar" type="file" accept="image/*" className="bg-black/40 border-white/15 text-white" />
                         <p className="text-[11px] text-white/60">PNG/JPG até ~2MB. Você pode trocar depois no perfil.</p>
                     </div>
                 </div>
 
                 <div className="grid gap-3 pt-1">
-                    <Button
-                        type="submit"
-                        disabled={pending}
-                        className="group w-full rounded-2xl bg-violet-600 text-white hover:bg-violet-500 focus-visible:ring-2 focus-visible:ring-cyan-400"
-                    >
-                        {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                    <Button type="submit" className="group w-full rounded-2xl bg-violet-600 text-white hover:bg-violet-500 focus-visible:ring-2 focus-visible:ring-cyan-400">
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         Criar conta
                     </Button>
                     <a href="/login" className="text-center text-xs text-white/70 hover:underline">
