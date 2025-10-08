@@ -1,53 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { z } from "zod";
+import { useActionState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Loader2, LogIn, Sparkles, Volume2, VolumeX } from "lucide-react";
+import { Loader2, LogIn, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { usePageSound } from "@/hooks/useSound";
-
-const schema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
-});
-type FormData = z.infer<typeof schema>;
+import { signInWithPassword, startOAuthGoogle, type ActionState } from "@/app/(auth)/login/actions";
+import EtherealAudioToggle from "@/components/marketing/EtherealAudioToggle";
 
 export default function LoginCard() {
     const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [form, setForm] = useState<FormData>({ email: "", password: "" });
-    const { enabled, toggle, play } = usePageSound();
+    const { enabled, play } = usePageSound();
+    const [pending, start] = useTransition();
 
-    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const parsed = schema.safeParse(form);
-        if (!parsed.success) return play("error");
-        setLoading(true);
+    const [state, formAction] = useActionState<ActionState, FormData>(signInWithPassword, { ok: true });
 
-        try {
-            // ====== SUPABASE AUTH (exemplo) ======
-            // const { data, error } = await supabase.auth.signInWithPassword({
-            //   email: form.email,
-            //   password: form.password,
-            // });
-            // if (error) throw error;
-
-            // ====== NEXTAUTH (exemplo) ======
-            // const res = await signIn("credentials", { email: form.email, password: form.password, redirect: false });
-            // if (res?.error) throw new Error(res.error);
-
-            play("success");
-            router.push("/app");
-        } catch {
-            play("error");
-        } finally {
-            setLoading(false);
-        }
-    }
+    const fieldErr = (name: string) => (state.ok ? undefined : state.error?.[name]?.[0]);
 
     return (
         <motion.div
@@ -62,44 +33,61 @@ export default function LoginCard() {
                     <h1 className="text-xl font-bold leading-tight">Entre no Portal</h1>
                     <p className="text-sm text-white/70">Use seu e-mail e senha, ou continue com Google.</p>
                 </div>
-                <button
-                    type="button"
-                    onClick={toggle}
+                <div
                     aria-pressed={enabled}
                     aria-label={enabled ? "Desativar sons" : "Ativar sons"}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/30 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
-                    {enabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
-                </button>
+                    <EtherealAudioToggle />
+                </div>
             </div>
 
-            <form onSubmit={onSubmit} className="space-y-4">
+            {!state.ok && state.message && (
+                <p role="status" aria-live="polite" className="mb-3 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+                    {state.message}
+                </p>
+            )}
+
+            <form action={(fd) => formAction(fd)} className="space-y-4">
                 <div className="space-y-2">
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         id="email"
+                        name="email"
                         type="email"
                         inputMode="email"
                         autoComplete="email"
                         placeholder="voce@exemplo.com"
-                        value={form.email}
-                        onChange={(e) => setForm((s) => ({ ...s, email: e.target.value }))}
                         className="bg-black/40 border-white/15 text-white placeholder:text-white/40"
+                        aria-invalid={!!fieldErr("email")}
+                        aria-errormessage={fieldErr("email") ? "email-error" : undefined}
                         required
                     />
+                    {!!fieldErr("email") && (
+                        <p id="email-error" className="text-xs text-red-300">
+                            {fieldErr("email")}
+                        </p>
+                    )}
                 </div>
+
                 <div className="space-y-2">
                     <Label htmlFor="password">Senha</Label>
                     <Input
                         id="password"
+                        name="password"
                         type="password"
                         autoComplete="current-password"
                         placeholder="••••••••"
-                        value={form.password}
-                        onChange={(e) => setForm((s) => ({ ...s, password: e.target.value }))}
                         className="bg-black/40 border-white/15 text-white placeholder:text-white/40"
+                        aria-invalid={!!fieldErr("password")}
+                        aria-errormessage={fieldErr("password") ? "password-error" : undefined}
                         required
                     />
+                    {!!fieldErr("password") && (
+                        <p id="password-error" className="text-xs text-red-300">
+                            {fieldErr("password")}
+                        </p>
+                    )}
                 </div>
 
                 <div className="mt-2 flex items-center justify-between text-xs text-white/70">
@@ -110,21 +98,28 @@ export default function LoginCard() {
                 <div className="mt-4 grid gap-3">
                     <Button
                         type="submit"
-                        disabled={loading}
+                        disabled={pending}
                         className="group w-full rounded-2xl bg-violet-600 text-white hover:bg-violet-500 focus-visible:ring-2 focus-visible:ring-cyan-400"
+                        onClick={() => play("click")}
                     >
-                        {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogIn className="mr-2 h-4 w-4" />}
+                        {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogIn className="mr-2 h-4 w-4" />}
                         Entrar
                     </Button>
 
                     <Button
                         type="button"
-                        onClick={() => {
-                            // Exemplo Supabase/NextAuth Google aqui
-                            // supabase.auth.signInWithOAuth({ provider: "google" })
-                            // signIn("google")
-                            play("click");
-                        }}
+                        onClick={() =>
+                            start(async () => {
+                                const res = await startOAuthGoogle();
+                                if (res.ok && res.url) {
+                                    play("click");
+                                    // redireciona para o provedor
+                                    window.location.href = res.url;
+                                } else {
+                                    play("error");
+                                }
+                            })
+                        }
                         variant="outline"
                         className="w-full rounded-2xl border-white/20 bg-black/40 text-white hover:bg-black/60"
                     >

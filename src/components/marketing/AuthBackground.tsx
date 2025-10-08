@@ -1,3 +1,4 @@
+// components/marketing/AuthBackground.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -15,43 +16,75 @@ export default function AuthBackground() {
     }, []);
 
     return (
-        <>
-            {/* Partículas + gradient + noise */}
-            <div className="pointer-events-none absolute inset-0 z-0">
-                <Particles count={140} />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.15),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.14),transparent_60%)]" />
-                <div className="absolute inset-0 mix-blend-screen opacity-35" style={{ backgroundImage: "url('/noise.png')" }} />
-            </div>
+        <div className="pointer-events-none absolute inset-0  overflow-hidden">
+            {/* Partículas (leves em mobile) */}
+            <Particles count={typeof window !== "undefined" && window.innerWidth < 768 ? 60 : 120} />
 
-            {/* Dragão com fade lateral para não “cortar” */}
-            <div className="absolute inset-0 z-10">
-                {!reducedMotion ? (
-                    <video
-                        className="absolute right-0 top-0 h-full w-auto min-w-[125%] object-cover object-right opacity-20"
-                        style={{
-                            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%)",
-                            maskImage: "linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%)",
-                        }}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        poster="/poster.jpg"
-                        aria-hidden
-                    >
-                        <source src="/dragon-1080.webm" type="video/webm" />
-                        <source src="/dragon-1080.mp4" type="video/mp4" />
-                    </video>
-                ) : (
-                    <img src="/poster.jpg" alt="" className="absolute right-0 top-0 h-full w-auto min-w-[125%] object-cover object-right opacity-20" />
-                )}
-                {/* Fallback do fade */}
-                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-56 bg-gradient-to-r from-black via-black/60 to-transparent" />
-            </div>
+            {/* Gradiente base do Éter */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.15),transparent_60%)]" />
 
-            {/* Camada de legibilidade */}
-            <div className="absolute inset-0 z-20 bg-black/40" />
-        </>
+            {/* Aurora orgânica (sem arestas) */}
+            {!reducedMotion && (
+                <div className="absolute inset-0">
+                    {/* Cada "blob" é um círculo radial com blur, sem bordas retas */}
+                    <div className="aurora-blob" style={{ animationDelay: "0s" }} />
+                    <div className="aurora-blob aurora-blob--b" style={{ animationDelay: "4s" }} />
+                    <div className="aurora-blob aurora-blob--c" style={{ animationDelay: "8s" }} />
+                </div>
+            )}
+
+            {/* Textura + foco central (vignette) */}
+            <div
+                className="absolute inset-0 opacity-40 mix-blend-screen"
+                style={{ backgroundImage: "url('/noise.png')" }}
+            />
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: "radial-gradient(circle at center, rgba(0,0,0,0) 42%, rgba(0,0,0,.46) 100%)",
+                }}
+            />
+
+            <style jsx global>{`
+        .aurora-blob {
+          position: absolute;
+          left: 10%;
+          top: 20%;
+          width: 60vmin;
+          height: 60vmin;
+          border-radius: 9999px;
+          filter: blur(40px);
+          mix-blend-mode: screen;
+          background: radial-gradient(circle at 50% 50%, rgba(124,58,237,0.35), rgba(124,58,237,0) 60%);
+          animation: aurora-drift 22s ease-in-out infinite alternate;
+        }
+        .aurora-blob--b {
+          left: auto;
+          right: 8%;
+          top: 30%;
+          width: 52vmin;
+          height: 52vmin;
+          background: radial-gradient(circle at 50% 50%, rgba(56,189,248,0.30), rgba(56,189,248,0) 60%);
+          animation-duration: 26s;
+        }
+        .aurora-blob--c {
+          left: 18%;
+          bottom: 8%;
+          top: auto;
+          width: 48vmin;
+          height: 48vmin;
+          background: radial-gradient(circle at 50% 50%, rgba(234,179,8,0.24), rgba(234,179,8,0) 60%);
+          animation-duration: 28s;
+        }
+        @keyframes aurora-drift {
+          0% { transform: translate3d(-6%, -4%, 0) scale(1.05); opacity: .65; }
+          50% { transform: translate3d(4%, 6%, 0) scale(1.0); opacity: .55; }
+          100% { transform: translate3d(8%, -2%, 0) scale(1.08); opacity: .6; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .aurora-blob { animation: none; }
+        }
+      `}</style>
+        </div>
     );
 }
