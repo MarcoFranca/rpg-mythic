@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { redirect } from "next/navigation";
-import { createSupabaseServer } from "@/lib/supabase/server";
+import { createSupabaseServerAction } from "@/lib/supabase/server";
 import { PrismaClient } from "@prisma/client";
 import type { ActionState } from "./types";
 
@@ -30,7 +30,7 @@ export async function signInWithPassword(_prevState: ActionState, formData: Form
     });
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
-    const supabase = await createSupabaseServer();
+    const supabase = await createSupabaseServerAction();
     const { error } = await supabase.auth.signInWithPassword(parsed.data); // <- sem "data" não usado
     if (error) return { ok: false, message: error.message };
 
@@ -47,7 +47,7 @@ export async function signUpQuick(_prevState: ActionState, formData: FormData): 
     });
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
-    const supabase = await createSupabaseServer();
+    const supabase = await createSupabaseServerAction();
     const { error } = await supabase.auth.signUp({
         email: parsed.data.email,
         password: parsed.data.password,
@@ -70,7 +70,7 @@ export async function signUpFull(_prevState: ActionState, formData: FormData): P
     });
     if (!parsed.success) return { ok: false, error: parsed.error.flatten().fieldErrors };
 
-    const supabase = await createSupabaseServer();
+    const supabase = await createSupabaseServerAction();
     const { error } = await supabase.auth.signUp({
         email: parsed.data.email,
         password: parsed.data.password,
@@ -88,7 +88,7 @@ export async function signUpFull(_prevState: ActionState, formData: FormData): P
 }
 
 export async function signInWithOAuth(provider: "google"): Promise<{ ok: true; url?: string } | { ok: false; message: string }> {
-    const supabase = await createSupabaseServer();
+    const supabase = await createSupabaseServerAction();
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: { redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/login` },
