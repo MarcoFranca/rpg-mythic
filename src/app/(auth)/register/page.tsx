@@ -1,10 +1,25 @@
-// app/register/page.tsx
 "use client";
 
+import { Suspense } from "react";
 import { motion } from "framer-motion";
 import PortalEterBackground from "@/components/marketing/PortalEterBackground";
 import ObeliskRingGlow from "@/components/marketing/ObeliskRingGlow";
 import RegisterCard from "@/components/ui/RegisterCard";
+
+// (opcional) skeleton simples pro fallback do Suspense
+function RegisterCardSkeleton() {
+    return (
+        <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-md">
+            <div className="h-5 w-28 bg-white/10 rounded mb-2" />
+            <div className="h-4 w-48 bg-white/10 rounded mb-5" />
+            <div className="space-y-3">
+                <div className="h-10 bg-white/10 rounded" />
+                <div className="h-10 bg-white/10 rounded" />
+                <div className="h-10 bg-white/10 rounded" />
+            </div>
+        </div>
+    );
+}
 
 export default function RegisterPage() {
     return (
@@ -15,15 +30,13 @@ export default function RegisterPage() {
                 <div className="relative w-full max-w-md">
                     <ObeliskRingGlow sizeVmin={44} opacity={0.30} />
                     <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }}>
-                        <RegisterCard />
+                        {/* ✅ Suspense envolve quem usa useSearchParams (RegisterCard) */}
+                        <Suspense fallback={<RegisterCardSkeleton />}>
+                            <RegisterCard />
+                        </Suspense>
                     </motion.div>
                 </div>
             </section>
-
-            {/* Toggle de áudio como no login */}
-            {/*<div className="pointer-events-none absolute inset-x-0 bottom-5 z-30 flex justify-end px-5">*/}
-            {/*    <div className="pointer-events-auto"><EtherealAudioToggle /></div>*/}
-            {/*</div>*/}
         </main>
     );
 }
