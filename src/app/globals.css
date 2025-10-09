@@ -129,6 +129,9 @@ button:hover, a:hover {
   filter: drop-shadow(0 0 6px rgba(139,92,246,0.8));
 }
 
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 
 @keyframes spin-slow { to { transform: rotate(360deg) } }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
