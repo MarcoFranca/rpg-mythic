@@ -1,38 +1,44 @@
+// src/components/system/SystemHome.tsx
 "use client";
 
 import Image from "next/image";
-import { Sword, Shield, Eye, Settings, Users, BookOpen, Boxes } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sword, Shield, Eye, Users, BookOpen, Boxes } from "lucide-react";
 import PortalEterBackground from "@/components/marketing/PortalEterBackground";
 import ObeliskRingGlow from "@/components/marketing/ObeliskRingGlow";
 import { SigilProgress } from "./widgets/SigilProgress";
 import { FeatureGrid, FeatureTile } from "./widgets/Tiles";
 import WelcomeToastOnce from "@/components/system/WelcomeToastOnce";
-import { thresholdForTrack } from "@/lib/roles/sigils"; // mesmo helper que usamos no backend
+import { thresholdForTrack } from "@/lib/roles/sigils";
 
-type Role = "PLAYER" | "GM" | "SPECTATOR";
-type Track = "PLAYER" | "GM" | null;
+export type Role = "PLAYER" | "GM" | "SPECTATOR";
+export type Track = "PLAYER" | "GM" | null;
 
-export default function SystemHome(props: {
-    user: {
-        id: string;
-        name: string;
-        email: string;
-        image: string | null;
-        role: Role;
-        track: Track;
-        sigils: number;
-        counts: { myTables: number; myMemberships: number };
+export interface UserHomeInfo {
+    id: string;
+    name: string;
+    email: string;
+    image: string | null;
+    role: Role;
+    track: Track;
+    sigils: number;
+    counts: {
+        myTables: number;
+        myMemberships: number;
     };
-}) {
-    const { user } = props;
+}
 
-    // meta visual comum
-    const headerIcon = user.role === "GM" ? <Shield className="h-5 w-5" /> :
-        user.role === "SPECTATOR" ? <Eye className="h-5 w-5" /> :
-            <Sword className="h-5 w-5" />;
+export default function SystemHome({ user }: { user: UserHomeInfo }) {
+    const headerIcon =
+        user.role === "GM" ? <Shield className="h-5 w-5" /> :
+            user.role === "SPECTATOR" ? <Eye className="h-5 w-5" /> :
+                <Sword className="h-5 w-5" />;
 
     const trackThreshold = user.track ? thresholdForTrack(user.track) : undefined;
-    const canReturn = user.role === "SPECTATOR" && !!user.track && user.sigils >= (trackThreshold ?? 999);
+    const canReturn =
+        user.role === "SPECTATOR" &&
+        !!user.track &&
+        user.sigils >= (trackThreshold ?? Number.POSITIVE_INFINITY);
 
     return (
         <main className="relative min-h-[100dvh] bg-black text-white overflow-hidden">
@@ -42,7 +48,6 @@ export default function SystemHome(props: {
                 <div className="absolute inset-0 mix-blend-screen opacity-30" style={{ backgroundImage: "url('/noise.png')" }} />
             </div>
 
-            {/* saudação + “selo” */}
             <section className="relative z-10 px-6 pt-10">
                 <div className="mx-auto max-w-6xl">
                     <div className="flex items-center gap-3">
@@ -74,17 +79,11 @@ export default function SystemHome(props: {
                 </div>
             </section>
 
-            {/* obelisco glow */}
             <ObeliskRingGlow sizeVmin={70} opacity={0.25} anchor="viewport" strength={0.012} />
 
-            {/* barra de progresso de Sígilos */}
             <section className="relative z-10 px-6 mt-6">
                 <div className="mx-auto max-w-6xl">
-                    <SigilProgress
-                        sigils={user.sigils}
-                        role={user.role}
-                        track={user.track}
-                    />
+                    <SigilProgress sigils={user.sigils} role={user.role} track={user.track} />
                     {canReturn && (
                         <div className="mt-2 text-xs text-emerald-300/90">
                             Você possui Sígilos suficientes para retornar à sua trilha. Procure o botão “Retornar” nas áreas pertinentes.
@@ -93,7 +92,6 @@ export default function SystemHome(props: {
                 </div>
             </section>
 
-            {/* grade de features: muda por papel, mas mesma linguagem visual */}
             <section className="relative z-10 px-6 py-8">
                 <div className="mx-auto max-w-6xl">
                     {user.role === "GM" && <GMView user={user} />}
@@ -102,15 +100,12 @@ export default function SystemHome(props: {
                 </div>
             </section>
 
-            {/* toast de boas-vindas contextual (já com som + visual mágico) */}
             <WelcomeToastOnce role={user.role} name={user.name} />
         </main>
     );
 }
 
-/* ---------- Sub-views ---------- */
-
-function PlayerView({ user }: { user: any }) {
+function PlayerView({ user }: { user: UserHomeInfo }) {
     return (
         <FeatureGrid>
             <FeatureTile
@@ -143,7 +138,7 @@ function PlayerView({ user }: { user: any }) {
     );
 }
 
-function GMView({ user }: { user: any }) {
+function GMView({ user }: { user: UserHomeInfo }) {
     return (
         <FeatureGrid>
             <FeatureTile
@@ -164,7 +159,7 @@ function GMView({ user }: { user: any }) {
                 title="Preparação"
                 description="Cenas, trilhas sonoras, encontros."
                 href="/app/gm/prep"
-                icon={<Settings className="h-4 w-4" />}
+                icon={<Boxes className="h-4 w-4" />}
             />
             <FeatureTile
                 title="Relíquias & Itens"
@@ -176,8 +171,7 @@ function GMView({ user }: { user: any }) {
     );
 }
 
-function SpectatorView({ user }: { user: any }) {
-    // se não tem trilha definida ainda, exibimos CTA para escolher ao atingir limiar
+function SpectatorView({ user }: { user: UserHomeInfo }) {
     const canPickPlayer = user.sigils >= 5;
     const canPickGM = user.sigils >= 8;
 
