@@ -55,7 +55,7 @@ export default function AscendClient({
         start(async () => {
             const res = await returnToTrack();
             if (res.ok) {
-                notifyMagic("success", "Harmonia Restabelecida", res.message, { role: (user.track ?? "PLAYER") as any });
+                notifyMagic("success", "Harmonia Restabelecida", res.message, { role: (user.track ?? "PLAYER") as Role });
                 router.push(`/app?welcome=1&name=${encodeURIComponent(user.name)}`);
             } else {
                 notifyMagic("error", "Ainda não é possível.", res.message);
