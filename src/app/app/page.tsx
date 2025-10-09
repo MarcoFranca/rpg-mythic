@@ -9,7 +9,8 @@ import {
 import ThemeToggle from "@/components/theme/theme-toggle";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createBrowserClient } from "@supabase/ssr"; // coloque isso no topo
+import { createBrowserClient } from "@supabase/ssr";
+import WelcomeToastOnce from "@/components/system/WelcomeToastOnce"; // coloque isso no topo
 
 type HubItem = {
     href: string;
@@ -38,6 +39,7 @@ export default function PortalHome() {
 
     return (
         <main className="relative min-h-[100dvh] overflow-hidden bg-black text-white">
+            <WelcomeToastOnce />
             {/* Fundo mágico */}
             <div className="pointer-events-none absolute inset-0">
                 <div className="mt-6 flex items-center justify-center gap-3">

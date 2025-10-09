@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useTransition } from "react";
+import { useActionState, useTransition, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,15 +10,40 @@ import { motion } from "framer-motion";
 import { usePageSound } from "@/hooks/useSound";
 import { signInWithPassword, startOAuthGoogle, type ActionState } from "@/app/(auth)/login/actions";
 import EtherealAudioToggle from "@/components/marketing/EtherealAudioToggle";
+import { useMythicToast } from "@/lib/notifications";
+import { useFormStatus } from "react-dom";
+
+function SubmitBtn({ children }: { children: React.ReactNode }) {
+    const { pending } = useFormStatus();
+    return (
+        <Button
+            type="submit"
+            disabled={pending}
+            className="group w-full rounded-2xl bg-violet-600 text-white hover:bg-violet-500 focus-visible:ring-2 focus-visible:ring-cyan-400"
+        >
+            {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogIn className="mr-2 h-4 w-4" />}
+            {pending ? "Entrando..." : children}
+        </Button>
+    );
+}
 
 export default function LoginCard() {
     const router = useRouter();
     const { enabled, play } = usePageSound();
-    const [pending, start] = useTransition();
-
+    const [pendingOAuth, start] = useTransition();
     const [state, formAction] = useActionState<ActionState, FormData>(signInWithPassword, { ok: true });
+    const { notify } = useMythicToast();
 
     const fieldErr = (name: string) => (state.ok ? undefined : state.error?.[name]?.[0]);
+
+    // Toast de erro (sucesso redireciona e o toast é disparado no /app pelo WelcomeToastOnce)
+    useEffect(() => {
+        if (!state.ok) {
+            notify("error", "Falha ao entrar", state.message ?? fieldErr("email") ?? fieldErr("password") ?? "Verifique suas credenciais.");
+            play("error");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [state]);
 
     return (
         <motion.div
@@ -48,7 +73,13 @@ export default function LoginCard() {
                 </p>
             )}
 
-            <form action={(fd) => formAction(fd)} className="space-y-4">
+            <form
+                action={(fd) => {
+                    play("click");
+                    formAction(fd);
+                }}
+                className="space-y-4"
+            >
                 <div className="space-y-2">
                     <Label htmlFor="email">E-mail</Label>
                     <Input
@@ -96,15 +127,7 @@ export default function LoginCard() {
                 </div>
 
                 <div className="mt-4 grid gap-3">
-                    <Button
-                        type="submit"
-                        disabled={pending}
-                        className="group w-full rounded-2xl bg-violet-600 text-white hover:bg-violet-500 focus-visible:ring-2 focus-visible:ring-cyan-400"
-                        onClick={() => play("click")}
-                    >
-                        {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogIn className="mr-2 h-4 w-4" />}
-                        Entrar
-                    </Button>
+                    <SubmitBtn>Entrar</SubmitBtn>
 
                     <Button
                         type="button"
@@ -113,7 +136,6 @@ export default function LoginCard() {
                                 const res = await startOAuthGoogle();
                                 if (res.ok && res.url) {
                                     play("click");
-                                    // redireciona para o provedor
                                     window.location.href = res.url;
                                 } else {
                                     play("error");
@@ -121,10 +143,11 @@ export default function LoginCard() {
                             })
                         }
                         variant="outline"
+                        disabled={pendingOAuth}
                         className="w-full rounded-2xl border-white/20 bg-black/40 text-white hover:bg-black/60"
                     >
-                        <Sparkles className="mr-2 h-4 w-4" />
-                        Entrar com Google
+                        {pendingOAuth ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                        {pendingOAuth ? "Conectando..." : "Entrar com Google"}
                     </Button>
                 </div>
             </form>

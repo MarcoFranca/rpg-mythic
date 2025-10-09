@@ -1,23 +1,27 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createServerClient } from "@supabase/ssr";
+import WelcomeToastOnce from "@/components/system/WelcomeToastOnce";
+import {createSupabaseServerRSC} from "@/lib/supabase/server";
+import {prisma} from "@/lib/prisma";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
     const cookieStore = await cookies();
 
-    const supabase = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
-        {
-            cookies: {
-                get: (name) => cookieStore.get(name)?.value,
-                set() {}, remove() {},
-            },
-        }
-    );
+    const supabase = await createSupabaseServerRSC();
+    const { data: { user } } = await supabase.auth.getUser();
+    const db = user
+        ? await prisma.user.findUnique({
+            where: { supabaseId: user.id },
+            select: { accountRole: true, displayName: true },
+        })
+        : null;
 
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) redirect("/login");
 
-    return <div className="min-h-dvh">{children}</div>;
+    return <div className="min-h-dvh">
+        <WelcomeToastOnce role={db?.accountRole ?? "SPECTATOR"} name={db?.displayName ?? undefined} />
+
+        {children}
+    </div>;
 }

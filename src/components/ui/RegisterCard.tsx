@@ -1,4 +1,3 @@
-// components/ui/RegisterCard.tsx
 "use client";
 
 import { useActionState, useTransition, useEffect, useMemo, useState, useRef } from "react";
@@ -6,12 +5,12 @@ import { motion } from "framer-motion";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { UserRound, Shield, Sword, LogIn } from "lucide-react";
+import { UserRound, Shield, Sword, LogIn, Check, X } from "lucide-react";
 import { registerWithRole, startOAuthGoogleWithRole, type ActionState } from "@/app/(auth)/register/actions";
 import { useSearchParams } from "next/navigation";
 import EtherealAudioToggle from "@/components/marketing/EtherealAudioToggle";
 import { usePageSound } from "@/hooks/useSound";
-import {SubmitButton} from "@/components/ui/SubmitButton";
+import { SubmitButton } from "@/components/ui/SubmitButton";
 import { useMythicToast } from "@/lib/notifications";
 
 type Role = "SPECTATOR" | "PLAYER" | "GM";
@@ -25,6 +24,8 @@ const ROLES: Array<{ key: Role; title: string; desc: string; icon: IconType }> =
 
 const isRole = (v: string | null): v is Role => v === "PLAYER" || v === "GM" || v === "SPECTATOR";
 
+type Avail = { loading: boolean; available: boolean | null; msg?: string };
+
 export default function RegisterCard() {
     const [state, formAction] = useActionState<ActionState, FormData>(registerWithRole, { ok: true });
     const [pendingOAuth, startOAuth] = useTransition();
@@ -34,23 +35,119 @@ export default function RegisterCard() {
     const initialRole = useMemo<Role>(() => (isRole(params.get("role")) ? (params.get("role") as Role) : "PLAYER"), [params]);
     const [role, setRole] = useState<Role>(initialRole);
 
-    // preview simples do avatar
+    const [displayName, setDisplayName] = useState("");
+    const [email, setEmail] = useState("");
+
+    const [nameAvail, setNameAvail] = useState<Avail>({ loading: false, available: null });
+    const [emailAvail, setEmailAvail] = useState<Avail>({ loading: false, available: null });
+
     const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
     useEffect(() => setRole(initialRole), [initialRole]);
 
     const { enabled, play } = usePageSound();
 
-    // anti “metralhadora de hover”: só toca quando entra na área do botão (não em ícones/textos internos)
+    // hover sutil
     const hoverLock = useRef(false);
     const playHover = () => {
         if (hoverLock.current) return;
         hoverLock.current = true;
-        play("hover"); // <- antes estava "openModal"
+        play("hover");
         setTimeout(() => (hoverLock.current = false), 120);
     };
 
+    // mensagens de erro vindas do server action
     const fieldErr = (name: string) => (state.ok ? undefined : state.error?.[name]?.[0]);
+
+    // debounce de disponibilidade
+    const nameAbort = useRef<AbortController | null>(null);
+    const emailAbort = useRef<AbortController | null>(null);
+
+    useEffect(() => {
+        if (!displayName || displayName.trim().length < 3) {
+            setNameAvail({ loading: false, available: null });
+            return;
+        }
+        nameAbort.current?.abort();
+        const ctrl = new AbortController();
+        nameAbort.current = ctrl;
+        setNameAvail({ loading: true, available: null });
+
+        const t = setTimeout(async () => {
+            try {
+                const res = await fetch("/api/auth/check-availability", {
+                    method: "POST",
+                    signal: ctrl.signal,
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ displayName }),
+                });
+                const json = await res.json();
+                setNameAvail({
+                    loading: false,
+                    available: json?.displayName?.available ?? null,
+                    msg: json?.displayName?.available ? "Disponível" : "Este nome já está em uso.",
+                });
+            } catch {
+                setNameAvail({ loading: false, available: null });
+            }
+        }, 350);
+
+        return () => {
+            clearTimeout(t);
+            ctrl.abort();
+        };
+    }, [displayName]);
+
+    useEffect(() => {
+        const emailTrim = email.trim().toLowerCase();
+        if (!emailTrim || !emailTrim.includes("@")) {
+            setEmailAvail({ loading: false, available: null });
+            return;
+        }
+        emailAbort.current?.abort();
+        const ctrl = new AbortController();
+        emailAbort.current = ctrl;
+        setEmailAvail({ loading: true, available: null });
+
+        const t = setTimeout(async () => {
+            try {
+                const res = await fetch("/api/auth/check-availability", {
+                    method: "POST",
+                    signal: ctrl.signal,
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: emailTrim }),
+                });
+                const json = await res.json();
+                setEmailAvail({
+                    loading: false,
+                    available: json?.email?.available ?? null,
+                    msg: json?.email?.available ? "Disponível" : "Este e-mail já está em uso.",
+                });
+            } catch {
+                setEmailAvail({ loading: false, available: null });
+            }
+        }, 350);
+
+        return () => {
+            clearTimeout(t);
+            ctrl.abort();
+        };
+    }, [email]);
+
+    const disableSubmit =
+        nameAvail.available === false ||
+        emailAvail.available === false ||
+        nameAvail.loading ||
+        emailAvail.loading;
+
+    useEffect(() => {
+        if (!state.ok && state.message) {
+            notify("error", "Não foi possível criar sua conta", state.message);
+        } else if (!state.ok && (fieldErr("email") || fieldErr("displayName"))) {
+            notify("error", "Dados inválidos", fieldErr("email") ?? fieldErr("displayName") ?? "Verifique as informações.");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [state]);
 
     return (
         <motion.div
@@ -115,32 +212,68 @@ export default function RegisterCard() {
                 <div className="grid gap-4">
                     <div className="space-y-2">
                         <Label htmlFor="displayName">Seu nome</Label>
-                        <Input
-                            id="displayName"
-                            name="displayName"
-                            autoComplete="name"
-                            placeholder="Ex.: Elyndor Arcanis"
-                            className="bg-black/40 border-white/15 text-white placeholder:text-white/40"
-                            aria-invalid={!!fieldErr("displayName")}
-                            required
-                        />
-                        {!!fieldErr("displayName") && <p className="text-xs text-red-300">{fieldErr("displayName")}</p>}
+                        <div className="relative">
+                            <Input
+                                id="displayName"
+                                name="displayName"
+                                autoComplete="nickname"
+                                placeholder="Ex.: Elyndor Arcanis"
+                                className={`bg-black/40 border-white/15 text-white placeholder:text-white/40 pr-10 ${
+                                    nameAvail.available === false ? "border-red-400/60" : ""
+                                }`}
+                                aria-invalid={!!fieldErr("displayName") || nameAvail.available === false}
+                                onChange={(e) => setDisplayName(e.target.value)}
+                                required
+                            />
+                            {nameAvail.available !== null && (
+                                <span className="pointer-events-none absolute inset-y-0 right-2 grid place-items-center">
+                  {nameAvail.loading ? (
+                      <span className="h-4 w-4 animate-pulse rounded-full bg-white/50" />
+                  ) : nameAvail.available ? (
+                      <Check className="h-4 w-4 text-emerald-400" />
+                  ) : (
+                      <X className="h-4 w-4 text-red-400" />
+                  )}
+                </span>
+                            )}
+                        </div>
+                        {(!!fieldErr("displayName") || nameAvail.available === false) && (
+                            <p className="text-xs text-red-300">{fieldErr("displayName") ?? nameAvail.msg}</p>
+                        )}
                     </div>
 
                     <div className="space-y-2">
                         <Label htmlFor="email">E-mail</Label>
-                        <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            inputMode="email"
-                            autoComplete="email"
-                            placeholder="voce@exemplo.com"
-                            className="bg-black/40 border-white/15 text-white placeholder:text-white/40"
-                            aria-invalid={!!fieldErr("email")}
-                            required
-                        />
-                        {!!fieldErr("email") && <p className="text-xs text-red-300">{fieldErr("email")}</p>}
+                        <div className="relative">
+                            <Input
+                                id="email"
+                                name="email"
+                                type="email"
+                                inputMode="email"
+                                autoComplete="email"
+                                placeholder="voce@exemplo.com"
+                                className={`bg-black/40 border-white/15 text-white placeholder:text-white/40 pr-10 ${
+                                    emailAvail.available === false ? "border-red-400/60" : ""
+                                }`}
+                                aria-invalid={!!fieldErr("email") || emailAvail.available === false}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            {emailAvail.available !== null && (
+                                <span className="pointer-events-none absolute inset-y-0 right-2 grid place-items-center">
+                  {emailAvail.loading ? (
+                      <span className="h-4 w-4 animate-pulse rounded-full bg-white/50" />
+                  ) : emailAvail.available ? (
+                      <Check className="h-4 w-4 text-emerald-400" />
+                  ) : (
+                      <X className="h-4 w-4 text-red-400" />
+                  )}
+                </span>
+                            )}
+                        </div>
+                        {(!!fieldErr("email") || emailAvail.available === false) && (
+                            <p className="text-xs text-red-300">{fieldErr("email") ?? emailAvail.msg}</p>
+                        )}
                     </div>
 
                     <div className="space-y-2">
@@ -156,6 +289,7 @@ export default function RegisterCard() {
                             required
                         />
                         {!!fieldErr("password") && <p className="text-xs text-red-300">{fieldErr("password")}</p>}
+                        <p className="text-[11px] text-white/60">Mín. 8 caracteres, 1 maiúscula e 1 número.</p>
                     </div>
 
                     {/* avatar com preview */}
@@ -180,15 +314,13 @@ export default function RegisterCard() {
                                 <span className="text-xs text-white/60">Pré-visualização</span>
                             </div>
                         )}
-                        <p className="text-[11px] text-white/60">PNG/JPG até ~2MB. Você pode trocar depois no perfil.</p>
                     </div>
                 </div>
 
                 {/* CTA principal */}
-                    <div className="grid gap-3 pt-1">
-                        <SubmitButton>Criar conta</SubmitButton>
+                <div className="grid gap-3 pt-1">
+                    <SubmitButton>{disableSubmit ? "Verificando..." : "Criar conta"}</SubmitButton>
 
-                    {/* botão Google com papel */}
                     <Button
                         type="button"
                         variant="outline"

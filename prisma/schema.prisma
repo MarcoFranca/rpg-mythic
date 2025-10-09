@@ -81,6 +81,19 @@ enum AccountRole {
   GM
 }
 
+enum RoleTrack {
+  PLAYER
+  GM
+}
+
+enum RoleEventType {
+  PROMOTE
+  DEMOTE
+  TRACK_SET
+  ATTEMPT_DENIED
+  SIGILS_ADJUST
+}
+
 enum ContentVisibility {
   global
   private
@@ -203,15 +216,17 @@ model User {
   id          String      @id @default(uuid())
   supabaseId  String      @unique
   email       String      @unique
-  displayName String?
+  displayName String?     @unique
   image       String?
   accountRole AccountRole @default(SPECTATOR)
+  track       RoleTrack? // trilha fixa (nula até o 1º upgrade)
 
   // Economia / Progressão
-  sigils      Int   @default(0)
-  playerSlots Int   @default(2)
+  sigils      Int         @default(0)
+  playerSlots Int         @default(2)
   stats       Json?
   profile     Json?
+  roleEvents  RoleEvent[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -219,7 +234,7 @@ model User {
   // Relações
   memberships        Membership[]
   monsters           Monster[]           @relation("UserMonsters")
-  tablesCreated      GameTable[]         // 👈 backref de GameTable.createdBy
+  tablesCreated      GameTable[] // 👈 backref de GameTable.createdBy
   walletTransactions WalletTransaction[] // <— backref de WalletTransaction.user
 }
 
@@ -231,8 +246,8 @@ model Membership {
   notes    String?
   joinedAt DateTime   @default(now())
 
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  table     GameTable @relation(fields: [tableId], references: [id])   // <- GameTable
+  user  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  table GameTable @relation(fields: [tableId], references: [id]) // <- GameTable
 
   @@unique([userId, tableId])
   @@index([tableId])
@@ -262,16 +277,16 @@ model Monster {
 }
 
 model Session {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   tableId   String
   title     String
   startsAt  DateTime
   endsAt    DateTime?
   agenda    Json?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
-  table     GameTable @relation(fields: [tableId], references: [id])   // <- GameTable
+  table GameTable @relation(fields: [tableId], references: [id]) // <- GameTable
 
   @@index([tableId])
 }
@@ -285,6 +300,21 @@ model WalletTransaction {
   createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+model RoleEvent {
+  id          String        @id @default(cuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        RoleEventType
+  from        AccountRole?
+  to          AccountRole?
+  track       RoleTrack?
+  deltaSigils Int? // p/ SIGILS_ADJUST ou contexto
+  reason      String? // msg livre
+  createdAt   DateTime      @default(now())
 
   @@index([userId, createdAt])
 }
