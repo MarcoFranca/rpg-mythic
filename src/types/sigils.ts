@@ -1,4 +1,4 @@
-// /types/sigils.ts
+// src/types/sigils.ts  ✅ (corrigido, SEM 'any')
 export type SigilSource =
     | "purchase" | "referral" | "daily_login" | "gm_session"
     | "transfer_in" | "admin_grant";
@@ -20,12 +20,12 @@ export type SigilKind =
     | "adjustment";
 
 export interface SigilEntry {
-    id: string;           // uuid/ksuid
-    at: string;           // ISO date string
+    id: string;                 // uuid/ksuid
+    at: string;                 // ISO date string
     kind: SigilKind;
-    delta: number;        // + ganha / - gasta
-    title?: string;       // rótulo amigável (opcional)
-    note?: string;        // observação (opcional)
+    delta: number;              // + ganha / - gasta
+    title?: string;             // rótulo amigável
+    note?: string;              // observação
     meta?: Record<string, unknown>;
 }
 
@@ -34,18 +34,19 @@ export interface SigilsPayload {
     cap?: number | null;
     recent: SigilEntry[];
 }
+
 export type SigilLedgerEntry = {
     id: string;
     userId: string;
-    delta: number;             // + ganho / - gasto
+    delta: number;                           // + ganho / - gasto
     reason: SigilSource | SigilSink;
-    meta?: Record<string, any>; // campaignId, sessionId, etc.
+    meta?: Record<string, unknown>;          // campaignId, sessionId, etc.
     createdAt: string;
 };
 
 export type UserSigils = {
-    balance: number;           // saldo atual (pode ser "ilimitado" sem cap)
-    cap?: number | null;       // cap dinâmico opcional
+    balance: number;                         // saldo atual
+    cap?: number | null;                     // cap dinâmico opcional
     streak?: { count: number; lastAt: string };
     emblems?: { id: string; name: string; capBonus: number }[];
 };

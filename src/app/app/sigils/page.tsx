@@ -1,13 +1,15 @@
+// src/app/app/sigils/page.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSigils } from "@/lib/sigils/hooks";
 import Link from "next/link";
+import type { SigilEntry } from "@/types/sigils";
 
-// Helper para rotular entradas mesmo sem 'label' no tipo
-function entryLabel(m: any) {
-    return m?.label ?? m?.title ?? m?.note ?? m?.kind ?? "Movimentação";
+// rótulo amigável p/ cada entrada
+function entryLabel(m: SigilEntry) {
+    return m.title ?? m.note ?? m.kind ?? "Movimentação";
 }
 
 export default function SigilsOverviewPage() {
@@ -27,8 +29,8 @@ export default function SigilsOverviewPage() {
                     <div className="text-sm text-white/70">
                         {sigils.cap ? (
                             <>
-                                Limite atual: <b>{sigils.cap}</b>. Conquiste emblemas para ampliar seu
-                                limite ao longo da jornada.
+                                Limite atual: <b>{sigils.cap}</b>. Conquiste emblemas para
+                                ampliar seu limite ao longo da jornada.
                             </>
                         ) : (
                             <>Sem limite máximo aplicado ao seu perfil no momento.</>
@@ -36,10 +38,10 @@ export default function SigilsOverviewPage() {
                     </div>
                     <div className="flex gap-2">
                         <Button asChild>
-                            <Link href="/sigils/buy">Comprar</Link>
+                            <Link href="/app/sigils/buy">Comprar</Link>
                         </Button>
                         <Button asChild variant="secondary">
-                            <Link href="/sigils/transfer">Transferir</Link>
+                            <Link href="/app/sigils/transfer">Transferir</Link>
                         </Button>
                         <Button variant="ghost" onClick={() => refresh()}>
                             Atualizar
@@ -60,7 +62,7 @@ export default function SigilsOverviewPage() {
                         <li>Marcos de campanha</li>
                     </ul>
                     <Button asChild className="mt-2">
-                        <Link href="/sigils/earn">Ver oportunidades</Link>
+                        <Link href="/app/sigils/earn">Ver oportunidades</Link>
                     </Button>
                 </CardContent>
             </Card>
@@ -72,7 +74,7 @@ export default function SigilsOverviewPage() {
                 <CardContent>
                     {sigils.recent?.length ? (
                         <div className="divide-y divide-white/10 text-sm">
-                            {sigils.recent.map((m: any) => (
+                            {sigils.recent.map((m) => (
                                 <div key={m.id} className="flex items-center justify-between py-2">
                                     <div className="truncate pr-4">{entryLabel(m)}</div>
                                     <div className={m.delta >= 0 ? "text-emerald-300" : "text-rose-300"}>
