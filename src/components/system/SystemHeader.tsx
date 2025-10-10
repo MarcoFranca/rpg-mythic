@@ -1,3 +1,4 @@
+// src/components/system/SystemHeader.tsx
 "use client";
 
 import Image from "next/image";
@@ -20,6 +21,15 @@ export function SystemHeader(props: {
     const [pending, start] = useTransition();
     const [open, setOpen] = useState(false);
     const { sigils, isLoading } = useSigils();
+
+    // adapta SigilEntry[] -> Entry[] (shape esperado pelo Popover)
+    const recentForPopover =
+        sigils.recent?.map((e) => ({
+            id: e.id,
+            delta: e.delta,
+            reason: e.kind,      // mapeia kind -> reason
+            createdAt: e.at,     // mapeia at -> createdAt
+        })) ?? [];
 
     return (
         <div className="flex items-center justify-between gap-4">
@@ -63,7 +73,7 @@ export function SystemHeader(props: {
                                 onClose={() => setOpen(false)}
                                 balance={sigils.balance}
                                 cap={sigils.cap ?? undefined}
-                                recent={sigils.recent}
+                                recent={recentForPopover}
                             />
                         </>
                     )}
