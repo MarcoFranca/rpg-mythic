@@ -5,7 +5,7 @@ import { motion, useMotionValue, type TargetAndTransition } from "framer-motion"
 import React, { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { User, Package, BookOpen, Swords } from "lucide-react";
 import { useEter } from "@/lib/eter/state";
-import PrismaSVG from "@/assets/prisma.svg";
+import PrismaSVG from "../../../public/assets/prisma.svg";
 import { useAudio } from "@/app/providers/audio-provider";
 
 type MenuId = "character" | "inventory" | "spells" | "campaigns";
@@ -175,7 +175,11 @@ export function PlayerObelisk({ onOpen }: Props) {
                         className="relative h-28 w-28"
                         style={{ opacity: 0.96, mixBlendMode: "screen", filter: "url(#ether-glass)" }}
                     >
-                        <PrismaSVG className="h-28 w-28" style={{ color: theme.accent }} />
+                        <img
+                            src="/assets/prisma.svg"
+                            alt="prisma"
+                            className="h-28 w-28"
+                        />
                     </motion.div>
 
                     {/* Halo */}
