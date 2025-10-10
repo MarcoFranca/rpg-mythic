@@ -9,6 +9,7 @@ import { useEter } from "@/lib/eter/state";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { glassClass } from "@/components/system/Glass";
+import {PrimaryAction} from "@/components/player/PrimaryAction";
 
 export default function PlayerHome({
                                        counts,
@@ -26,17 +27,17 @@ export default function PlayerHome({
         <>
             {/* Saudações */}
             <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-6 text-center"
-            >
-                <p className="text-sm opacity-75">O Véu se abre.</p>
-                <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
-                    Eco de {userName}, teu som ressoa novamente.
-                </h1>
-                <p className="mt-1 text-xs opacity-70">Campanhas vivas: {counts.myMemberships}</p>
+                className="mb-6 flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+                <div>
+                    <p className="text-sm opacity-75">O Véu se abre.</p>
+                    <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
+                        Eco de {userName}, teu som ressoa novamente.
+                    </h1>
+                    <p className="mt-1 text-xs opacity-70">Campanhas vivas: {counts.myMemberships}</p>
+                </div>
+                <PrimaryAction campaigns={campaigns}/>
             </motion.div>
+
 
             {/* Grid principal */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -50,12 +51,12 @@ export default function PlayerHome({
                             portraitUrl={null}
                             onOpenSheet={() => setPanel("character")}
                         />
-                        <FaithMeter faith={62} ether={48} corruption={18} />
+                        <FaithMeter faith={62} ether={48} corruption={18}/>
                     </div>
 
                     <div className="mt-6">
                         {campaigns.length ? (
-                            <CampaignCircle campaigns={campaigns} />
+                            <CampaignCircle campaigns={campaigns}/>
                         ) : (
                             <div className="grid place-items-center">
                                 <div className={glassClass("p-5 text-center max-w-md")}>
@@ -64,8 +65,10 @@ export default function PlayerHome({
                                         Encontre uma mesa pública ou deixe que mestres ouçam seu chamado.
                                     </div>
                                     <div className="flex justify-center gap-2">
-                                        <Button asChild><a href="/app/tables/discover">Encontrar mesa pública</a></Button>
-                                        <Button variant="secondary" asChild><a href="/app/calls/new">Criar Pedido de Entrada</a></Button>
+                                        <Button asChild><a href="/app/tables/discover">Encontrar mesa
+                                            pública</a></Button>
+                                        <Button variant="secondary" asChild><a href="/app/calls/new">Criar Pedido de
+                                            Entrada</a></Button>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +80,7 @@ export default function PlayerHome({
                 <div className="relative flex flex-col items-center">
                     {/* z-index alto para não colidir com os botões dev */}
                     <div className="z-20">
-                        <PlayerObelisk onOpen={(s) => setPanel(s)} />
+                        <PlayerObelisk onOpen={(s) => setPanel(s)}/>
                     </div>
 
                     {/* (1) Mais espaço entre obelisco e controles dev */}
@@ -92,8 +95,8 @@ export default function PlayerHome({
             {/* Painel inferior (placeholder) */}
             {panel && (
                 <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{opacity: 0, y: 8}}
+                    animate={{opacity: 1, y: 0}}
                     className="fixed inset-x-0 bottom-0 z-30 mx-auto w-full max-w-2xl rounded-t-2xl border border-white/10 bg-black/60 p-4 backdrop-blur"
                 >
                     <div className="mb-2 text-sm opacity-80">
