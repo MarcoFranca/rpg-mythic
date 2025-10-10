@@ -53,7 +53,7 @@ function SystemHomeInner({ user }: { user: UserHomeInfo }) {
             {/* Vídeo + anel do Éter, sensível ao IDG */}
             <EterSky
                 idg={idg}
-                video={{src: "/videos/eclipse-azul.mp4", poster: "/videos/eclipse-azul-poster.jpg"}}
+                video={{src: "/videos/eclipse-azul.mp4", poster: "/videos/eclipse-azul-poster.png"}}
                 opacity={0.92}
                 darken={0.42}
                 blur={0.5}
