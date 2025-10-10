@@ -17,7 +17,7 @@ type Props = {
 export default function LoginPageClient({ needsConfirm = false, email }: Props) {
     return (
         <main className="relative min-h-[100dvh] bg-black text-white overflow-hidden">
-            <PortalEterBackground src="/videos/anel-eter.mp4" poster="/videos/anel-eter-poster.jpg" opacity={0.72} />
+            <PortalEterBackground src="/videos/anel-eter.mp4" poster="/videos/anel-eter-poster.png" opacity={0.72} />
 
             <div className="pointer-events-none absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.14),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(234,179,8,0.12),transparent_60%)]" />

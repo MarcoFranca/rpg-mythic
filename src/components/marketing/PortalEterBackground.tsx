@@ -10,7 +10,7 @@ type Props = {
 
 export default function PortalEterBackground({
                                                  src = "/videos/anel-eter.mp4",
-                                                 poster = "/videos/anel-eter-poster.jpg",
+                                                 poster = "/videos/anel-eter-poster.png",
                                                  opacity = 0.75,
                                              }: Props) {
     const [reduced, setReduced] = useState(false);

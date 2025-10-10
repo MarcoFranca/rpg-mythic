@@ -24,7 +24,7 @@ function RegisterCardSkeleton() {
 export default function RegisterPage() {
     return (
         <main className="relative min-h-[100dvh] bg-black text-white overflow-hidden">
-            <PortalEterBackground src="/videos/anel-eter.mp4" poster="/videos/anel-eter-poster.jpg" opacity={0.72} />
+            <PortalEterBackground src="/videos/anel-eter.mp4" poster="/videos/anel-eter-poster.png" opacity={0.72} />
 
             <section className="relative z-20 grid min-h-[100dvh] place-items-center px-4">
                 <div className="relative w-full max-w-md">
