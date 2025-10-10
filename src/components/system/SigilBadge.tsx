@@ -1,3 +1,4 @@
+// /src/components/system/SigilBadge.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,16 +8,20 @@ type Props = {
     balance: number;
     cap?: number | null;
     onClick?: () => void;
-    loading?: boolean; // <--- adicionado
+    loading?: boolean;
 };
 
 export default function SigilBadge({ balance, cap, onClick, loading }: Props) {
-    if (loading) return <div className="h-8 w-28 animate-pulse rounded-xl bg-white/10" />
     const [twinkle, setTwinkle] = useState(false);
+
     useEffect(() => {
         const t = setInterval(() => setTwinkle((v) => !v), 2200);
         return () => clearInterval(t);
     }, []);
+
+    if (loading) {
+        return <div className="h-8 w-28 animate-pulse rounded-xl bg-white/10" />;
+    }
 
     return (
         <button
@@ -33,11 +38,8 @@ export default function SigilBadge({ balance, cap, onClick, loading }: Props) {
           }}
       />
             <span className="tabular-nums">{balance}</span>
-            {cap ? (
-                <span className="text-white/60 text-xs">/ {cap}</span>
-            ) : null}
+            {cap ? <span className="text-white/60 text-xs">/ {cap}</span> : null}
 
-            {/* brilhozinho */}
             <motion.span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-full"

@@ -1,3 +1,4 @@
+// /src/components/system/SigilPopover.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -6,8 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 type Entry = { id: string; delta: number; reason: string; createdAt: string };
 
 export default function SigilPopover({
-                                         open, onClose,
-                                         balance, cap, recent,
+                                         open, onClose, balance, cap, recent,
                                      }: {
     open: boolean;
     onClose: () => void;
@@ -23,10 +23,10 @@ export default function SigilPopover({
             if (ref.current && !ref.current.contains(e.target as Node)) onClose();
         };
         const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-        document.addEventListener("pointerdown", onDown, { capture: true });
+        document.addEventListener("pointerdown", onDown, true);
         document.addEventListener("keydown", onKey);
         return () => {
-            document.removeEventListener("pointerdown", onDown, { capture: true } as any);
+            document.removeEventListener("pointerdown", onDown, true);
             document.removeEventListener("keydown", onKey);
         };
     }, [open, onClose]);
@@ -41,7 +41,9 @@ export default function SigilPopover({
                 >
                     <div className="flex items-baseline justify-between">
                         <div className="text-sm text-white/70">Sigilos</div>
-                        <div className="text-lg font-medium tabular-nums">{balance}{cap ? <span className="text-white/50 text-sm"> / {cap}</span> : null}</div>
+                        <div className="text-lg font-medium tabular-nums">
+                            {balance}{cap ? <span className="text-white/50 text-sm"> / {cap}</span> : null}
+                        </div>
                     </div>
 
                     <div className="mt-2 grid grid-cols-2 gap-2">
