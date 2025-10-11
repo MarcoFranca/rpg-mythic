@@ -10,8 +10,8 @@ import { useEter } from "@/lib/eter/state";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { glassClass } from "@/components/system/Glass";
-import { PrimaryAction } from "@/components/player/PrimaryAction";
-import OnboardingCoach from "@/components/player/OnboardingCoach";
+import JourneyCallout from "@/components/player/JourneyCallout";
+import { useRouter } from "next/navigation";
 
 export default function PlayerHome({
                                        counts,
@@ -26,25 +26,28 @@ export default function PlayerHome({
 }) {
     const { setIDG } = useEter();
     const [panel, setPanel] = useState<"character" | "inventory" | "spells" | "campaigns" | null>(null);
+    const router = useRouter();
 
     return (
         <>
             {/* Saudações */}
-            <motion.div className="mb-6 flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
-                <div>
-                    <p className="text-sm opacity-75">O Véu se abre.</p>
-                    <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
-                        Eco de {userName}, teu som ressoa novamente.
-                    </h1>
-                    <p className="mt-1 text-xs opacity-70">Campanhas vivas: {counts.myMemberships}</p>
-                </div>
-            </motion.div>
+            {/*<motion.div className="mb-6 flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">*/}
+            {/*    <div>*/}
+            {/*        <p className="text-sm opacity-75">O Véu se abre.</p>*/}
+            {/*        <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">*/}
+            {/*            Eco de {userName}, teu som ressoa novamente.*/}
+            {/*        </h1>*/}
+            {/*        <p className="mt-1 text-xs opacity-70">Campanhas vivas: {counts.myMemberships}</p>*/}
+            {/*    </div>*/}
+            {/*</motion.div>*/}
 
             {/* Coach de onboarding */}
-            <div className="mb-6">
-                <OnboardingCoach hasCharacter={hasCharacter} campaignCount={counts.myMemberships} />
-            </div>
-
+            <JourneyCallout
+                userName={userName}
+                hasCharacter={hasCharacter}
+                hasCampaigns={campaigns.length > 0}
+                className="mb-6"
+            />
             {/* Grid principal (igual ao seu, sem o CTA duplicado) */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 <div className="md:col-span-2">
@@ -58,6 +61,8 @@ export default function PlayerHome({
                         />
                         <FaithMeter faith={62} ether={48} corruption={18} />
                     </div>
+
+
 
                     <div className="mt-6">
                         {campaigns.length ? (
@@ -82,8 +87,23 @@ export default function PlayerHome({
                 {/* Obelisco */}
                 <div className="relative flex flex-col items-center">
                     <div className="z-20">
-                        <PlayerObelisk onOpen={(s) => setPanel(s)} />
-                    </div>
+                        <PlayerObelisk
+                            highlight={!hasCharacter}          // ping chamando atenção
+                            hasCharacter={hasCharacter}
+                            hasCampaigns={(campaigns?.length ?? 0) > 0}
+                            onOpen={(id) => {
+                                if (id === "character" && !hasCharacter) {
+                                    router.push("/app/characters/new");
+                                    return;
+                                }
+                                if (id === "campaigns" && !(campaigns?.length)) {
+                                    router.push("/app/campaigns"); // página de descoberta/listagem
+                                    return;
+                                }
+                                // fallback: abre o painel lateral como já fazia
+                                setPanel(id);
+                            }}
+                        />                    </div>
                 </div>
             </div>
 
