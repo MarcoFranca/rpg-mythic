@@ -1,10 +1,9 @@
-// /src/app/app/page.tsx
+// src/app/app/page.tsx  (RSC)
 import { prisma } from "@/lib/prisma";
 import { createSupabaseServerRSC } from "@/lib/supabase/server";
 import SystemHome from "@/components/system/SystemHome";
 
 type CampaignStatus = "ativa" | "pausada" | "convidado";
-type CampaignLite = { id: string; name: string; status: CampaignStatus; href: string };
 
 export default async function AppHomePage() {
     const supabase = await createSupabaseServerRSC();
@@ -25,33 +24,43 @@ export default async function AppHomePage() {
     });
     if (!u) return null;
 
+    // memberships -> tables
     const memberships = await prisma.membership.findMany({
         where: { userId: u.id },
         select: {
             id: true,
-            table: {
-                select: {
-                    id: true,
-                    title: true,
-                    visibility: true,
-                },
-            },
+            table: { select: { id: true, title: true, visibility: true } },
         },
     });
 
-    const campaigns: CampaignLite[] = memberships.map((m) => ({
+    const campaigns = memberships.map((m) => ({
         id: m.table.id,
         name: m.table.title,
-        status: m.table.visibility === "private" ? "pausada" : "ativa",
+        status: (m.table.visibility === "private" ? "pausada" : "ativa") as CampaignStatus,
         href: `/app/table/${m.table.id}`,
     }));
 
-    // se o schema tiver outro nome pra FK, troque aqui
+    // Tenta descobrir se o usuário já tem personagem (ajuste o model!)
+    let hasCharacter = false;
+    try {
+        // tente o nome que você usa no schema:
+        const count = await (prisma as unknown as { character: { count: (args: { where: { userId: string } }) => Promise<number> } })
+            .character.count({ where: { userId: u.id } });
+        hasCharacter = count > 0;
+    } catch {
+        try {
+            const countAlt = await (prisma as unknown as { characterSheet: { count: (args: { where: { userId: string } }) => Promise<number> } })
+                .characterSheet.count({ where: { userId: u.id } });
+            hasCharacter = countAlt > 0;
+        } catch {
+            hasCharacter = false;
+        }
+    }
+
+    // (opcional) mesas criadas
     let myTables = 0;
     try {
-        myTables = await prisma.gameTable.count({
-            where: { createdById: u.id } as unknown as { createdById: string },
-        });
+        myTables = await prisma.gameTable.count({ where: { createdById: u.id } as any });
     } catch {
         myTables = 0;
     }
@@ -65,11 +74,12 @@ export default async function AppHomePage() {
                 name: u.displayName ?? "Viajante",
                 image: u.image ?? null,
                 email: u.email,
-                role: u.accountRole,
-                track: u.track,
+                role: u.accountRole,  // "PLAYER" | "GM" | "SPECTATOR"
+                track: u.track,       // "PLAYER" | "GM" | null
                 sigils: u.sigils,
                 counts: { myTables, myMemberships },
                 campaigns,
+                hasCharacter,         // ← passamos pro client
             }}
         />
     );

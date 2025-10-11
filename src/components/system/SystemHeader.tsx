@@ -78,29 +78,6 @@ export function SystemHeader(props: {
                         </>
                     )}
                 </div>
-
-                <Link
-                    href="/app/settings"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs hover:bg-white/15"
-                    title="Configurações"
-                >
-                    <Settings className="h-4 w-4" />
-                    Settings
-                </Link>
-
-                <button
-                    onClick={() =>
-                        start(async () => {
-                            await signOut();
-                        })
-                    }
-                    disabled={pending}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs hover:bg-white/15"
-                    title="Sair"
-                >
-                    {pending ? <Loader2 className="h-4 w-4 animate-spin" /> : <LogOut className="h-4 w-4" />}
-                    Sair
-                </button>
             </div>
         </div>
     );

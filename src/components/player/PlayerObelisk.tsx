@@ -5,7 +5,6 @@ import { motion, useMotionValue, type TargetAndTransition } from "framer-motion"
 import React, { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { User, Package, BookOpen, Swords } from "lucide-react";
 import { useEter } from "@/lib/eter/state";
-import PrismaSVG from "../../../public/assets/prisma.svg";
 import { useAudio } from "@/app/providers/audio-provider";
 
 type MenuId = "character" | "inventory" | "spells" | "campaigns";

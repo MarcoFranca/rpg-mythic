@@ -1,9 +1,7 @@
 "use client";
 
 import ObeliskRingGlow from "@/components/marketing/ObeliskRingGlow";
-import { SigilProgress } from "./widgets/SigilProgress";
 import WelcomeToastOnce from "@/components/system/WelcomeToastOnce";
-import { thresholdForTrack } from "@/lib/roles/sigils";
 import { SystemHeader } from "./SystemHeader";
 
 import PlayerHome from "./home/PlayerHome";
@@ -27,6 +25,7 @@ export interface UserHomeInfo {
     sigils: number;
     counts: { myTables: number; myMemberships: number };
     campaigns?: { id: string; name: string; status: "ativa" | "pausada" | "convidado"; href: string }[];
+    hasCharacter: boolean;
 }
 
 /** Componente casca: garante que tudo abaixo está dentro do provider */
@@ -41,12 +40,6 @@ export default function SystemHome({ user }: { user: UserHomeInfo }) {
 /** Parte que usa o contexto (seguro, pois está dentro do provider) */
 function SystemHomeInner({ user }: { user: UserHomeInfo }) {
     const { idg } = useEter();
-
-    const trackThreshold = user.track ? thresholdForTrack(user.track) : undefined;
-    const canReturn =
-        user.role === "SPECTATOR" &&
-        !!user.track &&
-        user.sigils >= (trackThreshold ?? Number.POSITIVE_INFINITY);
 
     return (
         <main className="relative min-h-[100dvh] overflow-hidden bg-black text-white">
@@ -93,7 +86,6 @@ function SystemHomeInner({ user }: { user: UserHomeInfo }) {
                         image={user.image}
                         role={user.role}
                     />
-
                 </div>
             </section>
 
@@ -105,6 +97,7 @@ function SystemHomeInner({ user }: { user: UserHomeInfo }) {
                             counts={{myMemberships: user.counts.myMemberships}}
                             campaigns={user.campaigns ?? []}
                             userName={user.name}
+                            hasCharacter={user.hasCharacter}
                         />
                     )}
                     {user.role === "GM" && <GMHome counts={{myTables: user.counts.myTables}}/>}
