@@ -85,8 +85,13 @@ export default function NewCharacterPage() {
                 },
                 600
             ),
-        [saveIdentity.mutateAsync]
+        [saveIdentity] // 👈 em vez de [saveIdentity.mutateAsync]
     );
+    type WithShapeMessage = { shape?: { message?: unknown } };
+
+    function hasShapeMessage(e: unknown): e is WithShapeMessage {
+        return typeof e === "object" && e !== null && "shape" in (e as Record<string, unknown>);
+    }
 
     async function goAttributes() {
         try {
@@ -100,11 +105,12 @@ export default function NewCharacterPage() {
             await saveIdentity.mutateAsync({ id: draftId!, data: identity });
             setStep("attributes");
         } catch (e: unknown) {
-            // narrowing seguro
+            const shapeMsg =
+                hasShapeMessage(e) && typeof e.shape?.message === "string" ? e.shape.message : null;
+
             const msg =
-                (typeof e === "object" && e && "shape" in e && typeof (e as any).shape?.message === "string")
-                    ? (e as any).shape.message
-                    : (e instanceof Error ? e.message : "Algo impediu o avanço. Verifique os campos.");
+                shapeMsg ??
+                (e instanceof Error ? e.message : "Algo impediu o avanço. Verifique os campos.");
 
             console.error(e);
             toast?.error?.(msg);
