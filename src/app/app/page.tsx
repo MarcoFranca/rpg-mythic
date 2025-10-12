@@ -24,13 +24,17 @@ export default async function AppHomePage() {
     });
     if (!u) return null;
 
-    // memberships -> tables
+    // primeiro personagem (se existir)
+    const firstChar = await prisma.character.findFirst({
+        where: { userId: u.id },
+        select: { id: true },
+        orderBy: { createdAt: "asc" },
+    });
+
+    // campanhas via membership
     const memberships = await prisma.membership.findMany({
         where: { userId: u.id },
-        select: {
-            id: true,
-            table: { select: { id: true, title: true, visibility: true } },
-        },
+        select: { id: true, table: { select: { id: true, title: true, visibility: true } } },
     });
 
     const campaigns = memberships.map((m) => ({
@@ -40,24 +44,25 @@ export default async function AppHomePage() {
         href: `/app/table/${m.table.id}`,
     }));
 
-    // Tenta descobrir se o usuário já tem personagem (ajuste o model!)
+    // tem personagem?
     let hasCharacter = false;
     try {
-        // tente o nome que você usa no schema:
-        const count = await (prisma as unknown as { character: { count: (args: { where: { userId: string } }) => Promise<number> } })
-            .character.count({ where: { userId: u.id } });
+        const count = await (prisma as unknown as {
+            character: { count: (args: { where: { userId: string } }) => Promise<number> }
+        }).character.count({ where: { userId: u.id } });
         hasCharacter = count > 0;
     } catch {
         try {
-            const countAlt = await (prisma as unknown as { characterSheet: { count: (args: { where: { userId: string } }) => Promise<number> } })
-                .characterSheet.count({ where: { userId: u.id } });
+            const countAlt = await (prisma as unknown as {
+                characterSheet: { count: (args: { where: { userId: string } }) => Promise<number> }
+            }).characterSheet.count({ where: { userId: u.id } });
             hasCharacter = countAlt > 0;
         } catch {
             hasCharacter = false;
         }
     }
 
-    // (opcional) mesas criadas
+    // mesas criadas (opcional)
     let myTables = 0;
     try {
         myTables = await prisma.gameTable.count({ where: { createdById: u.id } as any });
@@ -74,13 +79,14 @@ export default async function AppHomePage() {
                 name: u.displayName ?? "Viajante",
                 image: u.image ?? null,
                 email: u.email,
-                role: u.accountRole,  // "PLAYER" | "GM" | "SPECTATOR"
-                track: u.track,       // "PLAYER" | "GM" | null
+                role: u.accountRole,
+                track: u.track,
                 sigils: u.sigils,
                 counts: { myTables, myMemberships },
                 campaigns,
-                hasCharacter,         // ← passamos pro client
             }}
+            primaryCharacterId={firstChar?.id ?? null}
+            hasCharacter={hasCharacter}
         />
     );
 }

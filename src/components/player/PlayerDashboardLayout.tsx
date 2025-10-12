@@ -18,7 +18,13 @@ export default function PlayerDashboardLayout({ children }: { children: React.Re
                 color: theme.text,
             }}
         >
-            <div className="pointer-events-none absolute inset-0 opacity-20 mix-blend-soft-light [background-image:radial-gradient(rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:4px_4px]" />
+            <div
+                className="
+    pointer-events-none absolute inset-0
+    bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)]
+    [background-size:4px_4px]
+  "
+            />
             <div className={cn("relative z-10 mx-auto max-w-6xl p-6 md:p-10")}>
                 {children}
             </div>

@@ -3,21 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "// -------- dev/build --------": "",
     "dev": "next dev --turbopack",
+    "build": "prisma generate && next build --turbopack",
     "start": "next start",
+    "postinstall": "prisma generate",
+
+    "// -------- prisma core --------": "",
+    "prisma:format": "prisma format",
+    "prisma:validate": "prisma validate",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "db:seed": "prisma db seed",
     "db:push": "prisma db push",
+    "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
+
+    "// -------- seeds (flow oficial) --------": "",
+    "db:seed": "prisma db seed",
+    "db:reset": "rimraf ./node_modules/.prisma && prisma migrate reset --force --skip-generate --skip-seed && prisma generate && prisma db seed",
+
+    "// -------- seeds (granular, opcionais) --------": "",
+    "seed:core": "tsx prisma/seed.ts",
     "seed:items": "tsx prisma/seedItems.ts",
     "seed:tables": "tsx prisma/seedTables.ts",
-    "lint": "eslint",
-    "postinstall": "prisma generate",
-    "build": "prisma generate && next build --turbopack"
+    "seed:all": "npm run seed:core && npm run seed:items && npm run seed:tables",
+
+    "// -------- quality --------": "",
+    "lint": "eslint ."
   },
   "prisma": {
-    "schema": "prisma/schema.prisma"
+    "schema": "prisma/schema.prisma",
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",

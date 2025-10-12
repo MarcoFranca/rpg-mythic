@@ -1,0 +1,67 @@
+[
+  {
+    "id": "elyriano",
+    "name": "Elyriano (Filhos do Vento)",
+    "shortLore": "Nascidos do sopro de Elyra, leves no passo, claros no coração. Sua voz acalma o Éter.",
+    "size": "medium",
+    "speed": 9,
+    "bonuses": { "dex": 2, "wis": 1 },
+    "traits": [
+      { "name": "Sopro Sereno", "desc": "Vantagem em testes para silenciar, acalmar ou perceber correntes de ar do Éter." },
+      { "name": "Memória do Cântico", "desc": "Uma vez por descanso curto, some +1d4 em um teste de Sabedoria (Percepção)." }
+    ],
+    "languages": ["Comum", "Elyriano"]
+  },
+  {
+    "id": "drakhen",
+    "name": "Drákhen (Sangue de Dragão)",
+    "shortLore": "Fogo antigo corre em suas veias. Orgulho, honra e o peso de chamas ancestrais.",
+    "size": "medium",
+    "speed": 9,
+    "bonuses": { "str": 2, "cha": 1 },
+    "traits": [
+      { "name": "Ígnea Ancestral", "desc": "Resistência a fogo leve (reduz 1d4 de dano de fogo por ocorrência)." },
+      { "name": "Voz Dracônica", "desc": "Proficiência em Intimidação; 1/descanso longo, som grave impõe desvantagem em um teste social." }
+    ],
+    "languages": ["Comum", "Dracônico"]
+  },
+  {
+    "id": "liriem",
+    "name": "Liriem (Filhos da Luz)",
+    "shortLore": "Guardam as frestas do mundo, onde a luz canta. Gentis, longevos e atentos.",
+    "size": "medium",
+    "speed": 9,
+    "bonuses": { "dex": 2, "int": 1 },
+    "traits": [
+      { "name": "Olhos do Véu", "desc": "Visão no escuro (18m). Percepção passiva +1." },
+      { "name": "Runa Viva", "desc": "Conhecem um truque de luz/ilusão menor (narrativo)." }
+    ],
+    "languages": ["Comum", "Élfico-Liriem"]
+  },
+  {
+    "id": "vaelor",
+    "name": "Vaelor (Forjados do Trovão)",
+    "shortLore": "Tecidos de pedra e vontade. Teimosia que sustenta reinos.",
+    "size": "medium",
+    "speed": 8,
+    "bonuses": { "con": 2, "str": 1 },
+    "traits": [
+      { "name": "Firme como Rocha", "desc": "Vantagem contra empurrões/derrubar. +1 PV por nível." },
+      { "name": "Eco das Forjas", "desc": "Proficiência com ferramentas de artesão; testes de conserto +2." }
+    ],
+    "languages": ["Comum", "Anão-Vaelor"]
+  },
+  {
+    "id": "umbrii",
+    "name": "Umbrii (Filhos do Crepúsculo)",
+    "shortLore": "Onde a sombra sussurra, eles dançam. Ambíguos, livres, atentos ao Sombrasangue.",
+    "size": "medium",
+    "speed": 9,
+    "bonuses": { "dex": 2, "cha": 1 },
+    "traits": [
+      { "name": "Passo Velado", "desc": "Vantagem em Furtividade na penumbra." },
+      { "name": "Dissonância Íntima", "desc": "Sentem fissuras do IDG num raio de 18m (leve intuição narrativa)." }
+    ],
+    "languages": ["Comum", "Umbrii"]
+  }
+]

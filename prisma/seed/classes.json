@@ -1,0 +1,18 @@
+[
+  {
+    "id": "guerreiro",
+    "name": "Guerreiro",
+    "hitDie": "d10",
+    "profs": { "armor": ["leve","média","pesada","escudos"], "weapons": ["simples","marciais"], "saves": ["str","con"], "skillsChoices": 2 },
+    "features": [],
+    "spellData": null
+  },
+  {
+    "id": "mago",
+    "name": "Mago",
+    "hitDie": "d6",
+    "profs": { "armor": [], "weapons": ["adagas","bordões","fundas","dardos","bestas-leves"], "saves": ["int","wis"], "skillsChoices": 2 },
+    "features": [],
+    "spellData": { "progression": "full", "focus": "arcano" }
+  }
+]

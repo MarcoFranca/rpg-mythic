@@ -3,6 +3,7 @@ import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const handler = (req: Request) =>
     fetchRequestHandler({

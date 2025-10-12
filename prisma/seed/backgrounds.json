@@ -1,0 +1,9 @@
+[
+  {
+    "id": "acolyte",
+    "name": "Acolito",
+    "profs": { "skills": ["religion","insight"], "languages": 2 },
+    "equipment": ["símbolo sagrado","paramentos","livro de preces"],
+    "traits": { "personality": [], "ideals": [], "bonds": [], "flaws": [] }
+  }
+]

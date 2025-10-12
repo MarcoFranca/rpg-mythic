@@ -1,18 +1,22 @@
 // src/server/api/trpc.ts
-import { initTRPC } from "@trpc/server";
-import superjson from "superjson"; // ⬅️ ADD
+import { initTRPC, TRPCError } from "@trpc/server";
+import superjson from "superjson";
 import { prisma } from "./db/prisma";
+import { cookies, headers } from "next/headers";        // ⬅️
 import { createClient as createSupabaseServerClient } from "@/utils/supabase/server";
 import { AccountRole } from "@prisma/client";
 import type { SupabaseUserMetadata } from "@/types/supabase";
 
 type DbUser = {
     id: string;
-    email: string;
+    email: string | null;
     accountRole: AccountRole;
     sigils: number;
-    playerSlots: number; // ⬅️ ADD para bater com o select
+    playerSlots: number;
 };
+
+type CtxArg = { req?: Request };  // ⬅️ aceita req (opcional)
+
 
 export async function createTRPCContext() {
     const supabase = await createSupabaseServerClient();
@@ -48,14 +52,36 @@ export async function createTRPCContext() {
         });
     }
 
-    return { prisma, supabaseUser: user, dbUser };
+    return {
+        prisma,            // ✅ use isto nos routers
+        supabaseUser: user,
+        dbUser,            // ✅ pode ser null se público
+    };
 }
 
-// ⬅️ ADD transformer aqui (v11)
-const t = initTRPC
-    .context<Awaited<ReturnType<typeof createTRPCContext>>>()
-    .create({ transformer: superjson });
+export type TRPCContext = Awaited<ReturnType<typeof createTRPCContext>>;
+
+
+// init
+export const t = initTRPC.context<TRPCContext>().create({
+    transformer: superjson,
+});
+
 
 export const router = t.router;
 export const publicProcedure = t.procedure;
-export const middleware = t.middleware;
+export const middleware = t.middleware; // <- export explícito
+
+// 🔐 middleware de auth
+const requireAuth = t.middleware(({ ctx, next }) => {
+    if (!ctx.dbUser) throw new TRPCError({ code: "UNAUTHORIZED" });
+    return next({ ctx: { ...ctx, user: ctx.dbUser } });
+});
+export const protectedProcedure = t.procedure.use(requireAuth);
+
+// (opcional) export types úteis
+export type AuthedContext = TRPCContext & { user: NonNullable<TRPCContext["dbUser"]> };
+
+export const config = {
+    matcher: ["/((?!api/trpc|api/auth|_next/static|_next/image|favicon.ico).*)"],
+};

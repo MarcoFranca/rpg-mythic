@@ -1,3 +1,4 @@
+// schema.prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,6 +9,232 @@ datasource db {
   directUrl = env("DIRECT_URL") // direct (DDL/seed)
 }
 
+// — Eldoryon • Ficha perfeita (5e + Eldoryon), pronta para PostgreSQL/Supabase —
+
+// /* ================================
+// Enums
+// ================================ */
+
+enum CharacterState {
+  DRAFT
+  COMPLETE
+  ARCHIVED
+}
+
+enum Visibility {
+  PRIVATE
+  CAMPAIGN
+  PUBLIC
+}
+
+enum SkillRank {
+  NONE
+  TRAINED
+  EXPERTISE
+  HALF // "jack of all trades"
+}
+
+enum EquipSlot {
+  MAIN_HAND
+  OFF_HAND
+  HEAD
+  CHEST
+  HANDS
+  RING1
+  RING2
+  AMULET
+  CAPE
+  BOOTS
+  BELT
+}
+
+// * ================================
+// Catálogos (SRD + Eldoryon)
+// ================================ */
+
+model Ancestry {
+  id        String   @id @db.VarChar(40) // ex: "drakhen", "elyriano"
+  name      String
+  shortLore String   @db.Text
+  size      String   @default("medium") // pode virar enum se desejar
+  speed     Int      @default(9) // fallback geral (m)
+  bonuses   Json // { str:1, wis:1 } ou opções
+  traits    Json // [{name,desc}]
+  languages String[] // ["Comum","Elyriano"]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  characters Character[]
+
+  @@index([name])
+}
+
+model Class {
+  id        String   @id @db.VarChar(40) // ex: "guerreiro", "mago"
+  name      String
+  hitDie    String // "d6" | "d8" | "d10" | "d12"
+  profs     Json // armor,weapons,tools,saves,skillsChoices
+  features  Json // features por nível [{level,name,desc,effects[]}]
+  spellData Json? // regras de magia da classe (progressão de slots, etc.)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+}
+
+model Background {
+  id         String      @id @db.VarChar(40)
+  name       String
+  profs      Json // perícias, ferramentas, línguas extras
+  equipment  Json? // itens iniciais
+  traits     Json? // personalidade/ideais/laços/defeitos (textos)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  characters Character[]
+
+  @@index([name])
+}
+
+model Spell {
+  id        String   @id @db.VarChar(80)
+  name      String
+  level     Int
+  school    String
+  casting   Json // {components, time, duration, range}
+  effect    Json // {scaling, save, damage, conditions}
+  text      String? // descrição longa
+  tags      String[]
+  source    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([level, school])
+  @@index([name])
+}
+
+// /* ================================
+// Personagem (coração da ficha)
+// ================================ */
+
+model Character {
+  id         String         @id @default(uuid())
+  userId     String         @db.Uuid
+  state      CharacterState @default(DRAFT)
+  visibility Visibility     @default(PRIVATE)
+
+  // Identidade
+  name          String
+  title         String?
+  portraitUrl   String?
+  pronoun       String? // "ele" | "ela" | "elu"
+  ancestryId    String
+  ancestry      Ancestry    @relation(fields: [ancestryId], references: [id])
+  subAncestry   String? // linhagem/variante (livre)
+  backgroundId  String?
+  backgroundRef Background? @relation(fields: [backgroundId], references: [id])
+
+  // Multiclasse (substitui classId/level únicos)
+  // Ex.: [{classId:"guerreiro", level:3, subclassId:"campeao"}, {classId:"ladino", level:2}]
+  classes Json
+
+  level     Int     @default(1) // cache do total (soma de classes[]), útil para queries
+  xp        Int     @default(0)
+  alignment String? // opcional (ou "Eixo Espiritual" se preferir)
+
+  inspiration Boolean @default(false)
+
+  // Atributos (camadas)
+  // attributes = { base:{str,dex,con,int,wis,cha}, bonuses:[{key,value,source}], temp:[...] }
+  attributes       Json
+  proficiencyBonus Int // cacheado por level; recompute via serviço
+
+  // Combate & sentidos
+  // hp = { max, current, temp, hit_dice:"1d10", death_saves:{s:0,f:0} }
+  hp              Json
+  // combat = { ac, initiative_bonus, speeds:{walk,fly,swim,climb,burrow}, resistances[], immunities[], vulnerabilities[] }
+  combat          Json
+  // senses = { darkvision?:m, blindsight?:m, tremorsense?:m, truesight?:m, passive:{perception, insight, investigation} }
+  senses          Json
+  exhaustionLevel Int   @default(0)
+  rests           Json? // { lastShort?: Date, lastLong?: Date }
+
+  // Ataques prontos para UI (derivado de armas/spells/features; opcionalmente persistido)
+  // [{ source:"weapon|spell|feature", name, toHit, damage:"1d8+3", damageType, properties[] }]
+  attacks Json?
+
+  // Magia
+  // spellcasting = { ability, cd, attack_bonus, slots:{1:{max,cur},...}, known:[], prepared:[], concentration?:{spellId,startedAt} }
+  spellcasting Json?
+
+  // Inventário & equipamento
+  currency   Json // { cp, sp, gp, pp }
+  // inventory = [{id,itemId?, name, qty, weight, rarity, tags[], effects[], attunementRequired, equippedSlot?:EquipSlot }]
+  inventory  Json
+  // attunement = { limit:3, attunedItemIds:[] }
+  attunement Json
+  mythicSets Json? // [{setId, pieces:[itemId], bonuses:{2pc:{...},...}}]
+
+  // Proficiências & perícias
+  // No 5e, detalhes ficam em class/background/ancestry; aqui mantemos em features/derivedSnapshot
+  features   Json // [{name,desc,origin,level?,effects[]}]
+  feats      Json? // [{id,name,desc,effects[]}]
+  conditions Json? // [{key, level?, expiresAt?}]
+
+  // Recursos de classe (Ki, Sorcery Points, etc.)
+  // classResources = { ki:{current,max}, sorcery:{...}, superiority:{...}, custom:[{name,current,max,reset:"short|long"}] }
+  classResources Json?
+
+  // Companheiros & Formas (familiar, wild shape)
+  companions Json? // [{type,name,refStatblockId?, customStatblock?}]
+  forms      Json? // [{name, uses:{current,max}, options:[{statblockId|custom}], notes?}]
+
+  // Núcleo Eldoryon
+  // Cada um como recurso: { current, max, thresholds?[] } + detalhes próprios
+  faith        Json // { current,max, thresholds:[...]}
+  ether        Json // { current,max, resonance?:{ schools:string[], intensity:0..3 } }
+  corruption   Json // { current,max, marks:[{name,desc}] }
+  sigils       Int   @default(0)
+  obelisks     Json? // [{obeliskId,status,keys[],progress}]
+  idgAwareness Json? // { sensitivity:0..3, notes }
+
+  // Relacionamentos de mundo
+  factions Json? // [{id,name,rank,notes}]
+  links    Json? // vínculos/NPCs: [{id,name,relation,notes}]
+  quests   Json? // [{id,title,status,notes}]
+
+  // Diário & meta
+  journal  Json? // [{id, createdAt, markdown, tags[]}]
+  metadata Json? // visuais/preferências
+  xpLog    Json? // [{ value, reason, at }]
+
+  // Cache de números prontos p/ UI
+  // derivedSnapshot = { ac:{total,base,armor,shield,misc}, passives:{perception,insight,investigation}, encumbrance:{carried,capacity,status}, spell:{cd,attack}, ... }
+  derivedSnapshot Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  revisions CharacterRevision[]
+
+  @@index([userId])
+  @@index([ancestryId])
+  @@index([backgroundId])
+  @@index([level])
+}
+
+// /* Auditoria/versionamento por evento (para “undo”, logs e histórico) */
+model CharacterRevision {
+  id          String    @id @default(uuid())
+  characterId String
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  userId      String    @db.Uuid
+  diff        Json
+  createdAt   DateTime  @default(now())
+
+  @@index([characterId, createdAt])
+}
+
+//armas e itens
 enum Rarity {
   common
   uncommon

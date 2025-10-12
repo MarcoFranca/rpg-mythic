@@ -1,29 +1,65 @@
+// prisma/seed.ts
 import { PrismaClient, Prisma } from "@prisma/client";
 import { randomUUID } from "crypto";
+import { readFileSync } from "fs";
+import { resolve } from "path"; // ✅
 
 const prisma = new PrismaClient();
-const JNULL = Prisma.JsonNull; // jsonb 'null'
-const DBNULL = Prisma.DbNull;  // SQL NULL (recomendado p/ "sem valor")
+const load = (p: string) =>
+    JSON.parse(readFileSync(resolve(process.cwd(), p), "utf-8"));
 
-async function main() {
-    // Weapon example (Espada Longa Rúnica)
+// Use DbNull/JsonNull apenas em campos JSON
+const JNULL = Prisma.JsonNull; // representa JSON `null`
+const DBNULL = Prisma.DbNull;  // representa SQL NULL dentro de JSONB
+
+async function seedCore() {
+    const ancestries = load("prisma/seed/ancestries.json");
+    const classes = load("prisma/seed/classes.json");
+    const backgrounds = load("prisma/seed/backgrounds.json");
+
+    await prisma.ancestry.createMany({ data: ancestries, skipDuplicates: true });
+    await prisma["class"].createMany({ data: classes, skipDuplicates: true });
+    await prisma.background.createMany({ data: backgrounds, skipDuplicates: true });
+
+    console.log("✅ Ancestries/Classes/Backgrounds semeados.");
+}
+
+async function seedExamples() {
+    // ⚠️ Descomente este bloco somente se os modelos abaixo EXISTIREM no schema:
+    // Item, Weapon, Armor, Consumable (1–1 com Item via relations)
+
+    // Verificação leve para evitar crash em projetos sem Item:
+    const hasItem = await prisma.$queryRawUnsafe<{ exists: boolean }[]>(
+        `SELECT EXISTS (
+       SELECT 1
+       FROM information_schema.tables
+       WHERE table_schema = 'public' AND table_name = 'Item'
+     ) as "exists";`
+    ).then(r => r[0]?.exists).catch(() => false);
+
+    if (!hasItem) {
+        console.log("ℹ️ Modelos de Item não encontrados. Pulando exemplos de itens.");
+        return;
+    }
+
+    // ---------- EXEMPLO: Espada Longa Rúnica ----------
     const weaponId = randomUUID();
-    await prisma.item.create({
-        data: {
+    await prisma.item.upsert({
+        where: { id: weaponId },
+        create: {
             id: weaponId,
             name: "Espada Longa Rúnica",
             description: "Lâmina que canaliza energia antiga.",
-            rarity: "very_rare",
-            tier: "high",
+            rarity: "very_rare",        // garanta que o tipo do campo aceita esse valor
+            tier: "high",               // idem
             value: 3200,
             levelRequired: 8,
-            image: null,          // String? aceita null literal
-            setCode: null,        // String? aceita null literal
-            setName: null,        // String? aceita null literal
-            setBonuses: DBNULL,   // Json? → use DbNull/JsonNull em vez de null
+            image: null,                // String?
+            setCode: null,              // String?
+            setName: null,              // String?
+            setBonuses: DBNULL,         // Json?
             Weapon: {
                 create: {
-                    // itemId: weaponId, // nested create não precisa
                     category: "Espada",
                     subCategory: "Espada Longa",
                     weight: 3.2,
@@ -32,20 +68,20 @@ async function main() {
                     damageType: "slash",
                     secondaryDamageType: "radiant",
                     range: "melee",
-                    specialRange: null,             // String? ok
+                    specialRange: null,             // String?
                     properties: ["versátil"],       // Json
-                    elementalType: null,            // String? ok
+                    elementalType: null,            // String?
                     requirements: { forca: 13 },    // Json
                     abilitiesActive: [],            // Json
-                    abilitiesPassive: ["Brilho Próprio"],
-                    attributeBoosts: { sabedoria: 1 },
+                    abilitiesPassive: ["Brilho Próprio"], // Json
+                    attributeBoosts: { sabedoria: 1 },    // Json
                     rarityBoosts: [
                         { type: "bonus_damage", target: "undead", value: { dice_count: 1, dice_type: 8 } },
                     ],
                     disadvantages: [],
                     durability: 160,
                     classRestrictions: [],
-                    ongoingEffects: DBNULL,         // manter chave, sem valor
+                    ongoingEffects: DBNULL,         // Json?
                     targetEffects: [],
                     conditionalEffects: [
                         { condition: "critical_hit", effect: { type: "stun", duration: 1, chance: 25 } },
@@ -54,12 +90,14 @@ async function main() {
                 },
             },
         },
+        update: {},
     });
 
-    // Armor example (parte + set)
+    // ---------- EXEMPLO: Capuz do Dragão Ancião (Armor) ----------
     const armorId = randomUUID();
-    await prisma.item.create({
-        data: {
+    await prisma.item.upsert({
+        where: { id: armorId },
+        create: {
             id: armorId,
             name: "Capuz do Dragão Ancião",
             description: "Parte do conjunto Mítico Dracônico.",
@@ -89,7 +127,7 @@ async function main() {
                     disadvantages: [],
                     requirements: { forca: 15 },
                     abilities: ["Visão na Fumaça"],
-                    ongoingEffects: DBNULL, // manter chave, sem valor
+                    ongoingEffects: DBNULL, // Json?
                     conditionalEffects: [
                         {
                             condition: "receber_ataque_critico",
@@ -103,12 +141,14 @@ async function main() {
                 },
             },
         },
+        update: {},
     });
 
-    // Consumable example (Poção de Mana Maior)
+    // ---------- EXEMPLO: Poção de Mana (Consumable) ----------
     const consId = randomUUID();
-    await prisma.item.create({
-        data: {
+    await prisma.item.upsert({
+        where: { id: consId },
+        create: {
             id: consId,
             name: "Poção de Mana (Maior)",
             description: "Restaura uma grande quantidade de mana.",
@@ -119,20 +159,33 @@ async function main() {
             image: null,
             Consumable: {
                 create: {
-                    // itemId: consId, // não precisa
                     consumableType: "potion",
                     effectType: "mana_restore",
                     effectIntensity: { mana_restore: 40 },
                     effectDuration: "Instantâneo",
                     usageConditions: { fora_de_combate: false },
                     quantity: 1,
-                    expiration: null,   // DateTime? ok
+                    expiration: null,   // DateTime?
                 },
             },
         },
+        update: {},
     });
 
-    console.log("Seed OK");
+    console.log("✅ Exemplos de itens semeados.");
 }
 
-main().finally(() => prisma.$disconnect());
+async function main() {
+    await seedCore();
+    await seedExamples(); // comenta esta linha se ainda não tem os models de Item
+    console.log("🌱 Seed OK");
+}
+
+main()
+    .catch((e) => {
+        console.error("❌ Seed falhou:", e);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });
