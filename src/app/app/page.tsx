@@ -65,7 +65,9 @@ export default async function AppHomePage() {
     // mesas criadas (opcional)
     let myTables = 0;
     try {
-        myTables = await prisma.gameTable.count({ where: { createdById: u.id } as any });
+        myTables = await prisma.gameTable.count({
+            where: { createdById: u.id },
+        });
     } catch {
         myTables = 0;
     }

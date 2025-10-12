@@ -21,21 +21,23 @@ import {
 import { CONDITION_RULES, impactFromExhaustion } from "./conditions.catalog";
 
 // ——— Helpers
-const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
 export const abilityMod = (score: number) => Math.floor((score - 10) / 2);
 export const proficiencyByLevel = (level: number) =>
     level >= 17 ? 6 : level >= 13 ? 5 : level >= 9 ? 4 : level >= 5 ? 3 : 2;
 
 // soma de layers
 export function composeAttributes(attr: AttributesBlockT): Record<AbilityKey, number> {
-    const total = { ...attr.base } as any;
+    const total: Record<AbilityKey, number> = { ...attr.base };
     const apply = (layers: AttributesBlockT["bonuses"]) => {
-        for (const l of layers || []) total[l.key] = (total[l.key] ?? 0) + l.value;
+        for (const l of layers || []) {
+            total[l.key] = (total[l.key] ?? 0) + l.value;
+        }
     };
     apply(attr.bonuses);
     apply(attr.temp);
-    return total as Record<AbilityKey, number>;
+    return total;
 }
+
 
 // ——— ARMADURAS & ESCUDOS
 type ArmorInfo = {
@@ -51,13 +53,29 @@ function parseArmorFromTags(item: InventoryItemT): ArmorInfo | null {
     const chest = item.equippedSlot === "CHEST";
     if (!chest) return null;
 
-    const any = item as any;
-    if (any.acBase || any.dexCap !== undefined) {
+    const meta = item as unknown as Record<string, unknown>;
+    const hasMeta =
+        "acBase" in meta || "dexCap" in meta || "acMisc" in meta || "kind" in meta;
+
+    if (hasMeta) {
+        const num = (v: unknown) => (typeof v === "number" ? v : undefined);
+        const numOrNull = (v: unknown) =>
+            typeof v === "number" ? v : v === null ? null : undefined;
+
+        const rawKind = meta["kind"];
+        const kind: ArmorInfo["kind"] =
+            rawKind === "light" ||
+            rawKind === "medium" ||
+            rawKind === "heavy" ||
+            rawKind === "natural"
+                ? rawKind
+                : "natural";
+
         return {
-            kind: any.kind ?? "natural",
-            base: Number(any.acBase ?? 10),
-            dexCap: any.dexCap ?? null,
-            misc: Number(any.acMisc ?? 0),
+            kind,
+            base: num(meta["acBase"]) ?? 10,
+            dexCap: numOrNull(meta["dexCap"]) ?? null,
+            misc: num(meta["acMisc"]) ?? 0,
         };
     }
 
@@ -68,13 +86,19 @@ function parseArmorFromTags(item: InventoryItemT): ArmorInfo | null {
 
     return null;
 }
+
+
 function parseShieldFromTags(item: InventoryItemT): ShieldInfo | null {
     const tags = item.tags || [];
     const off = item.equippedSlot === "OFF_HAND";
     if (!off) return null;
 
-    const any = item as any;
-    if (tags.includes("shield")) return { bonus: Number(any.shieldBonus ?? 2) };
+    if (tags.includes("shield")) {
+        const meta = item as unknown as Record<string, unknown>;
+        const bonus =
+            typeof meta["shieldBonus"] === "number" ? (meta["shieldBonus"] as number) : 2;
+        return { bonus };
+    }
     return null;
 }
 

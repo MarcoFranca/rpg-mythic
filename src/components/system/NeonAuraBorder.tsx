@@ -48,7 +48,7 @@ export default function NeonAuraBorder({
             background: `linear-gradient(90deg, ${color1}, ${color2})`,
             WebkitMask: `linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)`,
             WebkitMaskComposite: "xor",
-            maskComposite: "exclude" as any,
+            maskComposite: "exclude" as React.CSSProperties["maskComposite"],
             padding: `${stroke}px`,
             opacity: 0.9,
             zIndex: 1,

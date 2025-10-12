@@ -78,16 +78,19 @@ export default function NewCharacterPage() {
 
     // autosave Identidade (debounce)
     const debouncedSaveIdentity = useMemo(
-        () => debounce(async (draftId: string, data: IdentityForm) => {
-            await saveIdentity.mutateAsync({ id: draftId, data });
-        }, 600),
-        []
+        () =>
+            debounce(
+                async (draftId: string, data: IdentityForm): Promise<void> => {
+                    await saveIdentity.mutateAsync({ id: draftId, data });
+                },
+                600
+            ),
+        [saveIdentity.mutateAsync]
     );
 
     async function goAttributes() {
         try {
             setSaving(true);
-            // se ainda não tiver id (edge-case), cria agora
             let draftId = id;
             if (!draftId) {
                 const r = await createDraft.mutateAsync({});
@@ -96,13 +99,15 @@ export default function NewCharacterPage() {
             }
             await saveIdentity.mutateAsync({ id: draftId!, data: identity });
             setStep("attributes");
-        } catch (e: any) {
+        } catch (e: unknown) {
+            // narrowing seguro
+            const msg =
+                (typeof e === "object" && e && "shape" in e && typeof (e as any).shape?.message === "string")
+                    ? (e as any).shape.message
+                    : (e instanceof Error ? e.message : "Algo impediu o avanço. Verifique os campos.");
+
             console.error(e);
-            toast?.error?.(
-                e?.shape?.message ??
-                e?.message ??
-                "Algo impediu o avanço. Verifique os campos."
-            );
+            toast?.error?.(msg);
         } finally {
             setSaving(false);
         }

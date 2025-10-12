@@ -32,6 +32,12 @@ function asString(v: unknown, fallback = ""): string {
     return typeof v === "string" ? v : fallback;
 }
 
+// pega número de uma chave de objeto desconhecido
+function pickNumber(o: unknown, key: string, fallback = 0): number {
+    if (isRecord(o)) return asNumber(o[key], fallback);
+    return fallback;
+}
+
 // Recurso { current, max }
 type Resource = { current: number; max: number };
 function asResource(v: unknown): Resource {
@@ -62,12 +68,9 @@ function asCoins(v: unknown): Coins {
 function asSpeeds(v: unknown): Record<string, number> {
     if (isRecord(v)) {
         const out: Record<string, number> = {};
-        for (const [k, val] of Object.entries(v)) {
-            out[k] = asNumber(val, 0);
-        }
+        for (const [k, val] of Object.entries(v)) out[k] = asNumber(val, 0);
         return out;
     }
-    // às vezes pode vir array -> ignora / fallback
     return {};
 }
 
@@ -82,13 +85,34 @@ function asConditions(v: unknown): Condition[] {
     return [];
 }
 
+/* ===== Tipos mínimos para os componentes ===== */
+
+type CombatLike = { ac?: number; speeds?: Record<string, number> };
+type CharacterVM = {
+    id: string;
+    name: string;
+    portraitUrl: string | null;
+    inspiration: boolean;
+    level: number;
+    exhaustionLevel: number;
+    attributes: AttributesBlockT;
+    combat?: CombatLike;
+    senses?: unknown;
+    inventory?: unknown;
+    spellcasting?: unknown;
+    conditions?: unknown;
+    derivedSnapshot?: unknown;
+    faith?: unknown;
+    ether?: unknown;
+    corruption?: unknown;
+};
+
 /* ===== UI ===== */
 
-function Header({ ch }: { ch: any }) {
+function Header({ ch }: { ch: Pick<CharacterVM, "id" | "name" | "portraitUrl" | "inspiration" | "level"> }) {
     return (
         <div className="mb-6 flex items-center gap-4">
             <div className="h-16 w-16 overflow-hidden rounded-xl border border-white/10 bg-black/40">
-                {/* retrato */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={ch.portraitUrl ?? "/placeholder-portrait.png"}
@@ -133,7 +157,7 @@ function AttributesEditor({
                           }: {
     id: string;
     attributes: AttributesBlockT;
-    onSaved: (snapshot: any) => void;
+    onSaved: (snapshot: unknown) => void;
 }) {
     const [form, setForm] = useState<AttributesBlockT>(attributes);
     const mut = api.characterSheet.saveAttributesAndSnapshot.useMutation();
@@ -175,7 +199,7 @@ function AttributesEditor({
     );
 }
 
-function CombatPanel({ ch }: { ch: any }) {
+function CombatPanel({ ch }: { ch: CharacterVM }) {
     const snap = isRecord(ch.derivedSnapshot) ? ch.derivedSnapshot : {};
 
     const acObj = isRecord(snap.ac)
@@ -187,31 +211,33 @@ function CombatPanel({ ch }: { ch: any }) {
             shield: 0,
             misc: 0,
         };
+
     const ac = {
-        total: asNumber((acObj as any).total, 10),
-        base: asNumber((acObj as any).base, 10),
-        armor: asNumber((acObj as any).armor, 0),
-        shield: asNumber((acObj as any).shield, 0),
-        misc: asNumber((acObj as any).misc, 0),
+        total: pickNumber(acObj, "total", 10),
+        base: pickNumber(acObj, "base", 10),
+        armor: pickNumber(acObj, "armor", 0),
+        shield: pickNumber(acObj, "shield", 0),
+        misc: pickNumber(acObj, "misc", 0),
     };
 
     const passObj = isRecord(snap.passives) ? snap.passives : {};
     const pass = {
-        perception: asNumber(passObj.perception, 10),
-        insight: asNumber(passObj.insight, 10),
-        investigation: asNumber(passObj.investigation, 10),
+        perception: pickNumber(passObj, "perception", 10),
+        insight: pickNumber(passObj, "insight", 10),
+        investigation: pickNumber(passObj, "investigation", 10),
     };
 
     const encObj = isRecord(snap.encumbrance) ? snap.encumbrance : {};
     const enc = {
-        carriedWeight: asNumber(encObj.carriedWeight, 0),
-        capacity: asNumber(encObj.capacity, 0),
-        status: asString(encObj.status, "normal"),
+        carriedWeight: pickNumber(encObj, "carriedWeight", 0),
+        capacity: pickNumber(encObj, "capacity", 0),
+        status: asString(encObj?.status, "normal"),
     };
 
-    const speeds = Object.keys(snap).length
-        ? asSpeeds((snap as any).speedsFinal)
-        : (isRecord(ch.combat?.speeds) ? asSpeeds(ch.combat?.speeds) : { walk: 9 });
+    const speeds =
+        isRecord(snap) && "speedsFinal" in snap
+            ? asSpeeds((snap as Record<string, unknown>).speedsFinal)
+            : (isRecord(ch.combat?.speeds) ? asSpeeds(ch.combat?.speeds) : { walk: 9 });
 
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -261,20 +287,17 @@ export default function CharacterSheetPage() {
     if (q.isLoading) return <div className="p-6 opacity-70">Carregando o canto do teu Eco…</div>;
     if (!q.data) return <div className="p-6 text-red-300">Eco não encontrado.</div>;
 
-    const ch = q.data;
+    const ch = q.data as CharacterVM;
 
-    // recursos vindos como JSON
+    // recursos vindos como JSON (router pode devolver formatos diferentes)
     const faith = asResource(ch.faith);
     const ether = asResource(ch.ether);
     const corruption = asResource(ch.corruption);
     const conditions = asConditions(ch.conditions);
-    // se precisar em algum lugar:
-    const coins = asCoins(
-        (ch as any)?.coins ??
-        (ch as any)?.inventory?.coins ??
-        (ch as any)?.economy?.coins ??
-        null
-    );
+
+    // moedas (caso ainda não exista no payload, zera)
+    const coins: Coins = { cp: 0, sp: 0, gp: 0, pp: 0 };
+
     return (
         <div className="p-4 md:p-6">
             <Header ch={ch} />
@@ -283,7 +306,7 @@ export default function CharacterSheetPage() {
                 <div className="md:col-span-2 space-y-6">
                     <AttributesEditor
                         id={ch.id}
-                        attributes={ch.attributes as AttributesBlockT}
+                        attributes={ch.attributes}
                         onSaved={() => q.refetch()}
                     />
                     <CombatPanel ch={ch} />
@@ -300,6 +323,7 @@ export default function CharacterSheetPage() {
                             <div>CP: {coins.cp}</div>
                         </CardContent>
                     </Card>
+
                     <Card className="rounded-2xl border-white/10 bg-black/40">
                         <CardHeader><CardTitle>Equilíbrio Espiritual</CardTitle></CardHeader>
                         <CardContent className="text-sm opacity-80">
@@ -308,7 +332,6 @@ export default function CharacterSheetPage() {
                             <div>Sombrasangue: {corruption.current} / {corruption.max}</div>
                         </CardContent>
                     </Card>
-
 
                     <Card className="rounded-2xl border-white/10 bg-black/40">
                         <CardHeader><CardTitle>Condições</CardTitle></CardHeader>
