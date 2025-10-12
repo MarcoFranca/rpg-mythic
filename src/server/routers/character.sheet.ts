@@ -1,20 +1,33 @@
+// src/server/routers/character.sheet.ts
 import { router, protectedProcedure } from "@/server/api/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
-    AttributesBlock, CombatBlock, SensesBlock,
-    InventoryItem, SpellcastingBlock, ConditionEntry,
+    AttributesBlock,
+    CombatBlock,
+    SensesBlock,
+    InventoryItem,
+    SpellcastingBlock,
+    ConditionEntry,
 } from "@/server/zod/character-blocks";
 
 const IdInput = z.object({ id: z.string().uuid() });
 
+// Tipos derivados dos esquemas (elimina `any`)
+type AttributesBlockT = z.infer<typeof AttributesBlock>;
+type CombatBlockT = z.infer<typeof CombatBlock>;
+type SensesBlockT = z.infer<typeof SensesBlock>;
+type InventoryItemT = z.infer<typeof InventoryItem>;
+type SpellcastingBlockT = z.infer<typeof SpellcastingBlock>;
+type ConditionEntryT = z.infer<typeof ConditionEntry>;
+
 // Helpers de “defaults seguros”
-const defaultAttributes = {
+const defaultAttributes: AttributesBlockT = {
     base: { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 },
     bonuses: [],
     temp: [],
 };
-const defaultCombat = {
+const defaultCombat: CombatBlockT = {
     ac: 10,
     initiative_bonus: 0,
     speeds: { walk: 9 },
@@ -22,15 +35,19 @@ const defaultCombat = {
     immunities: [],
     vulnerabilities: [],
 };
-const defaultSenses = {
+const defaultSenses: SensesBlockT = {
     passive: { perception: 10, insight: 10, investigation: 10 },
 };
 const defaultCurrency = { cp: 0, sp: 0, gp: 0, pp: 0 };
 
-function normalize<T>(schema: z.ZodTypeAny, value: unknown, fallback: T): T {
+// Normalizador genérico (sem `any`)
+function normalize<S extends z.ZodTypeAny>(
+    schema: S,
+    value: unknown,
+    fallback: z.infer<S>,
+): z.infer<S> {
     const parsed = schema.safeParse(value);
-    if (parsed.success) return parsed.data as T;
-    return fallback;
+    return parsed.success ? parsed.data : fallback;
 }
 
 export const characterSheetRouter = router({
@@ -61,33 +78,39 @@ export const characterSheetRouter = router({
             });
 
             if (!ch) {
-                throw new TRPCError({ code: "NOT_FOUND", message: "Personagem não encontrado." });
+                throw new TRPCError({
+                    code: "NOT_FOUND",
+                    message: "Personagem não encontrado.",
+                });
             }
 
             // Normalização defensiva (evita 500 por null/shape inesperado)
             const attributes = normalize(AttributesBlock, ch.attributes, defaultAttributes);
             const combat = normalize(CombatBlock, ch.combat, defaultCombat);
             const senses = normalize(SensesBlock, ch.senses, defaultSenses);
-            const inventory = Array.isArray(ch.inventory)
+
+            const inventory: InventoryItemT[] = Array.isArray(ch.inventory)
                 ? (ch.inventory as unknown[])
                     .map((x) => {
                         const p = InventoryItem.safeParse(x);
                         return p.success ? p.data : null;
                     })
-                    .filter(Boolean)
+                    .filter((i): i is InventoryItemT => Boolean(i))
                 : [];
-            const spellcasting = ch.spellcasting
-                ? (SpellcastingBlock.safeParse(ch.spellcasting).success
-                    ? (ch.spellcasting as any)
-                    : undefined)
-                : undefined;
-            const conditions = Array.isArray(ch.conditions)
+
+            const spellcasting: SpellcastingBlockT | undefined = (() => {
+                if (!ch.spellcasting) return undefined;
+                const p = SpellcastingBlock.safeParse(ch.spellcasting);
+                return p.success ? p.data : undefined;
+            })();
+
+            const conditions: ConditionEntryT[] = Array.isArray(ch.conditions)
                 ? (ch.conditions as unknown[])
                     .map((x) => {
                         const p = ConditionEntry.safeParse(x);
                         return p.success ? p.data : null;
                     })
-                    .filter(Boolean)
+                    .filter((i): i is ConditionEntryT => Boolean(i))
                 : [];
 
             return {
@@ -106,7 +129,7 @@ export const characterSheetRouter = router({
                 derivedSnapshot: ch.derivedSnapshot ?? null, // pode ser null
                 faith: ch.faith ?? defaultCurrency,
                 ether: ch.ether ?? defaultCurrency,
-                corruption: ch.corruption ?? { ...defaultCurrency, marks: [] },
+                corruption: ch.corruption ?? { ...defaultCurrency, marks: [] as string[] },
             };
         }),
 
@@ -127,7 +150,6 @@ export const characterSheetRouter = router({
                 where: { id: input.id, userId: ctx.user.id },
                 data: { attributes: input.attributes },
             });
-            // usa seu serviço existente
             const { recomputeSnapshot } = await import("@/server/services/character.service");
             const snapshot = await recomputeSnapshot(ctx.prisma, input.id);
             return { ok: true, snapshot };
