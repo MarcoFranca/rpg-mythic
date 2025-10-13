@@ -2,6 +2,7 @@
 import { z } from "zod";
 import { router, publicProcedure } from "../../trpc";
 
+/** View model exposto para a UI */
 export const SubclassSummary = z.object({
     id: z.string().uuid(),
     classId: z.string().uuid(),
@@ -15,6 +16,20 @@ export const SubclassSummary = z.object({
 });
 export type SubclassSummaryT = z.infer<typeof SubclassSummary>;
 
+/** Esquema do metaJson armazenado no banco (seguro contra valores faltantes/ruins) */
+const SubclassMetaSchema = z
+    .object({
+        aliases: z.array(z.string()).optional(),
+        pros: z.array(z.string()).optional(),
+        cons: z.array(z.string()).optional(),
+        featuresPreview: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional(),
+    })
+    .partial()
+    .default({});
+
+type SubclassMeta = z.infer<typeof SubclassMetaSchema>;
+
 export const subclassCatalogRouter = router({
     listByClass: publicProcedure
         .input(z.object({ classId: z.string().uuid() }))
@@ -23,18 +38,24 @@ export const subclassCatalogRouter = router({
                 where: { classId: input.classId },
                 orderBy: { name: "asc" },
             });
-            return rows.map((r): SubclassSummaryT =>
-                SubclassSummary.parse({
+
+            const result: SubclassSummaryT[] = rows.map((r) => {
+                // r.metaJson é Prisma.JsonValue (unknown em TS). Validamos com Zod.
+                const meta: SubclassMeta = SubclassMetaSchema.parse(r.metaJson ?? {});
+
+                return SubclassSummary.parse({
                     id: r.id,
                     classId: r.classId,
                     name: r.name,
                     description: r.description,
-                    aliases: (r.metaJson as any)?.aliases ?? [],
-                    pros: (r.metaJson as any)?.pros ?? [],
-                    cons: (r.metaJson as any)?.cons ?? [],
-                    featuresPreview: (r.metaJson as any)?.featuresPreview ?? [],
-                    tags: (r.metaJson as any)?.tags ?? [],
-                })
-            );
+                    aliases: meta.aliases ?? [],
+                    pros: meta.pros ?? [],
+                    cons: meta.cons ?? [],
+                    featuresPreview: meta.featuresPreview ?? [],
+                    tags: meta.tags ?? [],
+                });
+            });
+
+            return result;
         }),
 });
