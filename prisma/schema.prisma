@@ -76,10 +76,27 @@ model Class {
   profs     Json // armor,weapons,tools,saves,skillsChoices
   features  Json // features por nível [{level,name,desc,effects[]}]
   spellData Json? // regras de magia da classe (progressão de slots, etc.)
+  subclasses Subclass[]
+  metaJson   Json     // <- ? temporário
+  description String   // <- ? temporário
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([name])
+}
+
+model Subclass {
+  id          String   @id @default(uuid())
+  classId     String
+  clazz       Class    @relation(fields: [classId], references: [id], onDelete: Cascade)
+  name        String
+  slug        String   @unique
+  description String
+  metaJson    Json     // { aliases: string[], pros: string[], cons: string[], featuresPreview: string[], tags: string[] }
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([classId])
 }
 
 model Background {

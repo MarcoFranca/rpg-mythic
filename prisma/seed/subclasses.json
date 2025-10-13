@@ -1,0 +1,585 @@
+[
+  {
+    "slug": "ranger-hunter",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Caçador",
+    "description": "Predador adaptativo que escolhe presas e táticas específicas.",
+    "metaJson": {
+      "aliases": ["Hunter"],
+      "pros": ["Versátil em combate"],
+      "cons": ["Poder situacional"],
+      "featuresPreview": ["Táticas do Caçador", "Defesas do Caçador"],
+      "tags": ["ranger"]
+    }
+  },
+  {
+    "slug": "ranger-beast-master",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Mestre das Bestas",
+    "description": "Liga-se a um companheiro do Éter Selvagem.",
+    "metaJson": {
+      "aliases": ["Beast Master"],
+      "pros": ["Companheiro animal"],
+      "cons": ["Gestão de ação"],
+      "featuresPreview": ["Companheiro de Caça"],
+      "tags": ["ranger", "pet"]
+    }
+  },
+  {
+    "slug": "ranger-gloom-stalker",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Stalker Umbroso",
+    "description": "Caça nas fendas e penumbras do Éter Vivo.",
+    "metaJson": {
+      "aliases": ["Gloom Stalker"],
+      "pros": ["Explosão no 1º turno"],
+      "cons": [],
+      "featuresPreview": ["Ambuscador Dread", "Passos nas Sombras"],
+      "tags": ["ranger", "umbra"]
+    }
+  },
+  {
+    "slug": "ranger-horizon-walker",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Andarilho do Horizonte",
+    "description": "Vigia fronteiras planares e veios do Éter.",
+    "metaJson": {
+      "aliases": ["Horizon Walker"],
+      "pros": ["Mobilidade planar"],
+      "cons": ["Recursos situacionais"],
+      "featuresPreview": ["Sentido Planar", "Passo Etéreo"],
+      "tags": ["ranger", "plano", "éter"]
+    }
+  },
+  {
+    "slug": "ranger-monster-slayer",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Matador de Monstros",
+    "description": "Especialista em grandes horrores e entidades.",
+    "metaJson": {
+      "aliases": ["Monster Slayer"],
+      "pros": ["Controle de alvos singulares"],
+      "cons": ["Foco estreito"],
+      "featuresPreview": ["Olho do Caçador", "Golpe Implacável"],
+      "tags": ["ranger"]
+    }
+  },
+  {
+    "slug": "ranger-fey-wanderer",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Errante das Fadas",
+    "description": "Marca de encanto do Reino Vivo reforça sua alma.",
+    "metaJson": {
+      "aliases": ["Fey Wanderer"],
+      "pros": ["Resistências mentais", "Charme"],
+      "cons": [],
+      "featuresPreview": ["Passos Encantados", "Presença Feérica"],
+      "tags": ["ranger", "fey"]
+    }
+  },
+  {
+    "slug": "ranger-swarmkeeper",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Enxameante",
+    "description": "Comanda enxames etéreos que o cercam e protegem.",
+    "metaJson": {
+      "aliases": ["Swarmkeeper"],
+      "pros": ["Controle de campo"],
+      "cons": [],
+      "featuresPreview": ["Enxame Protetor", "Propulsão Etérea"],
+      "tags": ["ranger"]
+    }
+  },
+  {
+    "slug": "ranger-drakewarden",
+    "classId": "00000000-0000-0000-0000-000000000106",
+    "name": "Dracoguarda",
+    "description": "Liga-se a um draco do Éter e combate em dupla.",
+    "metaJson": {
+      "aliases": ["Drakewarden"],
+      "pros": ["Companheiro dracônico"],
+      "cons": ["Dependência do aliado"],
+      "featuresPreview": ["Vínculo Dracônico", "Sopro Coordenado"],
+      "tags": ["ranger", "dragão"]
+    }
+  },
+
+  {
+    "slug": "wizard-abjuration",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Abjuração",
+    "description": "Geometrias de proteção e negação de forças.",
+    "metaJson": {
+      "aliases": ["Abjuration"],
+      "pros": ["Defesa/anti-magia"],
+      "cons": ["Menos dano bruto"],
+      "featuresPreview": ["Guardião Arcano", "Contrafeitiço Expandido"],
+      "tags": ["wizard", "proteção"]
+    }
+  },
+  {
+    "slug": "wizard-conjuration",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Conjuração",
+    "description": "Traça portais e invoca entidades e armas do Éter.",
+    "metaJson": {
+      "aliases": ["Conjuration"],
+      "pros": ["Utilidade ampla"],
+      "cons": ["Gestão de concentração"],
+      "featuresPreview": ["Convocação Menor", "Dobra de Espaço"],
+      "tags": ["wizard"]
+    }
+  },
+  {
+    "slug": "wizard-divination",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Adivinhação",
+    "description": "Vê padrões do Cântico e dobra probabilidades.",
+    "metaJson": {
+      "aliases": ["Divination"],
+      "pros": ["Portento/controle narrativo"],
+      "cons": ["Baixo dano"],
+      "featuresPreview": ["Portentos", "Conhecimento Antecipado"],
+      "tags": ["wizard"]
+    }
+  },
+  {
+    "slug": "wizard-enchantment",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Encantamento",
+    "description": "Tinge emoções e vontades com fórmulas do Éter.",
+    "metaJson": {
+      "aliases": ["Enchantment"],
+      "pros": ["Controle social"],
+      "cons": ["Resistências comuns"],
+      "featuresPreview": ["Charme Potencializado", "Pacificar Multidão"],
+      "tags": ["wizard"]
+    }
+  },
+  {
+    "slug": "wizard-evocation",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Evocação",
+    "description": "Energia bruta canalizada em formas destrutivas.",
+    "metaJson": {
+      "aliases": ["Evocation"],
+      "pros": ["Dano em área/longo alcance"],
+      "cons": ["Menos utilidade"],
+      "featuresPreview": ["Esculpir Feitiço", "Amplificação Elemental"],
+      "tags": ["wizard", "dano"]
+    }
+  },
+  {
+    "slug": "wizard-illusion",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Ilusão",
+    "description": "Forja imagens e som como véus do Cântico.",
+    "metaJson": {
+      "aliases": ["Illusion"],
+      "pros": ["Criatividade absurda"],
+      "cons": ["Resistências mentais"],
+      "featuresPreview": ["Ilusões Malleáveis", "Realidade Melhorada"],
+      "tags": ["wizard"]
+    }
+  },
+  {
+    "slug": "wizard-necromancy",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra Necrótica",
+    "description": "Geometrias do ciclo-morte do Éter.",
+    "metaJson": {
+      "aliases": ["Necromancy"],
+      "pros": ["Comandar mortos", "Dreno de vida"],
+      "cons": ["Estigma/IDG"],
+      "featuresPreview": ["Tocar a Morte", "Comandar Mortos"],
+      "tags": ["wizard", "sombrasangue"]
+    }
+  },
+  {
+    "slug": "wizard-transmutation",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Transmutação",
+    "description": "Redesenha matéria e forma segundo o Cântico.",
+    "metaJson": {
+      "aliases": ["Transmutation"],
+      "pros": ["Utility/controle"],
+      "cons": ["Menos dano direto"],
+      "featuresPreview": ["Pedra do Transmutador", "Alquimia Menor"],
+      "tags": ["wizard"]
+    }
+  },
+  {
+    "slug": "wizard-war-magic",
+    "classId": "00000000-0000-0000-0000-000000000108",
+    "name": "Cifra de Guerra",
+    "description": "Doutrina arcana para sobreviver e vencer no campo.",
+    "metaJson": {
+      "aliases": ["War Magic"],
+      "pros": ["Defesa e foco"],
+      "cons": [],
+      "featuresPreview": ["Postura Defensiva", "Golpe Potenciado"],
+      "tags": ["wizard", "marcial"]
+    }
+  },
+
+  {
+    "slug": "warlock-fiend",
+    "classId": "00000000-0000-0000-0000-000000000110",
+    "name": "Pacto do Devástio",
+    "description": "Poderes de entidades devoradoras do fogo sombrio.",
+    "metaJson": {
+      "aliases": ["Fiend"],
+      "pros": ["Explosão e resistência"],
+      "cons": ["Preço em alma/IDG"],
+      "featuresPreview": ["Benção do Abismo", "Chama Profana"],
+      "tags": ["warlock"]
+    }
+  },
+  {
+    "slug": "warlock-hexblade",
+    "classId": "00000000-0000-0000-0000-000000000110",
+    "name": "Pacto da Lâmina Obsidiana",
+    "description": "Armas que sussurram promessas no Éter sombrio.",
+    "metaJson": {
+      "aliases": ["Hexblade"],
+      "pros": ["Marcial + arcano"],
+      "cons": ["Vínculo ao artefato"],
+      "featuresPreview": ["Maldição do Golpe", "Arma do Pacto"],
+      "tags": ["warlock", "marcial"]
+    }
+  },
+  {
+    "slug": "warlock-archfey",
+    "classId": "00000000-0000-0000-0000-000000000110",
+    "name": "Pacto da Corte Verde",
+    "description": "Aliança com senhores feéricos e suas cortes.",
+    "metaJson": {
+      "aliases": ["Archfey"],
+      "pros": ["Controle/charme"],
+      "cons": ["Caprichos feéricos"],
+      "featuresPreview": ["Presença Hipnótica", "Passo Brumoso"],
+      "tags": ["warlock", "fey"]
+    }
+  },
+  {
+    "slug": "warlock-great-old-one",
+    "classId": "00000000-0000-0000-0000-000000000110",
+    "name": "Pacto do Ancião Impronunciável",
+    "description": "Um eco antigo toca sua mente com segredos.",
+    "metaJson": {
+      "aliases": ["Great Old One"],
+      "pros": ["Telepatia/medo"],
+      "cons": ["Risco mental"],
+      "featuresPreview": ["Sussurros Desoladores", "Mente Desperta"],
+      "tags": ["warlock", "horror"]
+    }
+  },
+
+  {
+    "slug": "fighter-champion",
+    "classId": "00000000-0000-0000-0000-000000000103",
+    "name": "Campeão do Obelisco",
+    "description": "Eficiência simples e brutal — crítico como oração.",
+    "metaJson": {
+      "aliases": ["Champion"],
+      "pros": ["Consistência e simplicidade"],
+      "cons": ["Menos botões"],
+      "featuresPreview": ["Crítico Aprimorado", "Vigor Excepcional"],
+      "tags": ["fighter", "marcial"]
+    }
+  },
+  {
+    "slug": "fighter-battle-master",
+    "classId": "00000000-0000-0000-0000-000000000103",
+    "name": "Mestre de Batalha",
+    "description": "Manobras e táticas gravadas no corpo e no aço.",
+    "metaJson": {
+      "aliases": ["Battle Master"],
+      "pros": ["Controle/Táticas"],
+      "cons": ["Gestão de dados superiores"],
+      "featuresPreview": ["Manobras", "Conhecimento do Campo"],
+      "tags": ["fighter"]
+    }
+  },
+  {
+    "slug": "fighter-eldritch-knight",
+    "classId": "00000000-0000-0000-0000-000000000103",
+    "name": "Cavaleiro Éldrico",
+    "description": "Pontes entre lâmina e sigilos arcanos.",
+    "metaJson": {
+      "aliases": ["Eldritch Knight"],
+      "pros": ["Defesa/magia utilitária"],
+      "cons": ["Progressão arcana lenta"],
+      "featuresPreview": ["Magias do Aço", "Vínculo com Arma"],
+      "tags": ["fighter", "arcano"]
+    }
+  },
+
+  {
+    "slug": "rogue-thief",
+    "classId": "00000000-0000-0000-0000-000000000105",
+    "name": "Larápio do Véu",
+    "description": "Especialista em infiltração e improviso.",
+    "metaJson": {
+      "aliases": ["Thief"],
+      "pros": ["Exploração/perícias"],
+      "cons": ["Frágil sob foco"],
+      "featuresPreview": ["Mãos Ligeiras", "Ataque Duplo de Objetos"],
+      "tags": ["rogue"]
+    }
+  },
+  {
+    "slug": "rogue-assassin",
+    "classId": "00000000-0000-0000-0000-000000000105",
+    "name": "Assassino do Sussurro",
+    "description": "Golpe certo, alvo certo, momento perfeito.",
+    "metaJson": {
+      "aliases": ["Assassin"],
+      "pros": ["Explosão inicial altíssima"],
+      "cons": ["Dependência de surpresa"],
+      "featuresPreview": ["Ataque Assassino", "Infiltração"],
+      "tags": ["rogue"]
+    }
+  },
+  {
+    "slug": "rogue-arcane-trickster",
+    "classId": "00000000-0000-0000-0000-000000000105",
+    "name": "Trapaceiro Arcano",
+    "description": "Fios de magia para enganar sentidos e sorte.",
+    "metaJson": {
+      "aliases": ["Arcane Trickster"],
+      "pros": ["Controle criativo"],
+      "cons": ["Magia lenta"],
+      "featuresPreview": ["Mãos Mágicas Sutis", "Encantos Ilusórios"],
+      "tags": ["rogue", "arcano"]
+    }
+  },
+
+  {
+    "slug": "barbarian-berserker",
+    "classId": "00000000-0000-0000-0000-000000000104",
+    "name": "Berserker Primordial",
+    "description": "Entrega-se à fúria até os ossos cantarem.",
+    "metaJson": {
+      "aliases": ["Path of the Berserker"],
+      "pros": ["Dano bruto"],
+      "cons": ["Exaustão/risco"],
+      "featuresPreview": ["Frenesi", "Presença Intimidante"],
+      "tags": ["barbarian"]
+    }
+  },
+  {
+    "slug": "barbarian-totem-warrior",
+    "classId": "00000000-0000-0000-0000-000000000104",
+    "name": "Totêmico de Ignavor",
+    "description": "Espíritos ferais guiam a fúria em formas.",
+    "metaJson": {
+      "aliases": ["Path of the Totem Warrior"],
+      "pros": ["Resistências/versatilidade"],
+      "cons": ["Escolhas situacionais"],
+      "featuresPreview": ["Totem Feral", "Aspecto Espiritual"],
+      "tags": ["barbarian", "espírito"]
+    }
+  },
+
+  {
+    "slug": "paladin-devotion",
+    "classId": "00000000-0000-0000-0000-000000000102",
+    "name": "Juramento da Devoção",
+    "description": "Virtude e luz como regra e caminho.",
+    "metaJson": {
+      "aliases": ["Oath of Devotion"],
+      "pros": ["Smites e suporte"],
+      "cons": [],
+      "featuresPreview": ["Aura Sagrada", "Luz de Artheon"],
+      "tags": ["paladin", "divino"]
+    }
+  },
+  {
+    "slug": "paladin-ancients",
+    "classId": "00000000-0000-0000-0000-000000000102",
+    "name": "Juramento dos Antigos",
+    "description": "Antigas raízes de Lirien protegem seu voto.",
+    "metaJson": {
+      "aliases": ["Oath of the Ancients"],
+      "pros": ["Durabilidade/aura protetiva"],
+      "cons": [],
+      "featuresPreview": ["Aura da Guardiã Verde", "Vínculo à Vida"],
+      "tags": ["paladin", "fey", "divino"]
+    }
+  },
+  {
+    "slug": "paladin-vengeance",
+    "classId": "00000000-0000-0000-0000-000000000102",
+    "name": "Juramento da Vingança",
+    "description": "O Julgo cai onde a justiça falha.",
+    "metaJson": {
+      "aliases": ["Oath of Vengeance"],
+      "pros": ["Dano em alvos prioritários"],
+      "cons": ["Foco estreito"],
+      "featuresPreview": ["Voto de Inimizade", "Passos Incansáveis"],
+      "tags": ["paladin"]
+    }
+  },
+
+  {
+    "slug": "cleric-life",
+    "classId": "00000000-0000-0000-0000-000000000101",
+    "name": "Domínio da Vida",
+    "description": "A canção de Elyra cura e renova.",
+    "metaJson": {
+      "aliases": ["Life Domain"],
+      "pros": ["Curas excelentes"],
+      "cons": [],
+      "featuresPreview": ["Discípulo da Vida", "Canalizar Cura"],
+      "tags": ["cleric", "cura"]
+    }
+  },
+  {
+    "slug": "cleric-light",
+    "classId": "00000000-0000-0000-0000-000000000101",
+    "name": "Domínio da Luz",
+    "description": "O brilho afugenta sombras e falsos véus.",
+    "metaJson": {
+      "aliases": ["Light Domain"],
+      "pros": ["Controle e dano radiante"],
+      "cons": [],
+      "featuresPreview": ["Faísca Cegante", "Raio de Sol"],
+      "tags": ["cleric"]
+    }
+  },
+  {
+    "slug": "cleric-war",
+    "classId": "00000000-0000-0000-0000-000000000101",
+    "name": "Domínio da Guerra",
+    "description": "Elyra arma as mãos quando a paz falha.",
+    "metaJson": {
+      "aliases": ["War Domain"],
+      "pros": ["Marcialização"],
+      "cons": [],
+      "featuresPreview": ["Golpes Guiados", "Canalizar Guerra"],
+      "tags": ["cleric", "marcial"]
+    }
+  },
+
+  {
+    "slug": "druid-land",
+    "classId": "00000000-0000-0000-0000-000000000107",
+    "name": "Círculo da Terra",
+    "description": "Erudição natural; regiões sussurram saberes.",
+    "metaJson": {
+      "aliases": ["Circle of the Land"],
+      "pros": ["Magias adicionais/recuperação"],
+      "cons": [],
+      "featuresPreview": ["Recuperar Magia", "Afinidade Regional"],
+      "tags": ["druid"]
+    }
+  },
+  {
+    "slug": "druid-moon",
+    "classId": "00000000-0000-0000-0000-000000000107",
+    "name": "Círculo da Lua",
+    "description": "A forma selvagem canta mais alto.",
+    "metaJson": {
+      "aliases": ["Circle of the Moon"],
+      "pros": ["Formas poderosas"],
+      "cons": ["Gestão de recursos"],
+      "featuresPreview": ["Forma Bestial Aprimorada", "Golpes Primitivos"],
+      "tags": ["druid", "forma"]
+    }
+  },
+
+  {
+    "slug": "bard-lore",
+    "classId": "00000000-0000-0000-0000-000000000111",
+    "name": "Colégio do Sussurro-Lore",
+    "description": "Segredos e saberes como nota que desarma.",
+    "metaJson": {
+      "aliases": ["College of Lore"],
+      "pros": ["Perícias e cortes reativos"],
+      "cons": [],
+      "featuresPreview": ["Magias Adicionais", "Corte Devastador"],
+      "tags": ["bard"]
+    }
+  },
+  {
+    "slug": "bard-valor",
+    "classId": "00000000-0000-0000-0000-000000000111",
+    "name": "Colégio do Valor",
+    "description": "Inspiração no aço e no escudo.",
+    "metaJson": {
+      "aliases": ["College of Valor"],
+      "pros": ["Marcialização"],
+      "cons": [],
+      "featuresPreview": ["Armadura/Martial", "Inspiração de Combate"],
+      "tags": ["bard", "marcial"]
+    }
+  },
+
+  {
+    "slug": "sorcerer-draconic",
+    "classId": "00000000-0000-0000-0000-000000000109",
+    "name": "Sangue Dracônico",
+    "description": "A linhagem vibra como um rugido no peito.",
+    "metaJson": {
+      "aliases": ["Draconic Bloodline"],
+      "pros": ["Defesa natural/elemento"],
+      "cons": [],
+      "featuresPreview": ["Escamas Etéreas", "Afinidade Elemental"],
+      "tags": ["sorcerer", "dragão"]
+    }
+  },
+  {
+    "slug": "sorcerer-wild-magic",
+    "classId": "00000000-0000-0000-0000-000000000109",
+    "name": "Magia Selvagem",
+    "description": "A maré do Éter flui caótica através de você.",
+    "metaJson": {
+      "aliases": ["Wild Magic"],
+      "pros": ["Picos de poder"],
+      "cons": ["Aleatoriedade real"],
+      "featuresPreview": ["Surto Caótico", "Maré do Éter"],
+      "tags": ["sorcerer", "caos"]
+    }
+  },
+
+  {
+    "slug": "monk-open-hand",
+    "classId": "00000000-0000-0000-0000-000000000112",
+    "name": "Caminho da Mão Aberta",
+    "description": "Técnicas puras; o corpo é oração.",
+    "metaJson": {
+      "aliases": ["Way of the Open Hand"],
+      "pros": ["Controle em curta distância"],
+      "cons": [],
+      "featuresPreview": ["Golpe da Palma", "Queda Suave"],
+      "tags": ["monk"]
+    }
+  },
+  {
+    "slug": "monk-shadow",
+    "classId": "00000000-0000-0000-0000-000000000112",
+    "name": "Caminho da Sombra",
+    "description": "Passos silenciosos no fio da penumbra.",
+    "metaJson": {
+      "aliases": ["Way of Shadow"],
+      "pros": ["Infiltração móvel"],
+      "cons": [],
+      "featuresPreview": ["Passos nas Sombras", "Sombra Silenciosa"],
+      "tags": ["monk", "umbra"]
+    }
+  },
+  {
+    "slug": "monk-four-elements",
+    "classId": "00000000-0000-0000-0000-000000000112",
+    "name": "Caminho dos Quatro Alentos",
+    "description": "Canaliza elementos como respirações do mundo.",
+    "metaJson": {
+      "aliases": ["Way of the Four Elements"],
+      "pros": ["Versatilidade elemental"],
+      "cons": ["Custo alto de recursos"],
+      "featuresPreview": ["Sopro Flamejante", "Muralha de Vento"],
+      "tags": ["monk", "elemental"]
+    }
+  }
+]

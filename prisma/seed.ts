@@ -1,184 +1,226 @@
 // prisma/seed.ts
 import { PrismaClient, Prisma } from "@prisma/client";
-import { randomUUID } from "crypto";
 import { readFileSync } from "fs";
-import { resolve } from "path"; // ✅
+import { resolve } from "path";
 
 const prisma = new PrismaClient();
-const load = (p: string) =>
-    JSON.parse(readFileSync(resolve(process.cwd(), p), "utf-8"));
+const load = <T = unknown>(p: string): T =>
+    JSON.parse(readFileSync(resolve(process.cwd(), p), "utf-8")) as T;
 
-// Use DbNull/JsonNull apenas em campos JSON
-const JNULL = Prisma.JsonNull; // representa JSON `null`
-const DBNULL = Prisma.DbNull;  // representa SQL NULL dentro de JSONB
+// -----------------------
+// Helpers para JSON (Prisma)
+// -----------------------
+const JN = Prisma.JsonNull; // JSON NULL (para campos JSON opcionais)
+const asJson = (v: unknown): Prisma.InputJsonValue =>
+    (v ?? {}) as Prisma.InputJsonValue; // para JSON obrigatórios (não enviar null)
+const asJsonOrNull = (
+    v: unknown
+): Prisma.InputJsonValue | Prisma.NullableJsonNullValueInput =>
+    v === null || v === undefined ? JN : (v as Prisma.InputJsonValue);
 
-async function seedCore() {
-    const ancestries = load("prisma/seed/ancestries.json");
-    const classes = load("prisma/seed/classes.json");
-    const backgrounds = load("prisma/seed/backgrounds.json");
+// -----------------------
+// Tipos esperados nos JSONs
+// -----------------------
+type ClassJson = {
+    id: string;
+    name: string;
+    hitDie?: string;
+    profs?: unknown;
+    features?: unknown;
+    spellData?: unknown | null;
+    description?: string; // será usado na coluna ou salvo dentro do metaJson.description (fallback)
+    metaJson?: Record<string, unknown>; // UI: role/hitDie/abilities/assets/etc
+};
 
-    await prisma.ancestry.createMany({ data: ancestries, skipDuplicates: true });
-    await prisma["class"].createMany({ data: classes, skipDuplicates: true });
-    await prisma.background.createMany({ data: backgrounds, skipDuplicates: true });
+type SubclassJson = {
+    slug: string;
+    classId: string;
+    name: string;
+    description: string;
+    metaJson: unknown;
+};
 
-    console.log("✅ Ancestries/Classes/Backgrounds semeados.");
+// -----------------------
+// Util: checar colunas no banco (runtime)
+// -----------------------
+async function tableHasColumn(table: string, column: string): Promise<boolean> {
+    // Postgres guarda o nome exato; Prisma usa aspas e case-preserving.
+    // Vamos checar ambas as possibilidades (Class vs class) com OR.
+    const rows = await prisma.$queryRawUnsafe<{ exists: boolean }[]>(
+        `
+    SELECT EXISTS (
+      SELECT 1
+      FROM information_schema.columns
+      WHERE table_schema = 'public'
+        AND (table_name = $1 OR table_name = $2)
+        AND column_name = $3
+    ) AS "exists";
+  `,
+        table,
+        table.toLowerCase(),
+        column
+    );
+    return Boolean(rows?.[0]?.exists);
 }
 
-async function seedExamples() {
-    // ⚠️ Descomente este bloco somente se os modelos abaixo EXISTIREM no schema:
-    // Item, Weapon, Armor, Consumable (1–1 com Item via relations)
+async function detectClassColumns() {
+    const hasDescription = await tableHasColumn("Class", "description");
+    const hasMetaJson = await tableHasColumn("Class", "metaJson");
+    return { hasDescription, hasMetaJson };
+}
 
-    // Verificação leve para evitar crash em projetos sem Item:
-    const hasItem = await prisma.$queryRawUnsafe<{ exists: boolean }[]>(
-        `SELECT EXISTS (
-       SELECT 1
-       FROM information_schema.tables
-       WHERE table_schema = 'public' AND table_name = 'Item'
-     ) as "exists";`
-    ).then(r => r[0]?.exists).catch(() => false);
-
-    if (!hasItem) {
-        console.log("ℹ️ Modelos de Item não encontrados. Pulando exemplos de itens.");
-        return;
+// -----------------------
+// Seeds
+// -----------------------
+async function seedAncestries(ancestries: any[]) {
+    for (const a of ancestries) {
+        await prisma.ancestry.upsert({
+            where: { id: a.id },
+            update: {
+                name: a.name,
+                shortLore: a.shortLore,
+                size: a.size,
+                speed: a.speed,
+                bonuses: asJson(a.bonuses),
+                traits: asJson(a.traits),
+                languages: a.languages,
+            },
+            create: {
+                id: a.id,
+                name: a.name,
+                shortLore: a.shortLore,
+                size: a.size,
+                speed: a.speed,
+                bonuses: asJson(a.bonuses),
+                traits: asJson(a.traits),
+                languages: a.languages,
+            },
+        });
     }
-
-    // ---------- EXEMPLO: Espada Longa Rúnica ----------
-    const weaponId = randomUUID();
-    await prisma.item.upsert({
-        where: { id: weaponId },
-        create: {
-            id: weaponId,
-            name: "Espada Longa Rúnica",
-            description: "Lâmina que canaliza energia antiga.",
-            rarity: "very_rare",        // garanta que o tipo do campo aceita esse valor
-            tier: "high",               // idem
-            value: 3200,
-            levelRequired: 8,
-            image: null,                // String?
-            setCode: null,              // String?
-            setName: null,              // String?
-            setBonuses: DBNULL,         // Json?
-            Weapon: {
-                create: {
-                    category: "Espada",
-                    subCategory: "Espada Longa",
-                    weight: 3.2,
-                    primaryDamage: { dice_count: 1, dice_type: 8, bonus: 1 },
-                    secondaryDamage: { dice_count: 1, dice_type: 6, bonus: 0 },
-                    damageType: "slash",
-                    secondaryDamageType: "radiant",
-                    range: "melee",
-                    specialRange: null,             // String?
-                    properties: ["versátil"],       // Json
-                    elementalType: null,            // String?
-                    requirements: { forca: 13 },    // Json
-                    abilitiesActive: [],            // Json
-                    abilitiesPassive: ["Brilho Próprio"], // Json
-                    attributeBoosts: { sabedoria: 1 },    // Json
-                    rarityBoosts: [
-                        { type: "bonus_damage", target: "undead", value: { dice_count: 1, dice_type: 8 } },
-                    ],
-                    disadvantages: [],
-                    durability: 160,
-                    classRestrictions: [],
-                    ongoingEffects: DBNULL,         // Json?
-                    targetEffects: [],
-                    conditionalEffects: [
-                        { condition: "critical_hit", effect: { type: "stun", duration: 1, chance: 25 } },
-                    ],
-                    grantedResistances: [],
-                },
-            },
-        },
-        update: {},
-    });
-
-    // ---------- EXEMPLO: Capuz do Dragão Ancião (Armor) ----------
-    const armorId = randomUUID();
-    await prisma.item.upsert({
-        where: { id: armorId },
-        create: {
-            id: armorId,
-            name: "Capuz do Dragão Ancião",
-            description: "Parte do conjunto Mítico Dracônico.",
-            rarity: "mythic",
-            tier: "legendary",
-            value: 5000,
-            levelRequired: 12,
-            image: null,
-            setCode: "MYTHIC_DRAGONBORN",
-            setName: "Conjunto Dracônico Ancião",
-            setBonuses: [
-                { pieces: 2, effects: [{ type: "resistance", damage_type: "fire", level: "resistance" }] },
-                { pieces: 3, effects: [{ type: "damage_boost", value: "+1d4 fire" }] },
-                { pieces: 4, effects: [{ type: "ability", name: "Sopro Dracônico", cooldown: 3 }] },
-                { pieces: 5, effects: [{ type: "immunity", damage_type: "fire" }] }
-            ],
-            Armor: {
-                create: {
-                    armorPart: "helmet",
-                    armorType: "heavy",
-                    subType: "Elmo Placas Escamadas",
-                    defenseValue: 3,
-                    maxDexBonus: 0,
-                    resistances: [{ type: "fire", level: "resistance", value: 50 }],
-                    vulnerabilities: [],
-                    penalties: [{ type: "furtividade", value: -2 }],
-                    disadvantages: [],
-                    requirements: { forca: 15 },
-                    abilities: ["Visão na Fumaça"],
-                    ongoingEffects: DBNULL, // Json?
-                    conditionalEffects: [
-                        {
-                            condition: "receber_ataque_critico",
-                            effect: { type: "aumento_defesa", value: 1, duration: 1, chance: 50 },
-                        },
-                    ],
-                    attributeBoosts: { constituicao: 1 },
-                    grantedResistances: [],
-                    durability: 200,
-                    classRestrictions: ["Guerreiro", "Paladino"],
-                },
-            },
-        },
-        update: {},
-    });
-
-    // ---------- EXEMPLO: Poção de Mana (Consumable) ----------
-    const consId = randomUUID();
-    await prisma.item.upsert({
-        where: { id: consId },
-        create: {
-            id: consId,
-            name: "Poção de Mana (Maior)",
-            description: "Restaura uma grande quantidade de mana.",
-            rarity: "rare",
-            tier: "medium",
-            value: 250,
-            levelRequired: 5,
-            image: null,
-            Consumable: {
-                create: {
-                    consumableType: "potion",
-                    effectType: "mana_restore",
-                    effectIntensity: { mana_restore: 40 },
-                    effectDuration: "Instantâneo",
-                    usageConditions: { fora_de_combate: false },
-                    quantity: 1,
-                    expiration: null,   // DateTime?
-                },
-            },
-        },
-        update: {},
-    });
-
-    console.log("✅ Exemplos de itens semeados.");
+    console.log(`✅ Ancestries: ${ancestries.length} ok`);
 }
 
+async function seedBackgrounds(backgrounds: any[]) {
+    for (const b of backgrounds) {
+        await prisma.background.upsert({
+            where: { id: b.id },
+            update: {
+                name: b.name,
+                profs: asJson(b.profs),
+                equipment: asJsonOrNull(b.equipment ?? null),
+                traits: asJsonOrNull(b.traits ?? null),
+            },
+            create: {
+                id: b.id,
+                name: b.name,
+                profs: asJson(b.profs),
+                equipment: asJsonOrNull(b.equipment ?? null),
+                traits: asJsonOrNull(b.traits ?? null),
+            },
+        });
+    }
+    console.log(`✅ Backgrounds: ${backgrounds.length} ok`);
+}
+
+async function seedClasses(classes: ClassJson[]) {
+    const { hasDescription, hasMetaJson } = await detectClassColumns();
+
+    for (const c of classes) {
+        const existing = await prisma.class.findUnique({ where: { id: c.id } });
+
+        const nextHitDie = c.hitDie ?? (existing as any)?.hitDie ?? "d8";
+        const nextProfs = asJson(c.profs ?? (existing as any)?.profs ?? {});
+        const nextFeatures = asJson(c.features ?? (existing as any)?.features ?? []);
+        const nextSpellData = asJsonOrNull(
+            c.spellData ?? (existing ? (existing as any).spellData ?? null : null)
+        );
+
+        // Monta objetos "dinâmicos" para não gerar TS2353:
+        const updateData: any = {
+            name: c.name,
+            hitDie: nextHitDie,
+            profs: nextProfs,
+            features: nextFeatures,
+            spellData: nextSpellData,
+        };
+        const createData: any = {
+            id: c.id,
+            name: c.name,
+            hitDie: nextHitDie,
+            profs: nextProfs,
+            features: nextFeatures,
+            spellData: nextSpellData,
+        };
+
+        // Se a coluna existir, atribui. Caso contrário, grava dentro do metaJson (fallback).
+        // description:
+        if (hasDescription) {
+            updateData.description = c.description ?? (existing as any)?.description ?? "Sem descrição.";
+            createData.description = c.description ?? "Sem descrição.";
+        }
+
+        // metaJson:
+        const baseMeta = (c.metaJson ?? {}) as Record<string, unknown>;
+        if (!hasDescription) {
+            // coloca a description no meta, para a UI ter acesso.
+            if (c.description && baseMeta.description == null) {
+                baseMeta.description = c.description;
+            }
+        }
+
+        if (hasMetaJson) {
+            updateData.metaJson = asJson(
+                Object.keys(baseMeta).length ? baseMeta : (existing as any)?.metaJson ?? {}
+            );
+            createData.metaJson = asJson(Object.keys(baseMeta).length ? baseMeta : {});
+        }
+
+        await prisma.class.upsert({
+            where: { id: c.id },
+            update: updateData as Prisma.ClassUpdateInput,
+            create: createData as Prisma.ClassCreateInput,
+        });
+    }
+    console.log(`✅ Classes: ${classes.length} ok`);
+}
+
+async function seedSubclasses(subclasses: SubclassJson[]) {
+    for (const s of subclasses) {
+        await prisma.subclass.upsert({
+            where: { slug: s.slug },
+            update: {
+                classId: s.classId,
+                name: s.name,
+                description: s.description,
+                metaJson: asJson(s.metaJson),
+            },
+            create: {
+                slug: s.slug,
+                classId: s.classId,
+                name: s.name,
+                description: s.description,
+                metaJson: asJson(s.metaJson),
+            },
+        });
+    }
+    console.log(`✅ Subclasses: ${subclasses.length} ok`);
+}
+
+// -----------------------
+// Main
+// -----------------------
 async function main() {
-    await seedCore();
-    await seedExamples(); // comenta esta linha se ainda não tem os models de Item
-    console.log("🌱 Seed OK");
+    const ancestries = load<any[]>("prisma/seed/ancestries.json");
+    const backgrounds = load<any[]>("prisma/seed/backgrounds.json");
+    const classes = load<ClassJson[]>("prisma/seed/classes.json");
+    const subclasses = load<SubclassJson[]>("prisma/seed/subclasses.json");
+
+    await seedAncestries(ancestries);
+    await seedBackgrounds(backgrounds);
+    await seedClasses(classes);
+    await seedSubclasses(subclasses);
+
+    console.log("🌱 Seed OK (merge-safe).");
 }
 
 main()
