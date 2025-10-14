@@ -8,6 +8,7 @@ import {characterSheetRouter} from "@/server/routers/character.sheet";
 import {characterCreateRouter} from "@/server/routers/character.create";
 import {classCatalogRouter} from "@/server/api/routers/catalog/class";
 import { subclassCatalogRouter } from "./routers/catalog/subclass";
+import { nameRouter } from "./routers/name";
 
 export const appRouter = router({
     item: itemRouter,
@@ -16,6 +17,7 @@ export const appRouter = router({
     characterCreate: characterCreateRouter,
     class: classCatalogRouter,
     subclassCatalog: subclassCatalogRouter, // ⬅️ exponha aqui
+    name: nameRouter,
     tables: tablesRouter,
     me: meRouter,
     itemsList: itemsListRouter, // ou mescle no itemRouter

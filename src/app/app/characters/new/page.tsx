@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import PlayerBookLayout from "@/components/character/PlayerBookLayout";
 import BookNav, { BookChapter } from "@/components/character/BookNav";
 import ClassChapter from "@/components/character/chapters/ClassChapter";
@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sparkles, User, ScrollText, Star, Heart, Shield } from "lucide-react";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
-import BookTopNav from "@/components/character/BookTopNav";
 import IdentityChapter, { type IdentityData } from "@/components/character/chapters/IdentityChapter";
+import { api } from "@/trpc/react";
 
 type WizardState = {
     draftId?: string;
@@ -28,23 +28,36 @@ const chapters: BookChapter[] = [
 ];
 
 export default function NewCharacterPage() {
-    const [current, setCurrent] = useState<string>("class"); // começa no capítulo de Classe para focar na sua demanda
+    const utils = api.useUtils();
+    const [current, setCurrent] = useState<string>("identity");
     const [wiz, setWiz] = useState<WizardState>({ identity: null });
+    const canGoClass = !!wiz.identity?.name?.trim();
+
+    const checkNameAvailability = useCallback(
+        (name: string) => utils.name.check.fetch({ name }), // <- usa 'check'
+        [utils]
+    );
 
     const completedMap = useMemo(() => {
         return new Set<string>([
             ...(wiz.identity ? ["identity"] : []),
             ...(wiz.ancestryId ? ["ancestry"] : []),
             ...(wiz.classId ? ["class"] : []),
-            // ...atributos/faith quando existirem
         ]);
     }, [wiz]);
 
     const side = (
         <BookNav
-            chapters={chapters.map((c) => ({ ...c, completed: completedMap.has(c.id) }))}
+            chapters={chapters.map((c) => ({
+                ...c,
+                completed: completedMap.has(c.id),
+                disabled: c.id === "class" && !canGoClass,
+            }))}
             currentId={current}
-            onSelect={setCurrent}
+            onSelect={(id) => {
+                if (id === "class" && !canGoClass) return;
+                setCurrent(id);
+            }}
         />
     );
 
@@ -58,16 +71,14 @@ export default function NewCharacterPage() {
                     {wiz.classId && <Badge variant="outline">Classe definida</Badge>}
                 </div>
                 <Separator className="bg-white/10" />
-                {/*<BookTopNav*/}
-                {/*    chapters={chapters.map((c) => ({ ...c, completed: completedMap.has(c.id) }))}*/}
-                {/*    currentId={current}*/}
-                {/*    onSelect={setCurrent}*/}
-                {/*/>*/}
+
                 {current === "identity" && (
                     <IdentityChapter
                         value={wiz.identity}
-                        onChange={(val) => setWiz((prev) => ({ ...prev, identity: val }))}
+                        onChange={(val) => setWiz((p) => ({ ...p, identity: val }))}
                         onContinue={() => setCurrent("class")}
+                        checkNameAvailability={checkNameAvailability}
+                        allowDuplicateNames={true}
                     />
                 )}
 
@@ -76,14 +87,17 @@ export default function NewCharacterPage() {
                         selectedClassId={wiz.classId}
                         onSelect={(c: ClassSummaryT) => {
                             setWiz((prev) => ({ ...prev, classId: c.id }));
-                            // aqui você pode disparar api.character.create/saveIdentity/saveAttributes conforme sua pipeline atual
                         }}
                     />
                 )}
 
                 {current !== "class" && (
                     <div className="text-sm text-white/70">
-                        Este capítulo (“{current}”) ainda não foi ativado nesta versão. Avance para <Button variant="link" className="px-1" onClick={() => setCurrent("class")}>Classe</Button>.
+                        Este capítulo (“{current}”) ainda não foi ativado nesta versão. Avance para{" "}
+                        <Button variant="link" className="px-1" onClick={() => setCurrent("class")}>
+                            Classe
+                        </Button>
+                        .
                     </div>
                 )}
             </div>
