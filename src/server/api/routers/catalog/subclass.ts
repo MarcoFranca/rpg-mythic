@@ -38,18 +38,20 @@ export const subclassCatalogRouter = router({
                 where: { classId: input.classId },
                 orderBy: { name: "asc" },
             });
-            return rows.map((r) =>
-                SubclassSummary.parse({
+
+            return rows.map((r) => {
+                const meta: SubclassMeta = SubclassMetaSchema.parse(r.metaJson ?? {});
+                return SubclassSummary.parse({
                     id: r.id,
                     classId: r.classId,
                     name: r.name,
                     description: r.description,
-                    aliases: (r.metaJson as any)?.aliases ?? [],
-                    pros: (r.metaJson as any)?.pros ?? [],
-                    cons: (r.metaJson as any)?.cons ?? [],
-                    featuresPreview: (r.metaJson as any)?.featuresPreview ?? [],
-                    tags: (r.metaJson as any)?.tags ?? [],
-                })
-            );
+                    aliases: meta.aliases ?? [],
+                    pros: meta.pros ?? [],
+                    cons: meta.cons ?? [],
+                    featuresPreview: meta.featuresPreview ?? [],
+                    tags: meta.tags ?? [],
+                });
+            });
         }),
 });
