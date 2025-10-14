@@ -9,7 +9,6 @@ function sameList<A extends WithHref>(a: A[], b: A[]) {
     return a.length === b.length && a.every((ai, i) => ai.href === b[i]!.href);
 }
 
-
 export function useOverflowNav<T extends WithHref>(items: T[]) {
     const ref = useRef<HTMLDivElement | null>(null);
     const [visible, setVisible] = useState<T[]>(items);
@@ -26,7 +25,7 @@ export function useOverflowNav<T extends WithHref>(items: T[]) {
             if (!node) return;
 
             // reserva espaço pro botão “+ Mais”
-            const max = Math.max((node?.clientWidth ?? 0) - 140, 0);
+            const max = Math.max((node.clientWidth ?? 0) - 140, 0);
             let used = 0;
             const nextVisible: T[] = [];
             const nextOverflow: T[] = [];
@@ -48,15 +47,18 @@ export function useOverflowNav<T extends WithHref>(items: T[]) {
         // primeira medição (coalescida no RAF)
         rafId = window.requestAnimationFrame(recalc);
 
-        // ResizeObserver pode não existir em alguns ambientes/types
-        const RO = (window as any).ResizeObserver as
-            | (new (cb: ResizeObserverCallback) => ResizeObserver)
-            | undefined;
+        // Tipagem segura do ResizeObserver sem usar `any`
+        type ROConstructor = new (callback: ResizeObserverCallback) => ResizeObserver;
+        const RO: ROConstructor | undefined = (globalThis as {
+            ResizeObserver?: ROConstructor;
+        }).ResizeObserver;
 
-        const ro = RO ? new RO(() => {
-            cancelAnimationFrame(rafId);
-            rafId = window.requestAnimationFrame(recalc);
-        }) : null;
+        const ro = RO
+            ? new RO(() => {
+                cancelAnimationFrame(rafId);
+                rafId = window.requestAnimationFrame(recalc);
+            })
+            : null;
 
         const el = ref.current;
         if (ro && el) ro.observe(el);
