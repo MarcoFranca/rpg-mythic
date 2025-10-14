@@ -1,14 +1,6 @@
 import { z } from "zod";
 import {
-    AbilityKey,
-    AttributesBlock,
-    CombatBlock,
-    SensesBlock,
-    InventoryItem,       // schema
-    SpellcastingBlock,   // schema
-    DerivedSnapshot,     // schema
-    ConditionEntry,      // schema
-    CombatFlags,         // schema
+    // schema
     // types
     AttributesBlockT,
     CombatBlockT,
@@ -16,7 +8,7 @@ import {
     InventoryItemT,
     SpellcastingBlockT,
     DerivedSnapshotT,
-    ConditionEntryT,
+    ConditionEntryT, AbilityKey, CombatFlags,
 } from "@/server/zod/character-blocks";
 import { CONDITION_RULES, impactFromExhaustion } from "./conditions.catalog";
 
@@ -27,17 +19,17 @@ export const proficiencyByLevel = (level: number) =>
 
 // soma de layers
 export function composeAttributes(attr: AttributesBlockT): Record<AbilityKey, number> {
-    const total: Record<AbilityKey, number> = { ...attr.base };
+    const total: Record<AbilityKey, number> = {
+        str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0,
+        ...(attr.base as Partial<Record<AbilityKey, number>>),
+    };
     const apply = (layers: AttributesBlockT["bonuses"]) => {
-        for (const l of layers || []) {
-            total[l.key] = (total[l.key] ?? 0) + l.value;
-        }
+        for (const l of layers ?? []) total[l.key] = (total[l.key] ?? 0) + l.value;
     };
     apply(attr.bonuses);
     apply(attr.temp);
     return total;
 }
-
 
 // ——— ARMADURAS & ESCUDOS
 type ArmorInfo = {
@@ -116,8 +108,8 @@ export function calcArmorClass(items: InventoryItemT[], dexMod: number) {
         armor ??= parseArmorFromTags(it);
         shield ??= parseShieldFromTags(it);
 
-        if ((it.tags || []).includes("ac+1")) misc += 1;
-        if ((it.tags || []).includes("ac+2")) misc += 2;
+        if ((it.tags ?? []).includes("ac+1")) misc += 1;
+        if ((it.tags ?? []).includes("ac+2")) misc += 2;
     }
 
     if (armor) {
@@ -174,9 +166,10 @@ export function calcSpellNumbers(
     mods: Record<AbilityKey, number>
 ) {
     if (!spellcasting) return undefined;
-    const mod = mods[spellcasting.ability];
+    const mod = mods[spellcasting.ability] ?? 0; // <- evita TS2532 em projetos mais estritos
     return { cd: 8 + profBonus + mod, attack: profBonus + mod };
 }
+
 
 // ——— CONDIÇÕES
 
@@ -252,12 +245,21 @@ export function buildDerivedSnapshot(opts: {
     const pass = calcPassives(mods, prof);
     const enc = calcEncumbrance(totalAttr.str, opts.inventory);
 
-    const baseSpeeds = opts.combat.speeds as Record<string, number>;
-    const speedsFinal: Record<string, number> = { ...baseSpeeds };
+    const baseSpeeds = (opts.combat.speeds ?? {}) as Partial<Record<string, number>>;
+
+// inicializa garantindo número
+    const speedsFinal: Record<string, number> = {};
+    for (const [k, v] of Object.entries(baseSpeeds)) {
+        speedsFinal[k] = (v ?? 0);
+    }
+
     if (agg.setSpeedToZero) {
         for (const k of Object.keys(speedsFinal)) speedsFinal[k] = 0;
-    } else if (agg.speedMultiplier !== 1) {
-        for (const k of Object.keys(speedsFinal)) speedsFinal[k] = Math.floor(speedsFinal[k] * agg.speedMultiplier);
+    } else if ((agg.speedMultiplier ?? 1) !== 1) {
+        for (const k of Object.keys(speedsFinal)) {
+            const cur = speedsFinal[k] ?? 0;              // <- evita TS2532
+            speedsFinal[k] = Math.floor(cur * (agg.speedMultiplier ?? 1));
+        }
     }
 
     const spell = calcSpellNumbers(opts.spellcasting, prof, mods);
