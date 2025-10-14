@@ -20,7 +20,19 @@ type Props = {
     primaryCharacterId?: string | null;
 };
 
-export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCharacterId }: Props) {
+type Step = {
+    id: "character" | "campaign";
+    title: string;
+    desc: string;
+    done: boolean;
+    cta: { label: string; href: string };
+};
+
+export default function OnboardingCoach({
+                                            hasCharacter,
+                                            campaignCount,
+                                            primaryCharacterId,
+                                        }: Props) {
     const { idg, theme } = useEter();
     const { playSfx: play } = useAudio();
 
@@ -36,24 +48,23 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
             : "Escolher Ficha"
         : "Criar Personagem";
 
-    const steps: Array<{
-        id: "character" | "campaign";
-        title: string;
-        desc: string;
-        done: boolean;
-        cta: { label: string; href: string };
-    }> = [
+    const steps: Step[] = [
         {
             id: "character",
             title: hasCharacter ? "Eco revelado" : "Revelar Eco da Alma",
-            desc: hasCharacter ? "Sua voz já vibra no Cântico." : "Crie seu personagem. Dê forma à nota que te chama.",
+            desc: hasCharacter
+                ? "Sua voz já vibra no Cântico."
+                : "Crie seu personagem. Dê forma à nota que te chama.",
             done: hasCharacter,
             cta: { label: characterCtaLabel, href: characterCtaHref },
         },
         {
             id: "campaign",
             title: campaignCount > 0 ? "Véu encontrado" : "Entrar em um Véu",
-            desc: campaignCount > 0 ? "Você já caminha em mesa viva." : "Encontre uma mesa pública ou crie um chamado.",
+            desc:
+                campaignCount > 0
+                    ? "Você já caminha em mesa viva."
+                    : "Encontre uma mesa pública ou crie um chamado.",
             done: campaignCount > 0,
             cta:
                 campaignCount > 0
@@ -65,7 +76,11 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
     const completed = steps.filter((s) => s.done).length;
     const total = steps.length;
     const progress = Math.round((completed / total) * 100);
-    const currentStep = steps.find((s) => !s.done) ?? steps[steps.length - 1];
+
+    // ✅ “proof-friendly” pro TS: escolhe por índice e usa non-null assertion
+    const nextIdx = steps.findIndex((s) => !s.done);
+    const currentStep: Step =
+        nextIdx === -1 ? steps[steps.length - 1]! : steps[nextIdx]!;
 
     return (
         <motion.div
@@ -74,7 +89,7 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
             className={cn(
                 "relative rounded-2xl",
                 glassClass("p-5"),
-                "shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+                "shadow-[0_10px_40px_rgba(0,0,0,0.35)]",
             )}
             style={{ boxShadow: `0 0 0 1px ${theme.accentSoft}` }}
         >
@@ -105,9 +120,13 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
                         Caminho do Cântico
                     </div>
                     <div className="text-lg font-semibold leading-snug">
-                        {currentStep.id === "character" ? "Revelar quem você é" : "Cruzar o primeiro Véu"}
+                        {currentStep.id === "character"
+                            ? "Revelar quem você é"
+                            : "Cruzar o primeiro Véu"}
                     </div>
-                    <div className="text-xs opacity-80">IDG atual: {idg} • Progresso inicial: {progress}%</div>
+                    <div className="text-xs opacity-80">
+                        IDG atual: {idg} • Progresso inicial: {progress}%
+                    </div>
                 </div>
 
                 <div className="w-full sm:w-56">
@@ -116,7 +135,8 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
                             className="h-2 rounded-full transition-all"
                             style={{
                                 width: `${progress}%`,
-                                background: "linear-gradient(90deg, rgba(51,204,204,.95), rgba(224,179,65,.95))",
+                                background:
+                                    "linear-gradient(90deg, rgba(51,204,204,.95), rgba(224,179,65,.95))",
                                 boxShadow: "0 0 16px rgba(51,204,204,.45)",
                             }}
                         />
@@ -135,12 +155,18 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
                         animate={{ opacity: 1, y: 0 }}
                         className={cn(
                             "rounded-xl border p-4 transition-shadow",
-                            s.done ? "border-emerald-400/30 bg-emerald-400/5" : "border-white/12 bg-white/5 ring-1 ring-cyan-300/10",
-                            "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_24px_rgba(51,204,204,0.16)]"
+                            s.done
+                                ? "border-emerald-400/30 bg-emerald-400/5"
+                                : "border-white/12 bg-white/5 ring-1 ring-cyan-300/10",
+                            "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_24px_rgba(51,204,204,0.16)]",
                         )}
                     >
                         <div className="mb-2 flex items-center gap-2">
-                            {s.done ? <CheckCircle2 className="h-4 w-4 text-emerald-400" /> : <CircleDashed className="h-4 w-4 opacity-80" />}
+                            {s.done ? (
+                                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                            ) : (
+                                <CircleDashed className="h-4 w-4 opacity-80" />
+                            )}
                             <div className="text-sm font-medium">{s.title}</div>
                         </div>
                         <div className="mb-3 text-xs opacity-85">{s.desc}</div>
@@ -166,7 +192,6 @@ export default function OnboardingCoach({ hasCharacter, campaignCount, primaryCh
                                 </Button>
                             )}
 
-                            {/* Quando já tem personagem, oferece criar outro também */}
                             {s.id === "character" && hasCharacter && (
                                 <Button
                                     asChild
