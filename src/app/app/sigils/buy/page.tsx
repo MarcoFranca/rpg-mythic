@@ -4,15 +4,19 @@ import { useState, useTransition } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const PACKS = [
+type Pack = { id: string; qty: number; price: number };
+
+// Non-empty array: garante que há pelo menos 1 item (e na prática temos >= 4)
+const PACKS: readonly [Pack, ...Pack[]] = [
     { id: "p50", qty: 50, price: 9.9 },
     { id: "p120", qty: 120, price: 19.9 },
     { id: "p320", qty: 320, price: 44.9 },
     { id: "p800", qty: 800, price: 99.9 },
-];
+] as const;
 
 export default function SigilsBuyPage() {
-    const [selected, setSelected] = useState(PACKS[1].id);
+    // Fallback seguro: se por algum motivo PACKS[1] não existir, usa [0]
+    const [selected, setSelected] = useState<string>(() => PACKS[1]?.id ?? PACKS[0].id);
     const [pending, start] = useTransition();
 
     const onBuy = () => {
@@ -23,7 +27,8 @@ export default function SigilsBuyPage() {
                 body: JSON.stringify({ packId: selected }),
             });
             if (r.ok) {
-                const { checkoutUrl } = await r.json();
+                type CheckoutResp = { checkoutUrl: string };
+                const { checkoutUrl } = (await r.json()) as CheckoutResp;
                 window.location.href = checkoutUrl;
             } else {
                 // TODO: toast de erro
