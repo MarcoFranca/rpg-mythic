@@ -6,7 +6,10 @@ import { router, publicProcedure } from "../../trpc";
  * Se precisar, expandimos depois (subclasses, tabelas, etc.).
  */
 export const ClassSummary = z.object({
-    id: z.string().uuid(),
+    id: z.union([
+        z.string().uuid(),
+        z.string().min(1) // permite "guerreiro", "mago", etc.
+    ]),
     name: z.string(),
     role: z.enum(["Defensor", "Ofensor", "Suporte", "Híbrido"]).nullable(),
     hitDie: z.enum(["d6", "d8", "d10", "d12"]).nullable(),
