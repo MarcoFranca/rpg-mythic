@@ -11,6 +11,7 @@ import { api } from "@/trpc/react";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
 import { Info } from "lucide-react";
 import ClassGallery from "./ClassGallery";
+import SubclassList from "@/components/character/chapters/SubclassList";
 
 type Props = {
     selectedClassId?: string;
@@ -19,7 +20,7 @@ type Props = {
 
 export default function ClassChapter({ selectedClassId, onSelect }: Props) {
     const [q, setQ] = useState("");
-    const { data } = api.classCatalog.listSummaries.useQuery({ q }); // <- router correto
+    const { data, isLoading, error } = api.classCatalog.listSummaries.useQuery({ q });
     const classes: ClassSummaryT[] = data ?? [];
 
     const selected = useMemo(
@@ -46,6 +47,7 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                 {selected && <Badge variant="secondary">Selecionada: {selected.name}</Badge>}
             </div>
 
+            {/* Galeria estilo Diablo */}
             <ClassGallery selectedClassId={selectedClassId} onSelect={onSelect} />
 
             <Separator className="bg-white/10" />
@@ -55,6 +57,10 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                     <CardTitle>Resumo & Didática</CardTitle>
                 </CardHeader>
                 <CardContent>
+                    {error && (
+                        <div className="text-sm text-red-300">Falha ao carregar classes: {error.message}</div>
+                    )}
+
                     {!selected ? (
                         <div className="flex items-center gap-2 text-sm text-white/70">
                             <Info className="h-4 w-4" />
@@ -62,12 +68,14 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                         </div>
                     ) : (
                         <Tabs defaultValue="sobre" className="w-full">
-                            <TabsList className="grid w-full grid-cols-3">
+                            <TabsList className="grid w-full grid-cols-4">
                                 <TabsTrigger value="sobre">Sobre</TabsTrigger>
                                 <TabsTrigger value="mec">Mecânicas</TabsTrigger>
                                 <TabsTrigger value="proscons">Prós & Contras</TabsTrigger>
+                                <TabsTrigger value="subclasses">Subclasses</TabsTrigger>
                             </TabsList>
 
+                            {/* SOBRE */}
                             <TabsContent value="sobre" className="space-y-3 pt-3">
                                 <h3 className="text-lg font-medium">{selected.name}</h3>
                                 <p className="text-sm text-white/70">{selected.description}</p>
@@ -89,6 +97,7 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                                 </Button>
                             </TabsContent>
 
+                            {/* MECÂNICAS */}
                             <TabsContent value="mec" className="space-y-3 pt-3">
                                 <div className="grid gap-3 sm:grid-cols-2">
                                     <InfoBlock label="Papel" value={selected.role ?? "—"} />
@@ -101,6 +110,7 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                                 </div>
                             </TabsContent>
 
+                            {/* PRÓS & CONTRAS */}
                             <TabsContent value="proscons" className="pt-3">
                                 <Accordion type="single" collapsible className="w-full">
                                     <AccordionItem value="pros">
@@ -132,6 +142,11 @@ export default function ClassChapter({ selectedClassId, onSelect }: Props) {
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
+                            </TabsContent>
+
+                            {/* SUBCLASSES */}
+                            <TabsContent value="subclasses" className="pt-3">
+                                <SubclassList classId={selected.id as string} />
                             </TabsContent>
                         </Tabs>
                     )}

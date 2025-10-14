@@ -5,7 +5,7 @@ import { router, publicProcedure } from "../../trpc";
 /** View model exposto para a UI */
 export const SubclassSummary = z.object({
     id: z.string().uuid(),
-    classId: z.string().uuid(),
+    classId: z.string(), // aceita uuid e slug
     name: z.string(),
     description: z.string(),
     aliases: z.array(z.string()).default([]),
@@ -32,30 +32,24 @@ type SubclassMeta = z.infer<typeof SubclassMetaSchema>;
 
 export const subclassCatalogRouter = router({
     listByClass: publicProcedure
-        .input(z.object({ classId: z.string().uuid() }))
+        .input(z.object({ classId: z.string() }))
         .query(async ({ ctx, input }) => {
             const rows = await ctx.prisma.subclass.findMany({
                 where: { classId: input.classId },
                 orderBy: { name: "asc" },
             });
-
-            const result: SubclassSummaryT[] = rows.map((r) => {
-                // r.metaJson é Prisma.JsonValue (unknown em TS). Validamos com Zod.
-                const meta: SubclassMeta = SubclassMetaSchema.parse(r.metaJson ?? {});
-
-                return SubclassSummary.parse({
+            return rows.map((r) =>
+                SubclassSummary.parse({
                     id: r.id,
                     classId: r.classId,
                     name: r.name,
                     description: r.description,
-                    aliases: meta.aliases ?? [],
-                    pros: meta.pros ?? [],
-                    cons: meta.cons ?? [],
-                    featuresPreview: meta.featuresPreview ?? [],
-                    tags: meta.tags ?? [],
-                });
-            });
-
-            return result;
+                    aliases: (r.metaJson as any)?.aliases ?? [],
+                    pros: (r.metaJson as any)?.pros ?? [],
+                    cons: (r.metaJson as any)?.cons ?? [],
+                    featuresPreview: (r.metaJson as any)?.featuresPreview ?? [],
+                    tags: (r.metaJson as any)?.tags ?? [],
+                })
+            );
         }),
 });

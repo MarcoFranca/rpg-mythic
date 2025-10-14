@@ -15,7 +15,7 @@ export const appRouter = router({
     characterSheet: characterSheetRouter,
     characterCreate: characterCreateRouter,
     class: classCatalogRouter,
-    subclass: subclassCatalogRouter,
+    subclassCatalog: subclassCatalogRouter, // ⬅️ exponha aqui
     tables: tablesRouter,
     me: meRouter,
     itemsList: itemsListRouter, // ou mescle no itemRouter
