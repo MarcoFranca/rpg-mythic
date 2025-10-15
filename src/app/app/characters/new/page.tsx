@@ -123,17 +123,19 @@ export default function NewCharacterPage() {
                 {current === "ancestry" && (
                     <div className="text-sm text-white/80">
                         (Ancestralidade aqui) — ao concluir, chame setWiz(
-                        {"{ ...prev, ancestryId: '...' }"}) e setCurrent("background").
+                        {"{ ...prev, ancestryId: '...' }"}) e setCurrent(&quot;background&quot;).
                     </div>
                 )}
 
                 {current !== "identity" && current !== "class" && current !== "ancestry" && (
                     <div className="text-sm text-white/70">
-                        Este capítulo (“{current}”) ainda será ativado. Siga a ordem para desbloquear:
+                        Este capítulo (<q>{current}</q>) ainda será ativado. Siga a ordem para desbloquear:
                         <Button
                             variant="link"
                             className="px-1"
-                            onClick={() => setCurrent(chapters.find((c) => !c.disabled)?.id ?? "identity")}
+                            onClick={() =>
+                                setCurrent(chapters.find((c) => !c.disabled)?.id ?? "identity")
+                            }
                         >
                             ir ao próximo disponível
                         </Button>
