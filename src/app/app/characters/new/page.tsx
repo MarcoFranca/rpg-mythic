@@ -2,18 +2,17 @@
 "use client";
 import { useMemo, useState, useCallback } from "react";
 import PlayerBookLayout from "@/components/character/PlayerBookLayout";
-import BookNav, { BookChapter } from "@/components/character/BookNav";
+import BookNav, { type BookChapter } from "@/components/character/BookNav";
 import IdentityChapter, { type IdentityData } from "@/components/character/chapters/IdentityChapter";
 import ClassChapter from "@/components/character/chapters/ClassChapter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-    User, Shield, Trees, ScrollText, Star, Sword, Backpack,
-    FlameKindling, HeartHandshake, Sparkles
-} from "lucide-react";
+import { ScrollText, Star, Sword, Backpack, FlameKindling, HeartHandshake, Sparkles } from "lucide-react";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
 import { api } from "@/trpc/react";
+
+// SVGR (componentes React)
 import PapyrusIcon from "@/assets/icons/papyrus.svg";
 import AncestryIcon from "@/assets/icons/ancestry.svg";
 import IdentityIcon from "@/assets/icons/identity.svg";
@@ -23,7 +22,6 @@ type WizardState = {
     identity: IdentityData | null;
     classId?: string;
     ancestryId?: string;
-    // (ganchos para próximos passos)
     backgroundId?: string;
     attributesDone?: boolean;
     profsDone?: boolean;
@@ -37,59 +35,57 @@ export default function NewCharacterPage() {
     const [current, setCurrent] = useState<string>("identity");
     const [wiz, setWiz] = useState<WizardState>({ identity: null });
 
-    // regras de gating (dependências simples)
+    // gating simples
     const canGoClass = !!wiz.identity?.name?.trim();
     const canGoAncestry = !!wiz.classId;
     const canGoBackground = !!wiz.ancestryId;
     const canGoAttributes = !!wiz.backgroundId;
     const canGoProfs = !!wiz.attributesDone;
     const canGoEquipment = !!wiz.profsDone;
-    const canGoSpells = !!wiz.equipmentDone;      // só se for conjurador, você pode condicionar pela classe
+    const canGoSpells = !!wiz.equipmentDone;
     const canGoFaith = !!wiz.spellsDone || !!wiz.equipmentDone;
     const canGoReview = !!wiz.faithDone;
-// ex.: src/assets/icons/sword.svg  (ícone preto padrão)
 
-// no capítulo:
+    // chapters memoizado (evita warning do react-hooks/exhaustive-deps)
+    const chapters: BookChapter[] = useMemo(
+        () => [
+            { id: "identity",   title: "Identidade",       description: "Nome & conceito",     icon: IdentityIcon,   completed: !!wiz.identity?.name },
+            { id: "class",      title: "Classe",           description: "Papel & estilo",      icon: PapyrusIcon,    completed: !!wiz.classId,        disabled: !canGoClass },
+            { id: "ancestry",   title: "Ancestralidade",   description: "Origens & traços",    icon: AncestryIcon,   completed: !!wiz.ancestryId,     disabled: !canGoAncestry },
+            { id: "background", title: "Antecedente",      description: "História & perícias", icon: ScrollText,     completed: !!wiz.backgroundId,   disabled: !canGoBackground },
+            { id: "attributes", title: "Atributos",        description: "Força do sopro",      icon: Star,           completed: !!wiz.attributesDone, disabled: !canGoAttributes },
+            { id: "profs",      title: "Perícias & Prof.", description: "Escolhas finas",      icon: Sword,          completed: !!wiz.profsDone,      disabled: !canGoProfs },
+            { id: "equipment",  title: "Equipamento",      description: "Kit inicial",         icon: Backpack,       completed: !!wiz.equipmentDone,  disabled: !canGoEquipment },
+            { id: "spells",     title: "Magias",           description: "Canalizar o Éter",    icon: FlameKindling,  completed: !!wiz.spellsDone,     disabled: !canGoSpells },
+            { id: "faith",      title: "Fé & Éter",        description: "Ressonâncias",        icon: HeartHandshake, completed: !!wiz.faithDone,      disabled: !canGoFaith },
+            { id: "review",     title: "Revisão & Cântico",description: "Snapshot final",      icon: Sparkles,       completed: false,                disabled: !canGoReview },
+        ],
+        [
+            wiz.identity?.name, wiz.classId, wiz.ancestryId, wiz.backgroundId,
+            wiz.attributesDone, wiz.profsDone, wiz.equipmentDone, wiz.spellsDone, wiz.faithDone,
+            canGoClass, canGoAncestry, canGoBackground, canGoAttributes, canGoProfs, canGoEquipment, canGoSpells, canGoFaith, canGoReview
+        ]
+    );
 
-    // lista de capítulos na ordem recomendada
-    const chapters: BookChapter[] = [
-    // { id: "profs", title: "Perícias", description: "Escolhas finas", icon: (p) => <PapyrusIcon className={cn("h-4 w-4 text-white/80", p?.className)} /> },
-        { id: "identity",   title: "Identidade",       description: "Nome & conceito",     icon: IdentityIcon,    completed: !!wiz.identity?.name,},
-        { id: "class",      title: "Classe",           description: "Papel & estilo",      icon: PapyrusIcon,     completed: !!wiz.classId,        disabled: !canGoClass },
-        { id: "ancestry",   title: "Ancestralidade",   description: "Origens & traços",    icon: AncestryIcon,    completed: !!wiz.ancestryId,     disabled: !canGoAncestry },
-        { id: "background", title: "Antecedente",      description: "História & perícias", icon: ScrollText,      completed: !!wiz.backgroundId,   disabled: !canGoBackground },
-        { id: "attributes", title: "Atributos",        description: "Força do sopro",      icon: Star,            completed: !!wiz.attributesDone, disabled: !canGoAttributes },
-        { id: "profs",      title: "Perícias & Prof.", description: "Escolhas finas",      icon: Sword,           completed: !!wiz.profsDone,      disabled: !canGoProfs },
-        { id: "equipment",  title: "Equipamento",      description: "Kit inicial",         icon: Backpack,        completed: !!wiz.equipmentDone,  disabled: !canGoEquipment },
-        { id: "spells",     title: "Magias",           description: "Canalizar o Éter",    icon: FlameKindling,   completed: !!wiz.spellsDone,     disabled: !canGoSpells },
-        { id: "faith",      title: "Fé & Éter",        description: "Ressonâncias",        icon: HeartHandshake,  completed: !!wiz.faithDone,      disabled: !canGoFaith },
-        { id: "review",     title: "Revisão & Cântico",description: "Snapshot final",      icon: Sparkles,        completed: false,                disabled: !canGoReview },
-    ];
-
-    const completedMap = useMemo(() => new Set(chapters.filter(c => c.completed).map(c => c.id)), [chapters]);
-
-    const identityBadge = wiz.identity?.name ? (
-        <Badge variant="secondary">{wiz.identity.name}</Badge>
-    ) : null;
-
-    // checagem de nome (para o capítulo Identidade)
+    // checagem de nome (passa pro capítulo)
     const checkNameAvailability = useCallback(
         (name: string) => utils.name.check.fetch({ name }),
         [utils]
     );
 
+    const identityBadge = wiz.identity?.name ? <Badge variant="secondary">{wiz.identity.name}</Badge> : null;
 
     return (
         <PlayerBookLayout
             title="Livro do Jogador – Criação"
-            subtitle="“Tudo o que é criado deve cantar.”"
+            // escapa aspas para evitar react/no-unescaped-entities
+            subtitle="&quot;Tudo o que é criado deve cantar.&quot;"
             sidebar={
                 <BookNav
                     chapters={chapters}
                     currentId={current}
                     onSelect={(id) => {
-                        // impõe gating também aqui
-                        const target = chapters.find(c => c.id === id);
+                        const target = chapters.find((c) => c.id === id);
                         if (!target || target.disabled) return;
                         setCurrent(id);
                     }}
@@ -104,7 +100,6 @@ export default function NewCharacterPage() {
 
                 <Separator className="bg-white/10" />
 
-                {/* ——— CAPÍTULOS ——— */}
                 {current === "identity" && (
                     <IdentityChapter
                         value={wiz.identity}
@@ -120,24 +115,29 @@ export default function NewCharacterPage() {
                         selectedClassId={wiz.classId}
                         onSelect={(c: ClassSummaryT) => {
                             setWiz((prev) => ({ ...prev, classId: c.id }));
-                            setCurrent("ancestry"); // avança automaticamente
+                            setCurrent("ancestry");
                         }}
                     />
                 )}
 
-                {/* placeholders para os próximos capítulos — conecte seus componentes quando estiverem prontos */}
                 {current === "ancestry" && (
                     <div className="text-sm text-white/80">
-                        (Ancestralidade aqui) — ao concluir, chame setWiz({"{ ...prev, ancestryId: '...' }"}) e setCurrent("background").
+                        (Ancestralidade aqui) — ao concluir, chame setWiz(
+                        {"{ ...prev, ancestryId: '...' }"}) e setCurrent("background").
                     </div>
                 )}
 
                 {current !== "identity" && current !== "class" && current !== "ancestry" && (
                     <div className="text-sm text-white/70">
                         Este capítulo (“{current}”) ainda será ativado. Siga a ordem para desbloquear:
-                        <Button variant="link" className="px-1" onClick={() => setCurrent(chapters.find(c => !c.disabled)?.id ?? "identity")}>
+                        <Button
+                            variant="link"
+                            className="px-1"
+                            onClick={() => setCurrent(chapters.find((c) => !c.disabled)?.id ?? "identity")}
+                        >
                             ir ao próximo disponível
                         </Button>
+                        .
                     </div>
                 )}
             </div>
