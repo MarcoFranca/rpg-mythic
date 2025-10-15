@@ -2,11 +2,19 @@
 "use client";
 
 import * as React from "react";
+import Image, { type StaticImageData } from "next/image";
 import { CheckCircle2, Circle, Wand2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-type AnyIcon = React.ElementType | React.ReactElement | string | Record<string, any>;
+type IconComponent = React.ComponentType<{ className?: string }>;
+type IconElement = React.ReactElement<{ className?: string }>;
+
+type AnyIcon =
+    | IconComponent         // Lucide / SVGR component
+    | IconElement           // elemento já criado
+    | StaticImageData       // import de imagem estática
+    | string;               // path em /public
 
 export type BookChapter = {
     id: string;
@@ -24,42 +32,83 @@ type BookNavProps = {
     className?: string;
 };
 
+function isStaticImageData(x: unknown): x is StaticImageData {
+    return !!x && typeof x === "object" && "src" in (x as Record<string, unknown>);
+}
+
 function renderIcon(icon?: AnyIcon) {
+    // fallback
     if (!icon) return <Wand2 className="h-4 w-4 text-white/80" />;
 
-    // 1) string: caminho em /public
+    // 1) caminho string em /public
     if (typeof icon === "string") {
-        return <img src={icon} alt="" className="h-4 w-4 invert opacity-80" />;
+        return (
+            <Image
+                src={icon}
+                alt=""
+                width={16}
+                height={16}
+                className="h-4 w-4 invert opacity-80"
+                priority={false}
+                aria-hidden
+            />
+        );
     }
 
-    // 2) elemento React já criado
-    if (React.isValidElement(icon)) {
-        return React.cloneElement(icon as any, {
-            className: cn("h-4 w-4", (icon as any).props?.className),
+    // 2) imagem estática importada
+    if (isStaticImageData(icon)) {
+        return (
+            <Image
+                src={icon}
+                alt=""
+                width={16}
+                height={16}
+                className="h-4 w-4 invert opacity-80"
+                priority={false}
+                aria-hidden
+            />
+        );
+    }
+
+    // 3) elemento já criado (ex.: <MySvg />)
+    if (React.isValidElement<{ className?: string }>(icon)) {
+        return React.cloneElement(icon, {
+            className: cn("h-4 w-4", icon.props.className),
         });
     }
 
-    // 3) objeto de imagem estática do Next: { src, width, height, ... }
-    if (typeof icon === "object" && icon && "src" in icon && typeof (icon as any).src === "string") {
-        return <img src={(icon as any).src} alt="" className="h-4 w-4 invert opacity-80" />;
-    }
-
-    // 4) componente React (Lucide, SVGR, etc.)
-    const Cmp = icon as React.ElementType;
+    // 4) componente (Lucide/SVGR)
+    const Cmp = icon as IconComponent;
     return <Cmp className="h-4 w-4 text-white/80" />;
 }
 
-export default function BookNav({ chapters, currentId, onSelect, className }: BookNavProps) {
+export default function BookNav({
+                                    chapters,
+                                    currentId,
+                                    onSelect,
+                                    className,
+                                }: BookNavProps) {
     return (
-        <aside className={cn("sticky top-0 h-screen p-4 bg-gradient-to-b from-cyan-950/40 via-slate-950/40 to-fuchsia-950/30 ring-1 ring-white/10 rounded-none relative overflow-hidden", className)}>
+        <aside
+            className={cn(
+                "sticky top-0 h-screen p-4 bg-gradient-to-b from-cyan-950/40 via-slate-950/40 to-fuchsia-950/30",
+                "ring-1 ring-white/10 rounded-none relative overflow-hidden",
+                className
+            )}
+        >
             <MagicDust />
             <div className="relative z-10 flex h-full flex-col">
-                <h2 className="mb-3 text-sm font-medium tracking-[0.2em] text-white/70 uppercase">Capítulos do Cântico</h2>
+                <h2 className="mb-3 text-sm font-medium tracking-[0.2em] text-white/70 uppercase">
+                    Capítulos do Cântico
+                </h2>
+
+                {/* scroll só aqui dentro */}
                 <div className="min-h-0 flex-1 overflow-y-auto pr-1">
                     <ol className="space-y-2 pb-4">
                         {chapters.map((c) => {
                             const active = c.id === currentId;
                             const done = !!c.completed;
+
                             return (
                                 <li key={c.id}>
                                     <Button
@@ -68,17 +117,27 @@ export default function BookNav({ chapters, currentId, onSelect, className }: Bo
                                         onClick={() => !c.disabled && onSelect(c.id)}
                                         className={cn(
                                             "w-full justify-start gap-3 rounded-xl text-left ring-1 ring-white/10 transition-colors",
+                                            // base
                                             "bg-white/[0.04] hover:bg-white/[0.08]",
+                                            // selecionado (mantém contraste de texto)
                                             active && "bg-cyan-700/30 hover:bg-cyan-700/35 ring-cyan-400/25",
+                                            // desabilitado
                                             c.disabled && "opacity-50 cursor-not-allowed hover:bg-white/[0.04]"
                                         )}
                                     >
-                                        {done ? <CheckCircle2 className="h-4 w-4 text-cyan-300" /> : <Circle className="h-4 w-4 text-white/60" />}
+                                        {done ? (
+                                            <CheckCircle2 className="h-4 w-4 text-cyan-300" />
+                                        ) : (
+                                            <Circle className="h-4 w-4 text-white/60" />
+                                        )}
+
                                         <span className="shrink-0">{renderIcon(c.icon)}</span>
+
                                         <div className="text-left">
                                             <div className="text-sm font-medium text-white">{c.title}</div>
                                             <div className="text-xs text-white/60">{c.description}</div>
                                         </div>
+
                                         {active && <Sparkles className="ml-auto h-4 w-4 text-cyan-200/80" />}
                                     </Button>
                                 </li>
@@ -89,12 +148,23 @@ export default function BookNav({ chapters, currentId, onSelect, className }: Bo
             </div>
 
             <style jsx global>{`
-        @keyframes twinkle { 0%,100%{transform:scale(.9);opacity:.6} 50%{transform:scale(1.2);opacity:1} }
+        @keyframes twinkle {
+          0%,
+          100% {
+            transform: scale(0.9);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
+        }
       `}</style>
         </aside>
     );
 }
 
+/** partículas leves no fundo */
 function MagicDust() {
     return (
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -113,7 +183,13 @@ function Dot({ x, y, delay }: { x: string; y: string; delay?: string }) {
     return (
         <span
             className="absolute h-1.5 w-1.5 rounded-full bg-cyan-200/70"
-            style={{ left: x, top: y, animation: "twinkle 2.6s ease-in-out infinite", animationDelay: delay ?? "0s", boxShadow: "0 0 8px rgba(186,230,253,0.55), 0 0 16px rgba(186,230,253,0.25)" }}
+            style={{
+                left: x,
+                top: y,
+                animation: "twinkle 2.6s ease-in-out infinite",
+                animationDelay: delay ?? "0s",
+                boxShadow: "0 0 8px rgba(186,230,253,0.55), 0 0 16px rgba(186,230,253,0.25)",
+            }}
         />
     );
 }
