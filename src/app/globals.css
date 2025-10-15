@@ -135,3 +135,8 @@ button:hover, a:hover {
 
 @keyframes spin-slow { to { transform: rotate(360deg) } }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+@keyframes twinkle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: .6; }
+  50%      { transform: translateY(-2px) scale(1.2); opacity: 1; }
+}
