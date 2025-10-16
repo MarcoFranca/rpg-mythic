@@ -2,7 +2,6 @@
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { prisma } from "./db/prisma";
-import { cookies, headers } from "next/headers";        // ⬅️
 import { createClient as createSupabaseServerClient } from "@/utils/supabase/server";
 import { AccountRole } from "@prisma/client";
 import type { SupabaseUserMetadata } from "@/types/supabase";

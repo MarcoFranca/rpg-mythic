@@ -1,11 +1,11 @@
 // src/lib/utils/debounce.ts
-export function debounce<A extends unknown[]>(
-    fn: (...args: A) => void | Promise<void>,
-    wait = 300
-): (...args: A) => void {
-    let t: ReturnType<typeof setTimeout> | null = null;
-    return (...args: A) => {
-        if (t) clearTimeout(t);
-        t = setTimeout(() => { void fn(...args); }, wait);
+export function debounce<TArgs extends unknown[]>(
+    fn: (...args: TArgs) => void | Promise<void>,
+    wait: number
+) {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    return (...args: TArgs) => {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => void fn(...args), wait); // garante retorno void
     };
 }
