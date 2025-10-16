@@ -11,10 +11,10 @@ type IconComponent = React.ComponentType<{ className?: string }>;
 type IconElement = React.ReactElement<{ className?: string }>;
 
 type AnyIcon =
-    | IconComponent         // Lucide / SVGR component
-    | IconElement           // elemento já criado
-    | StaticImageData       // import de imagem estática
-    | string;               // path em /public
+    | IconComponent
+    | IconElement
+    | StaticImageData
+    | string;
 
 export type BookChapter = {
     id: string;
@@ -32,62 +32,58 @@ type BookNavProps = {
     className?: string;
 };
 
+// 🔧 tamanho unificado dos ícones (maior que antes)
+const ICON = "h-5 w-5 md:h-6 md:w-6";
+
+// util
 function isStaticImageData(x: unknown): x is StaticImageData {
     return !!x && typeof x === "object" && "src" in (x as Record<string, unknown>);
 }
 
-function renderIcon(icon?: AnyIcon) {
-    // fallback
-    if (!icon) return <Wand2 className="h-4 w-4 text-white/80" />;
+const ICON_SIZE = "h-7 w-7"; // mude para "h-7 w-7" se quiser ainda maior
 
-    // 1) caminho string em /public
+function renderIcon(icon?: AnyIcon, extraClass = "") {
+    if (!icon) return <Wand2 className={cn(ICON_SIZE, "text-white/80", extraClass)} />;
+
     if (typeof icon === "string") {
         return (
             <Image
                 src={icon}
                 alt=""
-                width={16}
-                height={16}
-                className="h-4 w-4 invert opacity-80"
+                width={48}
+                height={48}
+                className={cn(ICON_SIZE, "text-white/80 invert opacity-90", extraClass)}
                 priority={false}
                 aria-hidden
             />
         );
     }
 
-    // 2) imagem estática importada
     if (isStaticImageData(icon)) {
         return (
             <Image
                 src={icon}
                 alt=""
-                width={16}
-                height={16}
-                className="h-4 w-4 invert opacity-80"
+                width={48}
+                height={48}
+                className={cn(ICON_SIZE, "text-white/80 invert opacity-90", extraClass)}
                 priority={false}
                 aria-hidden
             />
         );
     }
 
-    // 3) elemento já criado (ex.: <MySvg />)
     if (React.isValidElement<{ className?: string }>(icon)) {
         return React.cloneElement(icon, {
-            className: cn("h-4 w-4", icon.props.className),
+            className: cn(ICON_SIZE, "text-white/85", icon.props.className, extraClass),
         });
     }
 
-    // 4) componente (Lucide/SVGR)
     const Cmp = icon as IconComponent;
-    return <Cmp className="h-4 w-4 text-white/80" />;
+    return <Cmp className={cn(ICON_SIZE, "text-white/85", extraClass)} />;
 }
 
-export default function BookNav({
-                                    chapters,
-                                    currentId,
-                                    onSelect,
-                                    className,
-                                }: BookNavProps) {
+export default function BookNav({ chapters, currentId, onSelect, className }: BookNavProps) {
     return (
         <aside
             className={cn(
@@ -102,9 +98,8 @@ export default function BookNav({
                     Capítulos do Cântico
                 </h2>
 
-                {/* scroll só aqui dentro */}
                 <div className="min-h-0 flex-1 overflow-y-auto pr-1">
-                    <ol className="space-y-2 pb-4">
+                    <ol className="m-2 space-y-2 pb-4">
                         {chapters.map((c) => {
                             const active = c.id === currentId;
                             const done = !!c.completed;
@@ -117,28 +112,27 @@ export default function BookNav({
                                         onClick={() => !c.disabled && onSelect(c.id)}
                                         className={cn(
                                             "w-full justify-start gap-3 rounded-xl text-left ring-1 ring-white/10 transition-colors",
-                                            // base
                                             "bg-white/[0.04] hover:bg-white/[0.08]",
-                                            // selecionado (mantém contraste de texto)
                                             active && "bg-cyan-700/30 hover:bg-cyan-700/35 ring-cyan-400/25",
-                                            // desabilitado
                                             c.disabled && "opacity-50 cursor-not-allowed hover:bg-white/[0.04]"
-                                        )}
-                                    >
+                                        )}>
                                         {done ? (
-                                            <CheckCircle2 className="h-4 w-4 text-cyan-300" />
+                                            <CheckCircle2 className={cn(ICON_SIZE, "text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,.45)]")} />
                                         ) : (
-                                            <Circle className="h-4 w-4 text-white/60" />
+                                            <Circle className={cn(ICON_SIZE, "text-white/60")} />
                                         )}
 
-                                        <span className="shrink-0">{renderIcon(c.icon)}</span>
-
+                                        {/* ícone principal — ganha “neon” quando ativo */}
+                                         {renderIcon(
+                                            c.icon,
+                                            active ? "text-cyan-200 drop-shadow-[0_0_10px_rgba(34,211,238,.45)]" : "text-white/85"
+                                        )}
                                         <div className="text-left">
                                             <div className="text-sm font-medium text-white">{c.title}</div>
                                             <div className="text-xs text-white/60">{c.description}</div>
                                         </div>
 
-                                        {active && <Sparkles className="ml-auto h-4 w-4 text-cyan-200/80" />}
+                                        {active && <Sparkles className={cn(ICON, "ml-auto text-cyan-200/80")} />}
                                     </Button>
                                 </li>
                             );
@@ -148,34 +142,34 @@ export default function BookNav({
             </div>
 
             <style jsx global>{`
-        @keyframes twinkle {
-          0%,
-          100% {
-            transform: scale(0.9);
-            opacity: 0.6;
-          }
-          50% {
-            transform: scale(1.2);
-            opacity: 1;
-          }
-        }
-      `}</style>
+                @keyframes twinkle { 0%,100%{transform:scale(.9);opacity:.6} 50%{transform:scale(1.2);opacity:1} }
+                @keyframes drift {
+                    0% { transform: translate(0,0) }
+                    25% { transform: translate(4px,-3px) }
+                    50% { transform: translate(0,-6px) }
+                    75% { transform: translate(-3px,-2px) }
+                    100% { transform: translate(0,0) }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    [style*="twinkle"], [style*="drift"] { animation: none !important; }
+                }
+            `}</style>
         </aside>
     );
 }
 
-/** partículas leves no fundo */
+/** partículas leves com drift */
 function MagicDust() {
     return (
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
             <div className="absolute -top-20 -right-24 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
             <div className="absolute bottom-10 -left-20 h-48 w-48 rounded-full bg-fuchsia-500/10 blur-3xl" />
-            <Dot x="15%" y="8%" />
-            <Dot x="30%" y="20%" delay="0.3s" />
-            <Dot x="70%" y="15%" delay="0.6s" />
-            <Dot x="85%" y="35%" delay="0.1s" />
-            <Dot x="20%" y="70%" delay="0.5s" />
-            <Dot x="65%" y="80%" delay="0.9s" />
+            <Dot x="15%" y="8%" delay="0s" />
+            <Dot x="30%" y="20%" delay=".3s" />
+            <Dot x="70%" y="15%" delay=".6s" />
+            <Dot x="85%" y="35%" delay=".1s" />
+            <Dot x="20%" y="70%" delay=".5s" />
+            <Dot x="65%" y="80%" delay=".9s" />
         </div>
     );
 }
@@ -186,8 +180,8 @@ function Dot({ x, y, delay }: { x: string; y: string; delay?: string }) {
             style={{
                 left: x,
                 top: y,
-                animation: "twinkle 2.6s ease-in-out infinite",
-                animationDelay: delay ?? "0s",
+                animation: "twinkle 2.6s ease-in-out infinite, drift 12s ease-in-out infinite",
+                animationDelay: `${delay ?? "0s"}, ${delay ?? "0s"}`,
                 boxShadow: "0 0 8px rgba(186,230,253,0.55), 0 0 16px rgba(186,230,253,0.25)",
             }}
         />

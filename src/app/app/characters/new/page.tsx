@@ -8,14 +8,20 @@ import ClassChapter from "@/components/character/chapters/ClassChapter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ScrollText, Star, Sword, Backpack, FlameKindling, HeartHandshake, Sparkles } from "lucide-react";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
 import { api } from "@/trpc/react";
 
 // SVGR (componentes React)
-import PapyrusIcon from "@/assets/icons/papyrus.svg";
-import AncestryIcon from "@/assets/icons/ancestry.svg";
-import IdentityIcon from "@/assets/icons/identity.svg";
+import ClassIcon from "@/assets/icons/class.png";
+import AncestryIcon from "@/assets/icons/ancestry.png";
+import IdentityIcon from "@/assets/icons/identity.png";
+import BackgroundIcon from "@/assets/icons/background.png";
+import AttributesIcon from "@/assets/icons/attributes.png";
+import ProfsIcon from "@/assets/icons/profs.png";
+import EquipmentIcon from "@/assets/icons/equipment.png";
+import SpellsIcon from "@/assets/icons/spells4.png";
+import FaithIcon from "@/assets/icons/faith2.png";
+import ReviewIcon from "@/assets/icons/review.png";
 
 type WizardState = {
     draftId?: string;
@@ -50,15 +56,15 @@ export default function NewCharacterPage() {
     const chapters: BookChapter[] = useMemo(
         () => [
             { id: "identity",   title: "Identidade",       description: "Nome & conceito",     icon: IdentityIcon,   completed: !!wiz.identity?.name },
-            { id: "class",      title: "Classe",           description: "Papel & estilo",      icon: PapyrusIcon,    completed: !!wiz.classId,        disabled: !canGoClass },
+            { id: "class",      title: "Classe",           description: "Papel & estilo",      icon: ClassIcon,      completed: !!wiz.classId,        disabled: !canGoClass },
             { id: "ancestry",   title: "Ancestralidade",   description: "Origens & traços",    icon: AncestryIcon,   completed: !!wiz.ancestryId,     disabled: !canGoAncestry },
-            { id: "background", title: "Antecedente",      description: "História & perícias", icon: ScrollText,     completed: !!wiz.backgroundId,   disabled: !canGoBackground },
-            { id: "attributes", title: "Atributos",        description: "Força do sopro",      icon: Star,           completed: !!wiz.attributesDone, disabled: !canGoAttributes },
-            { id: "profs",      title: "Perícias & Prof.", description: "Escolhas finas",      icon: Sword,          completed: !!wiz.profsDone,      disabled: !canGoProfs },
-            { id: "equipment",  title: "Equipamento",      description: "Kit inicial",         icon: Backpack,       completed: !!wiz.equipmentDone,  disabled: !canGoEquipment },
-            { id: "spells",     title: "Magias",           description: "Canalizar o Éter",    icon: FlameKindling,  completed: !!wiz.spellsDone,     disabled: !canGoSpells },
-            { id: "faith",      title: "Fé & Éter",        description: "Ressonâncias",        icon: HeartHandshake, completed: !!wiz.faithDone,      disabled: !canGoFaith },
-            { id: "review",     title: "Revisão & Cântico",description: "Snapshot final",      icon: Sparkles,       completed: false,                disabled: !canGoReview },
+            { id: "background", title: "Antecedente",      description: "História & perícias", icon: BackgroundIcon,     completed: !!wiz.backgroundId,   disabled: !canGoBackground },
+            { id: "attributes", title: "Atributos",        description: "Força do sopro",      icon: AttributesIcon,           completed: !!wiz.attributesDone, disabled: !canGoAttributes },
+            { id: "profs",      title: "Perícias & Prof.", description: "Escolhas finas",      icon: ProfsIcon,          completed: !!wiz.profsDone,      disabled: !canGoProfs },
+            { id: "equipment",  title: "Equipamento",      description: "Kit inicial",         icon: EquipmentIcon,       completed: !!wiz.equipmentDone,  disabled: !canGoEquipment },
+            { id: "spells",     title: "Magias",           description: "Canalizar o Éter",    icon: SpellsIcon,  completed: !!wiz.spellsDone,     disabled: !canGoSpells },
+            { id: "faith",      title: "Fé & Éter",        description: "Ressonâncias",        icon: FaithIcon, completed: !!wiz.faithDone,      disabled: !canGoFaith },
+            { id: "review",     title: "Revisão & Cântico",description: "Snapshot final",      icon: ReviewIcon,       completed: false,                disabled: !canGoReview },
         ],
         [
             wiz.identity?.name, wiz.classId, wiz.ancestryId, wiz.backgroundId,
