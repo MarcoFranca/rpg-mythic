@@ -147,3 +147,19 @@ button:hover, a:hover {
   100% { transform: translateY(0) scale(0.95); opacity: .65; }
 }
 .animate-elyra-float { animation: elyra-float 6s ease-in-out infinite; }
+
+
+/* aura em foco */
+.elyra-field { position: relative; border-radius: 0.75rem; }
+.elyra-field::before {
+  content:""; position:absolute; inset:-2px; border-radius:inherit;
+  background:
+          radial-gradient(60% 60% at 50% 30%, rgba(34,211,238,.35), transparent 70%),
+          radial-gradient(40% 50% at 50% 80%, rgba(234,179,8,.28), transparent 70%);
+  filter: blur(10px); opacity: 0; transition: opacity .25s ease; pointer-events: none;
+}
+.elyra-field:focus-within::before { opacity: .9; }
+.elyra-field[data-invalid="true"]::before {
+  background: radial-gradient(60% 60% at 50% 30%, rgba(248,113,113,.45), transparent 70%);
+  opacity: .9;
+}
