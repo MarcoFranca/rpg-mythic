@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { router, publicProcedure } from "../../trpc";
-
+import {
+    normalizeClassRow,
+    normalizeSubclassRow,
+    ClassWithSubclassesVMZ,
+} from "./_normalize-class";
 /**
  * View-model enxuto para a UI (sem any).
  * Se precisar, expandimos depois (subclasses, tabelas, etc.).
@@ -72,5 +76,28 @@ export const classCatalogRouter = router({
                     featuresPreview: meta?.featuresPreview ?? [],
                 });
             });
+        }),
+    getWithSubclasses: publicProcedure
+        .input(z.object({ id: z.string() }))
+        .query(async ({ ctx, input }) => {
+            const r = await ctx.prisma.class.findUniqueOrThrow({ where: { id: input.id } });
+            const clazz = normalizeClassRow({
+                id: r.id,
+                name: r.name,
+                description: r.description,
+                hitDie: r.hitDie as "d6" | "d8" | "d10" | "d12",
+                profs: r.profs,
+                features: r.features,
+                spellData: r.spellData,
+                metaJson: r.metaJson,
+            });
+
+            const subs = await ctx.prisma.subclass.findMany({
+                where: { classId: input.id },
+                orderBy: { name: "asc" },
+            });
+            const subclasses = subs.map(normalizeSubclassRow);
+
+            return ClassWithSubclassesVMZ.parse({ clazz, subclasses });
         }),
 });

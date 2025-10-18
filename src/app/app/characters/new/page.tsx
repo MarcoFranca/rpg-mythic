@@ -27,6 +27,7 @@ type WizardState = {
     draftId?: string;
     identity: IdentityData | null;
     classId?: string;
+    subclassId?: string;
     ancestryId?: string;
     backgroundId?: string;
     attributesDone?: boolean;
@@ -117,14 +118,15 @@ export default function NewCharacterPage() {
                 )}
 
                 {current === "class" && (
-                    <ClassChapter
-                        selectedClassId={wiz.classId}
-                        onSelect={(c: ClassSummaryT) => {
-                            setWiz((prev) => ({ ...prev, classId: c.id }));
-                            setCurrent("ancestry");
-                        }}
-                    />
-                )}
+                       <ClassChapter
+                         initialSelectedClassId={wiz.classId}
+                         initialSelectedSubclassId={wiz.subclassId}
+                         onConfirm={(classId: string, subclassId?: string) => {
+                           setWiz((prev) => ({ ...prev, classId, subclassId }));
+                           setCurrent("ancestry");
+                         }}
+                       />
+                     )}
 
                 {current === "ancestry" && (
                     <div className="text-sm text-white/80">
