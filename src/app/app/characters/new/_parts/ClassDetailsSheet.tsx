@@ -1,31 +1,35 @@
 // src/app/(characters)/new/_parts/ClassDetailsSheet.tsx
 "use client";
-import {useEffect, useMemo, useState} from "react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "@/components/ui/sheet";
+import { useEffect, useMemo, useState } from "react";
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetDescription,
+    SheetFooter,
+    SheetClose,
+} from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
-import type { ClassWithSubclassesVM } from "@/server/api/routers/catalog/_normalize-class"; // exporte esse type no arquivo
+import type { ClassWithSubclassesVM } from "@/server/api/routers/catalog/_normalize-class";
 import { cn } from "@/lib/utils";
 
 type Props = {
-    /** controle externo do Drawer */
     open: boolean;
     side: "right" | "bottom";
     onOpenChange: (open: boolean) => void;
 
-    /** dados para render */
     selected: ClassSummaryT | null;
     full?: ClassWithSubclassesVM;
     loadingFull?: boolean;
 
-    /** seleção inicial de subclasse (quando usuário volta) */
     initialSubclassId?: string | null;
 
-    /** confirmar escolha */
     onConfirm: (classId: string, subclassId?: string) => void;
 };
 
@@ -40,14 +44,27 @@ export default function ClassDetailsSheet({
                                               onConfirm,
                                           }: Props) {
     const [pickedSubclass, setPickedSubclass] = useState<string | null>(initialSubclassId);
-      // se o usuário voltar para o passo e já tinha uma subclasse
-          useEffect(() => {
-                setPickedSubclass(initialSubclassId ?? null);
-              }, [initialSubclassId, open]);
+
+    // Se reabrir o sheet ou receber uma seleção inicial (voltou do wizard), sincroniza
+    useEffect(() => {
+        setPickedSubclass(initialSubclassId ?? null);
+    }, [initialSubclassId, open]);
+
+    // Se trocar a classe selecionada externamente, reseta subclasse
+    useEffect(() => {
+        setPickedSubclass(null);
+    }, [selected?.id]);
+
+    // Se só houver 1 subclasse, seleciona automaticamente (após carregar)
+    useEffect(() => {
+        if (!loadingFull && full?.subclasses?.length === 1) {
+            setPickedSubclass(full.subclasses[0]!.id);
+        }
+    }, [loadingFull, full?.subclasses]);
 
     const description = useMemo<string>(() => {
         return (full?.clazz.description ?? selected?.description ?? "Sem descrição.").trim();
-    }, [full?.clazz.description, selected?.description]);
+    }, [full?.clazz?.description, selected?.description]);
 
     const chips = (
         <div className="flex flex-wrap items-center gap-2">
@@ -63,6 +80,19 @@ export default function ClassDetailsSheet({
 
     const hero = (
         <div className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.03]">
+            {/* imagem da classe (se existir) */}
+            {selected?.assets?.image && (
+                <div className="relative h-36 w-full overflow-hidden">
+                    {/* background sutil com a arte */}
+                    <div
+                        className="absolute inset-0 bg-cover bg-center opacity-20"
+                        style={{ backgroundImage: `url(${selected.assets.image})` }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+            )}
+
             <div className="p-4">
                 <div className="flex items-start justify-between gap-3">
                     <div>
@@ -71,12 +101,81 @@ export default function ClassDetailsSheet({
                     </div>
                     {chips}
                 </div>
-                <Separator className="my-3 bg-white/10"/>
+
+                <Separator className="my-3 bg-white/10" />
+
                 <div className="text-sm leading-relaxed text-white/80">
-                    {loadingFull ? (<SkeletonLine lines={3}/>) : description}
+                    {loadingFull ? <SkeletonLine lines={3} /> : description}
                 </div>
             </div>
         </div>
+    );
+
+    const subclassBlock = (
+        <TabsContent value="subs" className="pt-3">
+            {loadingFull && <div className="text-sm text-white/60">Carregando subclasses…</div>}
+            {!loadingFull &&
+                (!full?.subclasses?.length ? (
+                    <EmptyText text="Esta classe não possui subclasses cadastradas." />
+                ) : (
+                    <>
+                        <div className="mb-2 flex items-center justify-between">
+                            <div className="text-xs text-white/60">
+                                {full.subclasses.length} opção{full.subclasses.length > 1 ? "es" : ""} disponível
+                                {full.subclasses.length > 1 ? "s" : ""}.
+                            </div>
+                            {pickedSubclass && (
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => setPickedSubclass(null)}
+                                    className="h-7 px-2 text-xs"
+                                >
+                                    Limpar seleção
+                                </Button>
+                            )}
+                        </div>
+
+                        <div className="grid gap-2">
+                            {full.subclasses.map((s) => {
+                                const active = pickedSubclass === s.id;
+                                return (
+                                    <button
+                                        key={s.id}
+                                        onClick={() => setPickedSubclass(active ? null : s.id)}
+                                        className={cn(
+                                            "text-left rounded-lg border p-3 transition",
+                                            active
+                                                ? "border-cyan-400/60 bg-cyan-400/10"
+                                                : "border-white/10 hover:border-white/25"
+                                        )}
+                                        aria-pressed={active}
+                                    >
+                                        <div className="flex items-center justify-between">
+                                            <div className="font-medium">{s.name}</div>
+                                            {active && <Badge variant="outline">Selecionada</Badge>}
+                                        </div>
+                                        <p className="mt-1 text-sm text-white/70">{s.description}</p>
+                                        {!!s.featuresPreview.length && (
+                                            <ul className="mt-2 flex flex-wrap gap-2">
+                                                {s.featuresPreview.map((f) => (
+                                                    <li key={f} className="text-xs text-white/60">
+                                                        • {f}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </>
+                ))}
+            <p className="mt-2 text-xs text-white/50">
+                Dica: a maioria das classes escolhe subclasse no <strong>nível 3</strong>. Você pode
+                pré-selecionar agora.
+            </p>
+        </TabsContent>
     );
 
     return (
@@ -104,7 +203,9 @@ export default function ClassDetailsSheet({
                                     <SkeletonBullets count={3} />
                                 ) : selected?.featuresPreview?.length ? (
                                     <ul className="list-disc pl-5 text-sm text-white/80">
-                                        {selected.featuresPreview.map((f) => <li key={f}>{f}</li>)}
+                                        {selected.featuresPreview.map((f) => (
+                                            <li key={f}>{f}</li>
+                                        ))}
                                     </ul>
                                 ) : (
                                     <EmptyText />
@@ -129,59 +230,29 @@ export default function ClassDetailsSheet({
                                 <Section title="Vantagens">
                                     {selected?.pros?.length ? (
                                         <ul className="list-disc pl-5 text-sm text-white/80">
-                                            {selected.pros.map((p) => <li key={p}>{p}</li>)}
+                                            {selected.pros.map((p) => (
+                                                <li key={p}>{p}</li>
+                                            ))}
                                         </ul>
-                                    ) : <EmptyText />}
+                                    ) : (
+                                        <EmptyText />
+                                    )}
                                 </Section>
                                 <Section title="Cuidados / Desvantagens">
                                     {selected?.cons?.length ? (
                                         <ul className="list-disc pl-5 text-sm text-white/80">
-                                            {selected.cons.map((c) => <li key={c}>{c}</li>)}
+                                            {selected.cons.map((c) => (
+                                                <li key={c}>{c}</li>
+                                            ))}
                                         </ul>
-                                    ) : <EmptyText />}
+                                    ) : (
+                                        <EmptyText />
+                                    )}
                                 </Section>
                             </div>
                         </TabsContent>
 
-                        <TabsContent value="subs" className="pt-3">
-                            {loadingFull && <div className="text-sm text-white/60">Carregando subclasses…</div>}
-                            {!loadingFull && (!full?.subclasses?.length ? (
-                                <EmptyText text="Esta classe não possui subclasses cadastradas." />
-                            ) : (
-                                <div className="grid gap-2">
-                                    {full.subclasses.map((s) => {
-                                        const active = pickedSubclass === s.id;
-                                        return (
-                                            <button
-                                                key={s.id}
-                                                onClick={() => setPickedSubclass(active ? null : s.id)}
-                                                className={cn(
-                                                    "text-left rounded-lg border p-3 transition",
-                                                    active ? "border-cyan-400/60 bg-cyan-400/10" : "border-white/10 hover:border-white/25"
-                                                )}
-                                                aria-pressed={active}
-                                            >
-                                                <div className="flex items-center justify-between">
-                                                    <div className="font-medium">{s.name}</div>
-                                                    {active && <Badge variant="outline">Selecionada</Badge>}
-                                                </div>
-                                                <p className="mt-1 text-sm text-white/70">{s.description}</p>
-                                                {!!s.featuresPreview.length && (
-                                                    <ul className="mt-2 flex flex-wrap gap-2">
-                                                        {s.featuresPreview.map((f) => (
-                                                            <li key={f} className="text-xs text-white/60">• {f}</li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            ))}
-                            <p className="mt-2 text-xs text-white/50">
-                                Dica: a maioria das classes escolhe subclasse no <strong>nível 3</strong>. Você pode pré-selecionar agora.
-                            </p>
-                        </TabsContent>
+                        {subclassBlock}
                     </Tabs>
                 </div>
 
@@ -215,7 +286,9 @@ export default function ClassDetailsSheet({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
     return (
         <section className="rounded-lg border border-white/10 p-3">
-            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/60">{title}</h4>
+            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/60">
+                {title}
+            </h4>
             {children}
         </section>
     );
