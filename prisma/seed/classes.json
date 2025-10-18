@@ -14,22 +14,30 @@
     "spellData": {
       "progression": "FULL",
       "focus": "DIVINO",
-      "preparation": "MOD_SAB_PLUS_LEVEL"
+      "preparation": "MOD_SAB_PLUS_LEVEL",
+      "castingAbility": "SABEDORIA",
+      "ritualCasting": true,
+      "knownScaling": "CLASS_LEVEL"
     },
     "description": "Ministro do sopro curativo e da luz compassiva de Elyra.",
     "metaJson": {
-      "role": "SUPORTE",
+      "role": "Suporte",
       "hitDie": "d8",
       "primaryAbilities": ["SABEDORIA", "CONSTITUICAO"],
       "savingThrows": ["SABEDORIA", "CARISMA"],
       "armorProficiencies": ["LEVE", "MEDIA", "ESCUDOS"],
       "weaponProficiencies": ["SIMPLES"],
       "spellcasting": "DIVINO",
+      "etherAlignment": "DIVINO",
       "pros": ["Cura forte", "Bênçãos", "Remoção de corrupções"],
       "cons": ["Dano direto moderado", "Dependência de preparo"],
       "featuresPreview": ["Curas de Elyra", "Canalizar Fé", "Exorcizar Sombrasangue"],
-      "assets": { "image": "/classes/arauto-elyra.png", "accentFrom": "22c55e", "accentTo": "0ea5e9" }
+      "assets": { "image": "/classes/arauto-elyra.png", "accentFrom": "#22c55e", "accentTo": "#0ea5e9" }
     },
+    "bonusLayers": [
+      { "key": "WIS", "value": 1, "source": "Classe: Arauto de Elyra" },
+      { "key": "CHA", "value": 1, "source": "Classe: Arauto de Elyra" }
+    ],
     "featuresByLevel": [
       {
         "level": 1,
@@ -117,7 +125,7 @@
       { "level": 12, "features": [{ "id": "asi-12", "name": "Aumento de Atributo", "type": "ASI" }] },
       { "level": 13, "features": [{ "id": "arauto-elyra-remover-maior", "name": "Remover Dissonância (maior)", "type": "ATIVO", "text": "Rito poderoso 1/dia: dissipa maldições fortes e efeitos de corrupção persistente (a critério do Mestre)."}] },
       { "level": 14, "features": [{ "id": "aura-15ft", "name": "Aura Ampliada", "type": "ESCALA" }, { "id": "luz-compassiva", "name": "Luz Compassiva", "type": "PASSIVO", "text": "No início do seu turno, escolha 1 aliado a 4,5 m com ≤ metade dos PV: cura 1d4 (ou 1d6 se estiver mantendo concentração)."}] },
-      { "level": 15, "features": [{ "id": "cancao-retorno", "name": "Canção do Retorno", "type": "REACTION", "text": "Reação 1/desc curto: quando um aliado cair a 0 PV a 9 m, ele estabiliza e volta a 1 PV." }] },
+      { "level": 15, "features": [{ "id": "cancao-retorno", "name": "Canção do Retorno", "type": "REACAO", "text": "Reação 1/desc curto: quando um aliado cair a 0 PV a 9 m, ele estabiliza e volta a 1 PV." }] },
       { "level": 16, "features": [{ "id": "asi-16", "name": "Aumento de Atributo", "type": "ASI" }] },
       { "level": 17, "features": [{ "id": "canalizar-4-usos", "name": "Canalizar Fé (4 usos)", "type": "ESCALA" }, { "id": "exorcizar-mestre", "name": "Exorcizar Sombrasangue Aprimorado", "type": "CANALIZAR", "text": "Ao falhar no teste, além de AFASTADA, a criatura fica **Atordoada** até o fim do próximo turno. Em sucesso, fica **Abalada** por toda a duração." }] },
       { "level": 18, "features": [{ "id": "aurora-permanente", "name": "Aurora Permanente", "type": "AURA", "text": "Você e aliados a 4,5 m têm resistência a dano radiante e necrótico." }] },
@@ -149,7 +157,7 @@
         "name": "Domínio: Aurora (Luz & Revelação)",
         "grantedSpells": [
           ["LUZ_ARDENTE", "PALAVRA_CURATIVA"],
-          ["RAIO_GUIADO", "VISAO_NO_ESCOURO"],
+          ["RAIO_GUIADO", "VISAO_NO_ESCURO"],
           ["CLARIVIDENCIA", "CLARAO_HIPNOTICO"],
           ["CHAMA_SAGRADA_MAIOR", "CHAMA_DO_AMANHECER"],
           ["AURORA_FINAL", "SANTUARIO_MAIOR"]

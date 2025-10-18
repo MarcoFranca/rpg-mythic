@@ -70,17 +70,17 @@ model Ancestry {
 }
 
 model Class {
-  id          String   @id @db.VarChar(64) // agora aceita slugs maiores (ex: "arauto-de-elyra")
-  name        String
-  hitDie      String   // "d6" | "d8" | "d10" | "d12"
-  profs       Json     // armor,weapons,tools,saves,skillsChoices,skillList
+  id              String     @id @db.VarChar(64) // agora aceita slugs maiores (ex: "arauto-de-elyra")
+  name            String
+  hitDie          String // "d6" | "d8" | "d10" | "d12"
+  profs           Json // armor,weapons,tools,saves,skillsChoices,skillList
   featuresByLevel Json // <-- renomeado (antes era "features")
-  spellData   Json?    // progressão, foco, preparação
-  subclasses  Subclass[]
-  metaJson    Json     // vitrine/preview/UI
-  description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  spellData       Json? // progressão, foco, preparação
+  subclasses      Subclass[]
+  metaJson        Json // vitrine/preview/UI
+  description     String
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
 
   @@index([name])
 }
@@ -92,14 +92,13 @@ model Subclass {
   name        String
   slug        String   @unique
   description String
-  metaJson    Json     // vitrine (aliases, pros, cons, featuresPreview, tags)
-  data        Json     // <-- NOVO: dados ricos: grantedSpells, canalizarOptions, features por nível
+  metaJson    Json // vitrine (aliases, pros, cons, featuresPreview, tags)
+  data        Json // <-- NOVO: dados ricos: grantedSpells, canalizarOptions, features por nível
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@index([classId])
 }
-
 
 model Background {
   id         String      @id @db.VarChar(40)
@@ -142,15 +141,17 @@ model Character {
   visibility Visibility     @default(PRIVATE)
 
   // Identidade
-  name          String
-  title         String?
-  portraitUrl   String?
-  pronoun       String? // "ele" | "ela" | "elu"
-  ancestryId    String
-  ancestry      Ancestry    @relation(fields: [ancestryId], references: [id])
-  subAncestry   String? // linhagem/variante (livre)
-  backgroundId  String?
-  backgroundRef Background? @relation(fields: [backgroundId], references: [id])
+  name             String
+  title            String?
+  portraitUrl      String?
+  pronoun          String? // "ele" | "ela" | "elu"
+  ancestryId       String
+  ancestry         Ancestry    @relation(fields: [ancestryId], references: [id])
+  subAncestry      String? // linhagem/variante (livre)
+  backgroundId     String?
+  backgroundRef    Background? @relation(fields: [backgroundId], references: [id])
+  spiritualBalance Json? // { value: number, trend: 'ASC' | 'DESC' | 'STABLE' }
+  needsRecompute   Boolean?    @default(true)
 
   // Multiclasse (substitui classId/level únicos)
   // Ex.: [{classId:"guerreiro", level:3, subclassId:"campeao"}, {classId:"ladino", level:2}]

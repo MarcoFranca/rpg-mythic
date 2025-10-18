@@ -1,24 +1,10 @@
 import { z } from "zod";
 
-// ——— Types explícitos (alias com sufixo T)
-export type ConditionKey = z.infer<typeof ConditionKey>;
-export type AttributesBlockT = z.infer<typeof AttributesBlock>;
-export type CombatBlockT = z.infer<typeof CombatBlock>;
-export type SensesBlockT = z.infer<typeof SensesBlock>;
-export type InventoryItemT = z.infer<typeof InventoryItem>;
-export type SpellcastingBlockT = z.infer<typeof SpellcastingBlock>;
-export type AttunementBlockT = z.infer<typeof AttunementBlock>;
-export type FeatureEntryT = z.infer<typeof FeatureEntry>;
-export type ConditionEntryT = z.infer<typeof ConditionEntry>;
-export type ClassResourcesBlockT = z.infer<typeof ClassResourcesBlock>;
-export type ResourceMeterT = z.infer<typeof ResourceMeter>;
-export type EtherBlockT = z.infer<typeof EtherBlock>;
-export type CorruptionBlockT = z.infer<typeof CorruptionBlock>;
-export type DerivedSnapshotT = z.infer<typeof DerivedSnapshot>;
-
 /** ---------- Atributos ---------- */
-export const AbilityKey = z.enum(["str","dex","con","int","wis","cha"]);
-export type AbilityKey = z.infer<typeof AbilityKey>;
+const AbilityKeyLower = z.enum(["str","dex","con","int","wis","cha"]);
+const AbilityKeyUpper = z.enum(["STR","DEX","CON","INT","WIS","CHA"]);
+export const AbilityKey = z.union([AbilityKeyLower, AbilityKeyUpper])
+    .transform((k) => k.toLowerCase() as z.infer<typeof AbilityKeyLower>);
 
 export const AttributesBase = z.object({
     str: z.number().int().min(1),
@@ -28,25 +14,31 @@ export const AttributesBase = z.object({
     wis: z.number().int().min(1),
     cha: z.number().int().min(1),
 });
-export type AttributesBase = z.infer<typeof AttributesBase>;
 
 export const AttributesLayer = z.object({
-    key: AbilityKey,
-    value: z.number().int(),            // pode ser negativo (condição/itens)
-    source: z.string(),                 // "Ancestralidade: Liriem", "Item: Elmo X"
+    key: AbilityKey,                   // aceita "STR"/"WIS" etc., normaliza para minúsculo
+    value: z.number().int(),           // pode ser negativo (condições/itens)
+    source: z.string(),                // ex.: "Ancestralidade: Liriem", "Item: Elmo X"
 });
-export type AttributesLayer = z.infer<typeof AttributesLayer>;
 
 export const AttributesBlock = z.object({
     base: AttributesBase,
     bonuses: z.array(AttributesLayer).default([]),
     temp: z.array(AttributesLayer).default([]),
 });
-export type AttributesBlock = z.infer<typeof AttributesBlock>;
+
+/** ---------- UI espiritual (EF) ---------- */
+export const Trend = z.enum(["ASC","DESC","STABLE"]);
+export const SpiritualBalanceBlock = z.object({
+    value: z.number().int().min(-5).max(5).default(0),
+    trend: Trend.default("STABLE"),
+});
 
 /** ---------- Combate ---------- */
-export const ResistFlag = z.enum(["acid","cold","fire","force","lightning","necrotic","poison","psychic","radiant","thunder","bludgeoning","piercing","slashing","other"]);
-export type ResistFlag = z.infer<typeof ResistFlag>;
+export const ResistFlag = z.enum([
+    "acid","cold","fire","force","lightning","necrotic","poison","psychic","radiant","thunder",
+    "bludgeoning","piercing","slashing","other"
+]);
 
 export const Speeds = z.object({
     walk: z.number().int().min(0),
@@ -55,17 +47,15 @@ export const Speeds = z.object({
     climb: z.number().int().min(0).optional(),
     burrow: z.number().int().min(0).optional(),
 });
-export type Speeds = z.infer<typeof Speeds>;
 
 export const CombatBlock = z.object({
-    ac: z.number().int().min(0),                         // AC base atual (antes de breakdown)
-    initiative_bonus: z.number().int().default(0),       // misc além do DEX
+    ac: z.number().int().min(0),                  // AC atual (antes do breakdown)
+    initiative_bonus: z.number().int().default(0),
     speeds: Speeds,
     resistances: z.array(ResistFlag).default([]),
     immunities: z.array(ResistFlag).default([]),
     vulnerabilities: z.array(ResistFlag).default([]),
 });
-export type CombatBlock = z.infer<typeof CombatBlock>;
 
 /** ---------- Sentidos & Passivas ---------- */
 export const SensesBlock = z.object({
@@ -79,37 +69,40 @@ export const SensesBlock = z.object({
         investigation: z.number().int().min(0).default(10),
     }),
 });
-export type SensesBlock = z.infer<typeof SensesBlock>;
 
 /** ---------- Ataques (UI) ---------- */
 export const AttackEntry = z.object({
     source: z.enum(["weapon","spell","feature"]),
     name: z.string(),
     toHit: z.number().int(),
-    damage: z.string(),                 // "1d8+3"
+    damage: z.string(),                          // ex.: "1d8+3"
     damageType: z.string().default(""),
     properties: z.array(z.string()).default([]),
 });
-export type AttackEntry = z.infer<typeof AttackEntry>;
 
 /** ---------- Spellcasting ---------- */
-export const SpellSlots = z.record(z.string(), z.object({ max: z.number().int().min(0), cur: z.number().int().min(0) }));
-export type SpellSlots = z.infer<typeof SpellSlots>;
+export const SpellSlots = z.record(
+    z.string(),
+    z.object({ max: z.number().int().min(0), cur: z.number().int().min(0) })
+);
 
 export const SpellcastingBlock = z.object({
-    ability: AbilityKey,         // INT | WIS | CHA
-    cd: z.number().int(),        // Spell Save DC
+    ability: AbilityKey,                         // int|wis|cha (normalizado)
+    cd: z.number().int(),                        // Spell Save DC
     attack_bonus: z.number().int(),
-    slots: SpellSlots,           // { "1":{max,cur}, ... }
+    slots: SpellSlots,                           // { "1":{max,cur}, ... }
     known: z.array(z.string()).default([]),
     prepared: z.array(z.string()).default([]),
     concentration: z.object({ spellId: z.string(), startedAt: z.string() }).optional(),
 });
-export type SpellcastingBlock = z.infer<typeof SpellcastingBlock>;
 
 /** ---------- Inventário & Attunement ---------- */
-export const Currency = z.object({ cp: z.number().int().min(0), sp: z.number().int().min(0), gp: z.number().int().min(0), pp: z.number().int().min(0) });
-export type Currency = z.infer<typeof Currency>;
+export const Currency = z.object({
+    cp: z.number().int().min(0),
+    sp: z.number().int().min(0),
+    gp: z.number().int().min(0),
+    pp: z.number().int().min(0),
+});
 
 export const InventoryItem = z.object({
     id: z.string().optional(),
@@ -121,15 +114,15 @@ export const InventoryItem = z.object({
     tags: z.array(z.string()).default([]),
     effects: z.array(z.any()).default([]),
     attunementRequired: z.boolean().default(false),
-    equippedSlot: z.enum(["MAIN_HAND","OFF_HAND","HEAD","CHEST","HANDS","RING1","RING2","AMULET","CAPE","BOOTS","BELT"]).optional(),
+    equippedSlot: z.enum([
+        "MAIN_HAND","OFF_HAND","HEAD","CHEST","HANDS","RING1","RING2","AMULET","CAPE","BOOTS","BELT"
+    ]).optional(),
 });
-export type InventoryItem = z.infer<typeof InventoryItem>;
 
 export const AttunementBlock = z.object({
     limit: z.number().int().min(0).default(3),
     attunedItemIds: z.array(z.string()).default([]),
 });
-export type AttunementBlock = z.infer<typeof AttunementBlock>;
 
 /** ---------- Features/Feats/Conditions ---------- */
 export const FeatureEntry = z.object({
@@ -139,43 +132,37 @@ export const FeatureEntry = z.object({
     level: z.number().int().optional(),
     effects: z.array(z.any()).default([]),
 });
-export type FeatureEntry = z.infer<typeof FeatureEntry>;
 
 export const ConditionKey = z.enum([
     "blinded",
     "restrained",
     "grappled",
     "poisoned",
-    "exhaustion" // nível em Character.exhaustionLevel já existe, mas mantemos a chave p/ UI
+    "exhaustion", // nível em Character.exhaustionLevel já existe; chave ajuda a UI
 ]);
 
 export const ConditionEntry = z.object({
     key: ConditionKey,
-    level: z.number().int().optional(),   // p/ ex. exaustão num outro sistema, mantemos opcional
+    level: z.number().int().optional(),
     expiresAt: z.string().optional(),
 });
-export type ConditionEntry = z.infer<typeof ConditionEntry>;
 
-// opcional: flags derivados que a UI pode usar
+// flags derivados opcionais
 export const CombatFlags = z.object({
     attackDisadvantage: z.boolean().default(false),
     attackedByAdvantage: z.boolean().default(false),
     abilityChecksDisadvantage: z.boolean().default(false),
     stealthDisadvantage: z.boolean().default(false),
 });
-export type CombatFlags = z.infer<typeof CombatFlags>;
 
 /** ---------- Recursos de Classe ---------- */
 export const ResetKind = z.enum(["short","long","custom"]);
-export type ResetKind = z.infer<typeof ResetKind>;
-
 export const ClassResource = z.object({
     name: z.string(),
     current: z.number().int().min(0),
     max: z.number().int().min(0),
     reset: ResetKind,
 });
-export type ClassResource = z.infer<typeof ClassResource>;
 
 export const ClassResourcesBlock = z.object({
     ki: z.object({ current: z.number().int().min(0), max: z.number().int().min(0) }).optional(),
@@ -183,7 +170,6 @@ export const ClassResourcesBlock = z.object({
     superiority: z.object({ current: z.number().int().min(0), max: z.number().int().min(0) }).optional(),
     custom: z.array(ClassResource).default([]),
 });
-export type ClassResourcesBlock = z.infer<typeof ClassResourcesBlock>;
 
 /** ---------- Recursos Eldoryon ---------- */
 export const ResourceMeter = z.object({
@@ -191,17 +177,33 @@ export const ResourceMeter = z.object({
     max: z.number().int().min(0),
     thresholds: z.array(z.number().int()).optional(),
 });
-export type ResourceMeter = z.infer<typeof ResourceMeter>;
 
+// Éter (cores + fadiga) — retrocompatível
+export const EtherAlignment = z.enum(["DIVINO","PROFANO","HARMONICO","PRIMORDIAL"]);
 export const EtherBlock = ResourceMeter.extend({
-    resonance: z.object({ schools: z.array(z.string()).default([]), intensity: z.number().int().min(0).max(3).default(0) }).optional(),
+    alignment: EtherAlignment.default("HARMONICO"),
+    flux: z.number().int().min(0).default(0),
+    overload: z.number().int().min(0).default(0),
+    resonance: z.object({
+        schools: z.array(z.string()).default([]),
+        intensity: z.number().int().min(0).max(3).default(0),
+    }).optional(),
+}).passthrough();
+
+// Corrupção (níveis/limiares) — retrocompatível
+export const CorruptionThresholds = z.object({
+    minor: z.number().int().min(0).default(2),
+    major: z.number().int().min(0).default(4),
+    critical: z.number().int().min(0).default(6),
 });
-export type EtherBlock = z.infer<typeof EtherBlock>;
 
 export const CorruptionBlock = ResourceMeter.extend({
+    level: z.number().int().min(0).default(0),
+    source: z.string().nullable().default(null),
+    manifestations: z.array(z.string()).default([]),
+    thresholds: CorruptionThresholds.default({ minor: 2, major: 4, critical: 6 }),
     marks: z.array(z.object({ name: z.string(), desc: z.string().optional() })).default([]),
-});
-export type CorruptionBlock = z.infer<typeof CorruptionBlock>;
+}).passthrough();
 
 /** ---------- Derived Snapshot ---------- */
 export const DerivedSnapshot = z.object({
@@ -228,5 +230,68 @@ export const DerivedSnapshot = z.object({
     }).optional(),
 });
 
+/** ---------- Helpers “ensure*” (defaults seguros) ---------- */
+export function ensureSpiritualBalance(json: unknown) {
+    const r = SpiritualBalanceBlock.safeParse(json);
+    return r.success ? r.data : { value: 0, trend: "STABLE" as const };
+}
 
-export type DerivedSnapshot = z.infer<typeof DerivedSnapshot>;
+export function ensureEther(json: unknown) {
+    const base = { current: 0, max: 6, alignment: "HARMONICO" as const, flux: 0, overload: 0 };
+    const r = EtherBlock.safeParse({ ...base, ...(json as object) });
+    return r.success ? r.data : base;
+}
+
+export function ensureCorruption(json: unknown) {
+    const base = {
+        current: 0,
+        max: 6,
+        level: 0,
+        source: null as string | null,
+        manifestations: [] as string[],
+        thresholds: { minor: 2, major: 4, critical: 6 },
+        marks: [] as { name: string; desc?: string }[],
+    };
+    const r = CorruptionBlock.safeParse({ ...base, ...(json as object) });
+    return r.success ? r.data : base;
+}
+
+/** ---------- Types (aliases) ---------- */
+export type AbilityKey = z.infer<typeof AbilityKey>;
+export type AttributesBase = z.infer<typeof AttributesBase>;
+export type AttributesLayer = z.infer<typeof AttributesLayer>;
+export type AttributesBlockT = z.infer<typeof AttributesBlock>;
+
+export type Trend = z.infer<typeof Trend>;
+export type SpiritualBalanceBlockT = z.infer<typeof SpiritualBalanceBlock>;
+
+export type ResistFlag = z.infer<typeof ResistFlag>;
+export type Speeds = z.infer<typeof Speeds>;
+export type CombatBlockT = z.infer<typeof CombatBlock>;
+
+export type SensesBlockT = z.infer<typeof SensesBlock>;
+export type AttackEntryT = z.infer<typeof AttackEntry>;
+
+export type SpellSlots = z.infer<typeof SpellSlots>;
+export type SpellcastingBlockT = z.infer<typeof SpellcastingBlock>;
+
+export type CurrencyT = z.infer<typeof Currency>;
+export type InventoryItemT = z.infer<typeof InventoryItem>;
+export type AttunementBlockT = z.infer<typeof AttunementBlock>;
+
+export type FeatureEntryT = z.infer<typeof FeatureEntry>;
+export type ConditionKey = z.infer<typeof ConditionKey>;
+export type ConditionEntryT = z.infer<typeof ConditionEntry>;
+export type CombatFlagsT = z.infer<typeof CombatFlags>;
+
+export type ResetKind = z.infer<typeof ResetKind>;
+export type ClassResourceT = z.infer<typeof ClassResource>;
+export type ClassResourcesBlockT = z.infer<typeof ClassResourcesBlock>;
+
+export type ResourceMeterT = z.infer<typeof ResourceMeter>;
+export type EtherAlignment = z.infer<typeof EtherAlignment>;
+export type EtherBlockT = z.infer<typeof EtherBlock>;
+export type CorruptionThresholdsT = z.infer<typeof CorruptionThresholds>;
+export type CorruptionBlockT = z.infer<typeof CorruptionBlock>;
+
+export type DerivedSnapshotT = z.infer<typeof DerivedSnapshot>;
