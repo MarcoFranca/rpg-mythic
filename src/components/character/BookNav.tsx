@@ -119,19 +119,19 @@ export default function BookNav({ chapters, currentId, onSelect, className }: Bo
                                         aria-hidden
                                         className={cn(
                                             "pointer-events-none absolute -inset-px rounded-[inherit]",
-                                            // borda vazada com máscara
                                             "[mask:linear-gradient(#000,#000)_content-box,linear-gradient(#000,#000)]",
                                             "[mask-composite:exclude]",
-                                            "[-webkit-mask-composite:xor]",
                                             "p-px",
-                                            // conic gradient girando
                                             "before:absolute before:inset-0 before:rounded-[inherit]",
                                             "before:bg-[conic-gradient(from_0deg,rgba(34,211,238,.6),rgba(234,179,8,.5),transparent_30%)]",
                                             "before:animate-[spin_6s_linear_infinite]"
                                         )}
+                                        style={{
+                                            WebkitMaskComposite: "xor",
+                                            maskComposite: "exclude",
+                                        }}
                                     />
                                 )}
-
 
                                 {done ? (
                                     <CheckCircle2
