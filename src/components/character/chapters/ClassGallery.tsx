@@ -18,10 +18,13 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
     const classes: ClassSummaryT[] = data ?? [];
 
     const models: Array<{ meta: ClassTheme | null; cls: ClassSummaryT }> = useMemo(() => {
+        const norm = (s: string) =>
+            s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
         return classes.map((cls: ClassSummaryT) => {
+            const nameKey = norm(cls.name);
             const meta =
                 CLASS_ART.find((c) => c.id === cls.id) ??
-                CLASS_ART.find((c) => c.title.toLowerCase() === cls.name.toLowerCase()) ??
+                CLASS_ART.find((c) => norm(c.title) === nameKey) ??
                 null;
             return { meta, cls };
         });
@@ -76,16 +79,22 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
         >
             {models.map(({ meta, cls }, idx) => {
                 const sel = cls.id === selectedClassId;
+                const img =
+                    cls.assets?.image ??
+                    meta?.image ??
+                    "/classes/_placeholder.jpg"; // garanta esse arquivo na pasta /public/classes
+                const accentFrom = cls.assets?.accentFrom ?? meta?.accentFrom;
+                const accentTo   = cls.assets?.accentTo   ?? meta?.accentTo;
                 return (
                     <ClassCard
                         key={cls.id}
                         title={cls.name}
-                        image={meta?.image ?? "/classes/_placeholder.jpg"}
+                        image={img}
                         selected={sel || idx === focusIdx}
                         role={cls.role}
                         spellcasting={cls.spellcasting}
-                        accentFrom={meta?.accentFrom}
-                        accentTo={meta?.accentTo}
+                        accentFrom={accentFrom}
+                        accentTo={accentTo}
                         onClick={() => onSelect(cls)}
                     />
                 );

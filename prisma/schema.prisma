@@ -70,17 +70,17 @@ model Ancestry {
 }
 
 model Class {
-  id        String   @id @db.VarChar(40) // ex: "guerreiro", "mago"
-  name      String
-  hitDie    String // "d6" | "d8" | "d10" | "d12"
-  profs     Json // armor,weapons,tools,saves,skillsChoices
-  features  Json // features por nível [{level,name,desc,effects[]}]
-  spellData Json? // regras de magia da classe (progressão de slots, etc.)
-  subclasses Subclass[]
-  metaJson   Json     // <- ? temporário
-  description String   // <- ? temporário
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @db.VarChar(64) // agora aceita slugs maiores (ex: "arauto-de-elyra")
+  name        String
+  hitDie      String   // "d6" | "d8" | "d10" | "d12"
+  profs       Json     // armor,weapons,tools,saves,skillsChoices,skillList
+  featuresByLevel Json // <-- renomeado (antes era "features")
+  spellData   Json?    // progressão, foco, preparação
+  subclasses  Subclass[]
+  metaJson    Json     // vitrine/preview/UI
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@index([name])
 }
@@ -92,12 +92,14 @@ model Subclass {
   name        String
   slug        String   @unique
   description String
-  metaJson    Json     // { aliases: string[], pros: string[], cons: string[], featuresPreview: string[], tags: string[] }
+  metaJson    Json     // vitrine (aliases, pros, cons, featuresPreview, tags)
+  data        Json     // <-- NOVO: dados ricos: grantedSpells, canalizarOptions, features por nível
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@index([classId])
 }
+
 
 model Background {
   id         String      @id @db.VarChar(40)

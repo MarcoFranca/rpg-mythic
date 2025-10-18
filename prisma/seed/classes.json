@@ -4,27 +4,185 @@
     "name": "Arauto de Elyra",
     "hitDie": "d8",
     "profs": {
-      "armor": ["Leve", "Média", "Escudos"],
-      "weapons": ["Simples"],
-      "saves": ["Sabedoria", "Carisma"],
-      "skillsChoices": 2
+      "armor": ["LEVE", "MEDIA", "ESCUDOS"],
+      "weapons": ["SIMPLES"],
+      "tools": [],
+      "saves": ["SABEDORIA", "CARISMA"],
+      "skillsChoices": 2,
+      "skillList": ["RELIGIAO", "MEDICINA", "INTUICAO", "PERSUASAO", "HISTORIA", "NATUREZA"]
     },
-    "features": [],
-    "spellData": { "progression": "full", "focus": "divino" },
+    "spellData": {
+      "progression": "FULL",
+      "focus": "DIVINO",
+      "preparation": "MOD_SAB_PLUS_LEVEL"
+    },
     "description": "Ministro do sopro curativo e da luz compassiva de Elyra.",
     "metaJson": {
-      "role": "Suporte",
+      "role": "SUPORTE",
       "hitDie": "d8",
-      "primaryAbilities": ["Sabedoria", "Constituição"],
-      "savingThrows": ["Sabedoria", "Carisma"],
-      "armorProficiencies": ["Leve", "Média", "Escudos"],
-      "weaponProficiencies": ["Simples"],
-      "spellcasting": "Divino",
+      "primaryAbilities": ["SABEDORIA", "CONSTITUICAO"],
+      "savingThrows": ["SABEDORIA", "CARISMA"],
+      "armorProficiencies": ["LEVE", "MEDIA", "ESCUDOS"],
+      "weaponProficiencies": ["SIMPLES"],
+      "spellcasting": "DIVINO",
       "pros": ["Cura forte", "Bênçãos", "Remoção de corrupções"],
       "cons": ["Dano direto moderado", "Dependência de preparo"],
-      "featuresPreview": ["Curas de Elyra", "Canalizar Fé", "Proteção radiante"],
-      "assets": { "image": "/classes/clerigo.jpg", "accentFrom": "22c55e", "accentTo": "0ea5e9" }
-    }
+      "featuresPreview": ["Curas de Elyra", "Canalizar Fé", "Exorcizar Sombrasangue"],
+      "assets": { "image": "/classes/arauto-elyra.png", "accentFrom": "22c55e", "accentTo": "0ea5e9" }
+    },
+    "featuresByLevel": [
+      {
+        "level": 1,
+        "features": [
+          {
+            "id": "arauto-elyra-curas",
+            "name": "Curas de Elyra",
+            "type": "PASSIVO",
+            "text": "Você conhece técnicas sagradas de cura. Quando conjura uma magia que restaura PV, some +2 ao total curado (aumenta para +2 + seu mod. SAB no nível 5).",
+            "scaling": { "5": "+mod.SAB" }
+          },
+          {
+            "id": "arauto-elyra-circulo",
+            "name": "Círculo Elyriano",
+            "type": "SUBCLASSE_ESCOLHA",
+            "text": "Escolha um Domínio Elyriano: Vida (Coro da Criação), Aurora (Luz & Revelação) ou Ventos (Sopro & Movimento). Você recebe a magia do domínio correspondente como sempre preparada e benefícios adicionais."
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "features": [
+          {
+            "id": "arauto-elyra-canalizar-fe",
+            "name": "Canalizar Fé",
+            "type": "RECURSO",
+            "uses": { "base": 1, "recharge": "DESCANSO_CURTO" },
+            "text": "Você invoca o Cântico para efeitos do seu Domínio (ver Domínio) ou para 'Exorcizar Sombrasangue' nos níveis apropriados."
+          },
+          {
+            "id": "arauto-elyra-ritos",
+            "name": "Ritos do Cântico",
+            "type": "UTILIDADE",
+            "text": "Você pode realizar breves rituais (10 min) para purificar água/comida, abençoar um local pequeno ou acalmar uma criatura disposta. Efeitos equivalentes a magias triviais de nível 0-1 sem custo de espaço, a critério do Mestre."
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "features": [
+          {
+            "id": "arauto-elyra-sopro-restaurador",
+            "name": "Sopro Restaurador",
+            "type": "ATIVO",
+            "text": "Como ação bônus após conjurar uma magia de cura, escolha você ou um aliado a 9 m; essa criatura ganha PV temporários iguais ao seu mod. SAB (mín. 1)."
+          }
+        ]
+      },
+      { "level": 4, "features": [{ "id": "asi-4", "name": "Aumento de Atributo", "type": "ASI" }] },
+      {
+        "level": 5,
+        "features": [
+          {
+            "id": "arauto-elyra-exorcizar",
+            "name": "Exorcizar Sombrasangue",
+            "type": "CANALIZAR",
+            "text": "Como ação, gaste 1 uso de Canalizar Fé para forçar criaturas corrompidas (mortos-vivos, infernais ou com a tag SOMBRASANGUE) a 9 m a fazer um teste de SAB contra sua CD de magia. Em falha, ficam AFASTADAS por 1 min (repetem teste ao sofrer dano). Em sucesso, ficam **Abaladas** (desvantagem no primeiro ataque até o fim do próprio próximo turno).",
+            "tags": ["AFETAR_CORROMPIDOS"]
+          },
+          {
+            "id": "arauto-elyra-remover-menor",
+            "name": "Remover Dissonância (menor)",
+            "type": "ATIVO",
+            "text": "Você aprende um rito para encerrar uma condição leve de corrupção (equivalente a remover doença/veneno ou uma maldição simples) 1/dia sem gasto de espaço. Recupera no descanso longo."
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          { "id": "canalizar-2-usos", "name": "Canalizar Fé (2 usos)", "type": "ESCALA" },
+          {
+            "id": "arauto-elyra-aura-harmonia",
+            "name": "Aura de Harmonia",
+            "type": "AURA",
+            "text": "Aliados a 3 m (10 pés) ganham +1 nos testes de resistência contra efeitos de medo/encantamento. Aumenta para 4,5 m (15 pés) no nível 14."
+          }
+        ]
+      },
+      { "level": 7, "features": [{ "id": "arauto-elyra-ressonancia", "name": "Ressonância Reparadora", "type": "DIARIO", "text": "1/descanso longo, ação: redistribua 5 × seu nível de PV entre criaturas a 9 m. Não ultrapassa o máximo." }] },
+      { "level": 8, "features": [{ "id": "asi-8", "name": "Aumento de Atributo", "type": "ASI" }, { "id": "golpe-iluminado", "name": "Golpe Iluminado", "type": "ATIVO", "text": "1/turno, quando acertar ataque com arma, cause +1d8 dano radiante (2d8 no 14º). Requer empunhar símbolo sagrado." }] },
+      { "level": 9, "features": [{ "id": "arauto-elyra-veu-sant", "name": "Véu de Santuário", "type": "ATIVO", "text": "Ação: erga um véu de luz de 3 m de raio por 1 min (concentração). Aliados ganham meio-cobertura e vantagem em testes contra ser empurrado/derrubado." }] },
+      { "level": 10, "features": [{ "id": "canalizar-3-usos", "name": "Canalizar Fé (3 usos)", "type": "ESCALA" }, { "id": "purificar-obelisco", "name": "Purificar Obelisco", "type": "MUNDO", "text": "Você pode realizar o ritual principal de purificação de Obelisco. Em mesas com IDG, concede -1 ao IDG local ao concluir (uma vez por obelisco)."}] },
+      { "level": 11, "features": [{ "id": "arauto-elyra-inabalavel", "name": "Cântico Inabalável", "type": "PASSIVO", "text": "Você e aliados na sua Aura de Harmonia têm vantagem contra medo/encantos enquanto você estiver consciente." }] },
+      { "level": 12, "features": [{ "id": "asi-12", "name": "Aumento de Atributo", "type": "ASI" }] },
+      { "level": 13, "features": [{ "id": "arauto-elyra-remover-maior", "name": "Remover Dissonância (maior)", "type": "ATIVO", "text": "Rito poderoso 1/dia: dissipa maldições fortes e efeitos de corrupção persistente (a critério do Mestre)."}] },
+      { "level": 14, "features": [{ "id": "aura-15ft", "name": "Aura Ampliada", "type": "ESCALA" }, { "id": "luz-compassiva", "name": "Luz Compassiva", "type": "PASSIVO", "text": "No início do seu turno, escolha 1 aliado a 4,5 m com ≤ metade dos PV: cura 1d4 (ou 1d6 se estiver mantendo concentração)."}] },
+      { "level": 15, "features": [{ "id": "cancao-retorno", "name": "Canção do Retorno", "type": "REACTION", "text": "Reação 1/desc curto: quando um aliado cair a 0 PV a 9 m, ele estabiliza e volta a 1 PV." }] },
+      { "level": 16, "features": [{ "id": "asi-16", "name": "Aumento de Atributo", "type": "ASI" }] },
+      { "level": 17, "features": [{ "id": "canalizar-4-usos", "name": "Canalizar Fé (4 usos)", "type": "ESCALA" }, { "id": "exorcizar-mestre", "name": "Exorcizar Sombrasangue Aprimorado", "type": "CANALIZAR", "text": "Ao falhar no teste, além de AFASTADA, a criatura fica **Atordoada** até o fim do próximo turno. Em sucesso, fica **Abalada** por toda a duração." }] },
+      { "level": 18, "features": [{ "id": "aurora-permanente", "name": "Aurora Permanente", "type": "AURA", "text": "Você e aliados a 4,5 m têm resistência a dano radiante e necrótico." }] },
+      { "level": 19, "features": [{ "id": "asi-19", "name": "Aumento de Atributo", "type": "ASI" }] },
+      { "level": 20, "features": [{ "id": "avatar-do-sopro", "name": "Avatar do Sopro", "type": "EXALTADO", "text": "1/descanso longo, ação: por 1 min você emite luz de 6 m, ganha voo 9 m, suas curas maximizam o primeiro dado, e magias de cura em aliados também removem 1 condição menor de corrupção." }] }
+    ],
+    "subclasses": [
+      {
+        "id": "arauto-elyra-vida",
+        "name": "Domínio: Coro da Criação (Vida)",
+        "grantedSpells": [
+          ["CURAR_FERIMENTOS", "BENCAO"],
+          ["ARMA_ESPIRITUAL", "AUXILIO"],
+          ["REVIGORAR", "GUARDIAO_DA_FE"],
+          ["RESTAURAR_MAIOR", "GUERRA_ESPIRITUAL"],
+          ["CURAR_MASSA", "AURORA_SAGRADA"]
+        ],
+        "canalizarOptions": [
+          { "id": "cd-ressonancia", "name": "Ressonância Reparadora", "text": "Redistribua PV = 5 × nível do Arauto entre criaturas a 30 pés." }
+        ],
+        "features": [
+          { "level": 1, "id": "vida-bonus-cura", "name": "Bônus de Cura", "text": "Some +2 + mod.SAB a toda magia que restaure PV." },
+          { "level": 6, "id": "vida-escudo", "name": "Escudo de Elyra", "text": "Ao curar, alvo recebe +2 CA até o seu próximo turno." },
+          { "level": 17, "id": "vida-fluxo", "name": "Fluxo Vital", "text": "1/desc curto, uma cura sua tem dados maximizados." }
+        ]
+      },
+      {
+        "id": "arauto-elyra-aurora",
+        "name": "Domínio: Aurora (Luz & Revelação)",
+        "grantedSpells": [
+          ["LUZ_ARDENTE", "PALAVRA_CURATIVA"],
+          ["RAIO_GUIADO", "VISAO_NO_ESCOURO"],
+          ["CLARIVIDENCIA", "CLARAO_HIPNOTICO"],
+          ["CHAMA_SAGRADA_MAIOR", "CHAMA_DO_AMANHECER"],
+          ["AURORA_FINAL", "SANTUARIO_MAIOR"]
+        ],
+        "canalizarOptions": [
+          { "id": "cd-facho-aurora", "name": "Facho da Aurora", "text": "Cone 30 pés, 2d10+nível radiante, CON para metade; falha causa Cegueira 1 turno." }
+        ],
+        "features": [
+          { "level": 1, "id": "aurora-claridade", "name": "Claridade Elyriana", "text": "Proficiência em Percepção; vantagem para detectar ilusões/trevas mágicas." },
+          { "level": 6, "id": "aurora-revelar", "name": "Revelar Sombra", "text": "Você e aliados a 10 pés ignoram invisibilidade de corrompidos." },
+          { "level": 17, "id": "aurora-irradiante", "name": "Luz Inquebrantável", "text": "Aliados a 10 pés têm resistência a necrose; sua radiante ignora resistência." }
+        ]
+      },
+      {
+        "id": "arauto-elyra-ventos",
+        "name": "Domínio: Ventos (Sopro & Movimento)",
+        "grantedSpells": [
+          ["RAJADA", "QUEDA_SUAVE"],
+          ["PASSOS_LONGOS", "RAJADA_DE_VENTO"],
+          ["VOO", "PROTECAO_CONTRA_PROJETEIS"],
+          ["CONTROLE_DOS_VENTOS", "CAMINHO_AEREO"],
+          ["TEMPESTADE_DESLOCAMENTO", "ESCUDO_DE_AR"]
+        ],
+        "canalizarOptions": [
+          { "id": "cd-sopro-deslocante", "name": "Sopro Deslocante", "text": "Até 3 criaturas movem 4,5 m sem provocar; removem Slowed/atrito." }
+        ],
+        "features": [
+          { "level": 1, "id": "ventos-mobilidade", "name": "Graça do Vento", "text": "Proficiência em Acrobacia ou Atletismo; +1,5 m de deslocamento." },
+          { "level": 6, "id": "ventos-manto", "name": "Manto Aéreo", "text": "Reação: desvantagem a um ataque contra aliado a 9 m." },
+          { "level": 17, "id": "ventos-passo-brisa", "name": "Passo da Brisa", "text": "Voo 3 m constante; pode conceder a um aliado por 1 turno (1/turno)."}
+        ]
+      }
+    ]
   },
   {
     "id": "00000000-0000-0000-0000-000000000102",

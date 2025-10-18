@@ -26,6 +26,11 @@ export const ClassSummary = z.object({
     pros: z.array(z.string()),
     cons: z.array(z.string()),
     featuresPreview: z.array(z.string()),
+    assets: z.object({
+        image: z.string().optional(),
+        accentFrom: z.string().optional(),
+        accentTo: z.string().optional(),
+    }).partial().optional(),
 });
 export type ClassSummaryT = z.infer<typeof ClassSummary>;
 
@@ -74,6 +79,7 @@ export const classCatalogRouter = router({
                     pros: meta?.pros ?? [],
                     cons: meta?.cons ?? [],
                     featuresPreview: meta?.featuresPreview ?? [],
+
                 });
             });
         }),
