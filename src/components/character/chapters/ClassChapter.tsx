@@ -4,26 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import { api } from "@/trpc/react";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
 import { Info } from "lucide-react";
 import ClassGallery from "./ClassGallery";
-import SubclassList from "./SubclassList"; // ⬅️ já feito antes
 import ClassDetailsSheet from "@/app/app/characters/new/_parts/ClassDetailsSheet";
 
 // shadcn/ui – Sheet (drawer)
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetDescription,
-    SheetFooter,
-    SheetClose,
-} from "@/components/ui/sheet";
+
 
 type Props = {
     initialSelectedClassId?: string;
@@ -43,6 +32,11 @@ export default function ClassChapter({ initialSelectedClassId, initialSelectedSu
         () => classes.find((cls) => cls.id === selectedId) ?? null,
         [classes, selectedId]
     );
+
+    // zera subclasse quando muda a classe selecionada
+    useEffect(() => {
+        setPickedSubclass(null);
+    }, [selectedId]);
 
     // detalhe da classe + subclasses (carrega só quando há seleção)
     const { data: full, isFetching: loadingFull } =

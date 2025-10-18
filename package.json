@@ -18,8 +18,6 @@
     "db:migrate": "prisma migrate dev",
     "// -------- seeds (flow oficial) --------": "",
     "db:seed": "prisma db seed",
-    "db:seed:classes": "tsx prisma/seed/classes.seed.ts",
-    "db:seed:subclasses": "tsx prisma/seed/subclasses.seed.ts",
     "db:reset": "rimraf ./node_modules/.prisma && prisma migrate reset --force --skip-generate --skip-seed && prisma generate && prisma db seed",
     "// -------- seeds (granular, opcionais) --------": "",
     "seed:core": "tsx prisma/seed.ts",
@@ -31,7 +29,7 @@
   },
   "prisma": {
     "schema": "prisma/schema.prisma",
-    "seed": "tsx prisma/seed.ts"
+    "seed": "tsx --tsconfig tsconfig.seed.json prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",

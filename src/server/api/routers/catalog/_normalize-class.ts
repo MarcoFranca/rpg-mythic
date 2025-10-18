@@ -1,4 +1,3 @@
-// src/server/api/routers/catalog/_normalize-class.ts
 import { z } from "zod";
 
 /** Abilities em inglês (compatível com seu Zod existente) */
@@ -51,7 +50,7 @@ export const ClassDetailVMZ = z.object({
         savingThrows: z.array(AbilityKey).length(2).or(z.array(AbilityKey).min(1)), // tolera seeds com 1 por enquanto
         skillsChoices: SkillsChoicesZ,
     }),
-    features: z.array(z.any()).default([]),     // você ainda não preencheu; mantemos flexível
+    features: z.array(z.any()).default([]),     // mantemos flexível
     spellData: z.object({
         progression: z.string().optional(),       // "full" | "half" | "pact" | ...
         focus: z.string().optional(),             // "arcano" | "divino" | "híbrido"
@@ -120,10 +119,11 @@ export function normalizeClassRow(row: {
     name: string;
     description: string;
     hitDie: "d6" | "d8" | "d10" | "d12";
-    profs: unknown;       // guardado em JSON
-    features: unknown;    // guardado em JSON
-    spellData: unknown;   // guardado em JSON
-    metaJson?: unknown;   // guardado em JSON
+    profs: unknown;             // guardado em JSON
+    features?: unknown;         // legado (JSON)
+    featuresByLevel?: unknown;  // novo (JSON)
+    spellData: unknown;         // guardado em JSON
+    metaJson?: unknown;         // guardado em JSON
 }): ClassDetailVM {
     // Zods “soltos” só para ler o que vem do banco em PT
     const ProfsPT = z.object({
@@ -157,6 +157,12 @@ export function normalizeClassRow(row: {
         ? metaPT.skillsPool
         : [...ALL_SKILLS_5E];
 
+    // Unifica features (novo/legado)
+    const featuresUnified =
+        (row.featuresByLevel as unknown[]) ??
+        (row.features as unknown[]) ??
+        [];
+
     return ClassDetailVMZ.parse({
         id: row.id,
         name: row.name,
@@ -168,7 +174,7 @@ export function normalizeClassRow(row: {
             savingThrows,
             skillsChoices: { choose: profsPT.skillsChoices, from: skillsFrom },
         },
-        features: (row.features as unknown[]) ?? [],
+        features: featuresUnified,
         spellData: (row.spellData as Record<string, unknown>) ?? undefined,
         meta: {
             role: metaPT.role ?? null,

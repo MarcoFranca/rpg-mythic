@@ -1,6 +1,6 @@
 // src/app/(characters)/new/_parts/ClassDetailsSheet.tsx
 "use client";
-import { useMemo, useState } from "react";
+import {useEffect, useMemo, useState} from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,10 @@ export default function ClassDetailsSheet({
                                               onConfirm,
                                           }: Props) {
     const [pickedSubclass, setPickedSubclass] = useState<string | null>(initialSubclassId);
+      // se o usuário voltar para o passo e já tinha uma subclasse
+          useEffect(() => {
+                setPickedSubclass(initialSubclassId ?? null);
+              }, [initialSubclassId, open]);
 
     const description = useMemo<string>(() => {
         return (full?.clazz.description ?? selected?.description ?? "Sem descrição.").trim();
@@ -67,14 +71,10 @@ export default function ClassDetailsSheet({
                     </div>
                     {chips}
                 </div>
-                <Separator className="my-3 bg-white/10" />
-                <p className="text-sm leading-relaxed text-white/80">
-                    {loadingFull ? (
-                        <SkeletonLine lines={3} />
-                    ) : (
-                        <p className="text-sm leading-relaxed text-white/80">{description}</p>
-                    )}
-                </p>
+                <Separator className="my-3 bg-white/10"/>
+                <div className="text-sm leading-relaxed text-white/80">
+                    {loadingFull ? (<SkeletonLine lines={3}/>) : description}
+                </div>
             </div>
         </div>
     );
