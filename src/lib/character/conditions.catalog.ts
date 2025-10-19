@@ -1,10 +1,10 @@
-import { CombatFlags } from "@/server/zod/character-blocks";
+import type { CombatFlagsT } from "@/server/zod/character-blocks";
 
 export type ConditionImpact = {
     speedMultiplier?: number;      // ex.: 0 => speed 0; 0.5 => metade
     setSpeedToZero?: boolean;      // sobrescreve direto p/ 0
     acBonus?: number;              // raros casos (+/- CA)
-    flags?: Partial<CombatFlags>;  // desvantagens/comportamentos
+    flags?: Partial<CombatFlagsT>;  // desvantagens/comportamentos
 };
 
 export const CONDITION_RULES: Record<string, ConditionImpact> = {
