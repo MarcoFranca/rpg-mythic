@@ -4,27 +4,35 @@ import { z } from "zod";
 export const AbilityKey = z.enum(["str","dex","con","int","wis","cha"]);
 export type AbilityKey = z.infer<typeof AbilityKey>;
 
-const ABIL_PT_TO_KEY: Record<string, AbilityKey> = {
-    "Força": "str",
-    "Destreza": "dex",
-    "Constituição": "con",
-    "Inteligência": "int",
-    "Sabedoria": "wis",
-    "Carisma": "cha",
+/** ---------- Normalizadores utilitários ---------- */
+function normTextKey(s: string): string {
+    return s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase().trim();
+}
+
+/** Mapa tolerante para Saves (PT → AbilityKey) */
+const ABIL_NORM_TO_KEY: Record<string, AbilityKey> = {
+    FORCA: "str",
+    DESTREZA: "dex",
+    CONSTITUICAO: "con",
+    INTELIGENCIA: "int",
+    SABEDORIA: "wis",
+    CARISMA: "cha",
 };
 
 const ARMOR_PT_TO_GROUP = {
-    "Leve": "light",
-    "Média": "medium",
-    "Pesada": "heavy",
-    "Escudos": "shields",
-    "Escudos (não metálicos)": "shields",
+    LEVE: "light",
+    MEDIA: "medium",
+    PESADA: "heavy",
+    ESCUDOS: "shields",
+    "ESCUDOS (NAO METALICOS)": "shields",
 } as const;
 type ArmorGroup = typeof ARMOR_PT_TO_GROUP[keyof typeof ARMOR_PT_TO_GROUP];
 
+
+
 const WEAPON_GROUP_HINTS = {
-    "Simples": "simple",
-    "Marciais": "martial",
+    SIMPLES: "simple",
+    MARCIAIS: "martial",
 } as const;
 
 export const ALL_SKILLS_5E = [
@@ -92,24 +100,27 @@ export type ClassWithSubclassesVM = z.infer<typeof ClassWithSubclassesVMZ>;
 // ========= helpers =========
 function mapAbilitiesPtToKeys(pt: string[]): AbilityKey[] {
     return pt.map((s) => {
-        const key = ABIL_PT_TO_KEY[s.trim()];
+        const k = normTextKey(s);
+        const key = ABIL_NORM_TO_KEY[k];
         if (!key) throw new Error(`Saving throw desconhecido: ${s}`);
         return key;
     });
 }
+
 function mapArmorPtToGroups(armor: string[]): ArmorGroup[] {
     const acc: ArmorGroup[] = [];
     for (const a of armor) {
-        const g = ARMOR_PT_TO_GROUP[a.trim() as keyof typeof ARMOR_PT_TO_GROUP];
+        const k = normTextKey(a).replace(/ÃO/g, "AO"); // CONSTITUIÇÃO-style fix opcional
+        const g = ARMOR_PT_TO_GROUP[k as keyof typeof ARMOR_PT_TO_GROUP];
         if (g && !acc.includes(g)) acc.push(g);
     }
     return acc;
 }
 function mapWeapons(weapons: string[]): string[] {
     return weapons.map((w) => {
-        const t = w.trim();
-        if (t in WEAPON_GROUP_HINTS) return WEAPON_GROUP_HINTS[t as keyof typeof WEAPON_GROUP_HINTS];
-        return t;
+        const k = normTextKey(w);
+        if (k in WEAPON_GROUP_HINTS) return WEAPON_GROUP_HINTS[k as keyof typeof WEAPON_GROUP_HINTS];
+        return w.trim();
     });
 }
 
@@ -133,7 +144,7 @@ export function normalizeClassRow(row: {
         skillsChoices: z.number().int().min(0).default(0),
     });
     const MetaPT = z.object({
-        role: z.enum(["Defensor","Ofensor","Suporte","Híbrido"]).nullable().optional(),
+            role: z.string().nullable().optional(),
         primaryAbilities: z.array(z.string()).optional(),
         pros: z.array(z.string()).optional(),
         cons: z.array(z.string()).optional(),
@@ -146,6 +157,19 @@ export function normalizeClassRow(row: {
         // opcional: restringir de onde escolher perícias
         skillsPool: z.array(z.string()).optional(),
     }).partial();
+
+    const ROLE_MAP: Record<string, "Defensor" | "Ofensor" | "Suporte" | "Híbrido"> = {
+        DEFENSOR: "Defensor",
+        OFENSOR: "Ofensor",
+        SUPORTE: "Suporte",
+        HIBRIDO: "Híbrido",
+        HÍBRIDO: "Híbrido",
+    };
+    function normRole(v?: unknown) {
+        if (typeof v !== "string") return null;
+        const key = v.normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase();
+        return ROLE_MAP[key] ?? null;
+    }
 
     const profsPT = ProfsPT.parse(row.profs ?? {});
     const metaPT = MetaPT.parse(row.metaJson ?? {});
@@ -177,7 +201,7 @@ export function normalizeClassRow(row: {
         features: featuresUnified,
         spellData: (row.spellData as Record<string, unknown>) ?? undefined,
         meta: {
-            role: metaPT.role ?? null,
+            role: normRole(metaPT.role),
             primaryAbilities: metaPT.primaryAbilities ?? [],
             pros: metaPT.pros ?? [],
             cons: metaPT.cons ?? [],
