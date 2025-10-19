@@ -1,3 +1,4 @@
+// src/server/api/routers/catalog/_lore.z.ts
 import { z } from "zod";
 
 export const LoreDisplayZ = z.object({
@@ -7,16 +8,19 @@ export const LoreDisplayZ = z.object({
 }).partial();
 
 export const LoreChapterZ = z.object({
-    id: z.string(),
+    id: z.string().optional(),
     title: z.string(),
     content: z.string().optional(),
     bullets: z.array(z.string()).optional(),
     blockquote: z.string().optional(),
-    table: z.array(z.record(z.string(), z.string())).optional(), // [{ titulo, significado, funcao }]
-}).partial().refine(
-    v => !!(v.title && (v.content || v.bullets || v.blockquote || v.table)),
-    { message: "Capítulo precisa de conteúdo (content/bullets/blockquote/table)" }
-);
+    // Zod (versão que você está usando) pede 2 argumentos no record
+    table: z.array(z.record(z.string(), z.string())).optional(),
+})
+    .partial()
+    .refine(
+        (v) => !!(v.title && (v.content || v.bullets || v.blockquote || v.table)),
+        { message: "Capítulo precisa de conteúdo (content/bullets/blockquote/table)" },
+    );
 
 export const LoreTimelineZ = z.array(z.object({
     era: z.string(),
@@ -43,7 +47,8 @@ export const LoreGameplayZ = z.object({
 export const LoreUIZ = z.object({
     selectIntro: z.string().optional(),
     cta: z.string().optional(),
-    labels: z.record(z.string(), z.string()).optional(),    
+    // 2 args no record
+    labels: z.record(z.string(), z.string()).optional(),
 }).partial();
 
 export const LoreAttributionZ = z.object({
@@ -51,7 +56,7 @@ export const LoreAttributionZ = z.object({
     sources: z.array(z.string()).optional(),
 }).partial();
 
-export const ClassLoreZ = z.object({
+const ClassLoreBaseZ = z.object({
     id: z.string().optional(),
     classId: z.string(),
     locale: z.string().min(2).max(10),
@@ -69,4 +74,16 @@ export const ClassLoreZ = z.object({
     ui: LoreUIZ.optional(),
     attribution: LoreAttributionZ.optional(),
 });
+
+// Alias: aceita payload vindo com readingMin
+export const ClassLoreZ = z.preprocess((v) => {
+    if (v && typeof v === "object") {
+        const o = v as Record<string, unknown>;
+        if (o.readingTimeMin == null && typeof o.readingMin === "number") {
+            o.readingTimeMin = o.readingMin;
+        }
+    }
+    return v;
+}, ClassLoreBaseZ);
+
 export type ClassLoreT = z.infer<typeof ClassLoreZ>;
