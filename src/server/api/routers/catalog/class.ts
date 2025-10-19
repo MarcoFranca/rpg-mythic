@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 import { router, publicProcedure } from "../../trpc";
 import {
     normalizeClassRow,
@@ -18,7 +19,9 @@ export const ClassSummary = z.object({
     savingThrows: z.array(z.string()),
     armorProficiencies: z.array(z.string()),
     weaponProficiencies: z.array(z.string()),
-    spellcasting: z.enum(["Arcano", "Divino", "Marcial", "Híbrido", "Nenhum"]).nullable(),
+    spellcasting: z
+        .enum(["Arcano", "Divino", "Marcial", "Híbrido", "Nenhum"])
+        .nullable(),
     description: z.string(),
     pros: z.array(z.string()),
     cons: z.array(z.string()),
@@ -42,7 +45,10 @@ const ROLE_MAP: Record<string, "Defensor" | "Ofensor" | "Suporte" | "Híbrido"> 
     HIBRIDO: "Híbrido",
     HÍBRIDO: "Híbrido",
 };
-const SPELL_MAP: Record<string, "Arcano" | "Divino" | "Marcial" | "Híbrido" | "Nenhum"> = {
+const SPELL_MAP: Record<
+    string,
+    "Arcano" | "Divino" | "Marcial" | "Híbrido" | "Nenhum"
+> = {
     ARCANO: "Arcano",
     DIVINO: "Divino",
     MARCIAL: "Marcial",
@@ -67,7 +73,42 @@ function normHitDie(v?: unknown) {
     return HITDIE_OK.has(v) ? (v as "d6" | "d8" | "d10" | "d12") : null;
 }
 function arrStr(v: unknown): string[] {
-    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
+    return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [];
+}
+
+/** Meta JSON vindo do banco (estruturas opcionais/soltas) */
+const MetaSchema = z
+    .object({
+        role: z.string().optional(),
+        hitDie: z.string().optional(),
+        primaryAbilities: z.array(z.string()).optional(),
+        savingThrows: z.array(z.string()).optional(),
+        armorProficiencies: z.array(z.string()).optional(),
+        weaponProficiencies: z.array(z.string()).optional(),
+        spellcasting: z.string().optional(),
+        description: z.string().optional(),
+        pros: z.array(z.string()).optional(),
+        cons: z.array(z.string()).optional(),
+        featuresPreview: z.array(z.string()).optional(),
+        assets: z
+            .object({
+                image: z.string().optional(),
+                accentFrom: z.string().optional(),
+                accentTo: z.string().optional(),
+            })
+            .partial()
+            .optional(),
+    })
+    .partial();
+
+type Meta = z.infer<typeof MetaSchema>;
+
+function parseMeta(v: Prisma.JsonValue | null): Meta {
+    if (v && typeof v === "object" && !Array.isArray(v)) {
+        const parsed = MetaSchema.safeParse(v);
+        if (parsed.success) return parsed.data;
+    }
+    return {};
 }
 
 /**
@@ -84,7 +125,12 @@ export const classCatalogRouter = router({
             });
 
             return rows.map((r) => {
-                const meta = (r as unknown as { metaJson?: any })?.metaJson ?? {};
+                const meta = parseMeta(r.metaJson);
+
+                const description =
+                    typeof meta.description === "string" && meta.description.trim().length > 0
+                        ? meta.description
+                        : (r as { description?: string | null }).description ?? "Sem descrição.";
 
                 // Normalização defensiva (tolera seeds em PT/UPPER)
                 const out = {
@@ -97,20 +143,21 @@ export const classCatalogRouter = router({
                     armorProficiencies: arrStr(meta.armorProficiencies),
                     weaponProficiencies: arrStr(meta.weaponProficiencies),
                     spellcasting: normSpellcasting(meta.spellcasting),
-                    description: (typeof meta.description === "string" && meta.description.trim().length
-                            ? meta.description
-                            : (typeof (r as any).description === "string" ? (r as any).description : "Sem descrição.")
-                    ) as string,
+                    description,
                     pros: arrStr(meta.pros),
                     cons: arrStr(meta.cons),
                     featuresPreview: arrStr(meta.featuresPreview),
-                    assets: typeof meta.assets === "object" && meta.assets
-                        ? {
-                            image: typeof meta.assets.image === "string" ? meta.assets.image : undefined,
-                            accentFrom: typeof meta.assets.accentFrom === "string" ? meta.assets.accentFrom : undefined,
-                            accentTo: typeof meta.assets.accentTo === "string" ? meta.assets.accentTo : undefined,
-                        }
-                        : undefined,
+                    assets:
+                        meta.assets && typeof meta.assets === "object"
+                            ? {
+                                image:
+                                    typeof meta.assets.image === "string" ? meta.assets.image : undefined,
+                                accentFrom:
+                                    typeof meta.assets.accentFrom === "string" ? meta.assets.accentFrom : undefined,
+                                accentTo:
+                                    typeof meta.assets.accentTo === "string" ? meta.assets.accentTo : undefined,
+                            }
+                            : undefined,
                 };
 
                 // Garante formato final com Zod
@@ -146,13 +193,13 @@ export const classCatalogRouter = router({
             const clazz = normalizeClassRow({
                 id: r.id,
                 name: r.name,
-                description: (r as any).description,
+                description: (r as { description?: string | null }).description ?? "",
                 hitDie: r.hitDie as "d6" | "d8" | "d10" | "d12",
-                profs: r.profs,
-                featuresByLevel: (r as any).featuresByLevel,
-                features: (r as any).features,
-                spellData: r.spellData,
-                metaJson: r.metaJson,
+                profs: r.profs as unknown,
+                featuresByLevel: (r as { featuresByLevel?: Prisma.JsonValue | null }).featuresByLevel ?? null,
+                features: (r as { features?: Prisma.JsonValue | null }).features ?? null,
+                spellData: r.spellData as unknown,
+                metaJson: r.metaJson as unknown,
             });
 
             const subs = await ctx.prisma.subclass.findMany({

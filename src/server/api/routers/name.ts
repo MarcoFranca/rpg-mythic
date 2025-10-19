@@ -3,7 +3,6 @@ import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import {
     CURATED,
-    NAME_EPITHETS,
     generateNames,
     type NameSetKey,
 } from "@/lib/identity/nameCatalog";

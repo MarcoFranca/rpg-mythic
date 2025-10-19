@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import { PrismaClient, $Enums } from "@prisma/client";
 import { readFileSync, readdirSync } from "fs";
 import { join, extname } from "path";
