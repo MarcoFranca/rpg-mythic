@@ -18,6 +18,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { ClassSummaryT } from "@/server/api/routers/catalog/class";
 import type { ClassWithSubclassesVM } from "@/server/api/routers/catalog/_normalize-class";
 import { cn } from "@/lib/utils";
+import {SheetFrame} from "@/components/character/SheetFrame";
+import {Dice6, HeartHandshake, Layers, Shield, Sparkles, Swords} from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 type Props = {
     open: boolean;
@@ -33,6 +36,19 @@ type Props = {
     onConfirm: (classId: string, subclassId?: string) => void;
 };
 
+// helper: ícone por papel
+function RoleIcon({ role }: { role?: string | null }) {
+    if (!role) return null;
+    const props = { className: "h-3.5 w-3.5" };
+    switch (role) {
+        case "Defensor": return <Shield {...props} />;
+        case "Ofensor": return <Swords {...props} />;
+        case "Suporte": return <HeartHandshake {...props} />;
+        case "Híbrido": return <Layers {...props} />;
+        default: return null;
+    }
+}
+
 export default function ClassDetailsSheet({
                                               open,
                                               side,
@@ -44,6 +60,7 @@ export default function ClassDetailsSheet({
                                               onConfirm,
                                           }: Props) {
     const [pickedSubclass, setPickedSubclass] = useState<string | null>(initialSubclassId);
+// chips com ícones
 
     // Se reabrir o sheet ou receber uma seleção inicial (voltou do wizard), sincroniza
     useEffect(() => {
@@ -66,12 +83,29 @@ export default function ClassDetailsSheet({
         return (full?.clazz.description ?? selected?.description ?? "Sem descrição.").trim();
     }, [full?.clazz?.description, selected?.description]);
 
+    // chips com ícones
     const chips = (
         <div className="flex flex-wrap items-center gap-2">
-            {!!selected?.role && <Badge variant="outline">{selected.role}</Badge>}
-            {!!selected?.spellcasting && <Badge variant="outline">{selected.spellcasting}</Badge>}
+            {!!selected?.role && (
+                <Badge variant="outline" className="gap-1">
+                    <RoleIcon role={selected.role} />
+                    {selected.role}
+                </Badge>
+            )}
+            {!!selected?.hitDie && (
+                <Badge variant="outline" className="gap-1">
+                    <Dice6 className="h-3.5 w-3.5" />
+                    {selected.hitDie}
+                </Badge>
+            )}
+            {!!selected?.spellcasting && (
+                <Badge variant="outline" className="gap-1">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    {selected.spellcasting}
+                </Badge>
+            )}
             {!!pickedSubclass && (
-                <Badge>
+                <Badge className="gap-1">
                     Subclasse: {full?.subclasses.find((s) => s.id === pickedSubclass)?.name ?? "—"}
                 </Badge>
             )}
@@ -79,35 +113,37 @@ export default function ClassDetailsSheet({
     );
 
     const hero = (
-        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.03]">
-            {/* imagem da classe (se existir) */}
-            {selected?.assets?.image && (
-                <div className="relative h-36 w-full overflow-hidden">
-                    {/* background sutil com a arte */}
-                    <div
-                        className="absolute inset-0 bg-cover bg-center opacity-20"
-                        style={{ backgroundImage: `url(${selected.assets.image})` }}
-                        aria-hidden
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
-            )}
-
-            <div className="p-4">
-                <div className="flex items-start justify-between gap-3">
-                    <div>
-                        <h3 className="text-lg font-semibold">{selected?.name ?? "Classe"}</h3>
-                        <p className="mt-1 text-xs text-white/60">Entenda estilo, mecânicas e caminhos.</p>
+        <div className="relative overflow-hidden">
+            <SheetFrame>
+                {selected?.assets?.image && (
+                    <div className="relative h-36 w-full overflow-hidden rounded-xl">
+                        <div
+                            className="absolute inset-0 bg-cover bg-center opacity-20"
+                            style={{ backgroundImage: `url(${selected.assets.image})` }}
+                            aria-hidden
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     </div>
-                    {chips}
-                </div>
+                )}
 
-                <Separator className="my-3 bg-white/10" />
+                <div className="mt-3">
+                    <div className="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 className="text-lg font-semibold">{selected?.name ?? "Classe"}</h3>
+                            <p className="mt-1 text-xs text-white/60">
+                                Entenda estilo, mecânicas e caminhos.
+                            </p>
+                        </div>
+                        {chips}
+                    </div>
 
-                <div className="text-sm leading-relaxed text-white/80">
-                    {loadingFull ? <SkeletonLine lines={3} /> : description}
+                    <Separator className="my-3 bg-white/10" />
+
+                    <div className="text-sm leading-relaxed text-white/80">
+                        {loadingFull ? <SkeletonLine lines={3} /> : description}
+                    </div>
                 </div>
-            </div>
+            </SheetFrame>
         </div>
     );
 
@@ -180,102 +216,116 @@ export default function ClassDetailsSheet({
 
     return (
         <Sheet open={open} onOpenChange={onOpenChange}>
-            <SheetContent side={side} className={cn("w-full sm:max-w-[620px]")}>
-                <SheetHeader>
-                    <SheetTitle>{selected?.name ?? "Classe"}</SheetTitle>
-                    <SheetDescription>Pré-visualize antes de confirmar sua escolha.</SheetDescription>
-                </SheetHeader>
+            <SheetContent
+                side={side}
+                // remove padding padrão do sheet e deixa o frame controlar
+                className={cn("w-full sm:max-w-[640px] p-0")}
+            >
+                <div className="p-4 pb-3 md:p-5 md:pb-4">
+                    <SheetHeader className="mb-2">
+                        <SheetTitle>{selected?.name ?? "Classe"}</SheetTitle>
+                        <SheetDescription>Pré-visualize antes de confirmar sua escolha.</SheetDescription>
+                    </SheetHeader>
 
-                <div className="mt-4 space-y-4">
-                    {hero}
+                    {/* área rolável principal (hero + tabs) */}
+                    <div className="mt-2">
+                        <ScrollArea className="h-[65dvh] md:h-[72dvh] pr-3">
+                            <div className="space-y-4">
+                                {hero}
 
-                    <Tabs defaultValue="sobre" className="w-full">
-                        <TabsList className="grid w-full grid-cols-4">
-                            <TabsTrigger value="sobre">Sobre</TabsTrigger>
-                            <TabsTrigger value="mec">Mecânicas</TabsTrigger>
-                            <TabsTrigger value="proscons">Prós & Contras</TabsTrigger>
-                            <TabsTrigger value="subs">Subclasses</TabsTrigger>
-                        </TabsList>
+                                <SheetFrame>
+                                    <Tabs defaultValue="sobre" className="w-full">
+                                        <TabsList className="grid w-full grid-cols-4">
+                                            <TabsTrigger value="sobre">Sobre</TabsTrigger>
+                                            <TabsTrigger value="mec">Mecânicas</TabsTrigger>
+                                            <TabsTrigger value="proscons">Prós & Contras</TabsTrigger>
+                                            <TabsTrigger value="subs">Subclasses</TabsTrigger>
+                                        </TabsList>
 
-                        <TabsContent value="sobre" className="pt-3">
-                            <Section title="Você aprenderá a…">
-                                {loadingFull ? (
-                                    <SkeletonBullets count={3} />
-                                ) : selected?.featuresPreview?.length ? (
-                                    <ul className="list-disc pl-5 text-sm text-white/80">
-                                        {selected.featuresPreview.map((f) => (
-                                            <li key={f}>{f}</li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <EmptyText />
-                                )}
-                            </Section>
-                        </TabsContent>
+                                        <TabsContent value="sobre" className="pt-3">
+                                            <Section title="Você aprenderá a…">
+                                                {loadingFull ? (
+                                                    <SkeletonBullets count={3} />
+                                                ) : selected?.featuresPreview?.length ? (
+                                                    <ul className="list-disc pl-5 text-sm text-white/80">
+                                                        {selected.featuresPreview.map((f) => (
+                                                            <li key={f}>{f}</li>
+                                                        ))}
+                                                    </ul>
+                                                ) : (
+                                                    <EmptyText />
+                                                )}
+                                            </Section>
+                                        </TabsContent>
 
-                        <TabsContent value="mec" className="pt-3">
-                            <div className="grid gap-3 sm:grid-cols-2">
-                                <InfoBlock label="Papel" value={selected?.role ?? "—"} />
-                                <InfoBlock label="Dado de Vida" value={selected?.hitDie ?? "—"} />
-                                <InfoBlock label="Atributos-Chave" value={fmt(selected?.primaryAbilities)} />
-                                <InfoBlock label="Testes de Resistência" value={fmt(selected?.savingThrows)} />
-                                <InfoBlock label="Armaduras" value={fmt(selected?.armorProficiencies)} />
-                                <InfoBlock label="Armas" value={fmt(selected?.weaponProficiencies)} />
-                                <InfoBlock label="Magia" value={selected?.spellcasting ?? "—"} />
+                                        <TabsContent value="mec" className="pt-3">
+                                            <div className="grid gap-3 sm:grid-cols-2">
+                                                <InfoBlock label="Papel" value={selected?.role ?? "—"} />
+                                                <InfoBlock label="Dado de Vida" value={selected?.hitDie ?? "—"} />
+                                                <InfoBlock label="Atributos-Chave" value={fmt(selected?.primaryAbilities)} />
+                                                <InfoBlock label="Testes de Resistência" value={fmt(selected?.savingThrows)} />
+                                                <InfoBlock label="Armaduras" value={fmt(selected?.armorProficiencies)} />
+                                                <InfoBlock label="Armas" value={fmt(selected?.weaponProficiencies)} />
+                                                <InfoBlock label="Magia" value={selected?.spellcasting ?? "—"} />
+                                            </div>
+                                        </TabsContent>
+
+                                        <TabsContent value="proscons" className="pt-3">
+                                            <div className="grid gap-3 sm:grid-cols-2">
+                                                <Section title="Vantagens">
+                                                    {selected?.pros?.length ? (
+                                                        <ul className="list-disc pl-5 text-sm text-white/80">
+                                                            {selected.pros.map((p) => (
+                                                                <li key={p}>{p}</li>
+                                                            ))}
+                                                        </ul>
+                                                    ) : (
+                                                        <EmptyText />
+                                                    )}
+                                                </Section>
+                                                <Section title="Cuidados / Desvantagens">
+                                                    {selected?.cons?.length ? (
+                                                        <ul className="list-disc pl-5 text-sm text-white/80">
+                                                            {selected.cons.map((c) => (
+                                                                <li key={c}>{c}</li>
+                                                            ))}
+                                                        </ul>
+                                                    ) : (
+                                                        <EmptyText />
+                                                    )}
+                                                </Section>
+                                            </div>
+                                        </TabsContent>
+
+                                        {subclassBlock}
+                                    </Tabs>
+                                </SheetFrame>
                             </div>
-                        </TabsContent>
+                        </ScrollArea>
+                    </div>
 
-                        <TabsContent value="proscons" className="pt-3">
-                            <div className="grid gap-3 sm:grid-cols-2">
-                                <Section title="Vantagens">
-                                    {selected?.pros?.length ? (
-                                        <ul className="list-disc pl-5 text-sm text-white/80">
-                                            {selected.pros.map((p) => (
-                                                <li key={p}>{p}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <EmptyText />
-                                    )}
-                                </Section>
-                                <Section title="Cuidados / Desvantagens">
-                                    {selected?.cons?.length ? (
-                                        <ul className="list-disc pl-5 text-sm text-white/80">
-                                            {selected.cons.map((c) => (
-                                                <li key={c}>{c}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <EmptyText />
-                                    )}
-                                </Section>
-                            </div>
-                        </TabsContent>
-
-                        {subclassBlock}
-                    </Tabs>
+                    {/* footer fixo */}
+                    <SheetFooter className="mt-4 flex items-center justify-between gap-3">
+                        <div className="text-xs text-white/60">
+                            Escolha pelo <strong>estilo</strong> que te inspira; números vêm depois.
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <SheetClose asChild>
+                                <Button variant="ghost">Fechar</Button>
+                            </SheetClose>
+                            {selected && (
+                                <Button
+                                    onClick={() => {
+                                        onConfirm(selected.id, pickedSubclass ?? undefined);
+                                        onOpenChange(false);
+                                    }}
+                                >
+                                    Selecionar {selected.name}
+                                </Button>
+                            )}
+                        </div>
+                    </SheetFooter>
                 </div>
-
-                <SheetFooter className="mt-6 flex items-center justify-between gap-3">
-                    <div className="text-xs text-white/60">
-                        Escolha pelo <strong>estilo</strong> que te inspira; números vêm depois.
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <SheetClose asChild>
-                            <Button variant="ghost">Fechar</Button>
-                        </SheetClose>
-                        {selected && (
-                            <Button
-                                onClick={() => {
-                                    onConfirm(selected.id, pickedSubclass ?? undefined);
-                                    onOpenChange(false);
-                                }}
-                            >
-                                Selecionar {selected.name}
-                            </Button>
-                        )}
-                    </div>
-                </SheetFooter>
             </SheetContent>
         </Sheet>
     );

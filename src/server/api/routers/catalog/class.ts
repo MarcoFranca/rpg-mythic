@@ -6,6 +6,7 @@ import {
     normalizeSubclassRow,
     ClassWithSubclassesVMZ,
 } from "./_normalize-class";
+import {ClassLoreZ} from "@/server/api/routers/catalog/_lore.z";
 
 /**
  * View-model enxuto para a UI (sem any).
@@ -209,5 +210,55 @@ export const classCatalogRouter = router({
             const subclasses = subs.map(normalizeSubclassRow);
 
             return ClassWithSubclassesVMZ.parse({ clazz, subclasses });
+        }),
+
+    getLore: publicProcedure
+        .input(z.object({
+            classId: z.string(),
+            locale: z.string().default("pt-BR"),
+            version: z.number().int().optional(), // se omitido, pega o maior published ou maior versão
+            publishedOnly: z.boolean().default(false),
+        }))
+        .query(async ({ ctx, input }) => {
+            const where = {
+                classId: input.classId,
+                locale: input.locale,
+                ...(input.version ? { version: input.version } : {}),
+                ...(input.publishedOnly ? { publishedAt: { not: null as any } } : {}),
+            };
+
+            const row = await ctx.prisma.classLore.findFirst({
+                where,
+                orderBy: input.version
+                    ? undefined
+                    : [
+                        { publishedAt: "desc" as const },
+                        { version: "desc" as const },
+                    ],
+            });
+
+            if (!row) return null;
+
+            // montar DTO validado
+            const dto = {
+                classId: row.classId,
+                locale: row.locale,
+                version: row.version,
+                title: row.title,
+                tagline: row.tagline ?? undefined,
+                readingTimeMin: row.readingMin ?? undefined,
+                display: row.display ?? undefined,
+                summary: row.summary,
+                chapters: (row.chapters as unknown) ?? [],
+                timeline: row.timeline ?? undefined,
+                rituals: row.rituals ?? undefined,
+                locations: row.locations ?? undefined,
+                gameplay: row.gameplay ?? undefined,
+                ui: row.ui ?? undefined,
+                attribution: row.attribution ?? undefined,
+            };
+
+            const parsed = ClassLoreZ.safeParse(dto);
+            return parsed.success ? parsed.data : null;
         }),
 });

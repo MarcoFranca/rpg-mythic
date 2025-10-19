@@ -70,7 +70,7 @@ model Ancestry {
 }
 
 model Class {
-  id              String     @id @db.VarChar(64) // agora aceita slugs maiores (ex: "arauto-de-elyra")
+  id              String      @id @db.VarChar(64) // agora aceita slugs maiores (ex: "arauto-de-elyra")
   name            String
   hitDie          String // "d6" | "d8" | "d10" | "d12"
   profs           Json // armor,weapons,tools,saves,skillsChoices,skillList
@@ -79,8 +79,9 @@ model Class {
   subclasses      Subclass[]
   metaJson        Json // vitrine/preview/UI
   description     String
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  ClassLore       ClassLore[]
 
   @@index([name])
 }
@@ -98,6 +99,36 @@ model Subclass {
   updatedAt   DateTime @updatedAt
 
   @@index([classId])
+}
+
+model ClassLore {
+  id         String  @id @default(uuid())
+  classId    String
+  clazz      Class   @relation(fields: [classId], references: [id], onDelete: Cascade)
+  locale     String  @db.VarChar(10) // ex: "pt-BR", "en-US"
+  version    Int     @default(1)
+  title      String
+  tagline    String?
+  readingMin Int? // leitura estimada em minutos (opcional)
+
+  // Blocos flexíveis em JSONB (Postgres)
+  display     Json? // { heroImage, palette, icon }
+  summary     String
+  chapters    Json? // [{ id, title, content?, bullets?, blockquote?, table?[] }]
+  timeline    Json? // [{ era, evento }]
+  rituals     Json? // [{ id, name, effect }]
+  locations   Json? // [{ name, note }]
+  gameplay    Json? // { hooks:[], partySynergy, enemyTags:[] }
+  ui          Json? // { selectIntro, cta, labels:{...} }
+  attribution Json? // { createdBy, sources:[] }
+
+  // publicação e auditoria
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([classId, locale, version])
+  @@index([classId, locale])
 }
 
 model Background {
@@ -254,7 +285,7 @@ model CharacterRevision {
   @@index([characterId, createdAt])
 }
 
-//armas e itens
+// armas e itens
 enum Rarity {
   common
   uncommon

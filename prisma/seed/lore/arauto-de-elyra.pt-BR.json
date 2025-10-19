@@ -1,0 +1,99 @@
+{
+  "id": "lore-arauto-de-elyra",
+  "locale": "pt-BR",
+  "version": 1,
+  "title": "Ordem dos Arautos de Elyra",
+  "tagline": "Onde o silêncio corrói, o sopro deve cantar.",
+  "readingTimeMin": 6,
+  "display": {
+    "heroImage": "/classes/arauto-elyra.jpg",
+    "palette": { "from": "#22c55e", "to": "#0ea5e9" },
+    "icon": "lucide:sparkles"
+  },
+  "summary": "Fundada na 4ª Era, quando Elyra voltou a falar aos mortais, a Ordem dos Arautos de Elyra cura, purifica e reacende o Cântico nos lugares onde o Sombrasangue feriu o Éter. Seus membros preferem restaurar a destruir; cantam para que a vida se lembre de si.",
+  "chapters": [
+    {
+      "id": "origem",
+      "title": "Origem e Fundação",
+      "content": "Durante a 4ª Era — Elyndor, o Despertar — o mundo vivia amassado em penumbra. Os Obeliscos estavam abafados, e o Éter, ferido. Foi então que o vento falou: não em palavras, mas em lembrança. Doze peregrinos, curandeiros e monges ouviram o chamado e caminharam até o Vale de Lirathiel, onde ruínas do antigo Templo Solar ainda respiravam. No centro do santuário, um redemoinho de luz — o Sopro Vivo — tocou-lhes a fronte. “Sejam meu sopro. Curem o som.” Assim nasceu a Ordem dos Arautos de Elyra."
+    },
+    {
+      "id": "juramento",
+      "title": "O Juramento dos Três Sopros",
+      "bullets": [
+        "Curar o que foi partido — nenhuma chama é pequena demais para reacender.",
+        "Calar o que corrompe — onde o Sombrasangue se ergue, o Arauto entoa luz.",
+        "Cantar a memória da Chama — mesmo em silêncio, lembrar quem criou o canto."
+      ],
+      "content": "Os juramentos são entoados ao amanhecer diante do Vento Branco, uma névoa de Éter guardada no Templo Solar. A voz do iniciado ecoa três vezes, até que o ar responda."
+    },
+    {
+      "id": "estrutura",
+      "title": "Estrutura da Ordem",
+      "table": [
+        { "titulo": "Aspirante", "significado": "O que ouve o vento", "funcao": "Aprende cura, fé e silêncio." },
+        { "titulo": "Portador do Sopro", "significado": "O que canta com o vento", "funcao": "Ministra bênçãos e purificações." },
+        { "titulo": "Guardião da Aurora", "significado": "O que desperta os Obeliscos", "funcao": "Conduz ritos e protege o Éter local." },
+        { "titulo": "Arauto de Elyra", "significado": "O que fala em nome da deusa", "funcao": "Canaliza o Sopro Divino e lidera círculos." }
+      ],
+      "content": "A hierarquia mede ressonância, não poder. Reza a tradição que apenas sete Ventos Perfeitos já curaram sozinhos uma Fenda inteira."
+    },
+    {
+      "id": "simbolos-ritos",
+      "title": "Símbolos e Ritos",
+      "content": "O símbolo sagrado é um círculo de prata atravessado por três linhas curvas: os Três Sopros. Quando invocado, brilha azul e dourado. O Báculo dos Ecos, relíquia da Ordem, amplifica o canto do portador. Dois ritos marcam o ciclo diário: o Rito do Alvorecer, que purifica o Éter ao nascer do sol, e o Rito do Crepúsculo, que solta o Sopro do Perdão para libertar almas presas pela dissonância."
+    },
+    {
+      "id": "filosofia",
+      "title": "Missão e Filosofia",
+      "content": "Para os Arautos, até a sombra é uma nota desafinada — não um vazio. Curar vem antes de punir. Preferem restaurar, ainda que enfrentem o aço quando o silêncio grita alto demais. Sua guerra é contra o esquecimento: cada alma salva é um verso devolvido ao Cântico."
+    },
+    {
+      "id": "presenca-atual",
+      "title": "Presença Atual",
+      "content": "Templos visíveis erguem-se em Elyndor e Lirien. Círculos discretos operam em Noctyraen e Rhazorath, onde a noite ainda cochicha. Jogadores que escolhem esta classe são recebidos como o sétimo eco da fé: um sopro novo no peito de um mundo cansado."
+    },
+    {
+      "id": "trecho-liturgico",
+      "title": "Trecho Litúrgico",
+      "blockquote": "“Não somos deuses; somos o vento que lembra aos deuses o som do amor.” — Inscrição do Templo Solar"
+    }
+  ],
+  "timeline": [
+    { "era": "Aurynar (1ª Era)", "evento": "Construção do Templo Solar pelos Aetherion." },
+    { "era": "Umbraeth (3ª Era)", "evento": "Templo profanado, Obeliscos em silêncio." },
+    { "era": "Elyndor (4ª Era)", "evento": "Chamado de Elyra; fundação da Ordem dos Arautos." }
+  ],
+  "rituals": [
+    { "id": "alvorecer", "name": "Rito do Alvorecer", "effect": "Purifica o Éter nos arredores; reduz sutilmente a dissonância local." },
+    { "id": "crepusculo", "name": "Rito do Crepúsculo", "effect": "Liberta almas presas e acalma áreas de Sombrasangue fraco." }
+  ],
+  "locations": [
+    { "name": "Templo Solar de Lirathiel", "note": "Sede da Ordem; guarda o Vento Branco." },
+    { "name": "Santuário do Vale Azul", "note": "Local de formação de Portadores do Sopro." }
+  ],
+  "gameplay": {
+    "hooks": [
+      "Um Obelisco ferido pede cura; o IDG local piora a cada pôr do sol.",
+      "Uma Fenda guarda uma alma que conhece o nome esquecido de Elyra.",
+      "Um Ventos Perfeito desaparece — e os sussurros dizem que o próprio vento ficou doente."
+    ],
+    "partySynergy": "Combina com defensores de Artheon (frente de batalha) e arcanistas de Vaelorin (controle).",
+    "enemyTags": ["SOMBRASANGUE", "MORTO_VIVO", "INFERNAL"]
+  },
+  "ui": {
+    "selectIntro": "O vento sopra teu nome. Serás um curandeiro, um portador da canção, um guardião da vida em um mundo ferido.",
+    "cta": "Ingressar na Ordem",
+    "labels": {
+      "oath": "Juramento dos Três Sopros",
+      "rites": "Ritos Sagrados",
+      "symbols": "Símbolos",
+      "structure": "Estrutura",
+      "history": "Origem"
+    }
+  },
+  "attribution": {
+    "createdBy": "Círculo dos Escribas de Elyndor",
+    "sources": ["Livro de Elyra", "Eldoryon — O Guia Mítico", "Guia do Éter"]
+  }
+}

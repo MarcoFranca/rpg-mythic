@@ -131,6 +131,7 @@ async function seedBackgrounds() {
     console.log(`✅ Backgrounds: ${items.length} ok`);
 }
 
+
 /* ----------------- upserts ----------------- */
 
 async function upsertClass(c: ClassIn) {
@@ -213,6 +214,82 @@ async function upsertSubclass(classId: string, s: SubclassIn) {
     });
 }
 
+async function upsertClassLoreFromFile(file: string) {
+    type LoreFile = {
+        id?: string;
+        classId?: string;
+        locale: string;
+        version?: number;
+        title: string;
+        tagline?: string;
+        readingTimeMin?: number;
+        display?: unknown;
+        summary: string;
+        chapters?: unknown;
+        timeline?: unknown;
+        rituals?: unknown;
+        locations?: unknown;
+        gameplay?: unknown;
+        ui?: unknown;
+        attribution?: unknown;
+        // opcional: publishedAt?: string
+    };
+
+    const lore = load<LoreFile>(file);
+
+    // Descobrir classId se não vier no JSON
+    let classId = lore.classId;
+    if (!classId) {
+        const clazz = await prisma.class.findFirst({
+            where: { name: { equals: "Arauto de Elyra", mode: "insensitive" } },
+            select: { id: true },
+        });
+        if (!clazz) throw new Error(`Classe "Arauto de Elyra" não encontrada para lore ${file}`);
+        classId = clazz.id;
+    }
+
+    const version = lore.version ?? 1;
+
+    await prisma.classLore.upsert({
+        where: { classId_locale_version: { classId, locale: lore.locale, version } },
+        create: {
+            classId,
+            locale: lore.locale,
+            version,
+            title: lore.title,
+            tagline: lore.tagline ?? null,
+            readingMin: lore.readingTimeMin ?? null,  // <- mapeia para coluna do modelo
+            display: lore.display as any,
+            summary: lore.summary,
+            chapters: lore.chapters as any,
+            timeline: lore.timeline as any,
+            rituals: lore.rituals as any,
+            locations: lore.locations as any,
+            gameplay: lore.gameplay as any,
+            ui: lore.ui as any,
+            attribution: lore.attribution as any,
+            // publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
+        },
+        update: {
+            title: lore.title,
+            tagline: lore.tagline ?? null,
+            readingMin: lore.readingTimeMin ?? null,
+            display: lore.display as any,
+            summary: lore.summary,
+            chapters: lore.chapters as any,
+            timeline: lore.timeline as any,
+            rituals: lore.rituals as any,
+            locations: lore.locations as any,
+            gameplay: lore.gameplay as any,
+            ui: lore.ui as any,
+            attribution: lore.attribution as any,
+            // publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
+        },
+    });
+
+    console.log(`✅ ClassLore: ${lore.title} (${lore.locale} v${version}) ok`);
+}
+
 /* ----------------- orquestração ----------------- */
 
 async function seedClassesAndSubclasses() {
@@ -230,6 +307,7 @@ async function main() {
     await seedAncestries();
     await seedBackgrounds();
     await seedClassesAndSubclasses();
+    await upsertClassLoreFromFile("lore/arauto-de-elyra.pt-BR.json");
     console.log("🌱 Seed concluído.");
 }
 
