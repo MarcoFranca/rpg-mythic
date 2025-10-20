@@ -191,5 +191,387 @@
         ]
       }
     ]
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000102",
+    "name": "Guardião de Artheon",
+    "hitDie": "d10",
+    "profs": {
+      "armor": ["LEVE", "MEDIA", "PESADA", "ESCUDOS"],
+      "weapons": ["SIMPLES", "MARCIAIS"],
+      "tools": [],
+      "saves": ["SABEDORIA", "CARISMA"],
+      "skillsChoices": 2,
+      "skillList": ["ATLETISMO", "INTIMIDACAO", "INTUICAO", "RELIGIAO", "HISTORIA", "PERCEPCAO"]
+    },
+    "spellData": {
+      "progression": "HALF",
+      "focus": "DIVINO",
+      "preparation": "MOD_CAR_PLUS_LEVEL",
+      "castingAbility": "CARISMA",
+      "ritualCasting": false,
+      "knownScaling": "CLASS_LEVEL"
+    },
+    "description": "Cavaleiro consagrado à ordem e ao Julgo de Artheon — a chama que pune a dissonância e protege o Cântico.",
+    "metaJson": {
+      "role": "Híbrido",
+      "hitDie": "d10",
+      "primaryAbilities": ["FORCA", "CARISMA"],
+      "savingThrows": ["SABEDORIA", "CARISMA"],
+      "armorProficiencies": ["LEVE", "MEDIA", "PESADA", "ESCUDOS"],
+      "weaponProficiencies": ["SIMPLES", "MARCIAIS"],
+      "spellcasting": "DIVINO",
+      "etherAlignment": "ARTHEON",
+      "pros": ["Smites luminosos", "Auras poderosas", "Defesa sólida e suporte tático"],
+      "cons": ["Mobilidade média", "Gestão atenta de espaços de magia"],
+      "featuresPreview": ["Juramento", "Golpe Sagrado", "Aura de Proteção & Coragem"],
+      "assets": { "image": "/classes/guardiao-artheon.png", "accentFrom": "#f59e0b", "accentTo": "#38bdf8" }
+    },
+    "bonusLayers": [
+      { "key": "STR", "value": 1, "source": "Classe: Guardião de Artheon" },
+      { "key": "CHA", "value": 1, "source": "Classe: Guardião de Artheon" }
+    ],
+    "featuresByLevel": [
+      {
+        "level": 1,
+        "features": [
+          {
+            "id": "artheon-imposicao-da-chama",
+            "name": "Imposição da Chama",
+            "type": "ATIVO",
+            "activation": "ACTION",
+            "text": "Reserve um poço de cura igual a 5 × seu nível de Guardião. Como ação, toque uma criatura para restaurar parte desse total. Alternativamente, pode gastar 5 pontos para curar um envenenamento ou doença simples.",
+            "tags": ["CURAR","SUPORTE"]
+          },
+          {
+            "id": "artheon-sentido-do-julgo",
+            "name": "Sentido do Julgo",
+            "type": "ATIVO",
+            "activation": "ACTION",
+            "text": "Por 1 min, sente a presença de Sombrasangue, mortos-vivos ou infernais a 18 m através de leve cobertura. Não revela localização exata atrás de total cobertura.",
+            "uses": { "base": 1, "recharge": "DESCANSO_CURTO" },
+            "tags": ["DETECCAO","MUNDO"]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "features": [
+          {
+            "id": "artheon-estilo-de-combate",
+            "name": "Estilo de Combate",
+            "type": "ESCOLHA",
+            "text": "Escolha um estilo (Defesa, Duas Mãos, Duas Armas, Proteção, Defesa Pesada).",
+            "tags": ["COMBATE","ESCALAVEL"]
+          },
+          {
+            "id": "artheon-golpe-sagrado",
+            "name": "Golpe Sagrado",
+            "type": "ATIVO",
+            "activation": "NO_HIT",
+            "text": "Ao acertar com ataque corpo a corpo, gaste 1 espaço de magia para causar dano radiante extra: 2d8 pelo 1º nível do espaço + 1d8 por nível acima do 1º (máx. +5d8). +1d8 se o alvo for corrompido (Sombrasangue/morto-vivo/infernal).",
+            "tags": ["SMITE","RADiante"]
+          },
+          {
+            "id": "artheon-canalizar-julgo",
+            "name": "Canalizar Julgo",
+            "type": "RECURSO",
+            "text": "Concentre a vontade de Artheon para ativar efeitos do seu Juramento.",
+            "uses": { "base": 1, "recharge": "DESCANSO_CURTO" }
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "features": [
+          {
+            "id": "artheon-juramento",
+            "name": "Juramento de Artheon",
+            "type": "SUBCLASSE_ESCOLHA",
+            "text": "Escolha um Juramento: Sol Nascente (luz e revelação), Bastião (proteção e guarda) ou Retribuição (perseguição implacável). Você recebe magias de juramento sempre preparadas e opções de Canalizar Julgo.",
+            "tags": ["SUBCLASSE","MAGIAS_DE_JURAMENTO"]
+          }
+        ]
+      },
+      { "level": 4, "features": [ { "id": "asi-4", "name": "Aumento de Atributo", "type": "ASI" } ] },
+      {
+        "level": 5,
+        "features": [
+          {
+            "id": "artheon-ataque-extra",
+            "name": "Ataque Extra",
+            "type": "PASSIVO",
+            "text": "Você pode atacar duas vezes ao realizar a ação de Ataque no seu turno."
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          {
+            "id": "artheon-aura-de-protecao",
+            "name": "Aura de Proteção",
+            "type": "AURA",
+            "text": "Você e aliados a 3 m adicionam seu mod. CAR a todos os testes de resistência enquanto você estiver consciente (mín. +1).",
+            "tags": ["AURA","SUPORTE"]
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          {
+            "id": "artheon-caracteristica-de-juramento-7",
+            "name": "Juramento — Dom 7º",
+            "type": "SUBCLASSE",
+            "text": "Você recebe a característica de 7º nível do seu Juramento."
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "features": [
+          { "id": "asi-8", "name": "Aumento de Atributo", "type": "ASI" }
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          {
+            "id": "artheon-passo-resoluto",
+            "name": "Passo Resoluto",
+            "type": "PASSIVO",
+            "text": "Você ignora terreno difícil causado por gelo, cinzas ou escombros sagrados/profanos.",
+            "tags": ["MOVIMENTO"]
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          {
+            "id": "artheon-aura-de-coragem",
+            "name": "Aura de Coragem",
+            "type": "AURA",
+            "text": "Você e aliados a 3 m não podem ser amedrontados enquanto você estiver consciente."
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          {
+            "id": "artheon-golpe-sagrado-aprimorado",
+            "name": "Golpe Sagrado Aprimorado",
+            "type": "PASSIVO",
+            "text": "Seus ataques corpo a corpo causam +1d8 de dano radiante adicional uma vez por turno (sem gasto de espaço).",
+            "tags": ["SMITE_PASSIVO"]
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "features": [
+          { "id": "asi-12", "name": "Aumento de Atributo", "type": "ASI" }
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          {
+            "id": "artheon-selo-de-ferro",
+            "name": "Selo de Ferro",
+            "type": "PASSIVO",
+            "text": "Vantagem em testes para resistir a ser empurrado/derrubado; você pode impor desvantagem a um teste que tentaria deslocá-lo (1/turno, reação).",
+            "activation": "REACAO"
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          {
+            "id": "artheon-toque-purificador",
+            "name": "Toque Purificador",
+            "type": "ATIVO",
+            "activation": "ACTION",
+            "text": "Você pode encerrar um efeito de magia que esteja afetando você ou uma criatura tocada. Uso por descanso longo: igual ao seu mod. CAR (mín. 1).",
+            "tags": ["DISSIPAR","SUPORTE"]
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          {
+            "id": "artheon-caracteristica-de-juramento-15",
+            "name": "Juramento — Dom 15º",
+            "type": "SUBCLASSE",
+            "text": "Você recebe a característica de 15º nível do seu Juramento."
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "features": [
+          { "id": "asi-16", "name": "Aumento de Atributo", "type": "ASI" }
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          {
+            "id": "artheon-auras-ampliadas",
+            "name": "Auras Ampliadas",
+            "type": "ESCALA",
+            "text": "O raio de suas auras aumenta para 4,5 m (15 pés)."
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          {
+            "id": "artheon-presenca-inebranlavel",
+            "name": "Presença Inquebrantável",
+            "type": "PASSIVO",
+            "text": "Enquanto você estiver consciente, testes de resistência contra ser enfeitiçado/amedrontado têm vantagem para você e seus aliados em suas auras."
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          { "id": "asi-19", "name": "Aumento de Atributo", "type": "ASI" }
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          {
+            "id": "artheon-avatar-do-julgo",
+            "name": "Avatar do Julgo",
+            "type": "EXALTADO",
+            "activation": "ACTION",
+            "text": "1/descanso longo, por 1 min: luz de 6 m; resistência a cortante/perfurante/contundente de armas não mágicas; seus Golpes Sagrados maximizam o primeiro dado; você pode emitir, como bônus 1/turno, um pulso radiante (3 m) que causa 1d8 radiante e empurra 1,5 m (DES salva para evitar empurrão).",
+            "tags": ["CAPSTONE","SMITE","AURA"]
+          }
+        ]
+      }
+    ],
+    "subclasses": [
+      {
+        "id": "juramento-sol-nascente",
+        "name": "Juramento do Sol Nascente",
+        "grantedSpells": [
+          ["ESCUDO_DA_FE", "DUELAR_COMPELIDO"],
+          ["AUXILIO", "RASTRO_DE_LUZ"],
+          ["AURA_DE_VITALIDADE", "MARCA_RADIOSA"],
+          ["BANIMENTO", "GUERRA_ESPIRITUAL"],
+          ["CIRCULO_DO_PODER", "AURORA_FINAL"]
+        ],
+        "canalizarOptions": [
+          {
+            "id": "julgo-facho-solar",
+            "name": "Facho Solar",
+            "text": "Ação: emite um raio de 18 m contra uma criatura; CON vs CD de magia. Falha: 2d10 + nível radiante e **Cegueira** até o início do seu próximo turno. Sucesso: metade e sem cegueira."
+          },
+          {
+            "id": "julgo-selo-de-luz",
+            "name": "Selo de Luz",
+            "text": "Ação bônus: sua arma emite luz intensa (6 m) por 1 min; seu próximo Golpe Sagrado nessa duração adiciona +1d8 radiante e marca o alvo (desvantagem para ficar invisível)."
+          }
+        ],
+        "features": [
+          {
+            "level": 7,
+            "id": "sol-nascente-claridade",
+            "name": "Claridade do Julgo",
+            "text": "Aliados em sua Aura de Proteção ignoram obscurecimento leve e vantagem contra invisibilidade de criaturas corrompidas."
+          },
+          {
+            "level": 15,
+            "id": "sol-nascente-irradiante",
+            "name": "Irradiante Implacável",
+            "text": "Seu dano radiante ignora resistência; contra corrompidos, ignora imunidade e trata como resistência."
+          }
+        ]
+      },
+      {
+        "id": "juramento-bastiao",
+        "name": "Juramento do Bastião",
+        "grantedSpells": [
+          ["ESCUDO_DA_FE", "BENCao"],
+          ["ARMA_MAGICA", "RESTAURAR_MENOR"],
+          ["AURA_DE_VITALIDADE", "PROTECAO_CONTRA_PROJETEIS"],
+          ["GUARDIAO_DA_FE", "LIBERDADE_DE_MOVIMENTO"],
+          ["CIRCULO_DO_PODER", "MURALHA_DE_LUZ"]
+        ],
+        "canalizarOptions": [
+          {
+            "id": "julgo-baluarte",
+            "name": "Baluarte de Artheon",
+            "text": "Ação: cria uma barreira radiante de 3 m de raio centrada em você por 1 rodada; aliados dentro ganham +2 CA e resistência a radiante/necrose; inimigos que entrarem devem passar em DES ou têm deslocamento reduzido à metade até o próximo turno."
+          },
+          {
+            "id": "julgo-desafiar",
+            "name": "Desafiar Injustos",
+            "text": "Ação bônus: escolha até 2 inimigos a 9 m; eles fazem teste de SAB. Falha: **Compelidos** a focar você (desvantagem em ataques contra outros alvos) até o fim do próximo turno."
+          }
+        ],
+        "features": [
+          {
+            "level": 7,
+            "id": "bastiao-guardiao-proximo",
+            "name": "Guardião Próximo",
+            "text": "Enquanto empunhar escudo, aliados a 1,5 m de você podem usar sua reação para ganhar +2 CA contra um ataque recebido."
+          },
+          {
+            "level": 15,
+            "id": "bastiao-muralha-viva",
+            "name": "Muralha Viva",
+            "text": "Quando você tomar dano que o reduziria a 0 PV, pode cair a 1 PV e converter o excedente em dano radiante que explode a 3 m (1d8 + mod. CAR; CON salva para metade). 1/descanso longo."
+          }
+        ]
+      },
+      {
+        "id": "juramento-retribuicao",
+        "name": "Juramento da Retribuição",
+        "grantedSpells": [
+          ["GOLPE_TROVEJANTE", "GOLPE_IRADO"],
+          ["RASTRO_DE_CAÇA", "MARCA_DO_CAÇADOR"],
+          ["GOLPE_CEGANTE", "PASSOS_LONGOS"],
+          ["BANIMENTO", "LIBERTAR_DO_MEDO"],
+          ["CIRCULO_DO_PODER", "ACELERAR"]
+        ],
+        "canalizarOptions": [
+          {
+            "id": "julgo-voto-de-inflexao",
+            "name": "Voto de Inflexão",
+            "text": "Ação bônus: por 1 min, você tem vantagem em ataques contra um alvo marcado a 18 m; ao atingi-lo, causa +mod. CAR radiante adicional 1/turno."
+          },
+          {
+            "id": "julgo-cortar-fuga",
+            "name": "Cortar a Fuga",
+            "text": "Reação: quando a criatura marcada se mover, reduza o deslocamento dela a 0 e cause 1d8 radiante. 1/rodada."
+          }
+        ],
+        "features": [
+          {
+            "level": 7,
+            "id": "retribuicao-perseguidor",
+            "name": "Perseguidor de Sombras",
+            "text": "Você ignora terreno difícil ao mover-se em direção ao alvo do seu Voto; oportunidade contra ele tem vantagem."
+          },
+          {
+            "level": 15,
+            "id": "retribuicao-justica-celere",
+            "name": "Justiça Célere",
+            "text": "Quando reduzir sua marca a 0 PV, recupere 1 uso de Canalizar Julgo ou 1 espaço de magia de 1º nível (sua escolha)."
+          }
+        ]
+      }
+    ]
   }
+
 ]

@@ -1,7 +1,8 @@
 // prisma/seed.ts
 import { PrismaClient, Prisma } from "@prisma/client";
+import { promises as fsp } from "fs";
 import { readFileSync } from "fs";
-import { resolve } from "path";
+import { resolve, join, basename } from "path";
 import { randomUUID } from "crypto";
 
 const prisma = new PrismaClient();
@@ -16,6 +17,9 @@ const load = <T>(file: string): T =>
 const isRecord = (v: unknown): v is Record<string, unknown> =>
     v !== null && typeof v === "object" && !Array.isArray(v);
 
+const toJsonOrUndef = (v: unknown): Prisma.InputJsonValue | undefined =>
+    v === undefined ? undefined : (v as Prisma.InputJsonValue);
+
 /* ----------------- tipos de entrada (seeds) ----------------- */
 
 type HitDie = "d6" | "d8" | "d10" | "d12";
@@ -23,14 +27,11 @@ type HitDie = "d6" | "d8" | "d10" | "d12";
 type SubclassMetaIn = {
     featuresPreview?: string[];
     aliases?: string[];
-    // permitir extras sem perder type-safety em spreads
-    [key: string]: unknown;
+    [key: string]: unknown; // extras opcionais
 };
 
 type SubclassFeatureLeaf = { level?: number; id?: string; name?: string; text?: string };
 type SubclassFeatureNode = { name?: string; features?: Array<{ name?: string }> };
-
-/** Estruturas aceitas para "features" da subclasse (lista plana ou agrupada por nível) */
 type SubclassFeaturesIn = SubclassFeatureLeaf[] | SubclassFeatureNode[];
 
 type SubclassIn = {
@@ -52,23 +53,12 @@ type ClassIn = {
     spellData?: unknown | null;
     description: string;
     metaJson?: Record<string, unknown>;
-    /** novo */
-    featuresByLevel?: unknown;
-    /** legado (fallback): */
-    features?: unknown;
-    /** subclasses embutidas no classes.json */
+    featuresByLevel?: unknown; // novo
+    features?: unknown; // legado (fallback)
     subclasses?: SubclassIn[];
 };
 
 /* ----------------- utils de síntese ----------------- */
-
-const slugify = (s: string) =>
-    s
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
 
 function synthesizeSubclassDescription(name?: string, fallback?: string): string {
     if (fallback && fallback.trim()) return fallback.trim();
@@ -76,23 +66,17 @@ function synthesizeSubclassDescription(name?: string, fallback?: string): string
     return `Caminho ${name}: estilo de jogo e poderes temáticos.`;
 }
 
-/** Extrai até 3 “bullets” de features: aceita lista plana ou nós com `.features` internas */
 function pickFeaturesPreviewFromSubclass(s: SubclassIn): string[] {
     const feats = Array.isArray(s.features) ? s.features : [];
     const names: string[] = [];
 
-    // varrer as duas formas
     for (const f of feats) {
-        // caso lista plana (tem "name" direta)
-        if ("name" in f && typeof f.name === "string" && f.name.trim()) {
-            names.push(f.name.trim());
+        if ("name" in f && typeof (f as any).name === "string" && (f as any).name.trim()) {
+            names.push((f as any).name.trim());
         }
-        // caso nó com filhos (f.features[].name)
-        if ("features" in f && Array.isArray(f.features)) {
-            for (const inner of f.features) {
-                if (inner?.name && typeof inner.name === "string" && inner.name.trim()) {
-                    names.push(inner.name.trim());
-                }
+        if ("features" in f && Array.isArray((f as any).features)) {
+            for (const inner of (f as any).features as Array<{ name?: string }>) {
+                if (inner?.name && inner.name.trim()) names.push(inner.name.trim());
                 if (names.length >= 3) break;
             }
         }
@@ -108,7 +92,6 @@ function pickFeaturesByLevel(c: ClassIn): unknown {
     return []; // coluna é NOT NULL
 }
 
-/** Empacote dados “ricos” para Subclass.data */
 function toSubclassData(s: SubclassIn): Record<string, unknown> {
     return {
         grantedSpells: s.grantedSpells ?? null,
@@ -130,7 +113,6 @@ async function seedBackgrounds() {
     await prisma.background.createMany({ data: items as Prisma.BackgroundCreateManyInput[], skipDuplicates: true });
     console.log(`✅ Backgrounds: ${items.length} ok`);
 }
-
 
 /* ----------------- upserts ----------------- */
 
@@ -162,17 +144,13 @@ async function upsertClass(c: ClassIn) {
 async function upsertSubclass(classId: string, s: SubclassIn) {
     const rawSlug = (s.slug?.trim() || s.id?.trim() || s.name || "").toString();
     const slug = (() => {
-        const base =
-            rawSlug
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(/(^-|-$)/g, "");
+        const base = rawSlug
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase().replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "");
         return base || randomUUID();
     })();
 
-    // meta base (com guard)
     const baseMeta: SubclassMetaIn = isRecord(s.metaJson) ? (s.metaJson as SubclassMetaIn) : {};
 
     const computedFeaturesPreview =
@@ -185,7 +163,6 @@ async function upsertSubclass(classId: string, s: SubclassIn) {
             ? baseMeta.aliases
             : (s.id ? [s.id] : []);
 
-    // objeto tipado (sem any, com spread seguro)
     const metaToSave: SubclassMetaIn = {
         ...baseMeta,
         featuresPreview: computedFeaturesPreview,
@@ -209,45 +186,74 @@ async function upsertSubclass(classId: string, s: SubclassIn) {
             name: s.name,
             description,
             metaJson: asJson(metaToSave),
-            data: asJson(toSubclassData(s)), // NOT NULL
+            data: asJson(toSubclassData(s)),
         },
     });
 }
 
-async function upsertClassLoreFromFile(file: string) {
-    type LoreFile = {
-        id?: string;
-        classId?: string;
-        locale: string;
-        version?: number;
-        title: string;
-        tagline?: string;
-        readingTimeMin?: number;
-        display?: unknown;
-        summary: string;
-        chapters?: unknown;
-        timeline?: unknown;
-        rituals?: unknown;
-        locations?: unknown;
-        gameplay?: unknown;
-        ui?: unknown;
-        attribution?: unknown;
-        // opcional: publishedAt?: string
-    };
+type LoreFile = {
+    id?: string;
+    classId?: string;            // se vier, ótimo
+    className?: string;          // opcional: permite apontar por nome
+    locale: string;
+    version?: number;
+    title: string;
+    tagline?: string;
+    readingTimeMin?: number;     // ← mapeia p/ readingMin (DB)
+    display?: unknown;
+    summary: string;
+    chapters?: unknown;
+    timeline?: unknown;
+    rituals?: unknown;
+    locations?: unknown;
+    gameplay?: unknown;
+    ui?: unknown;
+    attribution?: unknown;
+    publishedAt?: string | null; // ISO opcional
+};
 
-    const lore = load<LoreFile>(file);
+function filenameToSlugName(fileBasename: string): { slug: string; locale?: string } {
+    // exemplos aceitos:
+    // lore-guardiao-de-artheon.pt-BR.json
+    // guardiao-de-artheon.pt-BR.json
+    // arauto-de-elyra.json
+    const base = fileBasename.replace(/\.json$/i, "");
+    const parts = base.split(".");
+    const namePart = parts[0] ?? base;
+    const slug = namePart.replace(/^lore-/, ""); // remove prefixo "lore-" se houver
+    const locale = parts[1]; // se houver sufixo .pt-BR
+    return { slug, locale };
+}
 
-    // Descobrir classId se não vier no JSON
-    let classId = lore.classId;
-    if (!classId) {
-        const clazz = await prisma.class.findFirst({
-            where: { name: { equals: "Arauto de Elyra", mode: "insensitive" } },
+async function findClassIdForLore(lf: LoreFile, fileName: string): Promise<string> {
+    if (lf.classId) return lf.classId;
+
+    // 1) se veio className no JSON, tenta por nome
+    if (lf.className) {
+        const byName = await prisma.class.findFirst({
+            where: { name: { equals: lf.className, mode: "insensitive" } },
             select: { id: true },
         });
-        if (!clazz) throw new Error(`Classe "Arauto de Elyra" não encontrada para lore ${file}`);
-        classId = clazz.id;
+        if (byName) return byName.id;
     }
 
+    // 2) tentar pela slug do arquivo
+    const { slug } = filenameToSlugName(basename(fileName));
+    if (slug) {
+        // tenta achar classe cujo name normalizado contenha a slug
+        const all = await prisma.class.findMany({ select: { id: true, name: true } });
+        const norm = (s: string) =>
+            s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const match = all.find(c => norm(c.name).includes(slug));
+        if (match) return match.id;
+    }
+
+    throw new Error(`Não foi possível deduzir classId para lore: ${fileName}. Informe "classId" ou "className" no JSON.`);
+}
+
+async function upsertClassLoreFromFile(file: string) {
+    const lore = load<LoreFile>(file);
+    const classId = await findClassIdForLore(lore, file);
     const version = lore.version ?? 1;
 
     await prisma.classLore.upsert({
@@ -258,36 +264,57 @@ async function upsertClassLoreFromFile(file: string) {
             version,
             title: lore.title,
             tagline: lore.tagline ?? null,
-            readingMin: lore.readingTimeMin ?? null,  // <- mapeia para coluna do modelo
-            display: lore.display as any,
+            readingMin: lore.readingTimeMin ?? null, // ← coluna do modelo
+            display: toJsonOrUndef(lore.display),
             summary: lore.summary,
-            chapters: lore.chapters as any,
-            timeline: lore.timeline as any,
-            rituals: lore.rituals as any,
-            locations: lore.locations as any,
-            gameplay: lore.gameplay as any,
-            ui: lore.ui as any,
-            attribution: lore.attribution as any,
-            // publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
+            chapters: toJsonOrUndef(lore.chapters),
+            timeline: toJsonOrUndef(lore.timeline),
+            rituals: toJsonOrUndef(lore.rituals),
+            locations: toJsonOrUndef(lore.locations),
+            gameplay: toJsonOrUndef(lore.gameplay),
+            ui: toJsonOrUndef(lore.ui),
+            attribution: toJsonOrUndef(lore.attribution),
+            publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
         },
         update: {
             title: lore.title,
             tagline: lore.tagline ?? null,
             readingMin: lore.readingTimeMin ?? null,
-            display: lore.display as any,
+            display: toJsonOrUndef(lore.display),
             summary: lore.summary,
-            chapters: lore.chapters as any,
-            timeline: lore.timeline as any,
-            rituals: lore.rituals as any,
-            locations: lore.locations as any,
-            gameplay: lore.gameplay as any,
-            ui: lore.ui as any,
-            attribution: lore.attribution as any,
-            // publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
+            chapters: toJsonOrUndef(lore.chapters),
+            timeline: toJsonOrUndef(lore.timeline),
+            rituals: toJsonOrUndef(lore.rituals),
+            locations: toJsonOrUndef(lore.locations),
+            gameplay: toJsonOrUndef(lore.gameplay),
+            ui: toJsonOrUndef(lore.ui),
+            attribution: toJsonOrUndef(lore.attribution),
+            publishedAt: lore.publishedAt ? new Date(lore.publishedAt) : null,
         },
     });
 
     console.log(`✅ ClassLore: ${lore.title} (${lore.locale} v${version}) ok`);
+}
+
+/** Importa TODOS os JSONs de seed/lore/*.json */
+async function upsertAllLoresFromDir() {
+    const dir = fromSeedDir("lore");
+    let files: string[] = [];
+    try {
+        files = (await fsp.readdir(dir)).filter(f => f.endsWith(".json"));
+    } catch {
+        console.log("ℹ️  Pasta seed/lore não encontrada — pulando.");
+        return;
+    }
+
+    if (files.length === 0) {
+        console.log("ℹ️  Nenhum arquivo de lore em seed/lore — pulando.");
+        return;
+    }
+
+    for (const f of files) {
+        await upsertClassLoreFromFile(`lore/${f}`);
+    }
 }
 
 /* ----------------- orquestração ----------------- */
@@ -307,7 +334,7 @@ async function main() {
     await seedAncestries();
     await seedBackgrounds();
     await seedClassesAndSubclasses();
-    await upsertClassLoreFromFile("lore/arauto-de-elyra.pt-BR.json");
+    await upsertAllLoresFromDir(); // ← importa TODOS os lores (inclui guardião de Artheon)
     console.log("🌱 Seed concluído.");
 }
 

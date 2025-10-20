@@ -1,0 +1,105 @@
+{
+  "id": "lore-guardiao-de-artheon",
+  "locale": "pt-BR",
+  "version": 1,
+  "title": "Ordem do Julgo de Artheon",
+  "tagline": "Quando o Éter vacila, a espada deve permanecer firme.",
+  "readingTimeMin": 7,
+  "display": {
+    "heroImage": "/classes/guardiao-artheon2.png",
+    "palette": { "from": "#f59e0b", "to": "#38bdf8" },
+    "icon": "lucide:shield"
+  },
+  "summary": "Os Guardiões de Artheon são os braços e o aço do Julgo. Nascidos do silêncio entre a fé e o medo, eles sustentam o equilíbrio pelo dever e pela lei do Cântico. Onde a compaixão vacila, eles permanecem. Onde o caos reina, eles levantam a espada e o escudo em nome da ordem divina.",
+  "chapters": [
+    {
+      "id": "origem",
+      "title": "A Forja do Julgo",
+      "content": "Durante o colapso da 2ª Era — o Ciclo das Cinzas — o mundo ecoava em discórdia. As palavras de Elyra haviam se calado, e as trevas dos Caídos moldavam exércitos nas sombras. Em meio ao desespero, uma luz severa brilhou entre as ruínas: **Artheon**, o Deus da Forma e do Julgo, ergueu sua voz como trovão. Ele não falou de perdão, mas de ordem. Deu aos mortais a espada e o escudo como instrumentos de equilíbrio. Assim nasceram os primeiros Guardiões, forjados não do Éter puro, mas do dever inflexível."
+    },
+    {
+      "id": "fundacao",
+      "title": "O Primeiro Julgo",
+      "content": "A tradição diz que o primeiro Guardião foi **Vael Artheon**, um general que se recusou a abandonar sua fortaleza durante a invasão de Rhazorath. Quando a corrupção ameaçou romper os portões, ele gravou runas de fé em sua armadura e permaneceu de pé, mesmo quando a própria carne queimava. Ao amanhecer, o castelo ainda estava em pé — e Vael foi encontrado petrificado, em posição de guarda, com o símbolo da balança gravado em sua couraça. A partir dele, ergueu-se a **Ordem do Julgo**, jurada a Artheon e à lei sagrada do Equilíbrio."
+    },
+    {
+      "id": "juramento",
+      "title": "O Juramento do Julgo",
+      "bullets": [
+        "Erguer-se onde o caos reina.",
+        "Proteger os inocentes, mesmo à custa do próprio corpo.",
+        "Calar a dissonância pela espada ou pela redenção.",
+        "Jamais corromper a balança — nem por piedade, nem por poder."
+      ],
+      "content": "O Juramento é entoado diante da **Chama de Artheon**, uma fogueira que jamais se apaga nos templos da Ordem. Cada Guardião grava a promessa no próprio escudo, em runas geométricas que brilham quando o Éter o reconhece digno."
+    },
+    {
+      "id": "estrutura",
+      "title": "A Hierarquia da Ordem",
+      "table": [
+        { "titulo": "Iniciado do Aço", "significado": "O que aprende a suportar o peso", "funcao": "Treina corpo e disciplina." },
+        { "titulo": "Centinela", "significado": "O que vela o caminho", "funcao": "Protege caravanas, templos e civis." },
+        { "titulo": "Mão do Julgo", "significado": "O que executa a vontade", "funcao": "Julga corrupções e lidera esquadrões." },
+        { "titulo": "Guardião de Artheon", "significado": "O que sustenta a balança", "funcao": "Canaliza o Julgo divino e guia os demais." }
+      ],
+      "content": "A hierarquia não mede poder, mas constância. O Guardião não busca glória; busca permanecer. Cada avanço é uma confissão — de fé, não de triunfo."
+    },
+    {
+      "id": "simbolos-ritos",
+      "title": "Símbolos e Ritos",
+      "content": "O símbolo sagrado da Ordem é a **Balança de Chamas**, representando a justiça e o peso das ações. O **Escudo do Julgo**, usado em cerimônias, traz runas triangulares que emitem luz dourada quando em presença de falsidade. \n\nEntre seus ritos, destacam-se: o **Rito da Vigília**, em que o noviço permanece imóvel por uma noite inteira diante da Chama; e o **Rito da Sentença**, em que um Guardião ascende à categoria superior apenas após confrontar e purificar uma criatura de Sombrasangue sem auxílio de outro fiel."
+    },
+    {
+      "id": "filosofia",
+      "title": "O Cântico da Ordem",
+      "content": "Artheon ensina que a harmonia não é doçura — é estrutura. Os Guardiões acreditam que o mundo se mantém em equilíbrio não apenas pela luz, mas pela firmeza da lei. Quando o Éter se desequilibra, eles se tornam a mão que estabiliza. Sua fé não vacila, mas pesa. Eles são a muralha que se ergue quando até os anjos hesitam. Onde os Arautos de Elyra curam, os Guardiões julgam. Onde os ventos cantam, suas espadas silenciam o caos."
+    },
+    {
+      "id": "presenca-atual",
+      "title": "Os Bastions do Norte",
+      "content": "Os maiores bastiões da Ordem se erguem nas planícies de **Thandor**, e em fortalezas suspensas sobre os penhascos de **Vaelorin**. Em tempos de dissonância, as Chamas de Artheon são vistas acendendo-se em série, um chamado silencioso à guerra. Dizem que quando todas as chamas se acenderem novamente, o Julgo retornará pessoalmente ao mundo — e as Sombras não terão para onde fugir."
+    },
+    {
+      "id": "liturgia",
+      "title": "Trecho da Liturgia do Julgo",
+      "blockquote": "“Onde o canto se rompe, eu erguerei a espada. Onde a fé fraquejar, eu serei o escudo. Que o fogo pese minhas escolhas, e que o Julgo jamais se apague em mim.” — Juramento do Guardião"
+    }
+  ],
+  "timeline": [
+    { "era": "Ciclo das Cinzas (2ª Era)", "evento": "Artheon fala novamente aos mortais, fundando o Julgo." },
+    { "era": "Umbraeth (3ª Era)", "evento": "Os Guardiões lideram as Guerras da Dissonância e selam três Caídos menores." },
+    { "era": "Elyndor (4ª Era)", "evento": "Guardiões e Arautos selam aliança na Purificação de Lirien." }
+  ],
+  "rituals": [
+    { "id": "vigilia", "name": "Rito da Vigília", "effect": "Prova de disciplina; o Guardião permanece imóvel sob a Chama por uma noite inteira." },
+    { "id": "sentenca", "name": "Rito da Sentença", "effect": "Prova de justiça; o Guardião deve julgar e purificar um corrompido sozinho, sem ódio." }
+  ],
+  "locations": [
+    { "name": "Fortaleza de Vael", "note": "Primeiro bastião da Ordem; abriga a Chama Original de Artheon." },
+    { "name": "Salão da Balança", "note": "Câmara central do Julgo, onde as sentenças espirituais são pronunciadas." }
+  ],
+  "gameplay": {
+    "hooks": [
+      "Um bastião de Artheon caiu em silêncio; a Chama não se apaga, mas não aquece.",
+      "Um Guardião veterano desapareceu levando o Selo de Ferro, relíquia que pesa corações.",
+      "A Ordem se divide: deve julgar os Elyrianos corrompidos — ou tentar curá-los?"
+    ],
+    "partySynergy": "Combina bem com Arautos (cura e fé) e Ofensores Étericos (controle de corrupção). Forma a linha de frente ideal em campanhas com IDG elevado.",
+    "enemyTags": ["SOMBRASANGUE", "DEMONIO", "CAIDO"]
+  },
+  "ui": {
+    "selectIntro": "A chama do Julgo arde em ti. Serás escudo, lâmina e sentença. Onde a harmonia vacila, teu dever é permanecer.",
+    "cta": "Erguer o Julgo",
+    "labels": {
+      "oath": "Juramento do Julgo",
+      "rites": "Ritos do Aço e da Chama",
+      "symbols": "Símbolos",
+      "structure": "Hierarquia",
+      "history": "Origem"
+    }
+  },
+  "attribution": {
+    "createdBy": "Círculo dos Escribas de Elyndor",
+    "sources": ["Livro de Elyra", "Eldoryon — O Guia Mítico", "Guia do Éter"]
+  }
+}

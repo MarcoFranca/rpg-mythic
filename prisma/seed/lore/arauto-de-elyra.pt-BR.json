@@ -6,7 +6,7 @@
   "tagline": "Onde o silêncio corrói, o sopro deve cantar.",
   "readingTimeMin": 6,
   "display": {
-    "heroImage": "/classes/arauto-elyra.jpg",
+    "heroImage": "/classes/arauto-elyra.png",
     "palette": { "from": "#22c55e", "to": "#0ea5e9" },
     "icon": "lucide:sparkles"
   },

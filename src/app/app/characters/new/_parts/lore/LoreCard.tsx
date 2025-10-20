@@ -5,7 +5,7 @@ import {JSX, useEffect, useMemo, useRef, useState} from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import { Maximize2, BookText, Quote } from "lucide-react";
 import { LoreVM } from "./lore-vm";
 
@@ -124,10 +124,24 @@ export default function LoreCard({
                                     <Maximize2 className="h-4 w-4" />
                                 </Button>
                             </DialogTrigger>
+
                             <DialogContent className="max-w-[90vw] p-0">
-                                <img src={hero} alt="" className="h-auto w-full" />
+                                {/* ✅ Título acessível, visualmente oculto via Tailwind */}
+                                <DialogHeader>
+                                    <DialogTitle className="sr-only">
+                                        {lore.title ? `Capa ampliada — ${lore.title}` : "Capa ampliada"}
+                                    </DialogTitle>
+                                </DialogHeader>
+
+                                <img
+                                    src={hero}
+                                    alt={lore.title ? `Capa de ${lore.title}` : "Capa ampliada"}
+                                    className="h-auto w-full"
+                                />
                             </DialogContent>
                         </Dialog>
+
+
                     </div>
                 )}
 
