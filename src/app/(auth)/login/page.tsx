@@ -8,17 +8,18 @@ const SYSTEM_HOME = "/app"; // <<< troque aqui se necessário
 export default async function LoginPage({
                                             searchParams,
                                         }: {
-    searchParams: { from?: string; role?: "PLAYER" | "GM" | "SPECTATOR"; needsConfirm?: string; email?: string };
+    searchParams: Promise<{ from?: string; role?: "PLAYER" | "GM" | "SPECTATOR"; needsConfirm?: string; email?: string }>;
 }) {
+    const params = await searchParams;
     const supabase = await createSupabaseServerRSC();
     const { data: { user } } = await supabase.auth.getUser();
 
     // se veio do OAuth Google após "register"
-    if (user && searchParams?.from === "register") {
-        if (searchParams?.role) {
+    if (user && params?.from === "register") {
+        if (params?.role) {
             await prisma.user.updateMany({
                 where: { supabaseId: user.id, accountRole: "SPECTATOR" },
-                data: { accountRole: searchParams.role },
+                data: { accountRole: params.role },
             });
         }
         redirect(`${SYSTEM_HOME}?welcome=1&name=${encodeURIComponent(user.user_metadata?.name ?? "Aventureiro")}`);
@@ -26,5 +27,5 @@ export default async function LoginPage({
 
     // se caiu aqui por "precisa confirmar email", só mostra o cartão
     // (LoginPageClient renderiza instrução se needsConfirm=1)
-    return <LoginPageClient needsConfirm={searchParams?.needsConfirm === "1"} email={searchParams?.email} />;
+    return <LoginPageClient needsConfirm={params?.needsConfirm === "1"} email={params?.email} />;
 }

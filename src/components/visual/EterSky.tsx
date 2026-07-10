@@ -135,7 +135,7 @@ function EtherRing({
     softness?: number;
 }) {
     const blur = 20 * softness;
-    const auraAlpha = 0.35 * softness;
+    const auraAlpha = 0.24 * softness;
 
     return (
         <>
@@ -158,7 +158,7 @@ function EtherRing({
                     style={{
                         background: `radial-gradient(closest-side, ${ringColor}, transparent 60%)`,
                         filter: `blur(${blur}px)`,
-                        opacity: 0.5,
+                        opacity: 0.28,
                     }}
                 />
                 {/* torus */}
@@ -180,7 +180,7 @@ function EtherRing({
                         mask:
                             "radial-gradient(closest-side, transparent 46%, black 52%, black 58%, transparent 64%)",
                         filter: "blur(1.2px)",
-                        opacity: 0.9,
+                        opacity: 0.58,
                         mixBlendMode: "screen",
                     }}
                 />
@@ -211,9 +211,9 @@ function EtherRing({
                     height: `${Math.round(sizeVmin * 0.6)}vmin`,
                     translateX: "-50%",
                     translateY: "-50%",
-                    boxShadow: `0 0 220px 40px ${auraColor}`,
+                    boxShadow: `0 0 160px 24px ${auraColor}`,
                 }}
-                animate={reduce ? { opacity: 0.45, scale: 1 } : { opacity: [0.35, 0.7, 0.35], scale: [0.98, 1.02, 0.98] }}
+                animate={reduce ? { opacity: 0.28, scale: 1 } : { opacity: [0.18, 0.34, 0.18], scale: [0.99, 1.01, 0.99] }}
                 transition={{ duration: 8, repeat: reduce ? 0 : Infinity, ease: "easeInOut" }}
             />
         </>

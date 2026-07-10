@@ -15,6 +15,7 @@ import { useMythicToast } from "@/lib/notifications";
 
 type Role = "SPECTATOR" | "PLAYER" | "GM";
 type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+const MAX_AVATAR_BYTES = 5 * 1024 * 1024;
 
 const ROLES: Array<{ key: Role; title: string; desc: string; icon: IconType }> = [
     { key: "PLAYER", title: "Jogador", desc: "Crie personagens, jogue campanhas.", icon: Sword },
@@ -304,6 +305,18 @@ export default function RegisterCard() {
                             onChange={(e) => {
                                 const file = e.target.files?.[0];
                                 if (!file) return setAvatarPreview(null);
+                                if (!file.type.startsWith("image/")) {
+                                    e.target.value = "";
+                                    setAvatarPreview(null);
+                                    notify("error", "Avatar inválido", "Escolha um arquivo de imagem.");
+                                    return;
+                                }
+                                if (file.size > MAX_AVATAR_BYTES) {
+                                    e.target.value = "";
+                                    setAvatarPreview(null);
+                                    notify("error", "Avatar muito grande", "Use uma imagem de até 5 MB.");
+                                    return;
+                                }
                                 const url = URL.createObjectURL(file);
                                 setAvatarPreview(url);
                             }}

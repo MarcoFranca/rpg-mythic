@@ -72,30 +72,30 @@ function SystemHomeInner({
 
     return (
         <main className="relative min-h-[100dvh] overflow-hidden bg-black text-white">
-            <EterSky
-                idg={idg}
-                video={{ src: "/videos/eclipse-azul.mp4", poster: "/videos/eclipse-azul-poster.png" }}
-                opacity={0.92}
-                darken={0.42}
-                blur={0.5}
-                zIndex={5}
-                ringSizeVmin={120}
-                ringCenter={{ x: "62%", y: "58%" }}
-                ringSoftness={0.9}
-            />
-            <div
-                aria-hidden
-                className="absolute inset-0 z-6"
-                style={{
-                    background:
-                        "radial-gradient(600px 360px at 38% 48%, rgba(5,8,12,0.55) 0%, rgba(5,8,12,0.35) 65%, transparent 80%)",
-                    backdropFilter: "blur(2px)",
-                }}
-            />
-            <GoldenDust density={0.00027} speed={0.55} intensity={5.9} hue={46} zIndex={8} />
+            {/*<EterSky*/}
+            {/*    idg={idg}*/}
+            {/*    video={{ src: "/videos/eclipse-azul.mp4", poster: "/videos/eclipse-azul-poster.png" }}*/}
+            {/*    opacity={0.53}*/}
+            {/*    darken={0.89}*/}
+            {/*    blur={0.9}*/}
+            {/*    zIndex={5}*/}
+            {/*    ringSizeVmin={120}*/}
+            {/*    ringCenter={{ x: "62%", y: "58%" }}*/}
+            {/*    ringSoftness={0.55}*/}
+            {/*/>*/}
+            {/*<div*/}
+            {/*    aria-hidden*/}
+            {/*    className="absolute inset-0 z-6"*/}
+            {/*    style={{*/}
+            {/*        background:*/}
+            {/*            "linear-gradient(180deg, rgba(3,5,8,0.44) 0%, rgba(3,5,8,0.18) 24%, rgba(3,5,8,0.14) 100%), radial-gradient(700px 420px at 38% 46%, rgba(5,8,12,0.74) 0%, rgba(5,8,12,0.48) 58%, rgba(5,8,12,0.12) 82%, transparent 100%)",*/}
+            {/*        backdropFilter: "blur(3px)",*/}
+            {/*    }}*/}
+            {/*/>*/}
+            <GoldenDust density={0.000122} speed={0.5} intensity={3.2} hue={46} zIndex={8} />
 
             <BackgroundAura idg={idg} />
-            <ObeliskRingGlow sizeVmin={70} opacity={0.25} anchor="viewport" strength={0.012} />
+            {/*<ObeliskRingGlow sizeVmin={70} opacity={0.25} anchor="viewport" strength={0.012} />*/}
 
             {/* Header */}
             <section className="relative z-15 px-6 pt-6">
@@ -135,16 +135,16 @@ function SystemHomeInner({
 function BackgroundAura({ idg }: { idg: number }) {
     const bgForIDG = (v: number) => {
         if (v < 33)
-            return "bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.14),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(16,185,129,0.12),transparent_55%)]";
+            return "bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.08),transparent_58%),radial-gradient(ellipse_at_bottom,rgba(16,185,129,0.07),transparent_52%)]";
         if (v < 66)
-            return "bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.10),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(34,197,94,0.10),transparent_55%)]";
-        return "bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.12),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_55%)]";
+            return "bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.06),transparent_58%),radial-gradient(ellipse_at_bottom,rgba(34,197,94,0.07),transparent_52%)]";
+        return "bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.07),transparent_58%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.07),transparent_52%)]";
     };
 
     return (
         <div className={`absolute inset-0 z-5 ${bgForIDG(idg)}`}>
             <div
-                className="absolute inset-0 mix-blend-screen opacity-30"
+                className="absolute inset-0 mix-blend-screen opacity-16"
                 style={{ backgroundImage: "url('/noise.png')" }}
             />
         </div>

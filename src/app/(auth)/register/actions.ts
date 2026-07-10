@@ -9,6 +9,7 @@ import { createSupabaseServerAction } from "@/lib/supabase/server";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "";
 const AVATARS_BUCKET = "avatars";
 const SYSTEM_HOME = "/app"; // troque se seu "hub" for outro
+const MAX_AVATAR_BYTES = 5 * 1024 * 1024;
 
 const roleSchema = z.enum(["SPECTATOR", "PLAYER", "GM"]);
 
@@ -97,6 +98,15 @@ export async function registerWithRole(_prev: ActionState, formData: FormData): 
     const role = parsed.data.role as AccountRole;
     const email = parsed.data.email;
     const displayName = parsed.data.displayName;
+
+    if (avatar?.size) {
+        if (!avatar.type.startsWith("image/")) {
+            return { ok: false, message: "O avatar precisa ser uma imagem válida." };
+        }
+        if (avatar.size > MAX_AVATAR_BYTES) {
+            return { ok: false, message: "O avatar deve ter no máximo 5 MB." };
+        }
+    }
 
     // 🔒 checagens de disponibilidade (servidor)
     const [emailExists, nameExists] = await Promise.all([
