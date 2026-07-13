@@ -186,7 +186,7 @@ export default function RegisterCard() {
                 className="space-y-5"
             >
                 {/* papéis */}
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid gap-2 sm:grid-cols-3">
                     {ROLES.map(({ key, title, desc, icon: Icon }) => (
                         <button
                             key={key}

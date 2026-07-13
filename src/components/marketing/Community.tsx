@@ -92,15 +92,16 @@ export default function Community() {
                                 Ver o Portal
                             </Button>
                         </Link>
-                        {/* ajuste a url quando tiver o convite real */}
-                        <Link href="/discord" aria-label="Entrar no Discord do Eldoryon" data-sfx="hover">
+                        {/* O convite entra aqui quando a comunidade estiver aberta. */}
+                        <div aria-label="Convite para o Discord em breve">
                             <Button
                                 variant="secondary"
-                                className="bg-white/10 text-white transition duration-300 hover:scale-[1.02] hover:bg-white/15 motion-reduce:transition-none"
+                                disabled
+                                className="bg-white/10 text-white/60"
                             >
-                                Entrar no Discord
+                                Discord em breve
                             </Button>
-                        </Link>
+                        </div>
                     </div>
 
                     {/* Como contribuir */}

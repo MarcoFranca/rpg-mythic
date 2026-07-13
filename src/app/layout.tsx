@@ -6,7 +6,10 @@ import { SonnerProvider } from "./providers/sonner-provider";
 import AudioProvider from "@/app/providers/audio-provider";
 import TRPCProvider from "@/app/providers/trpc-provider";
 
-export const metadata = { title: "RPG System — Guia Mítico" };
+export const metadata = {
+    title: "Eldoryon — Guia Mítico",
+    description: "O portal para campanhas, personagens e lendas no mundo de Eldoryon.",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (

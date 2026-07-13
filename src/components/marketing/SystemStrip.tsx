@@ -25,14 +25,14 @@ const items: StripItem[] = [
         icon: <Sword className="h-4 w-4" />,
         title: "Classes & Perícias",
         subtitle: "balanceadas no cânone de Eldoryon",
-        href: "/classes",
+        href: "/characters",
         aria: "Ver classes e perícias",
     },
     {
         icon: <Wand2 className="h-4 w-4" />,
         title: "Magia & Fé",
         subtitle: "Éter Vivo, Sombrasangue e escolas",
-        href: "/magic",
+        href: "/spells",
         aria: "Ver magias e fé",
     },
     {
@@ -47,6 +47,7 @@ const items: StripItem[] = [
 export default function SystemStrip() {
     return (
         <section
+            id="sistema"
             className="relative z-10 items-center justify-center mt-4 mx-auto max-w-6xl px-6 pb-8"
             aria-labelledby="system-strip-heading"
         >

@@ -9,7 +9,7 @@ type Props = {
 
 export default function HeroObelisk({ children }: Props) {
     return (
-        <section className="relative z-10 min-h-[72vh] md:min-h-[78vh] grid place-items-center overflow-hidden">
+        <section className="relative z-10 min-h-[68vh] grid place-items-center overflow-hidden md:min-h-[72vh]">
             {/* Fundo: constelações + gradiente do Éter */}
             <div className="absolute inset-0 -z-10">
                 <div
@@ -20,7 +20,7 @@ export default function HeroObelisk({ children }: Props) {
 
             {/* Obelisco (parallax leve + animações) */}
             <motion.div
-                className="relative mx-auto m-8 h-[50vh] w-[50vh] max-w-[80vw] group overflow-visible isolation-isolate"
+                className="relative mx-auto mt-3 h-[31vh] w-[31vh] max-w-[72vw] group overflow-visible isolation-isolate md:mt-5 md:h-[38vh] md:w-[38vh]"
                 animate={{y: [0, -16, 0]}}
                 whileHover={{ rotateX: -2, rotateY: 2, scale: 1.015 }}
                 transition={{duration: 6, repeat: Infinity, ease: "easeInOut"}}
@@ -97,7 +97,7 @@ export default function HeroObelisk({ children }: Props) {
                 className="pointer-events-none absolute -right-16 bottom-16 h-40 w-40 rounded-full bg-amber-300/20 blur-3xl"/>
 
             {/* Conteúdo (headline, ctas etc.) */}
-            <div className="relative z-10 px-6">{children}</div>
+            <div className="relative z-10 px-4 pb-4 sm:px-6">{children}</div>
             <style jsx>{`
                 @keyframes etherPulse {
                     0% {

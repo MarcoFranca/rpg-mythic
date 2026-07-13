@@ -1,11 +1,12 @@
 // components/auth/LoginPageClient.tsx
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import PortalEterBackground from "@/components/marketing/PortalEterBackground";
 import ObeliskRingGlow from "@/components/marketing/ObeliskRingGlow";
 import LoginCard from "@/components/ui/LoginCard";
-import EtherealAudioToggle from "@/components/marketing/EtherealAudioToggle";
 
 type Props = {
     /** quando true, mostra instrução de confirmação de e-mail */
@@ -16,7 +17,7 @@ type Props = {
 
 export default function LoginPageClient({ needsConfirm = false, email }: Props) {
     return (
-        <main className="relative min-h-[100dvh] bg-black text-white overflow-hidden">
+        <main className="relative min-h-[100dvh] overflow-y-auto bg-black text-white">
             <PortalEterBackground src="/videos/anel-eter.mp4" poster="/videos/anel-eter-poster.png" opacity={0.72} />
 
             <div className="pointer-events-none absolute inset-0 z-0">
@@ -24,7 +25,20 @@ export default function LoginPageClient({ needsConfirm = false, email }: Props) 
                 <div className="absolute inset-0 mix-blend-screen opacity-40" style={{ backgroundImage: "url('/noise.png')" }} />
             </div>
 
-            <section className="relative z-20 grid min-h-[100dvh] place-items-center px-4">
+            <header className="absolute left-4 top-4 z-30 sm:left-6 sm:top-5">
+                <Link href="/" className="group relative block h-18 w-44 overflow-hidden rounded-lg sm:h-20 sm:w-52" aria-label="Voltar à página inicial de Eldoryon">
+                    <Image
+                        src="/logo/logo (3).png"
+                        alt="Eldoryon"
+                        width={640}
+                        height={360}
+                        priority
+                        className="h-full w-full scale-[1.04] object-cover object-center transition duration-500 group-hover:scale-[1.08]"
+                    />
+                </Link>
+            </header>
+
+            <section className="relative z-20 grid min-h-[100dvh] place-items-center px-4 py-24">
                 <div className="relative w-full max-w-md">
                     <ObeliskRingGlow sizeVmin={80} opacity={0.30} anchor="container" strength={0.015} offsetX={-70} offsetY={-70} />
 
@@ -49,11 +63,6 @@ export default function LoginPageClient({ needsConfirm = false, email }: Props) 
             </section>
 
             {/* Toggle de áudio opcional no rodapé */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-5 z-30 flex justify-end px-5">
-                <div className="pointer-events-auto">
-                    <EtherealAudioToggle />
-                </div>
-            </div>
         </main>
     );
 }

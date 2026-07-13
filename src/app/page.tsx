@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Waves } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import Particles from "@/components/marketing/Particles";
 import HeroObelisk from "@/components/marketing/HeroObelisk";
 import Features from "@/components/marketing/Features"; // pode manter; depois alinhamos cards
@@ -16,6 +17,15 @@ import DesperteSuaLenda from "@/components/marketing/DesperteSuaLenda";
 import SystemStrip from "@/components/marketing/SystemStrip";
 import SectionDivider from "@/components/marketing/SectionDivider";
 import {usePageSound} from "@/hooks/useSound";
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function LandingPage() {
     const { enabled } = usePageSound();
@@ -30,12 +40,20 @@ export default function LandingPage() {
             </div>
 
             {/* NAV */}
-            <header className="relative z-30 flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
-                <Link href="/" className="flex items-center gap-2 group">
-          <span className="inline-grid h-8 w-8 place-items-center rounded-md bg-gradient-to-br from-amber-400/70 to-cyan-400/70 shadow-lg shadow-cyan-500/10 group-hover:scale-105 transition">
-            <Waves className="h-4 w-4" />
+            <header className="relative z-30 mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
+                <Link href="/" className="group relative block h-18 w-44 overflow-hidden rounded-lg sm:h-20 sm:w-52" aria-label="Eldoryon — página inicial">
+                    <Image
+                        src="/logo/logo (3).png"
+                        alt="Eldoryon"
+                        width={640}
+                        height={360}
+                        priority
+                        className="h-full w-full scale-[1.04] object-cover object-center transition duration-500 group-hover:scale-[1.08]"
+                    />
+          <span className="sr-only">
+            Eldoryon
           </span>
-                    <span className="font-semibold tracking-tight">Eldoryon — Guia Mítico</span>
+                    <span className="sr-only">Guia Mítico</span>
                 </Link>
                 <nav className="hidden md:flex items-center gap-2">
                     <Link href="/login">
@@ -46,20 +64,11 @@ export default function LandingPage() {
                             Entrar
                         </Button>
                     </Link>
-                    <Link href="/app">
+                    <Link href="/register?role=PLAYER">
                         <Button
                             data-sfx="hover"
                             className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold focus-visible:ring-2 focus-visible:ring-amber-300">
-                            Acessar o Éter
-                        </Button>
-                    </Link>
-                    <Link href="/register">
-                        <Button
-                            data-sfx="hover"
-
-                            className="bg-amber-300 text-black font-semibold hover:bg-amber-200 focus-visible:ring-2 focus-visible:ring-amber-300"
-                        >
-                            Criar conta
+                            Começar a jornada
                         </Button>
                     </Link>
                     <div
@@ -70,6 +79,33 @@ export default function LandingPage() {
                         <EtherealAudioToggle/>
                     </div>
                 </nav>
+                <div className="flex items-center gap-1 md:hidden">
+                    <EtherealAudioToggle />
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button variant="ghost" size="icon" className="text-white hover:text-cyan-200" aria-label="Abrir menu">
+                                <Menu className="size-5" />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent className="border-cyan-300/20 bg-[#07131b] text-white">
+                            <SheetHeader>
+                                <SheetTitle className="text-white">Portal de Eldoryon</SheetTitle>
+                                <SheetDescription className="text-white/65">Escolha como deseja entrar no Cântico.</SheetDescription>
+                            </SheetHeader>
+                            <div className="grid gap-3 px-4">
+                                <SheetClose asChild>
+                                    <Link href="/login"><Button variant="outline" className="w-full border-white/20 bg-white/[.03] text-white hover:bg-white/10">Entrar</Button></Link>
+                                </SheetClose>
+                                <SheetClose asChild>
+                                    <Link href="/register?role=PLAYER"><Button className="w-full bg-cyan-400 text-black hover:bg-cyan-300">Começar como jogador</Button></Link>
+                                </SheetClose>
+                                <SheetClose asChild>
+                                    <Link href="#jornada" className="py-2 text-center text-sm text-amber-200">Conhecer os caminhos</Link>
+                                </SheetClose>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </header>
 
             {/* HERO – Obelisco + Éter Vivo */}
@@ -83,7 +119,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Título mítico (mantido) */}
-                    <h1 className="mx-auto max-w-3xl text-balance text-4xl font-bold tracking-tight md:text-6xl">
+                    <h1 className="mx-auto max-w-3xl text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                         Desperte o <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-cyan-300 to-fuchsia-300">Cântico da Criação</span>
                     </h1>
 
@@ -94,33 +130,24 @@ export default function LandingPage() {
                     </p>
 
                     {/* CTAs com função distinta */}
-                    <div className="mt-6 flex items-center justify-center gap-3">
-                        <Link href="/app">
+                    <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                        <Link href="/register?role=PLAYER">
                             <Button
                                 size="lg"
                                 className="bg-cyan-500 text-black hover:bg-cyan-400 hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(34,211,238,0.6)] transition duration-500"
                                 data-sfx="hover"
                             >
-                                Entrar no Sistema
+                                Começar minha jornada
                             </Button>
                         </Link>
-                        <Link href="/how-to-play">
+                        <Link href="/login">
                             <Button
                                 size="lg"
                                 variant="outline"
                                 className="border-white/30 text-white hover:border-amber-300 hover:scale-[1.02] transition duration-500"
                                 data-sfx="hover"
                             >
-                                Como Jogar
-                            </Button>
-                        </Link>
-                        <Link href="/register">
-                            <Button
-                                size="lg"
-                                className="bg-amber-300 text-black hover:bg-amber-200 hover:scale-[1.02] transition duration-500"
-                                data-sfx="hover"
-                            >
-                                Criar conta agora
+                                Já tenho uma conta
                             </Button>
                         </Link>
 
@@ -131,27 +158,27 @@ export default function LandingPage() {
                         initial={{ opacity: 0, scale: 0.96 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="pointer-events-none relative mx-auto mt-10 h-40 w-full max-w-3xl"
+                        className="pointer-events-none relative mx-auto mt-7 h-24 w-full max-w-3xl sm:h-28"
                         aria-hidden
                     >
                         <div className="absolute inset-0 z-0 rounded-3xl border border-white/10 bg-white/[.02] backdrop-blur-sm" />
                         <div className="absolute -left-10 top-4 z-0 h-28 w-28 rounded-full bg-amber-300/25 blur-2xl" />
                         <div className="absolute right-0 top-8 z-0 h-24 w-24 rounded-full bg-cyan-400/25 blur-2xl" />
                         <div className="absolute inset-0 z-10 flex items-center justify-center">
-                            <div className="relative h-28 w-28">
+                                <div className="relative h-20 w-20 sm:h-24 sm:w-24">
                                 <div className="absolute inset-0 rounded-full border border-white/10" />
                                 <div className="absolute inset-0 animate-spin-slow">
-                                    <img src="/rune-ring.svg" alt="" className="h-28 w-28 opacity-55 invert" />
+                                    <img src="/rune-ring.svg" alt="" className="h-20 w-20 opacity-55 invert sm:h-24 sm:w-24" />
                                 </div>
                             </div>
                         </div>
                         <div className="absolute inset-0 z-20 flex items-center justify-center">
-                            <img src="/d20.svg" alt="" className="h-16 w-16 opacity-95 invert drop-shadow" />
+                            <img src="/d20.svg" alt="" className="h-12 w-12 opacity-95 invert drop-shadow sm:h-14 sm:w-14" />
                         </div>
                     </motion.div>
 
                     {/* dica de scroll (UX) */}
-                    <div className="mt-8 mb-12 text-xs text-white/60">Role para descobrir seu papel ↓</div>
+                    <div className="mb-6 mt-6 text-xs text-white/60">Role para escolher seu papel no Cântico ↓</div>
                 </section>
             </HeroObelisk>
             <SectionDivider variant="wave" invert />   {/* Hero → Desperte */}
@@ -171,7 +198,8 @@ export default function LandingPage() {
 
             {/* FOOTER */}
             <footer className="relative z-20 border-t border-white/10 px-6 py-8 text-center text-xs text-white/60">
-                © {new Date().getFullYear()} Eldoryon — Guia Mítico
+                <p>© {new Date().getFullYear()} Eldoryon — Guia Mítico</p>
+                <p className="mt-2 text-white/45">Desenvolvido por Marco Tullio França</p>
             </footer>
         </main>
     );

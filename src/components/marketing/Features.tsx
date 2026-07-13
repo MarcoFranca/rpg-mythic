@@ -115,7 +115,7 @@ export default function Features() {
             {/* CTA secundário da seção */}
             <div className="mt-6 flex justify-center">
                 <a
-                    href="/features"
+                    href="/items"
                     className="rounded-lg border border-white/10 bg-white/[.02] px-4 py-2 text-sm text-white/80 outline-none transition hover:border-cyan-300/40 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-400"
                     aria-label="Ver todas as funcionalidades"
                 >

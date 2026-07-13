@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useTransition, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,7 +28,6 @@ function SubmitBtn({ children }: { children: React.ReactNode }) {
 }
 
 export default function LoginCard() {
-    const router = useRouter();
     const { enabled, play } = usePageSound();
     const [pendingOAuth, start] = useTransition();
     const [state, formAction] = useActionState<ActionState, FormData>(signInWithPassword, { ok: true });
@@ -122,8 +121,8 @@ export default function LoginCard() {
                 </div>
 
                 <div className="mt-2 flex items-center justify-between text-xs text-white/70">
-                    <a href="/forgot" className="hover:underline">Esqueci minha senha</a>
-                    <a href="/register" className="hover:underline">Criar conta</a>
+                    <span className="text-white/45">Recuperação de senha em breve</span>
+                    <Link href="/register" className="hover:text-cyan-200 hover:underline">Criar conta</Link>
                 </div>
 
                 <div className="mt-4 grid gap-3">

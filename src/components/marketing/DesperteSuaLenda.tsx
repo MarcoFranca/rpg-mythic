@@ -50,7 +50,7 @@ const roles: Role[] = [
 
 export default function DesperteSuaLenda() {
     return (
-        <section className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <section id="jornada" className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
             {/* selo superior: RPG de mesa */}
             <div className="mb-6 flex items-center justify-center gap-2 text-xs text-white/70">
                 <Dice6 className="h-4 w-4" />
@@ -125,16 +125,16 @@ export default function DesperteSuaLenda() {
 
             {/* faixa CTA secundária */}
             <div className="mt-8 grid gap-3 md:grid-cols-2">
-                <Link href="/how-to-play" className="group">
+                <Link href="#sistema" className="group">
                     <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[.02] px-4 py-3 transition hover:border-amber-300/40">
                         <div className="flex items-center gap-2 text-sm">
                             <Users className="h-4 w-4" />
-                            <span>Como jogar: passo a passo para sua primeira mesa</span>
+                            <span>Conheça os fundamentos antes da primeira mesa</span>
                         </div>
                         <span className="text-xs text-white/60 group-hover:text-white/80">Abrir →</span>
                     </div>
                 </Link>
-                <Link href="/srd" className="group">
+                <Link href="/spells" className="group">
                     <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[.02] px-4 py-3 transition hover:border-cyan-300/40">
                         <div className="flex items-center gap-2 text-sm">
                             <BookOpen className="h-4 w-4" />

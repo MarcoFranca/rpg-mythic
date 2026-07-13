@@ -6,6 +6,7 @@ import { BookOpen, Sparkles } from "lucide-react";
 export default function Lore() {
     return (
         <section
+            id="lore"
             className="relative mx-auto max-w-6xl px-6 py-16 md:py-20"
             aria-labelledby="lore-heading"
         >
@@ -59,7 +60,7 @@ export default function Lore() {
                     {/* CTAs */}
                     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                         <Link
-                            href="/elyra"
+                            href="#jornada"
                             className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[.02] px-4 py-2 text-sm text-white/85 transition hover:border-amber-300/40 hover:text-white focus-visible:ring-2 focus-visible:ring-amber-300"
                             aria-label="Abrir o Livro de Elyra"
                         >
@@ -67,7 +68,7 @@ export default function Lore() {
                             Livro de Elyra (teologia & eras)
                         </Link>
                         <Link
-                            href="/lore"
+                            href="#sistema"
                             className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[.02] px-4 py-2 text-sm text-white/85 transition hover:border-cyan-300/40 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-400"
                             aria-label="Abrir o Guia Mítico"
                         >
