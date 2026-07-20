@@ -51,6 +51,8 @@ function Button({
   return (
     <Comp
       data-slot="button"
+      data-sfx-hover="true"
+      data-sfx-click="true"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />

@@ -58,7 +58,7 @@ export const ClassDetailVMZ = z.object({
         savingThrows: z.array(AbilityKey).length(2).or(z.array(AbilityKey).min(1)), // tolera seeds com 1 por enquanto
         skillsChoices: SkillsChoicesZ,
     }),
-    features: z.array(z.any()).default([]),     // mantemos flexível
+    features: z.array(z.unknown()).default([]), // mantemos flexível
     spellData: z.object({
         progression: z.string().optional(),       // "full" | "half" | "pact" | ...
         focus: z.string().optional(),             // "arcano" | "divino" | "híbrido"

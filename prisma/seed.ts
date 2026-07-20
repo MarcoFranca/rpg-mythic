@@ -56,6 +56,7 @@ type ClassIn = {
     featuresByLevel?: unknown; // novo
     features?: unknown; // legado (fallback)
     subclasses?: SubclassIn[];
+    replaceSubclasses?: boolean;
 };
 
 /* ----------------- utils de síntese ----------------- */
@@ -320,9 +321,17 @@ async function upsertAllLoresFromDir() {
 /* ----------------- orquestração ----------------- */
 
 async function seedClassesAndSubclasses() {
-    const classes = load<ClassIn[]>("classes.json");
+    const classes = [
+        ...load<ClassIn[]>("classes.json"),
+        ...load<ClassIn[]>("canonical-voices.json"),
+        ...load<ClassIn[]>("arauto-elyra-alpha.json"),
+        ...load<ClassIn[]>("guardiao-artheon-alpha.json"),
+    ];
     for (const c of classes) {
         await upsertClass(c);
+        if (c.replaceSubclasses) {
+            await prisma.subclass.deleteMany({ where: { classId: c.id } });
+        }
         for (const s of c.subclasses ?? []) {
             await upsertSubclass(c.id, s);
         }

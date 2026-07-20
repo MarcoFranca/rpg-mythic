@@ -16,18 +16,22 @@ import { CONCEPT_CHIPS } from "@/lib/identity/conceptCatalog";
 export type IdentityData = {
     name: string;
     concept?: string;
-    pronoun?: "ele" | "ela" | "elu" | "";
+    epithet?: string;
+    tone?: "aurora" | "crepusculo" | "tempestade" | "brasa" | "abismo" | "";
+    pronoun?: "ele" | "ela" | "";
 };
 
 type Props = {
     value: IdentityData | null;
     onChange?: (val: IdentityData) => void;
     onContinue?: () => void;
+    onAutosave?: (value: IdentityData) => Promise<void>;
+    isSaving?: boolean;
     checkNameAvailability?: (name: string) => Promise<{ available: boolean }>;
     allowDuplicateNames?: boolean; // default true
 };
 
-const DEFAULT_IDENTITY: IdentityData = { name: "", concept: "", pronoun: "" };
+const DEFAULT_IDENTITY: IdentityData = { name: "", concept: "", epithet: "", tone: "", pronoun: "" };
 const NAME_MIN = 2;
 const NAME_MAX = 40;
 const CONCEPT_MAX = 90;
@@ -44,6 +48,8 @@ export default function IdentityChapter({
                                             value,
                                             onChange,
                                             onContinue,
+                                            onAutosave,
+                                            isSaving = false,
                                             checkNameAvailability,
                                             allowDuplicateNames = true,
                                         }: Props) {
@@ -109,11 +115,17 @@ export default function IdentityChapter({
 
     const canContinue = nameOk && conceptOk && !mustBlockForDuplicate;
 
+    React.useEffect(() => {
+        if (!onAutosave || !nameOk || !conceptOk) return;
+        const timer = window.setTimeout(() => { void onAutosave(form); }, 700);
+        return () => window.clearTimeout(timer);
+    }, [conceptOk, form, nameOk, onAutosave]);
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-xl font-semibold">Identidade</h2>
+                    <h2 className="text-xl font-semibold">O despertar do teu Eco</h2>
                     <p className="text-sm text-white/70">
                         Comece pelo nome e conceito — eles afinam sua fantasia antes de escolher a Classe.
                     </p>
@@ -135,7 +147,7 @@ export default function IdentityChapter({
 
             {/* Nome */}
             <div className="space-y-2">
-                <label className="text-xs text-white/60">Nome</label>
+                <label className="text-xs text-white/60">Nome que o Cântico chama</label>
                 <div className="flex gap-2">
                     <Input
                         value={form.name}
@@ -235,22 +247,33 @@ export default function IdentityChapter({
 
             <Separator className="bg-white/10" />
 
-            {/* Conceito */}
+            {/* Epíteto e juramento */}
             <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                    <label className="text-xs text-white/60">Conceito (opcional)</label>
+                    <label className="text-xs text-white/60">Epíteto (opcional)</label>
                     <span className="text-[10px] text-white/40">
-            {(form.concept ?? "").length}/{CONCEPT_MAX}
+            {(form.epithet ?? "").length}/60
           </span>
                 </div>
                 <Input
-                    value={form.concept ?? ""}
-                    onChange={(e) => setForm((p) => ({ ...p, concept: e.target.value.slice(0, CONCEPT_MAX) }))}
-                    placeholder="Ex.: Guardião relutante marcado pelo Éter"
+                    value={form.epithet ?? ""}
+                    onChange={(e) => setForm((p) => ({ ...p, epithet: e.target.value.slice(0, 60) }))}
+                    placeholder="Ex.: A Voz do Crepúsculo"
                 />
+                <div className="mt-4 space-y-2">
+                    <div className="flex items-center justify-between">
+                        <label className="text-xs text-white/60">Juramento do Eco (opcional)</label>
+                        <span className="text-[10px] text-white/40">{(form.concept ?? "").length}/{CONCEPT_MAX}</span>
+                    </div>
+                    <Input
+                        value={form.concept ?? ""}
+                        onChange={(e) => setForm((p) => ({ ...p, concept: e.target.value.slice(0, CONCEPT_MAX) }))}
+                        placeholder="Ex.: Guardião relutante marcado pelo Éter"
+                    />
+                </div>
                 <Accordion type="single" collapsible className="mt-1">
                     <AccordionItem value="conceito-dicas">
-                        <AccordionTrigger className="text-sm">Como escrever um bom conceito?</AccordionTrigger>
+                        <AccordionTrigger className="text-sm">Como escrever um bom juramento?</AccordionTrigger>
                         <AccordionContent className="space-y-2 text-sm text-white/70">
                             <p>
                                 Um conceito forte cabe em uma frase e revela <em>tensão</em>: quem você é + o que te move + qual
@@ -285,6 +308,36 @@ export default function IdentityChapter({
                 </Accordion>
             </div>
 
+            <div className="space-y-3">
+                <div>
+                    <label className="text-xs text-white/60">Tom do Eco</label>
+                    <p className="mt-1 text-xs text-white/45">Uma assinatura visual para tua ficha. Não altera regras.</p>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+                    {([
+                        ["aurora", "Aurora", "from-cyan-300/40 to-emerald-300/10"],
+                        ["crepusculo", "Crepúsculo", "from-violet-400/40 to-fuchsia-400/10"],
+                        ["tempestade", "Tempestade", "from-sky-400/40 to-slate-300/10"],
+                        ["brasa", "Brasa", "from-amber-300/40 to-rose-400/10"],
+                        ["abismo", "Abismo", "from-indigo-500/45 to-slate-950/20"],
+                    ] as const).map(([tone, label, accent]) => {
+                        const selected = form.tone === tone;
+                        return (
+                            <button
+                                key={tone}
+                                type="button"
+                                data-sfx-click="cardSelect"
+                                onClick={() => setForm((p) => ({ ...p, tone }))}
+                                aria-pressed={selected}
+                                className={`rounded-xl border bg-gradient-to-br ${accent} px-3 py-3 text-left text-xs transition ${selected ? "border-white/65 ring-1 ring-white/40" : "border-white/10 hover:border-white/30"}`}
+                            >
+                                {label}
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+
             {/* Pronome */}
             <div className="space-y-2">
                 <label className="text-xs text-white/60">Pronome (opcional)</label>
@@ -293,10 +346,10 @@ export default function IdentityChapter({
                     onValueChange={(v) => setForm((p) => ({ ...p, pronoun: v as IdentityData["pronoun"] }))}
                     className="flex gap-4"
                 >
-                    {(["ele", "ela", "elu", ""] as const).map((val) => (
+                    {(["ele", "ela", ""] as const).map((val) => (
                         <div key={val || "nenhum"} className="flex items-center space-x-2">
                             <RadioGroupItem id={`pron-${val || "none"}`} value={val} />
-                            <Label htmlFor={`pron-${val || "none"}`}>{val || "não dizer"}</Label>
+                            <Label htmlFor={`pron-${val || "none"}`}>{val || "manter em mistério"}</Label>
                         </div>
                     ))}
                 </RadioGroup>
@@ -305,7 +358,7 @@ export default function IdentityChapter({
             {/* Footer */}
             <div className="flex items-center justify-between pt-2">
                 <div className="text-xs text-white/50">
-                    {canContinue ? "Tudo pronto para seguir." : "Preencha um nome válido para avançar."}
+                    {isSaving ? "O Éter está guardando este fragmento..." : canContinue ? "O Éter guardará cada escolha enquanto você cria." : "Preencha um nome válido para avançar."}
                 </div>
                 <Button onClick={onContinue} disabled={!canContinue}>
                     Continuar para Classe

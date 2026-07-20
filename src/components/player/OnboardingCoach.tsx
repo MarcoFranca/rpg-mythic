@@ -6,7 +6,6 @@ import { CheckCircle2, CircleDashed, Sparkles, Wand2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { glassClass } from "@/components/system/Glass";
 import { useEter } from "@/lib/eter/state";
-import { useAudio } from "@/app/providers/audio-provider";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import EtherealParticles from "@/components/system/EtherealParticles";
@@ -34,7 +33,6 @@ export default function OnboardingCoach({
                                             primaryCharacterId,
                                         }: Props) {
     const { idg, theme } = useEter();
-    const { playSfx: play } = useAudio();
 
     const characterCtaHref = hasCharacter
         ? primaryCharacterId
@@ -68,8 +66,8 @@ export default function OnboardingCoach({
             done: campaignCount > 0,
             cta:
                 campaignCount > 0
-                    ? { label: "Minhas Campanhas", href: "/app/campaigns/mine" }
-                    : { label: "Encontrar campanha", href: "/app/campaigns" },
+                    ? { label: "Ver mesas", href: "/tables" }
+                    : { label: "Encontrar uma mesa", href: "/tables" },
         },
     ];
 
@@ -125,7 +123,7 @@ export default function OnboardingCoach({
                             : "Cruzar o primeiro Véu"}
                     </div>
                     <div className="text-xs opacity-80">
-                        IDG atual: {idg} • Progresso inicial: {progress}%
+                        Sintonia do Éter: {idg} • Rito inicial: {progress}%
                     </div>
                 </div>
 
@@ -174,31 +172,15 @@ export default function OnboardingCoach({
                             <Button
                                 asChild
                                 className="rounded-lg"
-                                onMouseEnter={() => play("hover")}
-                                onClick={() => play("success")}
                             >
                                 <Link href={s.cta.href}>{s.cta.label}</Link>
                             </Button>
-
-                            {s.id === "campaign" && !s.done && (
-                                <Button
-                                    asChild
-                                    variant="secondary"
-                                    className="rounded-lg"
-                                    onMouseEnter={() => play("hover")}
-                                    onClick={() => play("success")}
-                                >
-                                    <Link href="/app/calls/new">Criar chamado</Link>
-                                </Button>
-                            )}
 
                             {s.id === "character" && hasCharacter && (
                                 <Button
                                     asChild
                                     variant="secondary"
                                     className="rounded-lg"
-                                    onMouseEnter={() => play("hover")}
-                                    onClick={() => play("success")}
                                 >
                                     <Link href="/app/characters/new">Criar outro</Link>
                                 </Button>

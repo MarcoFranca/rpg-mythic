@@ -14,6 +14,7 @@ import { SheetFrame } from "@/components/character/SheetFrame";
 import { Dice6, HeartHandshake, Layers, Shield, Sparkles, Swords } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { api } from "@/trpc/react";
+import { CLASS_ART } from "@/components/character/registry/classArt";
 
 import { Section, InfoBlock, EmptyText, SkeletonLine, SkeletonBullets } from "./ui/Primitives";
 import { LoreVM, normalizeLore } from "./lore/lore-vm";
@@ -32,6 +33,26 @@ type Props = {
 
     onConfirm: (classId: string, subclassId?: string) => void;
 };
+
+type FeatureEntry = { name: string; text?: string };
+type FeatureLevel = { level: number; features: FeatureEntry[] };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function parseFeatureLevels(value: unknown): FeatureLevel[] {
+    if (!Array.isArray(value)) return [];
+
+    return value.flatMap((levelEntry) => {
+        if (!isRecord(levelEntry) || typeof levelEntry.level !== "number" || !Array.isArray(levelEntry.features)) return [];
+        const features = levelEntry.features.flatMap((feature) => {
+            if (!isRecord(feature) || typeof feature.name !== "string") return [];
+            return [{ name: feature.name, text: typeof feature.text === "string" ? feature.text : undefined }];
+        });
+        return features.length ? [{ level: levelEntry.level, features }] : [];
+    });
+}
 
 function RoleIcon({ role }: { role?: string | null }) {
     if (!role) return null;
@@ -58,6 +79,12 @@ export default function ClassDetailsSheet({
         () => normalizeLore(loreRaw, selected?.assets?.image),
         [loreRaw, selected?.assets?.image]
     );
+
+    const voice = useMemo(() => {
+        const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+        return selected ? CLASS_ART.find((item) => normalize(item.title) === normalize(selected.name)) : undefined;
+    }, [selected]);
+    const featureLevels = useMemo(() => parseFeatureLevels(full?.clazz.features), [full?.clazz.features]);
 
     useEffect(() => { setPickedSubclass(initialSubclassId ?? null); }, [initialSubclassId, open]);
     useEffect(() => { setPickedSubclass(null); }, [selected?.id]);
@@ -103,8 +130,8 @@ export default function ClassDetailsSheet({
                 {selected?.assets?.image && (
                     <div className="relative w-full overflow-hidden rounded-xl border border-white/10">
                         {/* Mantém a solução com ratio, sem duplicar código (sem overlay aqui para limpar) */}
-                        <div className="relative aspect-[16/9] sm:aspect-[21/9]">
-                            <img src={selected.assets.image} alt="" className="absolute inset-0 h-full w-full object-cover rounded-xl" />
+                        <div className="relative aspect-[16/10] bg-black/25">
+                            <img src={selected.assets.image} alt="" className="absolute inset-0 h-full w-full rounded-xl object-contain" />
                         </div>
                     </div>
                 )}
@@ -152,7 +179,24 @@ export default function ClassDetailsSheet({
                                         </TabsList>
 
                                         <TabsContent value="sobre" className="pt-3">
-                                            <Section title="Você aprenderá a…">
+                                            {voice && (
+                                                <Section title="Cântico da Voz">
+                                                    <div className="grid gap-3 sm:grid-cols-2">
+                                                        <InfoBlock label="Ordem de origem" value={voice.profile.originOrder ?? "Ainda será revelada nas Crônicas."} />
+                                                        <InfoBlock label="Virtude central" value={voice.profile.virtue} />
+                                                        <InfoBlock label="Tentação" value={voice.profile.temptation ?? "Ainda será revelada nas Crônicas."} />
+                                                        <InfoBlock label="Função no grupo" value={voice.profile.partyFunction} />
+                                                        <InfoBlock label="Fonte de poder" value={voice.profile.powerSource} />
+                                                        <InfoBlock label="Juramento" value={voice.profile.oath ?? "Ainda será revelado nas Crônicas."} />
+                                                    </div>
+                                                    {voice.profile.rulesStatus && (
+                                                        <p className="mt-3 text-xs leading-5 text-amber-100/70">
+                                                            {voice.profile.rulesStatus}. A implementação respeita este estágio de validação.
+                                                        </p>
+                                                    )}
+                                                </Section>
+                                            )}
+                                            <Section title={voice ? "Eixos da Voz" : "Você aprenderá a…"}>
                                                 {loadingFull ? (
                                                     <SkeletonBullets count={3} />
                                                 ) : selected?.featuresPreview?.length ? (
@@ -175,6 +219,25 @@ export default function ClassDetailsSheet({
                                                 <InfoBlock label="Armas" value={fmt(selected?.weaponProficiencies)} />
                                                 <InfoBlock label="Magia" value={selected?.spellcasting ?? "—"} />
                                             </div>
+                                            {featureLevels.length > 0 && (
+                                                <Section title="Progressão da Voz">
+                                                    <div className="space-y-3">
+                                                        {featureLevels.map((entry) => (
+                                                            <div key={entry.level} className="rounded-lg border border-white/10 p-3">
+                                                                <p className="text-xs font-semibold uppercase tracking-wider text-amber-100/80">Nível {entry.level}</p>
+                                                                <ul className="mt-2 space-y-2 text-sm text-white/80">
+                                                                    {entry.features.map((feature) => (
+                                                                        <li key={feature.name}>
+                                                                            <span className="font-medium text-white">{feature.name}</span>
+                                                                            {feature.text ? <span className="text-white/65"> — {feature.text}</span> : null}
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </Section>
+                                            )}
                                         </TabsContent>
 
                                         <TabsContent value="proscons" className="pt-3">
@@ -265,7 +328,7 @@ export default function ClassDetailsSheet({
                                                     </>
                                                 ))}
                                             <p className="mt-2 text-xs text-white/50">
-                                                Dica: a maioria das classes escolhe subclasse no <strong>nível 3</strong>. Você pode pré-selecionar agora.
+                                                Caminhos são revelados no <strong>nível 3</strong>. Aqui você pode conhecê-los antes de iniciar a jornada.
                                             </p>
                                         </TabsContent>
                                     </Tabs>
@@ -281,7 +344,7 @@ export default function ClassDetailsSheet({
                         <div className="flex items-center gap-2">
                             <SheetClose asChild><Button variant="ghost">Fechar</Button></SheetClose>
                             {selected && (
-                                <Button onClick={() => { onConfirm(selected.id, pickedSubclass ?? undefined); onOpenChange(false); }}>
+                                <Button onClick={() => { onConfirm(selected.id); onOpenChange(false); }}>
                                     Selecionar {selected.name}
                                 </Button>
                             )}

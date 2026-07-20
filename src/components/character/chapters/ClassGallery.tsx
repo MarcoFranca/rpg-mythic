@@ -12,10 +12,12 @@ type Props = {
     onSelect: (cls: ClassSummaryT) => void;
 };
 
+const AVAILABLE_ART = new Set(CLASS_ART.map((voice) => voice.image));
+
 export default function ClassGallery({ selectedClassId, onSelect }: Props) {
     const [focusIdx, setFocusIdx] = useState<number>(0);
     const { data, isLoading } = api.classCatalog.listSummaries.useQuery({}); // <- router correto
-    const classes: ClassSummaryT[] = data ?? [];
+    const classes = useMemo<ClassSummaryT[]>(() => data ?? [], [data]);
 
     const models: Array<{ meta: ClassTheme | null; cls: ClassSummaryT }> = useMemo(() => {
         const norm = (s: string) =>
@@ -27,6 +29,10 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
                 CLASS_ART.find((c) => norm(c.title) === nameKey) ??
                 null;
             return { meta, cls };
+        }).sort((left, right) => {
+            const leftIndex = left.meta ? CLASS_ART.indexOf(left.meta) : Number.MAX_SAFE_INTEGER;
+            const rightIndex = right.meta ? CLASS_ART.indexOf(right.meta) : Number.MAX_SAFE_INTEGER;
+            return leftIndex - rightIndex || left.cls.name.localeCompare(right.cls.name, "pt-BR");
         });
     }, [classes]);
 
@@ -55,7 +61,7 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
     if (isLoading) {
         return (
             <div className="grid gap-3 md:grid-cols-4 sm:grid-cols-2">
-                {Array.from({ length: 8 }).map((_, i) => (
+                {Array.from({ length: 12 }).map((_, i) => (
                     <div key={i} className="aspect-[3/4] animate-pulse rounded-2xl bg-white/5" />
                 ))}
             </div>
@@ -77,12 +83,16 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
             className="grid gap-4 outline-none md:grid-cols-4 sm:grid-cols-2"
             aria-label="Seleção de Classe por galeria"
         >
+            <div className="col-span-full">
+                <p className="text-xs font-medium uppercase tracking-[0.22em] text-amber-100/60">Vozes jogáveis</p>
+                <p className="mt-1 text-sm text-white/55">As Doze Vozes já existem na era do RPG. Algumas ainda receberão sua progressão mecânica completa.</p>
+            </div>
             {models.map(({ meta, cls }, idx) => {
                 const sel = cls.id === selectedClassId;
-                const img =
+                const candidateImage =
                     cls.assets?.image ??
-                    meta?.image ??
-                    "/classes/_placeholder.jpg"; // garanta esse arquivo na pasta /public/classes
+                    meta?.image;
+                const img = candidateImage && AVAILABLE_ART.has(candidateImage) ? candidateImage : undefined;
                 const accentFrom = cls.assets?.accentFrom ?? meta?.accentFrom;
                 const accentTo   = cls.assets?.accentTo   ?? meta?.accentTo;
                 return (
@@ -95,6 +105,7 @@ export default function ClassGallery({ selectedClassId, onSelect }: Props) {
                         spellcasting={cls.spellcasting}
                         accentFrom={accentFrom}
                         accentTo={accentTo}
+                        status={meta?.profile.rulesStatus}
                         onClick={() => onSelect(cls)}
                     />
                 );

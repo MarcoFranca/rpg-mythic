@@ -3,9 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useTransition } from "react";
-import { LogOut, Settings, Loader2 } from "lucide-react";
-import { signOut } from "@/app/(auth)/logout/actions";
+import { useState } from "react";
 import SigilBadge from "@/components/system/SigilBadge";
 import SigilPopover from "@/components/system/SigilPopover";
 import { useSigils } from "@/lib/sigils/hooks";
@@ -18,7 +16,6 @@ export function SystemHeader(props: {
     image: string | null;
     role: Role;
 }) {
-    const [pending, start] = useTransition();
     const [open, setOpen] = useState(false);
     const { sigils, isLoading } = useSigils();
 
@@ -34,7 +31,11 @@ export function SystemHeader(props: {
     return (
         <div className="flex items-center justify-between gap-4">
             {/* Esquerda: avatar + identidade */}
-            <div className="flex items-center gap-4">
+            <Link
+                href="/app"
+                aria-label="Voltar para a Câmara do Despertar"
+                className="group flex items-center gap-4 rounded-2xl outline-none transition hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+            >
                 <div className="relative h-12 w-12 overflow-hidden rounded-full border border-white/10 bg-white/10">
                     {props.image ? (
                         <Image alt={props.name} src={props.image} fill className="object-cover" />
@@ -44,7 +45,8 @@ export function SystemHeader(props: {
                         </div>
                     )}
                 </div>
-                <div>
+                <div className="pr-2">
+                    <div className="text-[10px] uppercase tracking-[0.22em] text-cyan-100/45">Câmara do Cântico</div>
                     <div className="text-white/90 text-sm">
                         {props.role === "GM"
                             ? `Mestre ${props.name}`
@@ -54,7 +56,7 @@ export function SystemHeader(props: {
                     </div>
                     <div className="text-xs text-white/60">{props.email}</div>
                 </div>
-            </div>
+            </Link>
 
             {/* Direita: ações */}
             <div className="flex items-center gap-2">

@@ -74,7 +74,6 @@ export default function LoginCard() {
 
             <form
                 action={(fd) => {
-                    play("click");
                     formAction(fd);
                 }}
                 className="space-y-4"
@@ -134,7 +133,6 @@ export default function LoginCard() {
                             start(async () => {
                                 const res = await startOAuthGoogle();
                                 if (res.ok && res.url) {
-                                    play("click");
                                     window.location.href = res.url;
                                 } else {
                                     play("error");

@@ -23,7 +23,6 @@ import NeonAuraBorder from "@/components/system/NeonAuraBorder";
 import OuterAuraGlow from "@/components/system/OuterAuraGlow";
 import EtherealParticles from "@/components/system/EtherealParticles";
 import { useRouter } from "next/navigation";
-import { useAudio } from "@/app/providers/audio-provider";
 import { cn } from "@/lib/utils";
 
 type PanelId = "character" | "inventory" | "spells" | "campaigns" | null;
@@ -43,8 +42,6 @@ export default function PlayerHome({
 }) {
     const [panel, setPanel] = useState<PanelId>(null);
     const router = useRouter();
-    const { playSfx: play } = useAudio();
-
     const campaignCount = counts.myMemberships;
     const characterHref = hasCharacter
         ? primaryCharacterId
@@ -63,11 +60,11 @@ export default function PlayerHome({
             accent: "from-cyan-300/30 via-cyan-200/10 to-transparent",
         },
         {
-            title: campaignCount > 0 ? "Cruzar o Véu" : "Encontrar um Véu",
+            title: campaignCount > 0 ? "Ver as Mesas" : "Encontrar uma Mesa",
             copy: campaignCount > 0
                 ? "Há mesas aguardando teu retorno entre os mundos."
                 : "Busca uma campanha viva ou responde ao chamado de outro mestre.",
-            href: "/app/campaigns",
+            href: "/tables",
             icon: Compass,
             accent: "from-amber-300/30 via-amber-200/10 to-transparent",
         },
@@ -132,22 +129,22 @@ export default function PlayerHome({
         inventory: {
             title: "Inventário Mítico",
             text: "Aqui viverão relíquias, armamentos, catalisadores e tesouros colhidos nos Véus.",
-            href: "/app",
-            button: "Retornar ao núcleo",
+            href: "/items",
+            button: "Explorar itens",
         },
         spells: {
             title: "Grimório do Éter",
-            text: "As vibrações arcanas ainda pedem uma câmara própria, mas já podemos apontar o caminho.",
-            href: "/app",
-            button: "Retornar ao núcleo",
+            text: "Estuda as artes arcanas que podem moldar a tua próxima travessia.",
+            href: "/spells",
+            button: "Abrir grimório",
         },
         campaigns: {
             title: "Atravessar o Véu",
             text: campaignCount > 0
                 ? "Tuas campanhas aguardam teu retorno. Escolhe um Véu e cruza."
                 : "Nenhuma campanha pulsa ainda, mas os portais já podem ser buscados.",
-            href: "/app/campaigns",
-            button: campaignCount > 0 ? "Ir para campanhas" : "Encontrar campanha",
+            href: "/tables",
+            button: campaignCount > 0 ? "Ver mesas" : "Encontrar uma mesa",
         },
     };
 
@@ -157,7 +154,7 @@ export default function PlayerHome({
             return;
         }
         if (id === "campaigns" && !campaigns.length) {
-            router.push("/app/campaigns");
+            router.push("/tables");
             return;
         }
         setPanel(id);
@@ -203,8 +200,9 @@ export default function PlayerHome({
                                         : `${userName}, o Cântico ainda aguarda a forma do teu primeiro eco.`}
                                 </h1>
                                 <p className="max-w-2xl text-sm leading-6 text-white/72 md:text-base">
-                                    A home pública já convida para o mito. Aqui, tua câmara de jogador deve fazer o mesmo:
-                                    menos painel administrativo, mais sensação de ritual, jornada e presença no mundo.
+                                    {hasCharacter
+                                        ? "Tuas escolhas permanecem gravadas no Éter. Retoma teu caminho, prepara teu eco e atravessa o próximo Véu."
+                                        : "Antes de cruzar os Véus, dá voz, história e poder ao herói que caminhará por Eldoryon."}
                                 </p>
                             </div>
 
@@ -213,8 +211,7 @@ export default function PlayerHome({
                                     <Link
                                         key={title}
                                         href={href}
-                                        onMouseEnter={() => play("hover")}
-                                        onClick={() => play("success")}
+                                        data-sfx-click="cardSelect"
                                         className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-4 transition duration-300 hover:border-white/20 hover:bg-white/[0.07]"
                                     >
                                         <div className={cn("absolute inset-0 bg-gradient-to-br opacity-80 transition group-hover:opacity-100", accent)} />
@@ -294,10 +291,7 @@ export default function PlayerHome({
                                 text={text}
                                 button={button}
                                 icon={<Icon className="h-4 w-4" />}
-                                onAction={() => {
-                                    play("hover");
-                                    action();
-                                }}
+                                onAction={action}
                             />
                         ))}
                     </div>
@@ -327,7 +321,7 @@ export default function PlayerHome({
                             Núcleo do Cântico
                         </div>
 
-                        <div className="absolute right-6 top-6 max-w-[13rem] text-right text-xs leading-5 text-white/62">
+                        <div className="absolute right-6 top-6 hidden max-w-[13rem] text-right text-xs leading-5 text-white/62 lg:block">
                             Toca o prisma para abrir os caminhos do personagem, do inventário, das magias e das campanhas.
                         </div>
 
@@ -347,7 +341,7 @@ export default function PlayerHome({
                             />
 
                             <div className="max-w-md text-center text-sm leading-6 text-white/68">
-                                O prisma central é teu altar de acesso rápido. Ele deve soar como artefato do mundo, não como atalho comum.
+                                O prisma responde aos teus passos: consulta o que precisas e deixa o Éter guiar a próxima escolha.
                             </div>
                         </div>
                     </motion.div>
@@ -358,10 +352,7 @@ export default function PlayerHome({
                             text={rightRitual.text}
                             button={rightRitual.button}
                             icon={<RightRitualIcon className="h-4 w-4" />}
-                            onAction={() => {
-                                play("hover");
-                                rightRitual.action();
-                            }}
+                            onAction={rightRitual.action}
                         />
 
                         <div className={glassClass("relative overflow-hidden rounded-[24px] p-5")}>
@@ -377,7 +368,9 @@ export default function PlayerHome({
                                         : "Ainda reina silêncio. Isso é uma promessa, não um vazio."}
                                 </div>
                                 <p className="mt-2 text-sm leading-6 text-white/68">
-                                    Quando a home do jogador soa como uma câmara sagrada, a passagem entre marketing e produto deixa de quebrar a imersão.
+                                    {hasCharacter
+                                        ? "Teu eco já encontrou forma. Escolhe uma mesa quando estiver pronto para escrever o próximo capítulo."
+                                        : "O silêncio é o primeiro espaço da lenda. Cria teu personagem e faz o Cântico responder ao teu nome."}
                                 </p>
                             </div>
                         </div>
@@ -416,18 +409,17 @@ export default function PlayerHome({
                                     className="rounded-xl border border-white/10 bg-white/10 text-white hover:bg-white/15"
                                     onClick={() => setPanel(null)}
                                 >
-                                    Silenciar
+                                    Fechar câmara
                                 </Button>
                             </div>
 
                             <div className="relative z-10 mt-6 flex flex-wrap gap-3">
-                                <Button asChild className="rounded-xl" onMouseEnter={() => play("hover")}>
+                                <Button asChild className="rounded-xl">
                                     <Link href={panelMeta[panel].href}>{panelMeta[panel].button}</Link>
                                 </Button>
                                 <Button
                                     variant="outline"
                                     className="rounded-xl border-white/20 bg-transparent text-white hover:bg-white/10"
-                                    onMouseEnter={() => play("hover")}
                                     onClick={() => setPanel(null)}
                                 >
                                     Permanecer no salão

@@ -71,7 +71,7 @@ function SystemHomeInner({
         user.sigils >= (trackThreshold ?? Number.POSITIVE_INFINITY);
 
     return (
-        <main className="relative min-h-[100dvh] overflow-hidden bg-black text-white">
+        <main className="relative min-h-[100dvh] overflow-x-hidden bg-black text-white">
             {/*<EterSky*/}
             {/*    idg={idg}*/}
             {/*    video={{ src: "/videos/eclipse-azul.mp4", poster: "/videos/eclipse-azul-poster.png" }}*/}
@@ -144,7 +144,8 @@ function BackgroundAura({ idg }: { idg: number }) {
     return (
         <div className={`absolute inset-0 z-5 ${bgForIDG(idg)}`}>
             <div
-                className="absolute inset-0 mix-blend-screen opacity-16"
+                aria-hidden
+                className="pointer-events-none fixed inset-0 bg-repeat mix-blend-soft-light opacity-[0.24]"
                 style={{ backgroundImage: "url('/noise.png')" }}
             />
         </div>

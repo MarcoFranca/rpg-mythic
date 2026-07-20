@@ -6,7 +6,7 @@
   "tagline": "Quando o Éter vacila, a espada deve permanecer firme.",
   "readingTimeMin": 7,
   "display": {
-    "heroImage": "/classes/guardiao-artheon2.png",
+    "heroImage": "/classes/guardiao-artheon-v2.png",
     "palette": { "from": "#f59e0b", "to": "#38bdf8" },
     "icon": "lucide:shield"
   },

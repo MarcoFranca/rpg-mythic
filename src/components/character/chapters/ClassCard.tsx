@@ -6,17 +6,19 @@ import { Badge } from "@/components/ui/badge";
 
 type Props = {
     title: string;
-    image: string;
+    image?: string;
     selected?: boolean;
     role?: string | null;
     spellcasting?: string | null;
     accentFrom?: string; // "22c55e" (sem #)
     accentTo?: string;
+    status?: string;
+    disabled?: boolean;
     onClick?: () => void;
 };
 
 export default function ClassCard({
-                                      title, image, selected, role, spellcasting, accentFrom, accentTo, onClick,
+                                      title, image, selected, role, spellcasting, accentFrom, accentTo, status, disabled = false, onClick,
                                   }: Props) {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -40,22 +42,26 @@ export default function ClassCard({
             onMouseMove={handleMove}
             onMouseLeave={handleLeave}
             onClick={onClick}
+            disabled={disabled}
             style={{ rotateX: springRx, rotateY: springRy }}
             className={cn(
                 "group relative aspect-[3/4] w-full overflow-hidden rounded-2xl border bg-black/40 text-left outline-none",
                 "border-white/10 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-cyan-500",
-                selected && "border-cyan-400/60 shadow-[0_0_0_2px_rgba(34,211,238,0.25)]"
+                selected && "border-cyan-400/60 shadow-[0_0_0_2px_rgba(34,211,238,0.25)]",
+                disabled && "cursor-default opacity-75 grayscale-[0.12]"
             )}
             aria-pressed={selected}
         >
-            <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-                sizes="(max-width: 768px) 50vw, 25vw"
-                priority={false}
-            />
+            {image && (
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    priority={false}
+                />
+            )}
             {/* Gradiente temático */}
             <div
                 className="pointer-events-none absolute inset-0"
@@ -70,6 +76,7 @@ export default function ClassCard({
                 <div className="mb-2 flex gap-1">
                     {role && <Badge variant="outline">{role}</Badge>}
                     {spellcasting && <Badge variant="outline">{spellcasting}</Badge>}
+                    {status && <Badge variant="outline" className="border-amber-200/30 bg-amber-950/40 text-amber-100">{status}</Badge>}
                 </div>
                 <h3 className="text-lg font-semibold drop-shadow">{title}</h3>
             </div>

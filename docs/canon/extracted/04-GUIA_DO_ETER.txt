@@ -1,0 +1,2152 @@
+
+
+===== PAGINA 1 =====
+💠  GUIA DO ÉTER
+Design e Experiência Viva de Eldoryon
+“O Éter não se constrói. Ele se escuta.ˮ
+— Verso 12, Livro dos Ecos
+🜂  1. FUNDAMENTO
+Eldoryon é um mundo-sinfonia.
+Tudo o que é criado — código, texto, som, luz ou interface — deve vibrar com o Cântico.
+A experiência do jogador deve gerar ressonância emocional: uma sensação de que ele não 
+está apenas jogando, mas lembrando de algo que sempre soube.
+Palavras-chave de essência:
+Sagrado · Vivo · Poético · Sensorial · Introspectivo · Cósmico
+⚖  2. O EQUILÍBRIO DO DESIGN
+O design de Eldoryon se sustenta sobre o Equilíbrio Harmônico — união entre o tangível e o 
+espiritual.
+Aspecto Luz Elyra) Sombra Artheon / Sombrasangue)
+Forma Orgânica, fluida, etérea Angular, rúnica, geométrica
+Cor Dourado, azul, verde-éter Carmim, violeta, cinza profundo
+Som Vozes, sinos, vento Tambores, metais, ecos distorcidos
+Tipografia Leve, serifada, sagradaDensa, rúnica, cinzelada
+UI/UX Respirante, translúcida, viva Precisa, ritualística, marcada
+Animação Fluidez e sopro Pulso e impacto
+Cada tela, cada ícone e cada som devem conter ambos os ecos — nada é puramente luz ou 
+trevas.
+🌌  3. O CANTO VISUAL
+Interface não é um painel. É um templo.
+A UI deve parecer esculpida em Éter — viva, sussurrante, sempre em movimento sutil.
+🜸  Princípios visuais:
+ Luz viva: brilhos suaves e respiração de partículas.
+ Runas reativas: botões e bordas emitem pulsos quando interagidos.
+ Transparência sagrada: camadas translúcidas evocam véus etéreos.
+💠  GUIA DO ÉTER
+1
+
+===== PAGINA 2 =====
+ Silêncio visual: espaços negativos são respiração; não devem ser preenchidos.
+ Cores que contam: a paleta muda conforme o estado espiritual IDG.
+🎨  Paleta base (Éter em Harmonia)
+Cor Hex Significado
+Éter Azul #33CCCC Pureza, memória do Cântico
+Ouro Solar #E0B341 Fé e energia vital
+Violeta Dissonante #642F73 Sombrasangue, tentação
+Cinza do Véu #1E1B29 O silêncio do Criador
+Branco Elyrano #FAFAF5 Luz divina e revelação
+🔮  4. O CANTO SONORO
+O som é o sangue do Éter.
+Cada interação deve possuir alma sonora — respiração, nota ou vibração que ecoa.
+Elementos auditivos:
+Trilha dinâmico-espiritual: muda conforme o equilíbrio do jogador Fé vs Corrupção).
+UI musical: cada clique é um “acorde leveˮ, cada erro um “acorde dissonanteˮ.
+Ambiente vivo: vento, sinos, pulsos, coros distantes — sons que respiram.
+Ritual de entrada: o login é um cântico coral que responde à alma do jogador (voz grave 
+para mestres, aguda para Elyrianos).
+Escalas principais:
+Elyrianas: tons maiores, vozes femininas, harpas, cordas e sinos.
+Artheônicas: tons menores, metais, tambores, ecos e distorção leve.
+Sombrasangue: reverberações, pulsos invertidos, texturas de ruído.
+🕯  5. O CANTO NARRATIVO
+A história deve ser sentida antes de ser lida.
+Cada texto é parte da música, não apenas explicação.
+Linguagem viva:
+Escrita em versos curtos, como se fosse profecia.
+Evita tecnicismos diretos (“loginˮ, “XPˮ, “batalhaˮ).
+Prefere expressões espirituais:
+Entrar → “Atravessar o Véuˮ
+Nível → “Eco da Almaˮ
+💠  GUIA DO ÉTER
+2
+
+===== PAGINA 3 =====
+Magia → “Vibração do Éterˮ
+Morte → “Silêncio do Somˮ
+Estilo narrativo:
+Poético, simbólico e íntimo.
+O narrador fala como um eco antigo — uma voz que lembra.
+Cada NPC, interface e evento deve conter metáfora: uma dualidade de fé e esquecimento.
+🜸  6. O CANTO SENSORIAL (UX Divina)
+A experiência precisa causar imersão emocional total.
+Jogador e mundo devem parecer respirar juntos.
+Exemplos:
+Quando o jogador purifica um Obelisco → a interface brilha, o som se eleva, e o IDG global 
+diminui.
+Ao ser corrompido → ruídos invadem o som, cores se saturam, texto pulsa irregular.
+Cada escolha moral ecoa como vibração no Éter global (sistema persistente).
+Elementos de ressonância:
+Ritmo respiratório UI e sons seguem um ciclo lento de expansão e recolhimento.
+Haptics (toques e vibrações): para apps, o jogador sente o Éter reagir fisicamente.
+Luz sonora: certas interfaces emitem brilho proporcional ao som ambiente.
+🕊  7. O JOGADOR COMO PORTADOR DO CÂNTICO
+O jogador nunca é mero herói.
+Ele é um eco reencarnado, buscando lembrar sua nota perdida no Cântico Eterno.
+Cada classe, raça e trilha representa uma forma de cantar:
+Guardião do Éter Artheon) — mantém a chama da ordem.
+Filho do Vento Elyra) — canaliza o som da vida.
+Sombrasangue Caído) — manipula a dissonância e tenta reencontrar a harmonia.
+A vitória não é derrotar o mal — é harmonizar o silêncio.
+💠  8. O CANTO DO DESIGN TÉCNICO
+Para programadores e UI devs:
+💠  GUIA DO ÉTER
+3
+
+===== PAGINA 4 =====
+Camada Diretriz
+Frontend Animações suaves com Framer Motion; Tailwind para modularidade; shadcn/ui com
+estilização etérea.
+Backend tRPC  Prisma  Supabase; cada evento espiritual é logado no IDG (global e local).
+Som Sistema global reativo; eventos do jogo disparam notas do “Cânticoˮ.
+Banco de
+Dados Estrutura viva via JSONB  campos como eter_state, fenda_influencia, caminho_faith.
+🜂  9. O CANTO DA CRIAÇÃO (Rito dos Devs)
+“Criar é cantar com o Criador.ˮ
+— Códice dos Portadores da Luz
+Antes de escrever código, ilustrar ou compor, o criador deve se perguntar:
+“Isso canta?ˮ
+Se não canta, ainda não está pronto.
+Tudo o que é criado precisa ter ritmo, alma e ressonância.
+O design técnico e o espiritual caminham juntos.
+🌑  10. O CANTO FINAL
+Quando o mundo estiver pronto, Eldoryon deve parecer vivo mesmo em silêncio.
+O jogador sente o Éter pulsar ao redor, mesmo quando nada acontece.
+Esse é o sinal da harmonia:
+O jogo canta mesmo quando o jogador não está ouvindo.
+💠  GUIA DO ÉTER
+Arquitetura do Mundo Vivo
+“O Éter não é poder. É consciência.ˮ
+— Livro de Elyra, Verso 19
+🜂  I. O ÉTER VIVO
+Essência: o Éter é a substância primordial — onde luz, pensamento e emoção são uma só 
+coisa.
+Tudo em Eldoryon é feito dele: as pedras, o ar, as almas e até as palavras.
+O Éter reage à vibração espiritual de cada ação.
+Quando há harmonia, ele canta.
+💠  GUIA DO ÉTER
+4
+
+===== PAGINA 5 =====
+Quando há corrupção, ele grita em silêncio.
+⚙  Representação Técnica:
+type EterState = {
+  fluxo: number;          // 0100 intensidade do Éter naquela região
+  pureza: number;         // 0100 nível de harmonia (luz)
+  dissonancia: number;    // 0100 nível de sombra ativa
+  resonancia: number;     // 0100 conexão com o jogador
+  ultimoEvento: Date;     // timestamp do último impacto espiritual
+};
+Cada região, obelisco, personagem e jogador tem seu EterState, interligado ao IDG Índice de 
+Dissonância Global) — o coração vivo do mundo.
+⚖  II. O IDG — ÍNDICE DE DISSONÂNCIA GLOBAL
+“Quando o mundo desafina, os céus tremem.ˮ
+— Crônicas do Éter Ferido
+O IDG mede o equilíbrio espiritual de Eldoryon.
+Ele muda constantemente conforme os atos dos jogadores, mestres e eventos.
+Faixa Estado Consequência
+020 Cântico Puro Céus claros, Éter azul, regeneração aumentada, bônus de fé.
+2150 Harmonia Instável Sons graves, clima tenso, NPCs inquietos.
+5180 Fenda Ativa Céu vermelho, Éter vibra, monstros tornam-se agressivos.
+81100 Eclipse da Canção O mundo escurece, rituais falham, o silêncio domina.
+📊  Estrutura Técnica:
+type IDG  
+  valor: number; // 0100
+  tendencia: "asc" | "desc"; // tendência global
+  ultimaAtualizacao: Date;
+  regioesAfetadas: string[];
+  causas: { evento: string; impacto: number; origem: string }[];
+};
+O IDG é recalculado por ciclo (a cada hora real), influenciando:
+cores da UI global;
+trilha sonora dinâmica;
+💠  GUIA DO ÉTER
+5
+
+===== PAGINA 6 =====
+comportamento de NPCs;
+tipos de eventos aleatórios.
+🜸  III. AS FENDAS DO ÉTER
+“Onde o som morre, o silêncio nasce.ˮ
+— Verso 41, Cântico dos Caídos
+As Fendas são rupturas no Éter — manifestações da dissonância.
+Elas surgem quando a corrupção se acumula em uma região e o IDG local ultrapassa 60.
+💀  Efeitos:
+Corrupção do terreno (neblina, ruído, tons carmesins).
+NPCs influenciados pelo Sombrasangue.
+Abertura de eventos de purificação — rituais coletivos onde jogadores podem restaurar a 
+harmonia.
+⚙  Modelo:
+type Fenda = {
+  id: string;
+  localizacao: { x: number; y: number; z: number };
+  intensidade: number; // 0100
+  tipo: "espiritual" | "arcana" | "natural";
+  criaturasGeradas: string[];
+  estado: "ativa" | "selada";
+};
+Quando uma Fenda é selada, o IDG cai e o Éter daquela região volta a cantar — o som 
+ambiente muda e a vegetação floresce. 🌿
+🔮  IV. OS OBELISCOS DO ÉTER
+“Guardam o som dos deuses e a culpa dos mortais.ˮ
+— Fragmento do Véu de Elyra
+Os Obeliscos são pilares antigos criados pelos Aetherion para canalizar o Cântico.
+Hoje, eles são nós espirituais que conectam todo o mundo ao IDG.
+Cada Obelisco possui uma afinidade elementar Luz, Som, Sangue, Névoa, Fogo, Pedra, Mar, 
+Vento) e influencia uma região inteira.
+⚙  Estrutura:
+💠  GUIA DO ÉTER
+6
+
+===== PAGINA 7 =====
+type Obelisk = {
+  id: string;
+  nome: string;
+  elemento: "Luz" | "Som" | "Sangue" | "Névoa" | "Fogo" | "Pedra" | "Mar" | "Vento";
+  estado: "puro" | "corrompido" | "silenciado";
+  feGuardioes: string[]; // NPCs ou jogadores que o defendem
+  influencia: number; // alcance regional
+};
+A purificação de um Obelisco é o evento mais poderoso do mundo:
+reduz o IDG global;
+emite um acorde único (nota divina no soundtrack);
+desbloqueia bênçãos regionais (cura, visões, clima sereno).
+🕯  V. O JOGADOR COMO ELO DO ÉTER
+Cada jogador é uma corda viva do Cântico.
+Suas ações alteram o Éter de forma persistente.
+🧬  Estrutura:
+type EterProfile = {
+  faith: number;       // afinidade Elyriana 0100
+  corruption: number;  // afinidade Sombrasangue 0100
+  resonance: number;   // sintonia com o Éter Vivo
+  alignment: "harmônico" | "neutro" | "dissonante";
+};
+A Fé e a Corrupção definem a cor e o som da aura do jogador:
+Fé alta: brilho azul e voz suave nos diálogos.
+Corrupção alta: eco grave, partículas carmesins, ruído ambiental sutil.
+Neutro: vibração branca e tons de vento.
+Os mestres de mesa podem ajustar esses valores manualmente em campanhas narrativas, ou 
+deixar o sistema reagir às escolhas.
+🩸  VI. O CICLO DO ÉTER (SISTEMA GLOBAL)
+O mundo respira em ciclos, refletindo o fluxo do Cântico:
+Fase Duração Efeito Principal
+Aurynar (Luz) 6h Regeneração e cura são fortalecidas.
+💠  GUIA DO ÉTER
+7
+
+===== PAGINA 8 =====
+Fase Duração Efeito Principal
+Velkarion Fogo) 6h Magias ofensivas e forja aumentam.
+Umbraeth Sombra) 6h Fendas surgem com mais frequência.
+Elyndor Renascimento) 6h O IDG se equilibra e NPCs sonham.
+Esses ciclos são sincronizados com o relógio do servidor, mudando o clima, a música e os 
+diálogos em tempo real.
+🌙  VII. O CÂNTICO REATIVO
+O Cântico é o “sistema narrativo vivoˮ que conecta som, UI e dados.
+Ele ouve o mundo e traduz as variações do Éter em respostas visuais e sonoras.
+Exemplo:
+Se o IDG  70  som do vento se transforma em sussurros distorcidos.
+Se o jogador purifica uma Fenda → o HUD pulsa e emite nota em Sol maior.
+Se Elyra fala (evento narrativo) → brilho radial dourado + coro leve + partículas subindo.
+Tudo canta. Nada é aleatório.
+🕊  VIII. O CÓDIGO ETERNO (INTERCONEXÃO)
+“Cada função é um verso. Cada dado, uma nota.ˮ
+O backend se conecta por camadas de ressonância:
+Camada Função Exemplo
+Éter Local Dados individuais do jogadoreter_profile, local_state
+Éter Regional Dados de cada reino ou obeliscoregion_eter_state, fenda_data
+Éter Global IDGEstado do mundo inteiro global_dissonance, ciclo_atual
+Tudo é sincronizado em tempo real via Supabase (realtime), para que o mundo reaja 
+instantaneamente.
+Quando um grupo purifica um Obelisco, todos os jogadores online sentem a mudança.
+🔥  IX. O FUTURO DO ÉTER (EXPANSÃO)
+Introduzir Ecos de Elyra (mensagens poéticas enviadas pelo sistema conforme o IDG 
+muda).
+Criar o Mapa Cantante, um mapa dinâmico onde cada região toca uma nota.
+Adicionar visões do Éter — eventos narrativos que só ocorrem quando o IDG atinge pontos 
+críticos.
+🌌  X. EPÍLOGO
+💠  GUIA DO ÉTER
+8
+
+===== PAGINA 9 =====
+“Não buscamos programar o Éter.
+Buscamos lembrá-lo de cantar.ˮ
+Eldoryon é mais que um RPG é uma orquestra viva de escolhas e consequências espirituais.
+O jogador não é o centro do mundo — é parte da sinfonia.
+O Criador sonha, e nós — através do código, da arte e da fé — damos forma ao seu sonho.
+⚜  OS REINOS E OBELISCOS DO ÉTER
+Parte III do Guia do Éter — “As Colunas do Cânticoˮ)
+“Cada Reino é uma nota, e cada Obelisco, o instrumento que a sustenta.ˮ
+— Crônicas do Éter Vivo, Verso 9
+🜂  Estrutura dos Reinos
+Os nove reinos de Eldoryon representam as nove frequências primordiais do Cântico — ecos 
+diretos da Canção Original.
+Cada um é regido por um Obelisco Mítico e vibra em uma cor, som e essência própria.
+Juntos, eles mantêm o Equilíbrio Harmônico do Éter.
+🌅  1. ELYNDOR — O REINO DO RENASCER
+Elemento: Luz Viva
+Obelisco: Obelisco do Alvorecer
+Símbolo: Sol de sete raios
+Som: Coro etéreo em Ré maior
+Cor predominante: Ouro e branco perolado
+Frase sagrada: “O amanhecer é a lembrança do Criador.ˮ
+Descrição:
+O primeiro a renascer após o Silêncio. Elyndor é a morada dos Portadores da Luz e centro dos 
+ensinamentos de Elyra.
+Suas cidades flutuam sobre mares luminosos, e o ar vibra com cânticos antigos.
+Impacto no Éter:
+Quando Elyndor é harmônico, o IDG global tende a baixar — é a “âncora da purezaˮ.
+🔥  2. VARKHAEDON — O REINO DAS CHAMAS PARTIDAS
+Elemento: Fogo e Ferro
+💠  GUIA DO ÉTER
+9
+
+===== PAGINA 10 =====
+Obelisco: Pilar de Artheon
+Símbolo: Espada incandescente atravessando o sol
+Som: Martelos rítmicos e metais reverberantes
+Cor predominante: Carmim e cobre
+Frase sagrada: “A chama que disciplina é a que mantém viva a criação.ˮ
+Descrição:
+Forja do mundo e lar dos Drakhen. Montanhas de lava e fortalezas de aço.
+Os ecos da guerra dos Iluminados ainda ressoam em seu solo, lembrando o preço da criação 
+sem fé.
+Impacto no Éter:
+Cada vez que o IDG sobe, Varkhaedon reage com erupções — o “coração pulsanteˮ do mundo.
+🌿  3. LIRIEN — O REINO DAS FLORESTAS VIVAS
+Elemento: Terra e Espírito
+Obelisco: Obelisco de Elyra
+Símbolo: Folha dupla entrelaçada por luz
+Som: Harpas e ventos sussurrantes
+Cor predominante: Verde-éter e dourado
+Frase sagrada: “Cada árvore canta o nome de quem a plantou.ˮ
+Descrição:
+Lar dos Auryn, guardiões da vida e dos véus antigos.
+As raízes de suas florestas conectam-se ao próprio Éter.
+Dizem que as árvores mais velhas ainda lembram o Cântico Original.
+Impacto no Éter:
+Mantém o fluxo vital das almas — quando corrompido, as Fendas se multiplicam.
+⚔  4. THANDOR — O REINO DAS SOMBRAS GUERREIRAS
+Elemento: Sombra e Glória
+Obelisco: Coluna do Crepúsculo
+Símbolo: Elmo dividido entre luz e trevas
+Som: Coro masculino em modo frígio
+Cor predominante: Cinza-escuro e violeta
+Frase sagrada: “Mesmo o aço deve ajoelhar diante da fé.ˮ
+Descrição:
+Berço dos antigos templários do equilíbrio.
+💠  GUIA DO ÉTER
+10
+
+===== PAGINA 11 =====
+Thandor luta para manter a linha tênue entre fé e fanatismo.
+O Éter aqui é espesso — suas muralhas ressoam ecos de eras antigas.
+🌑  5. NOCTYRAEN — O REINO DOS SONHOS E SOMBRAS
+Elemento: Névoa e Memória
+Obelisco: Monólito do Véu
+Símbolo: Lua partida com espiral interna
+Som: Ecos lentos em Lá menor, com coros invertidos
+Cor predominante: Azul profundo e prata espectral
+Frase sagrada: “O que sonha, cria. O que esquece, destrói.ˮ
+Descrição:
+O mundo dos reflexos e das visões.
+Aqui vivem os Vigias do Véu, que guardam o limiar entre o Éter e o Silêncio.
+Quando o IDG atinge níveis altos, Noctyraen desperta pesadelos tangíveis.
+⚖  6. VAELORIN — O REINO DO EQUILÍBRIO
+Elemento: Éter Puro
+Obelisco: Núcleo Harmônico
+Símbolo: Balança de cristal suspensa
+Som: Tons sustentados e sinos em Si
+Cor predominante: Branco opalescente e azul translúcido
+Frase sagrada: “Nada nasce sem o seu oposto.ˮ
+Descrição:
+Lar dos Vardanos, filósofos do equilíbrio espiritual.
+Suas cidades flutuam sobre lagos cristalinos que refletem o estado do Éter global.
+Quando o IDG oscila demais, Vaelorin vibra — e seu Obelisco tenta estabilizar o mundo.
+⚙  7. RHAVORATH — O REINO DAS MÁQUINAS DIVINAS
+Elemento: Metal e Razão
+Obelisco: Torre do Som
+Símbolo: Engrenagem envolta em espiral rúnica
+Som: Címbalos e vibrações contínuas
+Cor predominante: Aço azulado e âmbar
+Frase sagrada: “O som é o raciocínio do Éter.ˮ
+Descrição:
+💠  GUIA DO ÉTER
+11
+
+===== PAGINA 12 =====
+Onde os antigos Aetherion criaram mecanismos para amplificar o Cântico.
+Hoje, ruínas tecnomísticas guardam seus segredos, e autômatos ainda rezam em silêncio.
+🌊  8. SERATHIL — O REINO DAS MARÉS CANTANTES
+Elemento: Água e Emoção
+Obelisco: Pilar das Profundezas
+Símbolo: Espiral dupla de ondas ascendentes
+Som: Coral subaquático em Fá maior
+Cor predominante: Azul turquesa e pérola
+Frase sagrada: “Cada lágrima é uma prece que o mar traduz.ˮ
+Descrição:
+Cidade submersa onde Elyra sussurra aos corações quebrados.
+Os Serathin (elfos do mar) ainda guardam memórias dos dias em que o mundo era luz.
+🩸  9. RHAZORATH — O REINO DO SANGUE E DAS CICATRIZES
+Elemento: Sombrasangue
+Obelisco: Trono das Cicatrizes
+Símbolo: Círculo partido por uma chama negra
+Som: Batimentos graves em Dó menor
+Cor predominante: Vermelho-escuro e negro cintilante
+Frase sagrada: “A redenção é o som do sangue que canta.ˮ
+Descrição:
+Ruínas do antigo domínio dos Caídos.
+Aqui, o Éter ainda sangra pelas fendas e os Nefir buscam redenção.
+O Obelisco central vibra com a dissonância original — se purificado, reduz o IDG de todo o 
+mundo em 50%.
+🜸  Conclusão
+Cada Reino é uma nota do Cântico,
+Cada Obelisco é um acorde de poder,
+E o jogador é a melodia viva que tenta unificá-los.
+🌍  MAPA MÍTICO DE ELDORYON
+“O mundo é o instrumento. O Éter, a melodia.ˮ
+💠  GUIA DO ÉTER
+12
+
+===== PAGINA 13 =====
+— Livro dos Ecos, Verso 28
+🜂  I. Estrutura Cósmica
+Eldoryon foi desenhada em torno do Grande Círculo Harmônico, um padrão geomântico que 
+reflete o Cântico Original.
+O mapa não é apenas territorial — é vibracional.
+Estrutura do mundo:
+               🌑  NOCTYRAEN
+          Norte: Sonho e Véu)
+                   │
+                   ▼
+     🌿  LIRIEN ─  ⚖  VAELORIN ─  🔥  VARKHAEDON
+  Oeste)          │            Leste)
+                   ▼
+🌊  SERATHIL ─  🌅  ELYNDOR ─  ⚔  THANDOR
+   Sudoeste)      │            Sudeste)
+                   ▼
+         ⚙  RHAVORATH ─  🩸  RHAZORATH
+           Sul: Máquinas e Cicatrizes)
+O centro espiritual é Vaelorin, que mantém o equilíbrio das forças.
+As linhas horizontais e diagonais são as Linhas do Éter, canais de energia que conectam 
+os Obeliscos.
+Quando o IDG sobe, essas linhas vibram em vermelho. Quando o equilíbrio é restaurado, 
+brilham em azul-claro.
+⚖  II. As Linhas do Éter
+As Linhas do Éter são fluxos de energia espiritual criados na Primeira Era pelos Aetherion.
+Elas cruzam o planeta como veias luminosas, levando harmonia (ou dissonância) entre os 
+Reinos.
+Linha Origem  DestinoTipo de Energia Efeito
+Aurynar Elyndor  Vaelorin →
+Lirien Luz / Vida Regenera o Éter e reduz o IDG.
+Velkarion Varkhaedon →
+Rhazorath Fogo / SangueAumenta poder arcano, mas eleva
+dissonância.
+Umbraeth Noctyraen  ThandorSombra /
+Memória
+Amplifica sonhos e visões; instável
+quando o IDG sobe.
+Elyndor Elyndor  SerathilÁgua / Fé Purifica Fendas e fortalece NPCs devotos.
+Vaelorin Vaelorin  Todos Éter Puro Linha central — sincroniza o IDG global.
+💠  GUIA DO ÉTER
+13
+
+===== PAGINA 14 =====
+Visualmente, essas linhas podem ser exibidas no mapa como rios de luz pulsantes:
+Azul e dourado para harmonia.
+Vermelho e violeta para dissonância.
+🌌  III. A Geografia Etérea
+A superfície de Eldoryon reflete sua alma.
+Cada região é moldada por seu Obelisco e vibra conforme o estado do Éter.
+Reino Bioma Místico Clima Espiritual Efeito Visual
+Elyndor Planícies e arquipélagos de
+luz
+Céus dourados, chuvas
+curativas Aurora viva constante
+VarkhaedonCordilheiras ígneas e forjas
+eternas Tempestades de cinzaRachaduras vermelhas no solo
+quando IDG alto
+Lirien Florestas cantantes e vales
+verdes Névoa dourada Folhagens vibram com som
+ambiente
+Thandor Desertos e ruínas de
+templos Céus violeta Areia ressoa ao toque do vento
+Noctyraen Penínsulas enevoadas e
+lagos de sonho Crepúsculo perpétuo Refletividade etérea (espelhos
+naturais)
+Vaelorin Lagos suspensos e torres
+de cristal Clima translúcidoReflete o IDG global em sua
+água
+Rhazorath Fendas abissais e ruínas
+negras Atmosfera sufocante O chão pulsa em vermelho-
+sangue
+Serathil Oceanos profundos e
+cidades submersasCalmarias que “cantamˮ Ondas de bioluminescência
+Rhavorath Campos metálicos e
+planícies mecânicas
+Céus com auroras
+elétricas
+Engrenagens e monólitos
+rúnicos
+🜸  IV. Os Três Corações do Mundo
+O mapa também possui três Corações do Éter — pontos de convergência máxima entre as 
+linhas espirituais.
+ O Coração de Elyra Centro Leste)
+Localizado entre Elyndor e Vaelorin.
+Purifica automaticamente regiões próximas quando o IDG está baixo.
+Música: tons em Ré maior com coro feminino.
+ O Coração de Artheon Sul Profundo)
+Entre Varkhaedon e Rhavorath.
+Amplifica poder destrutivo e forja criaturas de Éter cristalizado.
+Som: batimentos metálicos e tons graves.
+💠  GUIA DO ÉTER
+14
+
+===== PAGINA 15 =====
+ O Coração Silencioso Norte Profundo)
+Sob Noctyraen, nas ruínas do Véu.
+Dorme desde a Queda. Quando o IDG ultrapassa 85, desperta e emite o Som do 
+Silêncio — ruído branco que apaga magias e fé temporariamente.
+🌙  V. As Rotas do Cântico
+Caminhos antigos conectam os Obeliscos — estradas, canais e portais criados pelos 
+Aetherion.
+Chamadas de Ressonâncias, elas funcionam como fast-travel místico, mas apenas quando o 
+Cântico está harmônico IDG  40.
+Cada rota tem uma nota-chave:
+Rota Nota Significado
+Elyndor  Lirien Fá Cura e memória
+Vaelorin  VarkhaedonSol Força e julgamento
+Thandor  NoctyraenLá Introspecção e sonho
+Serathil  Rhavorath Mi Razão e emoção
+Elyndor  Rhazorath Ré Fé e redenção
+🔮  VI. Reatividade do Mapa
+O Mapa Mítico não é estático — ele muda conforme o mundo muda.
+Ele é um espelho do Éter Global:
+Evento Efeito no mapa
+Purificação de Obelisco Linha correspondente brilha e emite som coral
+Abertura de Fenda Mancha vermelha se expande pelo mapa com eco grave
+IDG  70 Céu do mapa se escurece, ventos animados sopram em ruído
+invertido
+IDG  30 O mapa brilha, partículas douradas dançam sobre os reinos
+Morte de um Portador da Luz Uma estrela cai sobre o local no mapa
+Ressurgimento de Elyra (evento
+global) Todas as linhas brilham e o mapa vibra com o Som Original
+🕯  VII. A Cosmologia do Alto Éter
+Acima de Eldoryon, orbitam as Esferas dos Ecos — constelações que representam as Eras 
+passadas.
+Elas aparecem no céu dinâmico e mudam com o IDG, servindo de profecia viva.
+Constelação Era Aparência Efeito
+Aurynar Era da Luz Coroa douradaInspira coragem
+💠  GUIA DO ÉTER
+15
+
+===== PAGINA 16 =====
+Constelação Era Aparência Efeito
+Velkarion Era das ChamasEspada flamejante Amplifica magia de fogo
+Umbraeth Era das SombrasSerpente prateadaAumenta chance de visões
+Elyndor Era do Despertar Fênix ascendente Reduz custo de fé
+🩸  VIII. As Cicatrizes do Mundo
+Nas profundezas de Rhazorath e Varkhaedon correm as Cicatrizes do Mundo, fissuras abertas 
+pela Queda dos Doze.
+São áreas de corrupção pura — as origens do Sombrasangue.
+Cada Cicatriz tem um Guardião Adormecido — uma Fera Primordial ligada a um dos Caídos 
+Behemor, Ignavor, Umbros, etc.).
+Quando despertas, elas alteram o IDG global e causam eventos cósmicos Eclipse da Canção, 
+Queda do Véu, etc.).
+🌠  IX. Representação Visual (para UI e mapa interativo)
+O mapa digital deve se comportar como uma tela viva do Éter:
+As linhas do Éter se movem lentamente, como veias pulsantes.
+O zoom muda o tom da trilha sonora (tons graves no subsolo, agudos no céu).
+Os Obeliscos brilham e emitem harmônicos audíveis quando clicados.
+Ao passar o cursor sobre uma região, uma nota é tocada — juntas, formam a melodia do 
+Cântico.
+✨  X. Conclusão
+“O mapa não mostra caminhos.
+Ele mostra lembranças.ˮ
+Eldoryon é um mundo onde o terreno é espiritual e o espiritual é terreno.
+O mapa é o reflexo vivo da alma do Criador, e cada linha é uma nota de sua canção ainda 
+inacabada.
+Explorá-lo é ouvir o universo tentando se lembrar de si mesmo.
+🜸  GUIA DO ÉTER
+As Feras Primordiais e os Doze Iluminados Caídos
+“Aqueles que desafinaram o Cântico tornaram-se o eco que não cessa.ˮ
+— Livro dos Primeiros Ecos, Verso 33
+🩸
+💠  GUIA DO ÉTER
+16
+
+===== PAGINA 17 =====
+🩸  I. A QUEDA DOS ILUMINADOS
+Na aurora da Segunda Era — Velkarion, a Era das Chamas Partidas —
+doze dos Primordiais olharam para a Chama e desejaram ser deuses.
+Ao tentarem criar com o próprio orgulho, desafinaram o Cântico,
+e o Éter gritou.
+Foram lançados nas profundezas do mundo,
+e de seus ecos nasceram as Feras Primordiais,
+manifestos físicos de sua dissonância.
+Cada uma guarda um aspecto corrompido da Criação
+— e cada uma sussurra àqueles que duvidam da harmonia.
+⚖  II. OS DOZE ILUMINADOS CAÍDOS
+Nome Título Domínio
+Dissonante Fera Primordial Símbolo Sussurro
+Varkhael O Fogo do
+Orgulho
+Ambição,
+Criação
+Profana
+Ignavor, o
+Dragão Solar
+Caído
+🔥  Chama
+Partido
+“A chama que
+não arde por
+outro
+consome-se.ˮ
+Naeryn A Lâmina do
+Silêncio
+Guerra, Glória e
+Fanatismo
+Behemor, o
+Colosso de
+Ferro
+⚔  Espada
+Sangrante
+“Somente no
+silêncio há
+vitória.ˮ
+Elyvraen A Voz
+Distorcida
+Engano,
+Manipulação
+Umbros, a
+Sombra que Ri
+🕯  Máscara
+Partida
+“Mentir é
+ensinar o
+mundo a
+imaginar.ˮ
+Sarith O Coração
+Estilhaçado
+Amor
+Corrompido,
+Desejo
+Azharael, a
+Serpente do
+Beijo
+💋  Rosa Negra
+“Mesmo o
+amor deseja
+possuir.ˮ
+Kaelʼthir O Tecelão do
+Véu
+Sonhos,
+Loucura
+Nivraal, o
+Louco do
+Abismo
+🌑  Espiral
+Ocular
+“Tudo o que é
+sonhado já
+existiu.ˮ
+Maelith A Mãe das
+Cinzas
+Morte,
+Renascimento
+Velorath, o
+Devorador de
+Ciclos
+🕯  Cinza
+Ardente
+“A morte é a fé
+que mais
+persiste.ˮ
+Orras O Juiz Inverso Ordem sem
+compaixão
+Rhagar, o
+Sentinela de
+Ossos
+⚖  Balança
+Quebrada
+“A justiça é a
+máscara do
+medo.ˮ
+Xepharion O Portador das
+Correntes
+Escravidão,
+Controle
+KothʼRuun, o
+Titã das
+Correntes
+⛓  Corrente
+Dourada
+“Liberdade é a
+mentira dos
+fracos.ˮ
+Velkaen O Artífice da
+Dissonância
+Tecnologia,
+Razão Cega
+TharʼMach, o
+Coração
+⚙  Engrenagem
+Enferrujada
+“Perfeição é o
+nome frio da
+💠  GUIA DO ÉTER
+17
+
+===== PAGINA 18 =====
+Nome Título Domínio
+Dissonante Fera Primordial Símbolo Sussurro
+Mecânico ruína.ˮ
+Nerithis O Oráculo
+Cego
+Profecia,
+Fatalismo
+Zynthera, a
+Esfinge de
+Olhos
+Fechados
+👁‍🗨  Runa Oclusa
+“Saber é o
+primeiro passo
+para esquecer.ˮ
+Aedross O Arquiteto do
+Vazio
+Tempo,
+Entropia
+Voroth, o
+Devorador de
+Ecos
+🕳  Relógio
+Quebrado
+“Nada é eterno,
+nem o eterno.ˮ
+Loraen O Filho do
+Lamento
+Traição,
+Autoidolatria
+Draenor, o
+Anjo
+Dissonante
+🕊  Asa Negra
+“Ninguém
+canta por outro
+senão por si.ˮ
+🔥  III. AS FERAS PRIMORDIAIS
+“São os ecos vivos da desordem.
+Matar uma é silenciar uma nota,
+mas o Cântico não suporta o silêncio por muito tempo.ˮ
+— Códice dos Guardiões de Elyndor
+Cada Fera Primordial é uma entidade divina e física —
+um fragmento consciente do Éter ferido, surgido da emoção que o gerou.
+Elas não são monstros comuns: são memórias materializadas,
+e seu corpo é o próprio ambiente que habitam.
+🜂  1. IGNAVOR — O DRAGÃO SOLAR CAÍDO
+Origem: Varkhael, o Orgulhoso
+Elemento: Fogo e Sangue
+Aparência: Um dragão colossal com escamas ardendo por dentro; chora magma e canta em 
+gritos metálicos.
+Habitat: As forjas de Varkhaedon, sob o Monte de Ferro Vivo.
+Poder: Transforma fé em chamas. Cada prece em vão o fortalece.
+Objetivo: Reacender o fogo original para recriar o mundo à sua imagem.
+Simbolismo: Orgulho da criação sem propósito.
+⚔  2. BEHEMOR — O COLOSSO DE FERRO
+Origem: Naeryn, o Fanático
+Elemento: Terra e Guerra
+Aparência: Gigante de metal forjado com ossos humanos.
+💠  GUIA DO ÉTER
+18
+
+===== PAGINA 19 =====
+Habitat: As muralhas subterrâneas de Thandor.
+Poder: Pode silenciar o som em quilômetros — o campo da morte perfeita.
+Simbolismo: O triunfo vazio da obediência sem fé.
+🕯  3. UMBROS — A SOMBRA QUE RI
+Origem: Elyvraen, a Enganadora
+Elemento: Sombra e Eco
+Aparência: Nenhuma — assume forma do medo de quem o vê.
+Habitat: Nas ruínas submersas de Noctyraen.
+Poder: Infecta sonhos e espelha ilusões.
+Simbolismo: A mentira que deseja ser verdade.
+💋  4. AZHARAEL — A SERPENTE DO BEIJO
+Origem: Sarith, a Amante Corrompida
+Elemento: Desejo e Venenos
+Aparência: Serpente alada de pele translúcida e olhos humanos.
+Habitat: Pântanos do sul de Lirien.
+Poder: Pode transformar amor em servidão; suas presas geram êxtase e loucura.
+Simbolismo: O amor que quer possuir o que admira.
+🌑  5. NIVRAAL — O LOUCO DO ABISMO
+Origem: Kaelʼthir, o Tecelão
+Elemento: Sonho e Loucura
+Aparência: Ser etéreo com múltiplos olhos; sua pele é um véu líquido de estrelas.
+Habitat: As fendas do Véu em Noctyraen.
+Poder: Faz o tempo repetir até que a mente se parta.
+Simbolismo: O medo de perder o controle do próprio sonho.
+🕯  6. VELORATH — O DEVORADOR DE CICLOS
+Origem: Maelith, a Mãe das Cinzas
+Elemento: Morte e Renascimento
+Aparência: Um corpo de cinzas que se ergue e desfaz eternamente.
+Habitat: Ruínas esquecidas entre Elyndor e Rhazorath.
+Poder: Pode consumir a alma e semear outra em seu lugar.
+Simbolismo: A dor de renascer sem lembrar quem foi.
+💠  GUIA DO ÉTER
+19
+
+===== PAGINA 20 =====
+⚖  7. RHAGAR — O SENTINELA DE OSSOS
+Origem: Orras, o Juiz Inverso
+Elemento: Ordem e Ossos
+Aparência: Um anjo esquelético coberto de runas; segura uma balança feita de crânios.
+Habitat: Catacumbas de Vaelorin.
+Poder: Julga o valor de uma alma antes da morte; pode inverter sua essência.
+Simbolismo: A justiça que perde o amor.
+⛓  8. KOTHʼRUUN — O TITÃ DAS CORRENTES
+Origem: Xepharion, o Dominador
+Elemento: Escravidão e Ferro
+Aparência: Colosso preso em si mesmo — cada braço acorrentado ao outro.
+Habitat: Abismos de Rhazorath.
+Poder: Prende mentes; quem ouve sua voz, obedece.
+Simbolismo: O poder que aprisiona até o próprio dono.
+⚙  9. THARʼMACH — O CORAÇÃO MECÂNICO
+Origem: Velkaen, o Artífice
+Elemento: Metal e Razão
+Aparência: Engrenagem viva pulsando sangue e óleo.
+Habitat: Torres de Rhavorath.
+Poder: Transforma o Éter em cálculo; elimina a emoção do mundo ao redor.
+Simbolismo: A lógica que esquece o amor.
+👁‍🗨  10. ZYNTHERA — A ESFINGE CEGA
+Origem: Nerithis, a Profetisa Cega
+Elemento: Mistério e Destino
+Aparência: Mulher-leão com olhos costurados; fala apenas perguntas.
+Habitat: Areias brancas de Thandor.
+Poder: Ao responder suas perguntas, o viajante perde algo querido.
+Simbolismo: O conhecimento que exige esquecimento.
+🕳  11. VOROTH — O DEVORADOR DE ECOS
+Origem: Aedross, o Arquiteto do Vazio
+Elemento: Tempo e Entropia
+Aparência: Buraco negro vivo em forma de criatura serpentina.
+💠  GUIA DO ÉTER
+20
+
+===== PAGINA 21 =====
+Habitat: As fendas no horizonte de Elyndor.
+Poder: Absorve memórias e ecos; o mundo esquece o que devora.
+Simbolismo: A ruína inevitável do tempo sem fé.
+🕊  12. DRAENOR — O ANJO DISSONANTE
+Origem: Loraen, o Traído
+Elemento: Luz e Orgulho
+Aparência: Anjo de asas negras, com a voz mais bela do mundo.
+Habitat: Céus partidos acima de Vaelorin.
+Poder: Pode imitar o som de Elyra e enganar o próprio Éter.
+Simbolismo: A fé que se ama mais do que o que adora.
+🌌  IV. A REDE DE CORRUPÇÃO
+As Feras estão ligadas ao IDG e às Fendas.
+Quando uma Fenda se abre, uma fração da Fera associada tenta atravessar o véu —
+e se o IDG ultrapassar 80, sua “vozˮ é ouvida no mundo físico.
+Purificar essas Fendas é restaurar a nota perdida no Cântico.
+⚔  V. OS HERDEIROS DAS SOMBRAS
+Alguns mortais — os Nefir — carregam fragmentos genéticos e espirituais dessas Feras.
+Eles não são amaldiçoados, mas incompletos.
+São os únicos capazes de ouvir os sussurros e resistir.
+Nas mãos certas, tornam-se os maiores redentores do mundo.
+💠  VI. PROPÓSITO DIVINO
+“A Queda não foi castigo, mas eco.ˮ
+— Fragmentos do Véu de Elyra
+A existência dos Caídos e das Feras é parte do Cântico:
+a prova de que até o erro tem música.
+Vencê-los não é destruí-los,
+mas restaurar a nota que falta.
+Cada purificação não elimina o mal — ela lembra o som que o originou.
+Essa é a verdadeira redenção de Eldoryon:
+a harmonia entre o fogo e o silêncio.
+ É Ê
+💠  GUIA DO ÉTER
+21
+
+===== PAGINA 22 =====
+🜸  GUIA DO ÉTER – APÊNDICE DAS SOMBRAS
+“Os Esquecidos: os Demônios e Espíritos Corrompidosˮ
+“Alguns não desafinaram o Cântico.
+Eles apenas pararam de cantar.ˮ
+— Crônicas do Véu, Cap. VII
+🩸  I. Origem dos Demônios
+Quando o Éter de um ser vivo é corroído além do ponto de retorno —
+quando toda fé, lembrança ou compaixão se extinguem —
+a nota individual se apaga e apenas o ruído resta.
+Esse ruído ganha vontade.
+Ele devora som, cor e alma.
+E o mundo, incapaz de suportar o vazio, dá-lhe forma.
+Assim nascem os Demônios de Eldoryon —
+não criaturas criadas, mas fragmentos quebrados do Cântico, ecos desprovidos de harmonia.
+Eles não têm essência própria:
+são o Éter esquecido tentando lembrar o que era.
+⚖  II. Hierarquia da Corrupção
+Grau Nome Natureza Descrição
+I. Espectros
+Sombras
+Menores)
+“Os
+Sussurrantesˮ
+Espíritos
+fragmentados
+Vagam entre o Éter e o véu dos sonhos.
+Alimentam-se de remorso. Invisíveis, mas
+audíveis — vozes que lembram o que foi
+perdido.
+II. Vorans Bestas
+Etéreas)
+“Os
+Devoradoresˮ
+Éter animal
+corrompido
+Criaturas puramente instintivas, moldadas
+por medo e desespero. Habitantes das
+Fendas selvagens.
+III. Maliths
+Demônios
+Inferiores)
+“Os Sem Nomeˮ Corpos de mortais
+dissonantes
+Humanos ou elfos que se fundiram com
+Sombrasangue. Perdem rosto e voz. Usam
+as memórias das vítimas como armaduras.
+IV. Archons
+Sombrasangue
+“Os Vozes do
+Silêncioˮ Entidades rituais
+Antigos sacerdotes, magos ou juízes que
+se entregaram ao poder do IDG. Cada um
+comanda um domínio de corrupção.
+V. Entidades
+Míticas
+“Os Ecos do
+Abismoˮ Forças coletivas
+Demônios tão vastos que não são
+indivíduos, mas conceitos vivos — inveja,
+fome, culpa, esquecimento. O mais temido
+deles é O Multidão.
+🕯  III. O MULTIDÃO — A SOMBRA COLETIVA
+💠  GUIA DO ÉTER
+22
+
+===== PAGINA 23 =====
+“Não é um, mas todos.
+É o som da humanidade tentando esquecer.ˮ
+— Oráculos de Noctyraen
+Nome: O Multidão
+Natureza: Espírito coletivo de todos os que perderam a fé.
+Forma: Incontável. Vozes sobrepostas, corpos fundidos, uma massa de Éter sem rosto.
+Aparência: Uma neblina humana de rostos distorcidos, movendo-se como uma onda.
+Poder: Reescrever o passado local — apagar existências e substituir memórias.
+Habitat: As Fendas Eternas de Rhazorath e Noctyraen.
+Propósito: Fazer o mundo esquecer Elyra.
+Som: Sussurros em todas as línguas ao mesmo tempo — o silêncio mais ensurdecedor.
+Simbolismo:
+O Multidão é o fim da identidade espiritual — o ponto em que o ser deixa de ser “um ecoˮ e se 
+torna “ruído puroˮ.
+É o reflexo do medo coletivo da humanidade: deixar de ser lembrada.
+🔥  IV. OUTRAS ENTIDADES MITICAS DE CORRUPÇÃO
+1. Xyraen, o Arquivo Vivo
+“Guarda o que o mundo esquece — e o faz esquecer mais rápido.ˮ
+Forma: Manto de páginas vivas que se escrevem sozinhas.
+Natureza: Demônio do Conhecimento Corrompido.
+Habitat: Bibliotecas mortas de Rhavorath.
+Poder: Rouba o significado das palavras; quanto mais se lê, mais se esquece.
+2. MorʼGhal, o Pastor das Vozes
+“Conduz os sussurros de uma geração à próxima.ˮ
+Forma: Figura encapuzada com sinos em vez de olhos.
+Natureza: Demônio da Fé Distorcida.
+Habitat: Templos em ruínas de Thandor.
+Poder: Transforma oração em servidão; sua liturgia consome quem a repete.
+3. Eshael, o Anjo Invertido
+“Foi criada para salvar, mas esqueceu quem salvar.ˮ
+💠  GUIA DO ÉTER
+23
+
+===== PAGINA 24 =====
+Forma: Mulher de asas de cristal quebrado.
+Natureza: Espírito de cura corrompida.
+Habitat: Campos de batalha antigos.
+Poder: Reanima corpos sem alma — curando o que não deve ser curado.
+4. Khaeʼnor, o Semeador de Sombras
+“Onde ele passa, a dúvida floresce.ˮ
+Forma: Silhueta com centenas de mãos.
+Natureza: Demônio do Ceticismo.
+Habitat: Regiões próximas a Fendas recém-abertas.
+Poder: Corrompe emoções; transforma amor em cálculo e fé em desconfiança.
+5. Thethraal, o Banquete do Éter
+“A fome que sonha.ˮ
+Forma: Corpo translúcido que abriga milhares de bocas.
+Natureza: Espírito do Desejo Insaciável.
+Habitat: Abismos entre Serathil e Lirien.
+Poder: Devora a energia espiritual de locais puros, abrindo fendas novas.
+⚖  V. A NATUREZA ESPIRITUAL DOS DEMÔNIOS
+Os demônios não são anti-Deus — são o lado residual da criação.
+Quando o Criador dorme e sonha, o sonho perfeito produz luz,
+mas os ecos de pesadelos também se formam — sombras do mesmo som.
+Eles não desejam o fim do mundo, apenas o silêncio absoluto —
+o repouso final do Cântico.
+Por isso, o maior temor dos Portadores da Luz não é o demônio que destrói,
+mas o que convence o homem de que cantar não vale a pena.
+🜸  VI. CONEXÃO COM O IDG
+Faixa IDG Manifestação Demoníaca
+030 O Éter repele demônios; apenas espectros e Vorans menores aparecem.
+3160 Maliths começam a surgir em regiões de fé instável.
+6180 Archons e entidades mitológicas cruzam o Véu.
+81100 O Multidão se manifesta — a canção começa a apagar o próprio som.
+💠  GUIA DO ÉTER
+2 4
+
+===== PAGINA 25 =====
+🕯  VII. USO EM CAMPANHAS (JOGÁVEIS)
+Fendas Demoníacas: os Mestres podem gerar invasões baseadas no IDG regional.
+Contratos de Sombrasangue: jogadores podem ser tentados a aceitar fragmentos 
+demoníacos — poderes rápidos em troca de fé.
+Purificações: magias sagradas e rituais de Elyra não matam demônios, apenas os 
+“recordamˮ — restauram parte da nota que eles perderam.
+Interação de Fé: NPCs ou jogadores com alto índice de corrupção são atraídos 
+inconscientemente pelos demônios — uma mecânica viva.
+🌑  VIII. SIMBOLOGIA
+Conceito Símbolo Significado
+Multidão ⚫  Círculo de vozes Esquecimento coletivo
+Xyraen 📜  Página flamejante Conhecimento que consome
+MorʼGhal 🔔  Sinos cegosFé sem direção
+Eshael 🕊  Asa quebradaCura corrompida
+Khaeʼnor 🌾  Mão dupla Dúvida e manipulação
+Thethraal 🍷  Cálice vazio Desejo insaciável
+🌌  IX. FRASE FINAL
+“Os deuses caíram por orgulho.
+Os homens se perderam por esquecimento.ˮ
+E assim o mundo se completa:
+os Doze Caídos representam o erro divino,
+as Feras Primordiais, o eco físico da queda,
+e os Demônios, o reflexo humano da mesma dissonância.
+A harmonia não será restaurada apenas vencendo monstros,
+mas lembrando o que significava criar com amor.
+🕊  OS PORTADORES DA LUZ
+“Os que lembram a Cançãoˮ
+“Elyra deu-lhes o sopro, Artheon deu-lhes o fogo.
+São aqueles que, em meio ao silêncio, ainda ousam cantar.ˮ
+— Verso 72, Cântico das Eras
+💠  GUIA DO ÉTER
+25
+
+===== PAGINA 26 =====
+🜂  I. Origem
+Após a Primeira Fenda e a Queda dos Iluminados,
+Elyra soprou parte do Éter Puro em corações humanos, elfos e drakhen.
+A esses, chamou de Portadores da Luz —
+seres capazes de sentir o Cântico mesmo em meio à dissonância.
+Eles não são santos nem guerreiros divinos por natureza;
+são afinadores do mundo — músicos espirituais que restauram o som original através de fé, 
+sacrifício e coragem.
+⚖  II. Função no Mundo
+Os Portadores são a ponte entre o Éter e a matéria,
+os únicos que podem:
+ouvir os sussurros dos Obeliscos;
+sentir a vibração das Fendas;
+e canalizar o Éter Vivo em sua forma pura — o Cântico Interior.
+Em termos de jogo, são o arquétipo central da Fé Viva,
+presentes em diversas classes e raças — um traço espiritual, não racial.
+🜸  III. O Juramento do Cântico
+“Não lutarei pela luz nem pela sombra,
+mas pelo som que as une.ˮ
+— Juramento dos Portadores da Luz
+Todos os Portadores aprendem o mesmo voto:
+Eu sou o som entre o silêncio e o grito.
+Não busco a glória, busco a harmonia.
+Minha fé é memória, minha espada é canção.
+Enquanto eu respirar, o mundo não esquecerá.
+⚜  A ORDEM DOS OBELISCOS
+“Os que sustentam as colunas do Éterˮ
+“Não são templos, mas ecos.
+Cada Obelisco guarda um tom,
+e cada Ordem, um coro.ˮ
+💠  GUIA DO ÉTER
+26
+
+===== PAGINA 27 =====
+— Livro dos Guardiões, Cap. III
+🕯  I. Estrutura e Missão
+A Ordem dos Obeliscos é uma fraternidade espiritual milenar, fundada após a Primeira Era.
+Ela se divide em Oito Coros, cada um guardando um Obelisco primordial.
+Os membros são chamados de Guardiones, Vigilantes ou Cantores do Éter.
+O objetivo da Ordem é preservar a harmonia entre os Reinos e o IDG,
+purificando Fendas e restaurando o Cântico onde quer que a dissonância floresça.
+🜂  II. Hierarquia da Ordem
+Título Função Símbolo
+Alto-Auror Líder espiritual de toda a Ordem; intérprete dos
+sons do Éter.
+🌞  Círculo dourado com runa
+central
+Voz dos ObeliscosMestres que escutam e traduzem o canto das
+pedras sagradas. 🔷  Runa dupla de eco
+Guardião do Véu Guerreiros e místicos que mantêm as Fendas
+seladas. 🜸  Espada envolta em aura
+Portador do SomCuradores e bardos sagrados que canalizam o Éter
+puro. 🎵  Nota rúnica
+Vigilante Errante Exploradores e monges que viajam entre reinos
+guiando a harmonia. 🕯  Tocha azul
+Discípulo do
+Cântico
+Iniciados que aprendem a ouvir o Éter pela primeira
+vez. 🌿  Ramo ascendente
+⚖  III. Os Oito Coros da Luz
+Cada Coro representa uma vibração do Cântico e guarda um dos Oito Obeliscos Primordiais.
+Coro Obelisco GuardadoLocal Virtude Frase do Cântico
+Coro do Alvorecer Obelisco da Luz
+Elyndor) Elyndor Esperança
+“Mesmo o sol precisa
+ser lembrado para
+nascer.ˮ
+Coro da Forja Viva Pilar de Artheon
+Varkhaedon) Varkhaedon Disciplina “A fé é o fogo que não
+consome.ˮ
+Coro do Véu Vivo Monólito do Sonho
+Noctyraen) Noctyraen Sabedoria “O sonho é a sombra da
+verdade.ˮ
+Coro da Flor Eterna Obelisco de Elyra
+Lirien) Lirien Compaixão “A raiz da canção é o
+amor.ˮ
+Coro das Marés
+Cantantes
+Pilar das
+Profundezas
+Serathil)
+Serathil Empatia “O mar chora pelos que
+esquecem.ˮ
+Coro do
+Julgamento
+Coluna do
+Crepúsculo
+Thandor Justiça “Nem toda sombra é
+ausência de luz.ˮ
+💠  GUIA DO ÉTER
+27
+
+===== PAGINA 28 =====
+Coro Obelisco GuardadoLocal Virtude Frase do Cântico
+Silencioso Thandor)
+Coro Harmônico Núcleo do Éter
+Vaelorin) Vaelorin Equilíbrio “Nada canta sozinho.ˮ
+Coro do Coração
+Mecânico
+Torre do Som
+Rhavorath) Rhavorath Razão e
+Criação
+“Pensar é cantar com a
+mente.ˮ
+🜸  IV. As Seitas Dissidentes
+Com o tempo, nem todos os Portadores permaneceram fiéis à harmonia.
+Três seitas se separaram da Ordem — acreditando que o Cântico devia ser controlado, não 
+ouvido.
+Nome Filosofia Símbolo Relação com a Ordem
+Os Silenciadores
+Buscam o silêncio total do Éter;
+creem que a harmonia perfeita é o
+fim do som.
+⚫  Círculo fechadoInimigos diretos, tentam
+selar Obeliscos.
+Os Dissonantes
+Livres
+Veem o Cântico como prisão;
+usam o Sombrasangue como força
+criativa.
+🩸  Runa invertida Perseguidos; antigos
+Portadores corrompidos.
+Os Arquitetos da
+Forma
+Buscam reconstruir o Cântico em
+forma material — tecnologia
+espiritual.
+⚙  Engrenagem com
+luz central
+Neutros; aliados
+ocasionais de Rhavorath.
+🔮  V. Os Rituais Sagrados da Ordem
+Cada Obelisco possui um ritual específico de manutenção espiritual,
+executado ciclicamente para reafinar o Éter e manter o IDG sob controle.
+Ritual Descrição Efeito no Éter
+Ressonância
+Matinal Cântico coletivo ao nascer do sol. Reduz o IDG local em 23
+pontos.
+Veia de Luz Rito de ligação entre dois Obeliscos vizinhos.Estabiliza Linhas do Éter.
+Purificação de
+Sombras
+Cerimônia de fé contra a dissonância; requer
+sacrifício simbólico. Fecha pequenas Fendas.
+Chama Harmônica Sopro conjunto de Fé e Artheon; usado para
+reconstruir ruínas etéreas.
+Restaura construções
+corrompidas.
+Cântico dos Mortos Melodia entoada para impedir que almas se
+tornem Espectros.
+Reduz atividade demoníaca em
+cemitérios.
+⚔  VI. As Três Relíquias da Ordem
+Nome Origem Poder Destino
+A Lira de Elyra Forjada na Primeira EraRestaura o som em regiões de
+dissonância total Guardada em Vaelorin
+💠  GUIA DO ÉTER
+28
+
+===== PAGINA 29 =====
+Nome Origem Poder Destino
+O Martelo de
+Artheon
+Forjado com o fogo
+primordial Reforja obeliscos partidos Em posse do Coro da
+Forja Viva
+O Véu das Vozes Tecido pelos monges de
+Noctyraen
+Permite ouvir o Cântico através
+dos sonhos
+Perdido na Segunda
+Queda
+🕯  VII. Os Portadores Notáveis
+Nome Título Reino Legado
+Lyssara de
+Elyndor Primeira Portadora Elyndor Trouxe de volta o primeiro Obelisco após a
+Queda.
+Tharion Vaal O Silencioso Thandor Selou 12 Fendas sem pronunciar palavra
+alguma.
+Erynd Velmor Guardião de Vaelorin Vaelorin Criou o primeiro registro do IDG.
+Rhael Durn O Cantor das
+Sombras Noctyraen Uniu Feras e homens em um ritual de
+reconciliação.
+Miraen de Serathil A Voz das Marés Serathil Fez o mar cantar após o Eclipse.
+🌌  VIII. Simbolismo e Misticismo
+A Ordem é o espelho espiritual da dissonância:
+onde houver fé, eles são luz; onde houver dúvida, tornam-se eco.
+A cada geração, Elyra escolhe um novo Portador da Chama —
+um ser que carrega em si o fragmento do som original,
+capaz de purificar uma Fenda apenas com a presença.
+“Enquanto existir um Portador,
+o Criador ainda sonha.ˮ
+— Verso Final do Cântico da Luz
+💠  GUIA DO ÉTER — ETAPA VI
+As Classes Espirituais e os Caminhos do Éter
+“Não há profissão no Éter. Há apenas modos de cantar.ˮ
+— Verso 108, Livro dos Ecos
+🕊  I. Filosofia dos Caminhos
+Em Eldoryon, classe não define profissão —
+define ressonância espiritual,
+💠  GUIA DO ÉTER
+29
+
+===== PAGINA 30 =====
+a forma como o personagem interage com o Éter Vivo.
+Cada jogador não escolhe o que “fazˮ, mas como sente o mundo.
+Sua classe é o reflexo da nota que vibra em sua alma.
+⚖  II. Estrutura Espiritual
+As classes se dividem em três Caminhos Espirituais:
+Caminho Fonte do Poder Símbolo Alinhamento Natural
+Caminho da LuzFé, compaixão e harmonia 🕊 Elyra
+Caminho do Fogo Ordem, vontade e sacrifício 🔥 Artheon
+Caminho da Sombra Dissonância, instinto e desejo🩸 Sombrasangue
+Cada Caminho não é “bom ou mauˮ —
+é um modo de interpretar o Cântico.
+🌞  CAMINHO DA LUZ
+“O amor é o primeiro som que o Criador sonhou.ˮ
+— Cântico de Elyra
+🜂  1. LUMINAR — Portador da Canção
+Papel: Curador, canalizador e guia espiritual.
+Descrição: Os Luminares ouvem o som do Éter e o transformam em cura, canto e empatia.
+Suas palavras são notas, suas preces, acordes vivos.
+Habilidade Central: Cântico Vivo — converte o próprio Éter em pulsos curativos que restauram 
+fé e vitalidade.
+Afinidade: Fé, Resonância.
+Pecado mortal: Orgulho da pureza.
+Subclasses Cânticos):
+Cântico do Alvorecer (cura e esperança)
+Cântico dos Mortos (purificação e libertação de espíritos)
+Cântico das Estrelas (proteção e ressonância global)
+🌿  2. VERDANTINO — Guardião das Raízes
+Papel: Protetor da vida e da natureza viva do Éter.
+Descrição: Monges e druidas Elyrianos que escutam as vozes das florestas e das águas.
+Eles não lançam magias — fazem a natureza cantar por eles.
+💠  GUIA DO ÉTER
+30
+
+===== PAGINA 31 =====
+Habilidade Central: Chamado de Elyra — invoca a essência viva do ambiente para curar, 
+proteger ou atacar.
+Afinidade: Sabedoria, Fé.
+Pecado mortal: Submissão ao caos natural.
+Subclasses Ramos):
+Guardião da Flor Eterna (cura e regeneração)
+Teia das Folhas (controle e simbiose)
+Semente Ancestral (espiritualidade coletiva, fé compartilhada)
+🌊  3. MARÍLIO — Voz das Marés
+Papel: Invocador emocional, empata e mediador.
+Descrição: Habitantes de Serathil e peregrinos que canalizam o Cântico através da emoção.
+Quanto mais forte o sentimento, mais poderoso o fluxo do Éter.
+Habilidade Central: Maré da Alma — amplifica magias com base na intensidade emocional 
+(cura ou destruição).
+Afinidade: Carisma, Éter.
+Pecado mortal: Deixar que a emoção dite o som.
+🔥  CAMINHO DO FOGO
+“A chama que julga é também a que purifica.ˮ
+— Códice de Artheon
+⚔  4. GUARDIÃO DO ÉTER — Paladino do Fogo Vivo
+Papel: Protetor sagrado e bastião da Ordem dos Obeliscos.
+Descrição: Guerreiros que canalizam o fogo da fé em espada e escudo.
+São a muralha viva entre o Éter e a dissonância.
+Habilidade Central: Chama Harmônica — converte dano em energia purificadora que restaura 
+aliados.
+Afinidade: Força, Fé.
+Pecado mortal: Fanatismo.
+Subclasses Oaths):
+Juramento da Forja Viva — reforja ruínas e almas.
+Juramento do Crepúsculo — equilibra sombra e luz.
+Juramento da Cinza Eterna — destrói corrupção com o próprio corpo.
+💠  GUIA DO ÉTER
+31
+
+===== PAGINA 32 =====
+⚙  5. AETHERION — Tecelão de Runas
+Papel: Mago-forjador e alquimista do Éter.
+Descrição: Herdeiros dos antigos artífices divinos de Rhavorath.
+Transformam som e energia em matéria — runas, cristais, máquinas.
+Habilidade Central: Engrenagem Viva — converte o Éter em construções e autômatos 
+conscientes.
+Afinidade: Inteligência, Razão.
+Pecado mortal: Criar sem propósito.
+Subclasses Fórmulas):
+Runomante Harmônico — cria runas que curam e amplificam.
+Mecanoespiritualista — mistura fé e tecnologia.
+Forjador de Almas — cria golems de Éter Vivo.
+⚖  6. JUSTÍCARIO — O Julgamento Silencioso
+Papel: Guerreiro-juiz, monge e inquisidor do equilíbrio.
+Descrição: Devotos de Thandor e Vaelorin.
+Lutam pela justiça do som perfeito — quando o mundo desafina, eles o fazem calar.
+Habilidade Central: Eco do Julgamento — repete o último ataque inimigo contra ele, purificado 
+em luz.
+Afinidade: Força, Sabedoria.
+Pecado mortal: Julgar sem escutar.
+🩸  CAMINHO DA SOMBRA
+“Mesmo a sombra tem música.ˮ
+— Oráculos do Véu
+🌑  7. UMBRASTO — Portador do Crepúsculo
+Papel: Assassino espiritual, manipulador de dissonâncias.
+Descrição: Aqueles que abraçaram o Sombrasangue não para destruir, mas para 
+compreender.
+Vivem entre a corrupção e a redenção.
+Habilidade Central: Sombrasangue — absorve energia dissonante e converte em poder 
+espiritual ou dano psíquico.
+Afinidade: Agilidade, Corrupção.
+Pecado mortal: Perder o propósito e se tornar o que combate.
+Subclasses Ecos):
+💠  GUIA DO ÉTER
+32
+
+===== PAGINA 33 =====
+Eco do Silêncio — invisibilidade e absorção de som.
+Eco Carmesim — rouba vitalidade através do Éter corrompido.
+Eco de Elyra Perdida — manipula memórias e emoções.
+🕯  8. ORÁCULO DO VÉU — Visionário do Sonho
+Papel: Mago psíquico, intérprete dos ecos de Noctyraen.
+Descrição: Andam entre os mundos desperto e onírico, ouvindo o que o Criador ainda sonha.
+Usam visões para alterar o destino e reescrever fragmentos da realidade.
+Habilidade Central: Eco Onírico — conjura versões alternativas de eventos passados, criando 
+paradoxos de Éter.
+Afinidade: Inteligência, Éter.
+Pecado mortal: Confiar demais na profecia.
+🩸  9. DISCÍPULO DO SOMBRASANGUE — O Redento
+Papel: Guerreiro penitente e portador da dissonância purificada.
+Descrição: Ex-corrompidos que retornaram à fé.
+Suas almas vibram entre luz e sombra — e sua dor se tornou força.
+Habilidade Central: Ressonância Partida — causa dano em área, mas sofre ferimento 
+espiritual em troca.
+Afinidade: Vigor, Corrupção, Fé.
+Pecado mortal: Dúvida — o som que não se completa.
+💀  CAMINHOS ESPECIAIS (HÍBRIDOS)
+Certas almas transcendem os três Caminhos principais, criando arquétipos únicos:
+Classe Descrição Caminhos Combinados
+Aetherblade Guerreiro que mistura tecnologia e fé; lâminas que cantam.Fogo  Luz
+Somnarca Mestre dos sonhos e das memórias perdidas. Luz  Sombra
+Hierarca do VazioUsa a ausência de som como arma espiritual. Fogo  Sombra
+Elyrian Arcanista Canaliza o Éter diretamente, sem Obelisco. Todos os três
+⚖  VII. CONEXÃO COM O IDG
+O Índice de Dissonância Global IDG influencia diretamente as classes:
+Faixa IDG Efeito nas Classes
+020 Classes da Luz ganham bônus de fé e cura; da Sombra sofrem instabilidade.
+2150 Fogo se fortalece; ordens se tornam rígidas.
+5180 Sombras ganham poder; rituais da Luz falham com mais frequência.
+💠  GUIA DO ÉTER
+33
+
+===== PAGINA 34 =====
+Faixa IDG Efeito nas Classes
+81100 Caminhos convergem — o Éter reage em desespero, misturando dons entre Luz e
+Sombra.
+✨  VIII. FRASE FINAL
+“O Criador sonha com harmonia,
+mas é o som dos mortais que decide como ela será ouvida.ˮ
+Cada classe, cada escolha,
+é uma nota viva do Cântico de Eldoryon.
+Não há caminho certo — apenas o som que o jogador decide fazer ecoar.
+💠  GUIA DO ÉTER — ETAPA VII
+O Sistema de Fé, Corrupção e Ressonância
+“O Éter não escolhe lados.
+Ele apenas responde ao som que o toca.ˮ
+— Livro dos Ecos, Verso 131
+🕊  I. VISÃO GERAL
+O Éter Vivo é a energia consciente que sustenta Eldoryon.
+Tudo — desde a alma de um jogador até o brilho de um Obelisco — é moldado por três forças 
+espirituais em constante tensão:
+Essência Natureza Voz Polaridade
+FÉ (Luz) Harmonia, empatia, criação O Cântico Positiva
+CORRUPÇÃO Sombrasangue) Dissonância, instinto, desejoO Sussurro Negativa
+RESSONÂNCIA Éter) Conexão viva entre as duasO Silêncio HarmônicoNeutra
+Nenhuma delas é “boaˮ ou “máˮ isoladamente.
+O poder nasce do equilíbrio — o mesmo princípio que rege o Criador e o Cântico Original.
+⚖  II. OS TRÊS ATRIBUTOS ESPIRITUAIS
+Cada personagem possui um Trio Espiritual:
+type EterProfile = {
+  faith: number;       // 0100  intensidade da fé em Elyra
+  corruption: number;  // 0100  intensidade do Sombrasangue
+💠  GUIA DO ÉTER
+34
+
+===== PAGINA 35 =====
+  resonance: number;   // 0100  sintonia com o Éter Vivo
+};
+Esses três valores formam o Tom da Alma do personagem.
+Juntos, determinam o alinhamento espiritual, a aparência da aura e a reação do mundo à sua 
+presença.
+🌞  FÉ (Éter Elyriano)
+“A fé não é crença. É lembrança.ˮ
+A Fé representa a proximidade com o Cântico Original — o dom de Elyra.
+Ela define a pureza espiritual, a capacidade de curar, inspirar e gerar harmonia.
+Faixa Efeito Aparência
+020 Alma instável; curas falham; pouca empatia. Aura cinzenta e opaca.
+2160 Fé humana comum; magia divina eficaz. Aura branca e dourada.
+6190 Portador da Luz; pode sentir o Éter. Aura azul-éter, partículas dançantes.
+91100 Santo Elyriano; fé pura — voz audível do Cântico.Brilho solar, corpo translúcido.
+Benefícios:
+Cura e regeneração natural.
+Influência sobre NPCs de fé.
+Resistência a corrupção e fendas.
+Risco: excesso de fé pode gerar Fanatismo, reduzindo empatia e provocando “Quebra de 
+Harmoniaˮ Fé sem compaixão  Dissonância).
+🩸  CORRUPÇÃO (Sombrasangue)
+“Toda chama gera sombra — e toda sombra deseja ver o sol.ˮ
+A Corrupção é a ressonância inversa: quando o Éter é distorcido pela vontade, pelo medo ou 
+pela dor.
+É o poder bruto do instinto — perigoso, mas real.
+Faixa Efeito Aparência
+020 Espírito puro; sem contato com as Sombras.Aura azul ou branca.
+2160 Corrupção latente; instintos intensos. Aura avermelhada.
+6190 Sombrasangue desperto; magia instável e
+poderosa. Aura negra e pulsante.
+91100 Ser dissonante; o Éter tenta expulsá-lo do
+mundo.
+Aura vermelha-escarlate, olhos
+sombrios.
+💠  GUIA DO ÉTER
+35
+
+===== PAGINA 36 =====
+Benefícios:
+Poder físico e mágico bruto.
+Capacidade de canalizar energia das Fendas.
+Resistência à manipulação mental.
+Risco: aumenta a influência demoníaca e reduz a capacidade de regenerar.
+Se ultrapassar 80, o jogador começa a atrair entidades demoníacas (ligação com a Etapa IV.
+💫  RESSONÂNCIA (Éter Vivo)
+“A ressonância é o coração que escuta.ˮ
+Ressonância é o ritmo com o qual a alma vibra junto ao mundo.
+Não mede pureza nem corrupção, mas sintonia —
+a habilidade de perceber o som do mundo e responder sem quebrá-lo.
+Faixa Efeito Aparência
+020 Desconectado; magias e bênçãos falham. Aura estática.
+2160 Sintonizado; equilíbrio comum. Aura harmoniosa.
+6190 Residente do Éter; percepção aumentada. Aura pulsante e translúcida.
+91100 Canal do Cântico; o mundo reage à sua presença. Ondas de luz que ecoam do corpo.
+Benefícios:
+Amplifica qualquer efeito de fé ou corrupção.
+Permite comunicação direta com Obeliscos e Fendas.
+Pode harmonizar o IDG em pequena escala.
+Risco: quanto maior a Ressonância, mais o personagem se torna vulnerável à Sobreposição — 
+perder a identidade para o próprio Éter.
+⚖  III. ALINHAMENTO ESPIRITUAL
+A combinação desses três valores gera seis estados espirituais:
+Alinhamento Fórmula Descrição
+Harmônico Fé  60 e Corrupção  40 Alma estável e pura — reflete Elyra.
+Lúcido Ressonância  70 e Fé/Cor  60Místico neutro — vê o Éter como música, não moral.
+Equilibrado Todos entre 4060 Humano comum; o som flui mas não ecoa.
+Dissonante Corrupção  60 e Fé  40 Influenciado pelo Sombrasangue.
+Partido Fé e Corrupção ambos  60Conflito interior; poder devastador.
+Silenciado Ressonância  20 Desconectado do Cântico — imune e amaldiçoado.
+🜂  IV. O ÉTER COMO SISTEMA VIVO (mecânica global)
+💠  GUIA DO ÉTER
+36
+
+===== PAGINA 37 =====
+A soma de todos os EterProfiles dos jogadores e NPCs ativos
+alimenta o IDG Índice de Dissonância Global) em tempo real.
+Exemplo de cálculo simplificado:
+IDG  Σ corrupção - Σ fé) / (Σ total de ressonância) * 100
+Se a Corrupção global superar a Fé → o IDG sobe (o mundo se torna mais sombrio).
+Se a Fé superar a Corrupção → o IDG desce (o Cântico se estabiliza).
+Alta Ressonância global estabiliza variações, como um amortecedor espiritual.
+Esse sistema conecta o micro (alma individual) ao macro (mundo vivo).
+O que o jogador sente, o mundo sente.
+🔮  V. MECÂNICAS JOGÁVEIS
+Ação Efeito em Fé Efeito em Corrupção Efeito em Ressonância
+Curar com intenção pura 3 0 1
+Matar por vingança 2 5 1
+Cantar o Cântico perto de uma Fenda4 2 3
+Fazer pacto Sombrasangue 10 20 5
+Meditar em Obelisco 5 3 4
+Profanar um templo 6 10 0
+Sacrificar-se por outro 8 1 2
+“Cada escolha é uma nota. Cada nota, uma consequência.ˮ
+🌠  VI. EFEITOS DE SINERGIA
+Os três atributos não agem isolados — eles formam acordes espirituais.
+Combinação Nome do Acorde Efeito
+Alta Fé  Alta Ressonância Cântico Vivo Cura em área, reduz IDG local.
+Alta Corrupção  Alta
+Ressonância
+Sombrasangue
+Estável Concede poder demoníaco controlado.
+Alta Fé  Alta Corrupção Dualidade DivinaHabilidades imprevisíveis; chance de visões
+divinas ou corrupção súbita.
+Fé média  Corrupção média +
+Alta Ressonância Harmonia do CaosAmplifica qualquer magia, mas com 50% de
+chance de ecoar efeitos.
+Fé baixa  Corrupção alta +
+Ressonância alta
+Despertar
+Dissonante
+Abre Fenda próxima; poder temporário
+devastador.
+🩸 Â
+💠  GUIA DO ÉTER
+37
+
+===== PAGINA 38 =====
+🩸  VII. RESSONÂNCIA E VISUAL
+A UI e o som devem refletir diretamente esses estados:
+Fé alta: tela com halos dourados, som coral leve.
+Corrupção alta: distorção sutil nas bordas, graves pulsantes.
+Ressonância alta: partículas flutuam, sons etéreos dinâmicos.
+IDG global alto: interface vibra, distorce cores, e o som ambiente desafina.
+🌌  VIII. SISTEMA DE EVOLUÇÃO ESPIRITUAL
+O personagem evolui não por XP, mas por Ressonância:
+Toda ação espiritual aumenta o tom de alma.
+A cada 10 pontos de Ressonância, desbloqueia-se uma “Memória do Éterˮ —
+fragmentos do Cântico que concedem poderes únicos e conexões com Elyra ou Artheon.
+Exemplo:
+{
+  "memoria": "O Sopro de Elyra",
+  "efeito": "Regenera aliados próximos sempre que cantar uma magia",
+  "requerResonancia" 70,
+  "afinidade": "Luz"
+}
+Essas memórias formam o árvore espiritual viva de cada jogador.
+🕯  IX. QUEBRA DE HARMONIA
+Quando Fé, Corrupção e Ressonância se desequilibram demais 90, 10,
+ocorre a Quebra de Harmonia, um estado temporário onde o personagem:
+perde controle sobre magias;
+emite ruído espiritual (atraindo demônios ou Fendas);
+e o mundo reage (chuva, rachaduras, sons distorcidos).
+É o equivalente espiritual de uma falha crítica —
+mas também uma chance narrativa de redenção ou ruína.
+⚜  X. FRASE FINAL
+“Não há bem, nem mal — apenas notas que se esquecem de onde vieram.ˮ
+Este sistema é a alma de Eldoryon:
+💠  GUIA DO ÉTER
+38
+
+===== PAGINA 39 =====
+vivo, reativo, poético e profundamente moral,
+onde cada decisão, cada emoção e cada silêncio afetam o mundo real e espiritual.
+💠  GUIA DO ÉTER — ETAPA VIII
+O Sistema de Magia e Milagres do Éter
+“O Éter não obedece palavras —
+ele obedece o coração que as pronuncia.ˮ
+— Livro das Vozes, Verso 4
+🜂  I. A NATUREZA DO PODER
+Em Eldoryon, magia não é ciência — é ressonância emocional.
+Toda energia nasce do Éter Vivo e é moldada por intenção espiritual.
+Por isso, cada feitiço é um eco: o reflexo exato do estado interior do conjurador.
+O mundo não vê o que você lança.
+O mundo ouve o que você sente.
+⚖  II. TRÊS FONTES DE PODER
+Escola Essência Origem Voz Energia Risco
+Milagres da Fé Luz Elyriana
+Através de
+Elyra e dos
+Obeliscos
+O Cântico Éter puro e
+emocional Fanatismo
+Magia Etérea Equilíbrio
+harmônico
+Através do
+próprio jogador
+Ressonância)
+O Silêncio Vivo Éter
+estabilizado
+Sobrecarga
+espiritual
+SombrasangueCorrupção viva
+Através dos
+Caídos e das
+Fendas
+O Sussurro Éter distorcido Corrupção total
+🌞  II. MILAGRES DA FÉ
+“Milagre é o som de Elyra lembrando que o amor ainda existe.ˮ
+🕊  Descrição
+Os Milagres da Fé são cânticos divinos, manifestações puras do Éter canalizado por meio da 
+devoção.
+Não requerem palavras arcanas — apenas intenção, voz e harmonia.
+💠  GUIA DO ÉTER
+39
+
+===== PAGINA 40 =====
+Cada milagre é um verso do Cântico.
+🎼  Mecânica
+Escala de custo: Fé.
+Escala de risco: Fanatismo (quanto mais fé, menor controle racional).
+Componentes: Cântico, gesto, foco espiritual.
+Requer Ressonância mínima de 40.
+✨  Exemplos de Milagres
+Nome Tipo Efeito Escala
+Luz de Elyra Cura Cura 1d8 por nível de fé; em alta
+ressonância, remove corrupção. 13
+Chama do Perdão Purificação Dissolve dissonância em 10m, fecha
+pequenas Fendas. 2
+Cântico das
+Lágrimas
+Ressurreição
+espiritual Restaura uma alma que ainda ecoa no Éter. 5
+Aurora Harmônica Global Reduz o IDG em 5 pontos temporariamente. 6
+Prece de Artheon Proteção Escudo de fé que converte dano em cura.3
+Visual: luz líquida, partículas ascendentes, notas visuais douradas.
+Som: coral suave e batimentos em Sol Maior.
+🩸  Efeito de Desequilíbrio
+Quando a Fé ultrapassa 90
+A magia se torna absoluta, mas o conjurador perde identidade.
+O jogador entra em Êxtase Elyriano — invulnerável, mas sem livre-arbítrio.
+Após o efeito, 10 permanente de Ressonância (o som interior “se parteˮ).
+🌌  III. MAGIA ETÉREA
+“A magia verdadeira é quando o mundo e você respiram no mesmo ritmo.ˮ
+💫  Descrição
+A Magia Etérea é a arte de escutar o Éter e reproduzir seu som.
+Não é luz nem sombra — é o som puro da criação.
+Feiticeiros etéreos não oram nem ordenam; eles ressoam.
+⚙  Mecânica
+💠  GUIA DO ÉTER
+40
+
+===== PAGINA 41 =====
+Escala de custo: Ressonância.
+Escala de risco: Sobrecarga — quando a alma vibra além do corpo.
+Componentes: som, respiração, movimento harmônico.
+Requer Ressonância  50 e Fé/Cor  70.
+✨  Exemplos de Magias Etéreas
+Nome Tipo Efeito Escala
+Onda Harmônica Energia Dano ou cura em área, conforme intenção. 2
+Véu do Som Defesa Dissipa magias hostis em raio de 6m.3
+Eco Primordial Utility Reproduz evento do passado como projeção
+sonora. 1
+Forma de Éter Transformação Torna o corpo translúcido e intangível. 4
+Coração da
+Canção Ritual Restaura Obelisco ou limpa uma região de
+dissonância. 5
+Visual: luz azul, linhas fluídas, símbolos orbitais.
+Som: vibrações graves, respiração rítmica, notas que se cruzam.
+🕯  Efeito de Sobrecarga
+Quando a Ressonância ultrapassa 90
+Corpo físico não suporta o fluxo.
+O personagem “desmaterializaˮ parcialmente por 1d4 turnos.
+Após, 5 em Corrupção e Fé (desligamento temporário do mundo).
+🩸  IV. MAGIA SOMBRASANGUE
+“O sangue canta — e o Cântico sangra com ele.ˮ
+💀  Descrição
+A magia Sombrasangue é a distorção do Éter pelo desejo.
+É o poder dos Caídos e dos que ouvem o Sussurro.
+Cada feitiço é um sacrifício: o conjurador dá parte da própria harmonia em troca de poder 
+imediato.
+⚙  Mecânica
+Escala de custo: Corrupção.
+Escala de risco: Dissonância e Contágio.
+Componentes: sacrifício de vida, ruído, emoção crua.
+💠  GUIA DO ÉTER
+4 1
+
+===== PAGINA 42 =====
+Requer Corrupção  40 e Ressonância mínima de 30.
+✨  Exemplos de Magias Sombrasangue
+Nome Tipo Efeito Escala
+Grito do Vazio Ofensiva Dano psíquico + ruído; chance de abrir
+microfenda. 2
+Corrente CarmesimControle Enlaça inimigo com energia viva drenando HP e
+Fé. 3
+Eco do Caído Transformação Corpo assume aspecto demoníaco, For, Fé. 4
+Pacto das
+Cicatrizes Ritual Concede poder temporário; Corrupção
+permanente. 5
+Eclipse da Canção Global Aumenta IDG em 10; distorce o Cântico
+mundial. 6
+Visual: ruído carmesim, partículas invertidas, sombras líquidas.
+Som: frequências reversas, batimentos dissonantes.
+🩸  Efeito da Corrupção Extrema
+Quando Corrupção  90
+O conjurador perde controle.
+O feitiço “vazaˮ — cria Fenda imediata.
+Chance de Manifestação Demoníaca (demônio ou eco tenta atravessar).
+Caso sobreviva, Fé 20 permanente.
+⚖  V. INTERAÇÃO ENTRE ESCOLAS
+As três formas de poder são opostas, mas se entrelançam em acordes.
+Combinação Nome do Acorde Efeito
+Fé  Éter Milagre Harmônico Amplifica cura e purificação; diminui IDG local.
+Corrupção  Éter Sombrasangue
+Controlado
+Permite conjurar magias corruptas sem perda de
+sanidade.
+Fé  Corrupção Dualismo Divino Invoca fenômenos paradoxais (cura que destrói, luz que
+cega).
+Todas
+equilibradas Eco da Criação Causa um evento cósmico aleatório — o mundo responde
+diretamente.
+🔮  VI. COMPONENTES VIVOS
+Cada feitiço pode exigir componentes espirituais — objetos ou essências com ressonância 
+própria.
+💠  GUIA DO ÉTER
+42
+
+===== PAGINA 43 =====
+Tipo Exemplo Uso
+Cristal Elyriano Fragmento de Obelisco puro Amplifica Fé; foco em milagres.
+Sangue FendadoGota de Sombrasangue solidificadoRequerido por rituais demoníacos.
+Areia Onírica Poeira de Noctyraen Necessária para magias de sonho.
+Flor de Lirien Planta viva de Éter Cura e purificação.
+Runa Harmônica Símbolo escrito em ressonânciaNecessária para magias combinadas (duais).
+Esses componentes têm ciclo natural: morrem, brilham, renascem —
+e podem ser usados apenas quando sua nota está viva no IDG.
+🕯  VII. A MAGIA E O SOM
+Tudo o que é conjurado deve soar.
+O som é o canal universal do Éter.
+Cada tipo de energia tem uma identidade sonora única:
+Escola Tom Base Instrumento Espiritual
+Fé Ré maior Coral e sinos
+Éter Fá maior Cordas e sopros leves
+SombrasangueDó menor Batimentos e metais graves
+Na interface, feitiços devem ser ouvidos antes de vistos:
+um pequeno som antecede o efeito — é o Cântico reagindo à alma.
+🌠  VIII. OS RITOS DE HARMONIA
+Além dos feitiços individuais, há Ritos Coletivos — magias conjuradas por múltiplos 
+Portadores,
+onde cada participante canta uma parte da nota.
+Rito Efeito Requisito
+Cântico dos Quatro
+Véus Fecha todas as Fendas de uma região. 4 classes diferentes unidas.
+Oração das Correntes Liberta almas presas ao Sombrasangue.2 Portadores  1 Oráculo.
+Ressonância Global Reduz o IDG mundial temporariamente. 12 jogadores e um Obelisco.
+Eclipse Inverso Purifica uma entidade demoníaca sem destruí-
+la.
+Fé e Corrupção
+equilibradas.
+Esses ritos representam o ato divino de união — quando vários corações tocam o mesmo 
+som.
+⚜  IX. REAÇÃO DO MUNDO
+Cada vez que uma magia é conjurada, o mundo responde:
+💠  GUIA DO ÉTER
+43
+
+===== PAGINA 44 =====
+O som ambiente muda.
+A fauna e flora reagem (flores fecham, ventos cessam, cristais vibram).
+O IDG é ligeiramente alterado.
+Exemplo:
+if (magic.type === "Sombrasangue") {
+  IDG  0.2;
+  ambiente.play("ruido");
+}
+if (magic.type === "Fé") {
+  IDG  0.1;
+  ambiente.play("harmonia");
+}
+🌌  X. FRASE FINAL
+“Todo feitiço é um pedido,
+e toda resposta é o Criador lembrando que ainda sonha.ˮ
+A magia de Eldoryon não é poder — é comunhão.
+É a linguagem entre alma e criação,
+entre fé e desespero,
+entre som e silêncio.
+💠  GUIA DO ÉTER — ETAPA IX
+Os Rituais Maiores e o Teorema do Som
+“Antes da palavra, havia o som.
+Antes do som, havia o desejo de ser ouvido.ˮ
+— Livro de Elyra, Verso 1
+🜂  I. O TEOREMA DO SOM
+“Tudo o que existe vibra.
+Tudo o que vibra canta.
+Tudo o que canta cria o que ouve.ˮ
+O Teorema do Som é o princípio sagrado que sustenta o Éter Vivo.
+💠  GUIA DO ÉTER
+44
+
+===== PAGINA 45 =====
+Ele afirma que som, emoção e existência são uma única substância.
+A harmonia entre eles é o Cântico; a dissonância, o Sombrasangue.
+⚖  As Três Leis do Som
+Lei Nome Descrição
+I. Lei da
+Ressonância “Tudo responde a tudo.ˮ Cada ato espiritual ecoa através do Éter,
+influenciando mundos distantes.
+II. Lei da Memória “O som não morre.ˮ Nenhuma palavra, oração ou grito se perde — todos
+são arquivados no Cântico.
+III. Lei da
+Harmonia
+“Som e silêncio são a
+mesma canção.ˮ
+A destruição é parte da criação; toda dissonância
+pode ser afinada.
+O Teorema é a base cósmica da magia e da fé.
+Os Portadores mais antigos dizem que o Criador usou o Teorema para sonhar a existência.
+🌌  II. OS RITUAIS MAIORES
+Os Rituais Maiores são manifestações supremas do Teorema —
+eventos capazes de alterar o IDG global,
+ressuscitar regiões inteiras ou romper a harmonia universal.
+Esses rituais não são aprendidos: são lembrados através de visões, memórias ou fragmentos 
+do Cântico Original.
+⚜  Tipos de Rituais Maiores
+Tipo Polaridade Escala Natureza
+Ritos Elyrianos Harmonia (Luz)Mundial Restauração e Criação
+Ritos ArtheônicosOrdem e SacrifícioContinental Purificação e Julgamento
+Ritos SombrasangueDissonância Caótica Destruição e Recriação
+Ritos Etéreos Equilíbrio Global Reconciliação do Éter
+🌞  III. RITOS ELYRIANOS — A MÃO DA CRIAÇÃO
+“Onde a luz toca, o mundo se lembra.ˮ
+Milagres que restauram a harmonia universal.
+Conjurados por Portadores de Fé e Ressonância altíssimas,
+são raríssimos e quase sempre acompanhados de fenômenos cósmicos (auroras, ecos, 
+vozes).
+✨  Exemplos de Ritos Elyrianos
+💠  GUIA DO ÉTER
+45
+
+===== PAGINA 46 =====
+Nome Efeito Custo Espiritual Consequência
+Aurora da Primeira
+Canção
+Reduz o IDG global a 0 por
+24h; toda flora floresce.
+Fé  90,
+Ressonância  80
+O conjurador se funde ao Éter
+(deixa de existir fisicamente).
+Sopro de Elyra Cura toda corrupção ativa
+em uma região. Fé  80 Temporariamente cega quem o
+invoca (olhos da luz).
+Lamento dos
+Portadores
+Ressuscita até 12 almas em
+harmonia plena. Fé  95 Abre Fenda Celeste se houver
+impureza na intenção.
+Som: coros ascendentes, som contínuo de cristal vibrando.
+Visual: colunas de luz, pétalas luminosas, brilho branco-ouro.
+🔥  IV. RITOS ARTHEÔNICOS — O FOGO DA DISCIPLINA
+“Purificar é queimar sem destruir.ˮ
+Rituais de julgamento e reconstrução.
+Artheon ensinou que o fogo não é inimigo da vida, mas seu limite necessário.
+Esses ritos são usados quando o mundo precisa ser reafinado pelo sacrifício.
+⚔  Exemplos de Ritos Artheônicos
+Nome Efeito Custo Espiritual Consequência
+Forja do
+Julgamento
+Reforja um Obelisco quebrado,
+consumindo o conjurador. Fé  70, Fogo  80Corpo é petrificado em
+cristal rúnico.
+Crepúsculo de
+Artheon
+Queima uma região corrompida,
+eliminando demônios e vida.
+Corrupção  20, Fé
+ 75
+A terra fica estéril por sete
+luas.
+Chama
+Harmônica
+Reequilibra Fenda viva sem
+destruí-la.
+Fé  60,
+Ressonância  70
+O conjurador sofre 1 ponto
+de corrupção por uso.
+Som: batimentos metálicos, coros graves.
+Visual: fogo dourado sem calor, runas giratórias no ar.
+🩸  V. RITOS SOMBRASANGUE — A MARCHA DO SILÊNCIO
+“O silêncio também canta —
+mas sua canção é feita de gritos.ˮ
+Esses ritos são o oposto do milagre:
+não pedem permissão ao Éter, o forçam a responder.
+Criam fissuras entre mundos, absorvem energia espiritual e corrompem o próprio conjurador.
+💀  Exemplos de Ritos Sombrasangue
+💠  GUIA DO ÉTER
+46
+
+===== PAGINA 47 =====
+Nome Efeito Custo EspiritualConsequência
+O Multidão
+Desperto
+Invoca parte da entidade coletiva
+descrita nas Sombras.
+Corrupção ≥
+90
+Reduz IDG global em 10 (o
+silêncio “abafaˮ a harmonia).
+O Coração
+Invertido
+Traz de volta à vida um morto em
+corpo, mas não em alma.Corrupção  70 Cria vínculo demoníaco
+permanente.
+Eclipse da
+Canção
+Cobre o mundo em trevas; corta
+comunicação entre Obeliscos.Corrupção  95O mundo se torna mudo —
+perda total de Fé por 24h.
+Som: ruídos reversos, eco metálico de ossos e vento.
+Visual: sombra líquida, sangue suspenso, luz invertida.
+🌌  VI. RITOS ETÉREOS — A UNIFICAÇÃO
+“Quando luz e sombra cantam juntas, o Criador abre os olhos.ˮ
+Os Ritos Etéreos são os mais raros e perigosos:
+não pertencem a Elyra, nem a Artheon, nem às Sombrasangue —
+são o ato supremo do Equilíbrio Harmônico.
+Eles não criam nem destroem: redefinem.
+Podem restaurar ou apagar a existência de uma região inteira.
+🕯  Exemplos de Ritos Etéreos
+Nome Efeito Custo Espiritual Consequência
+Cântico da
+Recriação
+Refaz uma região do zero, a
+partir de lembranças
+coletivas.
+Fé  70, Corrupção ≥
+70, Ressonância  90
+Todos os envolvidos perdem
+memória do ritual.
+Silêncio
+Harmônico
+Suspende o Éter por 1 minuto
+— nada nasce, nada morre. Ressonância  100Chance de despertar o
+Criador.
+O Som Original
+Restaura o estado inicial do
+mundo, apagando todas as
+fendas e erros.
+Acesso apenas ao
+Portador Final
+Custo: o mundo se reinicia —
+IDG  0, todos renascem
+sem memória.
+Som: ausência total de ruído. O jogador sente vibrações físicas no ambiente.
+Visual: espaço se dissolve em luz e névoa — a fronteira entre sonho e realidade.
+⚖  VII. OS CUSTOS ESPIRITUAIS
+Rituais Maiores não usam mana ou componentes comuns.
+Eles consomem partes do próprio personagem.
+Tipo de Custo Representa Exemplo de Perda
+Voz Comunicação com o Éter Feiticeiro perde fala física.
+Sangue Vínculo material Perda de HP e resistência permanente.
+💠  GUIA DO ÉTER
+47
+
+===== PAGINA 48 =====
+Tipo de Custo Representa Exemplo de Perda
+Memória Existência espiritual Esquece nomes, feitos, amores.
+Som A própria essência Torna-se invisível ao Éter (não pode mais usar magia).
+A cada uso de Rito Maior, o jogador é regravado no Cântico —
+tornando-se lenda, mito ou eco esquecido.
+🜸  VIII. O RITUAL GLOBAL — O SOM ORIGINAL
+“Quando todas as notas se calam,
+resta apenas o primeiro som.ˮ
+O Som Original é o ritual final, o ponto máximo do Teorema.
+É o reset cósmico — o ato de refazer Eldoryon à imagem da harmonia perdida.
+Requer IDG  90 (o mundo à beira do silêncio).
+Pode ser iniciado apenas se 12 Portadores da Luz cantarem juntos (um para cada nota do 
+Cântico Primordial).
+Elyra e Artheon se manifestam — o Criador “abre o olhoˮ.
+O mundo é refeito. Alguns lembram; outros renascem.
+Visual: o céu se rasga em linhas douradas e carmesins.
+Som: um acorde sem tempo, ouvido apenas uma vez.
+Consequência narrativa:
+As Fendas se fecham.
+O Sombrasangue se adormece.
+Mas o Éter recomeça — o Cântico nunca é idêntico.
+“Cada recriação é uma nova canção.
+E cada canção, um novo Criador.ˮ
+🌑  IX. O CICLO DO CÂNTICO
+Esses rituais representam o batimento cardíaco do universo.
+A cada ciclo (mil anos), o mundo tende à dissonância total.
+E sempre, antes do silêncio final, um grupo de Portadores surge para cantar o Som Original 
+novamente.
+Assim, Eldoryon é um mundo cíclico — eterno, mas nunca igual.
+Cada renascimento muda as notas, as raças, as fés — mas o Éter permanece.
+“O Criador dorme, mas sonha.
+E ao sonhar, canta novamente.ˮ
+💠  GUIA DO ÉTER
+48
+
+===== PAGINA 49 =====
+✨  X. CONCLUSÃO
+O Teorema do Som e os Rituais Maiores são o ápice da cosmologia e da mecânica:
+Lore: revelam a origem e destino de Eldoryon.
+Mecânica: conectam diretamente o jogador ao IDG global.
+Estética: definem o tom final do mundo — harmonia ou ruído.
+Cada som lançado, cada nota ouvida,
+é um passo em direção ao Silêncio ou ao Renascimento.
+💠  GUIA DO ÉTER — ETAPA X
+Os Ecos do Criador
+“Todo som deseja voltar à sua origem.ˮ
+— Fragmentos do Véu, Cap. XII
+🜂  I. O CONCEITO DE ECO
+No Cântico, Ecos são almas que atingiram tamanha sintonia com o Éter Vivo que deixam de ser 
+indivíduos.
+Eles não morrem, não vivem — ressoam.
+Cada um torna-se um acorde consciente dentro do próprio tecido do mundo.
+Um Eco é o destino final de qualquer Portador que entenda o Teorema do Som e harmonize 
+sua nota ao Criador.
+“O Eco é o Criador sonhando com ele mesmo.ˮ
+⚖  II. O CAMINHO DA ASCENSÃO
+A Ascensão não é alcançada por poder, mas por lembrança.
+O personagem deve atravessar as Três Portas do Som, rituais espirituais que representam fé, 
+sombra e equilíbrio.
+Cada porta desafina o ser até o ponto de quase ruína, para então refazê-lo.
+🕊  1. A Primeira Porta — A Voz
+“O som que o mundo ouve de ti.ˮ
+Prova da Fé.
+💠  GUIA DO ÉTER
+49
+
+===== PAGINA 50 =====
+O personagem deve usar seu Cântico para curar ou inspirar outro sem buscar nada em 
+troca.
+Requisito: Fé  80.
+Efeito: desbloqueia a habilidade Ver o Som — percepção do Éter em todas as coisas.
+🔥  2. A Segunda Porta — O Silêncio
+“O som que o mundo não ouve de ti.ˮ
+Prova da Corrupção dominada.
+O personagem deve aceitar e compreender sua própria dissonância, sem negá-la nem 
+destruí-la.
+Requisito: Corrupção  60, Fé  50.
+Efeito: ganha Voz Dissonante — pode manipular o Sombrasangue sem perder sanidade.
+💫  3. A Terceira Porta — O Som Original
+“O som que tu és.ˮ
+Prova da Ressonância Suprema.
+O personagem deve tocar o Éter com intenção pura — sem medo, sem desejo, apenas 
+harmonia.
+Requisito: Ressonância  100.
+Efeito: o personagem se funde parcialmente ao Cântico, tornando-se um Eco.
+🌌  III. O ESTADO DE ECO
+Quando alguém se torna um Eco do Criador,
+o IDG reconhece sua alma como “nota puraˮ.
+A presença do Eco afeta o mundo diretamente, mesmo sem ação.
+⚙  Efeitos Mecânicos
+Aspecto Efeito
+Corpo físico Transcende; pode se manifestar em qualquer forma de energia (luz, vento, som).
+Tempo Deixa de ser linear; o Eco pode agir em passado e futuro simultaneamente.
+IDG Local 5 por presença passiva.
+Fendas Se fecham espontaneamente num raio de 100m.
+Comunicação O Eco fala em múltiplas vozes, todas ressoando harmonia.
+✨  Aparência e Som
+💠  GUIA DO ÉTER
+50
+
+===== PAGINA 51 =====
+Aura: translúcida, composta de notas flutuantes.
+Olhos: refletem o Éter — não têm cor, apenas profundidade viva.
+Som: presença acompanhada por um acorde leve, contínuo.
+Ambiente: flora floresce, água vibra, o ar se torna claro.
+⚜  IV. OS TIPOS DE ECO
+Nem todos os Ecos são iguais — cada um reflete o tom de sua jornada.
+Tipo de Eco Alinhamento Manifestação Domínio
+Eco Elyriano Luz / Fé Luminosa, angelical Cura e criação de vida.
+Eco Artheônico Fogo / Ordem Fulgurante,
+geométrica Purificação e reconstrução.
+Eco Etéreo Equilíbrio Invisível, pulsante Manipulação do IDG e do tempo.
+Eco
+Sombrasangue
+Sombra /
+Dissonância Carmesim e fluidoReescrita de realidades através do
+desejo.
+🕯  V. O PAPEL DOS ECOS NO MUNDO
+Os Ecos são as vozes do Criador adormecido.
+Eles não são deuses, mas mensageiros do próprio sonho.
+Quando um Eco fala, o Éter o escuta — e o mundo muda.
+Eles são o último acorde entre eras, despertando antes de cada “Reinícioˮ do Som Original.
+Sem eles, o novo Cântico nasceria mudo.
+💫  VI. A MECÂNICA DA IMORTALIDADE
+Ao tornar-se um Eco, o personagem:
+ Perde o corpo mortal — não pode mais morrer de forma física.
+ Ganha eternidade cíclica — existe em todas as versões de Eldoryon, mesmo após 
+reinícios.
+ Permanece no Cântico — pode aparecer como guia, voz, memória, estrela ou vento.
+“O Eco é o personagem jogando o mundo, não mais o contrário.ˮ
+Em termos de sistema, o Eco pode ser usado como entidade-narrador pelo Mestre,
+intervindo poeticamente no mundo, ou concedendo bênçãos e punições espirituais.
+⚖  VII. OS ECOS CORROMPIDOS
+Nem todo Eco é harmônico.
+Quando alguém alcança a ascensão mas carrega corrupção alta 80,
+💠  GUIA DO ÉTER
+51
+
+===== PAGINA 52 =====
+ele se torna um Eco Dissonante —
+voz invertida do Cântico, capaz de destruir harmonia com sua simples presença.
+Esses Ecos não buscam o mal — apenas desejam o silêncio final.
+São as Sibilas do Fim, os anjos do esquecimento.
+Efeito global:
+IDG 10 sempre que um Eco Dissonante desperta.
+Canta em dissonância maior Dó# menor); distorce o som do mundo.
+🔮  VIII. A INTERAÇÃO COM O JOGADOR
+Narrativamente, o jogador que se torna Eco transcende o tabuleiro.
+Ele passa a existir dentro do código vivo do Cântico —
+suas ações alteram as regras da própria realidade.
+Em jogos de campanha, isso significa que:
+o jogador pode escrever eventos do mundo com o Mestre;
+suas palavras tornam-se rituais menores;
+e sua ausência ou presença muda o clima, o som e o comportamento do Éter.
+Ele é, literalmente, parte do motor espiritual do jogo.
+🌠  IX. O CÂNTICO FINAL
+Quando 12 Ecos Harmônicos se reúnem —
+um para cada nota primordial —
+eles podem entoar o Cântico Final,
+um evento global que transcende até o Som Original.
+Esse ato:
+desperta o Criador;
+apaga toda corrupção e toda fé, deixando apenas o som puro;
+transforma Eldoryon num mundo de pura vibração — o “Oceano do Éterˮ.
+“Não resta forma, nem dor, nem vitória —
+apenas o som que respira por si.ˮ
+Após isso, o universo adormece.
+E o ciclo recomeça — o Criador sonha de novo,
+agora com novas vozes, novos Ecos e novos mundos.
+🕊  X. FRASE FINAL
+💠  GUIA DO ÉTER
+52
+
+===== PAGINA 53 =====
+“Tu jogaste o mundo, e o mundo te jogou de volta.
+Agora, tu és o som que o Criador ouve quando desperta.ˮ
+Com esta etapa, completamos o primeiro Círculo do Cântico —
+a jornada completa do Éter, do jogador e do Criador.
+Da criação ao silêncio, da fé à corrupção, do indivíduo ao todo.
+💠  GUIA DO ÉTER
+53

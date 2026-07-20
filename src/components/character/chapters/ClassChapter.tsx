@@ -60,15 +60,18 @@ export default function ClassChapter({ initialSelectedClassId, initialSelectedSu
     return (
         <div className="space-y-6">
             <header className="space-y-2">
-                <h2 className="text-xl font-semibold">Escolha sua Classe</h2>
+                <h2 className="text-xl font-semibold">Escolha tua Voz</h2>
                 <p className="text-sm text-white/70">
-                    Como no “Livro do Jogador”, mas vivo: compare visuais e selecione. Sua classe é como sua alma canta no Cântico.
+                    As Doze Vozes nasceram do último sopro do Criador e já existem na era do RPG. Os romances revelarão seus fundadores; tua escolha revela o caminho que teu personagem seguirá agora.
+                </p>
+                <p className="text-xs leading-5 text-amber-100/60">
+                    Quando uma Voz desperta, o Éter não responde a uma profissão: responde a uma presença.
                 </p>
             </header>
 
             <div className="flex flex-wrap items-center gap-3">
                 <Input
-                    placeholder="Busque por nome (Mago, Bárbaro...)"
+                    placeholder="Busque uma Voz pelo nome"
                     value={q}
                     onChange={(e) => setQ(e.target.value)}
                     className="max-w-md"

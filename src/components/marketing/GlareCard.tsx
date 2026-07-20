@@ -40,6 +40,7 @@ export default function GlareCard({
                 aria-label={ariaLabel ?? title}
                 title={title}
                 data-sfx={dataSfx}
+                data-sfx-click="cardSelect"
                 className="group block outline-none"
             >
                 <Card

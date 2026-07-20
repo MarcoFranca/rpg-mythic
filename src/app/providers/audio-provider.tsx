@@ -4,7 +4,7 @@ import React, {
     createContext, useCallback, useContext, useEffect, useRef, useState,
 } from "react";
 
-type SoundKey = "success" | "error" | "click" | "hover" | "openModal" | "closeModal";
+type SoundKey = "success" | "error" | "click" | "cardSelect" | "hover" | "openModal" | "closeModal";
 
 type AudioCtx = {
     enabled: boolean;
@@ -26,30 +26,30 @@ export function useAudio() {
     return ctx;
 }
 
-// helpers para montar caminhos
-const mp3 = (p: string) => `/sounds/${p}.mp3`;
-const ogg = (p: string) => `/sounds/${p}.ogg`;
 const wav = (p: string) => `/sounds/${p}.wav`;
 
 const DEFAULT_SFX: Record<SoundKey, string[]> = {
-    success: [mp3("success"), ogg("success"), wav("success")],
-    error:   [mp3("error"),   ogg("error"),   wav("error")],
-    click:   [mp3("click"),   ogg("click"),   wav("click")],
-    hover:   [mp3("hover"),   ogg("hover"),   wav("hover")],
-    openModal: [mp3("open"),  ogg("open"),    wav("open")],
-    closeModal:[mp3("close"), ogg("close"),   wav("close")],
+    success: [wav("success")],
+    error: [wav("error")],
+    // O arquivo disponível no projeto se chama "cick.wav".
+    click: [wav("cick")],
+    cardSelect: [wav("card-select")],
+    hover: [wav("hover")],
+    openModal: [wav("open")],
+    closeModal: [wav("close")],
 };
 
 export default function AudioProvider({ children }: { children: React.ReactNode }) {
     // ===== Loop ambiente (já existia)
     const loopRef = useRef<HTMLAudioElement | null>(null);
-    const [enabled, setEnabled] = useState(false);
+    const [enabled, setEnabled] = useState(true);
     const [interacted, setInteracted] = useState(false);
 
     useEffect(() => {
         try {
             const saved = localStorage.getItem("gm_sound_enabled");
-            setEnabled(saved === "1");
+            // Sons ligados por padrão. Só respeitamos silêncio se o jogador o escolheu.
+            setEnabled(saved !== "0");
         } catch {}
     }, []);
 
@@ -77,6 +77,8 @@ export default function AudioProvider({ children }: { children: React.ReactNode 
     useEffect(() => {
         const onFirst = () => {
             setInteracted(true);
+            // O play precisa ocorrer no próprio gesto para obedecer à política de autoplay.
+            if (enabled) loopRef.current?.play().catch(() => {});
             window.removeEventListener("pointerdown", onFirst);
             window.removeEventListener("keydown", onFirst);
         };
@@ -86,7 +88,7 @@ export default function AudioProvider({ children }: { children: React.ReactNode 
             window.removeEventListener("pointerdown", onFirst);
             window.removeEventListener("keydown", onFirst);
         };
-    }, []);
+    }, [enabled]);
 
     const toggle = useCallback(() => {
         setEnabled((prev) => {
@@ -162,6 +164,49 @@ export default function AudioProvider({ children }: { children: React.ReactNode 
         if (!el || !el.src) return;
         try { el.currentTime = 0; void el.play(); } catch {}
     }, [enabled, interacted]);
+
+    // Uma camada global e discreta para os botões do sistema.
+    // O som de hover toca uma vez por entrada e tem um pequeno intervalo de proteção.
+    useEffect(() => {
+        let hovered: HTMLElement | null = null;
+        let lastHoverAt = 0;
+
+        const controlFrom = (target: EventTarget | null, selector: string) =>
+            target instanceof Element ? target.closest<HTMLElement>(selector) : null;
+
+        const onPointerOver = (event: PointerEvent) => {
+            const control = controlFrom(event.target, '[data-sfx-hover="true"]');
+            if (!control || control === hovered) return;
+
+            hovered = control;
+            const now = Date.now();
+            if (now - lastHoverAt < 90) return;
+            lastHoverAt = now;
+            playSfx("hover");
+        };
+
+        const onPointerOut = (event: PointerEvent) => {
+            const control = controlFrom(event.target, '[data-sfx-hover="true"]');
+            const nextControl = controlFrom(event.relatedTarget, '[data-sfx-hover="true"]');
+            // Ao passar entre ícone, texto e borda do mesmo botão, não reinicia o hover.
+            if (control && control === hovered && nextControl !== control) hovered = null;
+        };
+
+        const onClick = (event: MouseEvent) => {
+            const control = controlFrom(event.target, "[data-sfx-click]");
+            const key = control?.dataset.sfxClick;
+            if (key && key in DEFAULT_SFX) playSfx(key as SoundKey);
+        };
+
+        document.addEventListener("pointerover", onPointerOver);
+        document.addEventListener("pointerout", onPointerOut);
+        document.addEventListener("click", onClick);
+        return () => {
+            document.removeEventListener("pointerover", onPointerOver);
+            document.removeEventListener("pointerout", onPointerOut);
+            document.removeEventListener("click", onClick);
+        };
+    }, [playSfx]);
 
     return (
         <Ctx.Provider value={{ enabled, interacted, toggle, ensureLoop, playSfx, registerSfx }}>

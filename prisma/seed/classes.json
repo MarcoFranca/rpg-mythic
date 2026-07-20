@@ -32,7 +32,7 @@
       "pros": ["Cura forte", "Bênçãos", "Remoção de corrupções"],
       "cons": ["Dano direto moderado", "Dependência de preparo"],
       "featuresPreview": ["Curas de Elyra", "Canalizar Fé", "Exorcizar Sombrasangue"],
-      "assets": { "image": "/classes/arauto-elyra.png", "accentFrom": "#22c55e", "accentTo": "#0ea5e9" }
+      "assets": { "image": "/classes/arauto-elyra-v2.png", "accentFrom": "#22c55e", "accentTo": "#0ea5e9" }
     },
     "bonusLayers": [
       { "key": "WIS", "value": 1, "source": "Classe: Arauto de Elyra" },
@@ -225,7 +225,7 @@
       "pros": ["Smites luminosos", "Auras poderosas", "Defesa sólida e suporte tático"],
       "cons": ["Mobilidade média", "Gestão atenta de espaços de magia"],
       "featuresPreview": ["Juramento", "Golpe Sagrado", "Aura de Proteção & Coragem"],
-      "assets": { "image": "/classes/guardiao-artheon.png", "accentFrom": "#f59e0b", "accentTo": "#38bdf8" }
+      "assets": { "image": "/classes/guardiao-artheon-v2.png", "accentFrom": "#f59e0b", "accentTo": "#38bdf8" }
     },
     "bonusLayers": [
       { "key": "STR", "value": 1, "source": "Classe: Guardião de Artheon" },

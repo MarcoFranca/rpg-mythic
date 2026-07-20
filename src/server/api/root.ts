@@ -9,6 +9,7 @@ import {characterCreateRouter} from "@/server/routers/character.create";
 import {classCatalogRouter} from "@/server/api/routers/catalog/class";
 import { subclassCatalogRouter } from "./routers/catalog/subclass";
 import { nameRouter } from "./routers/name";
+import { characterOptionsRouter } from "./routers/catalog/character-options";
 
 export const appRouter = router({
     item: itemRouter,
@@ -23,6 +24,7 @@ export const appRouter = router({
     itemsList: itemsListRouter, // ou mescle no itemRouter
     catalog: router({
         class: classCatalogRouter,
+        characterOptions: characterOptionsRouter,
     }),
     classCatalog: classCatalogRouter,
 });

@@ -83,6 +83,7 @@ const MetaSchema = z.object({
     pros: z.array(z.string()).optional(),
     cons: z.array(z.string()).optional(),
     featuresPreview: z.array(z.string()).optional(),
+    mechanicsStatus: z.enum(["NARRATIVE_READY", "ALPHA_INTERNAL"]).optional(),
     assets: z.object({
         image: z.string().optional(),
         accentFrom: z.string().optional(),
@@ -125,7 +126,7 @@ export const classCatalogRouter = router({
                     id: r.id,
                     name: r.name,
                     role: normRole(meta.role),
-                    hitDie: normHitDie(meta.hitDie ?? r.hitDie),
+                    hitDie: meta.mechanicsStatus === "NARRATIVE_READY" ? null : normHitDie(meta.hitDie ?? r.hitDie),
                     primaryAbilities: arrStr(meta.primaryAbilities),
                     savingThrows: arrStr(meta.savingThrows),
                     armorProficiencies: arrStr(meta.armorProficiencies),
